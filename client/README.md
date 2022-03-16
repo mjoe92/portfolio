@@ -9,6 +9,22 @@ workbench with minimalist design care.
 
 - A desk with inner computer
 
+### Lookout
+
+1. Projects
+   1. PCD
+   2. Webpages
+   3. Mini apps
+2. Blog
+3. Soft aspects
+   1. Motivation
+   2. Mission
+4. About me
+   1. CV
+   2. Enginering
+   3. Programming
+   4. Photographing
+
 ## Packages
 
 - Latest versions are updated time to time
