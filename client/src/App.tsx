@@ -1,5 +1,5 @@
 import './App.css';
-import UserComponent from './component/user/UserComponent';
+// import UserComponent from './component/user/UserComponent';
 import { Header, Footer } from './component/semantic/Semantic';
 
 import "bootstrap/dist/css/bootstrap.min.css";
