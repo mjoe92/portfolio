@@ -1,14 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./main/App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { NoMatch } from "./component/NoMatch";
+import { Header } from "./component/semantic/header/Header";
+import ContainerController from "./component/biography/ContainerController";
+import { Footer } from "./component/semantic/footer/Footer";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="" element={<App />} />
+        <Route path="header" element={<Header />} />
+        <Route path="footer" element={<Footer />} />
+        <Route path="test" element={<ContainerController />} />
+        <Route path="*" element={<NoMatch />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
