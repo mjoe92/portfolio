@@ -1,3 +1,5 @@
+/*! Left side - navigation style */
+/*! Right side - content style */
 .controller {
   margin: 0;
   padding: 0;
@@ -24,6 +26,7 @@
   min-height: 300px;
   background: #fff;
   padding: 0;
+  z-index: 0;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 2fr;
@@ -41,7 +44,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -50,7 +53,7 @@
       -ms-flex-align: center;
           align-items: center;
   padding-bottom: 10px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 .container .profile-text .img-box {
@@ -165,7 +168,7 @@
   position: relative;
   width: 100%;
   height: 6px;
-  background-color: #000;
+  background-color: rgba(202, 202, 202, 0.3);
   display: block;
   margin-top: 5px;
 }
@@ -184,6 +187,17 @@
   padding: 50px;
 }
 
+.container .content .title {
+  color: #003147;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.container .content p {
+  color: #003147;
+}
+
 .container .content .about {
   margin-bottom: 50px;
 }
@@ -200,40 +214,78 @@
   border: none;
 }
 
-.container .content .about .card .year-company {
+.container .content .about .card .date-company {
   min-width: 150px;
 }
 
-.container .content .about .card .year-company h5 {
+.container .content .about .card .date-company h5 {
   text-transform: uppercase;
   color: #848c90;
   font-weight: 600;
   font-size: 16px;
 }
 
+.container .content .about .card .timeline {
+  padding-right: 15px;
+}
+
+.container .content .about .card .timeline .branch-up {
+  display: block;
+  width: 2px;
+  height: 10px;
+  background-color: #848c90;
+  -webkit-transform: translate(7px, 0);
+          transform: translate(7px, 0);
+}
+
+.container .content .about .card .timeline .rounder {
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+  border: 3px solid #848c90;
+  margin-top: 0;
+}
+
+.container .content .about .card .timeline .rounder:hover {
+  background-color: rgba(3, 169, 244, 0.3);
+}
+
+.container .content .about .card .timeline .rounder:active {
+  background-color: #03a9f4;
+}
+
+.container .content .about .card .timeline .branch-down {
+  display: block;
+  width: 2px;
+  height: 110%;
+  background-color: #848c90;
+  -webkit-transform: translate(7px, 0);
+          transform: translate(7px, 0);
+}
+
 .container .content .about .card .text h4 {
   text-transform: uppercase;
-  color: #2a7da2;
-  font-weight: 700;
+  color: #03a9f4;
+  font-weight: 600;
   font-size: 16px;
+}
+
+.container .content .about .card:last-child .branch-down {
+  display: none;
+}
+
+.container .content .about .card:first-of-type .branch-up {
+  background-color: #fff;
 }
 
 .container .content .about:last-child {
   margin-bottom: 0;
 }
 
-.container .content .title {
-  color: #003147;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-}
-
-.container .content p {
-  color: #333;
-}
-
-.container .content .skills .card {
+.container .content .l-skills .card {
   position: relative;
   width: 100%;
   display: -ms-grid;
@@ -248,25 +300,57 @@
           align-items: center;
 }
 
-.container .content .skills .card h4 {
+.container .content .l-skills .card h4 {
   text-transform: uppercase;
-  color: #848c99;
+  color: #848c90;
   font-weight: 500;
   font-size: 16px;
 }
 
-.container .content .skills .card .percent {
+.container .content .l-skills .card .percent {
   position: relative;
   width: 100%;
   height: 10px;
   background-color: #cacaca;
 }
 
-.container .content .skills .card .percent div {
+.container .content .l-skills .card .percent div {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   background-color: #03a9f4;
+}
+
+.container .content .interest ul {
+  padding-left: 10px;
+}
+
+.container .content .interest ul li {
+  list-style: none;
+}
+
+.container .content .interest ul li .text {
+  text-transform: uppercase;
+  color: #848c90;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.container .content .interest ul li .svg-icon {
+  display: inline-block;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 3rem;
+  font-size: 2rem;
+  color: #03a9f4;
+}
+
+.container .content .interest ul li .svg-icon .text {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 150px 1fr;
+      grid-template-columns: 150px 1fr;
 }
 /*# sourceMappingURL=container.css.map */

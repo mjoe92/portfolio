@@ -1,20 +1,43 @@
+import {
+  faCookie,
+  faDumbbell,
+  faGear,
+  faKeyboard,
+  faLanguage,
+  faPhotoFilm,
+  faRunning,
+  faSkiing,
+  faSwimmer,
+} from "@fortawesome/free-solid-svg-icons";
 import { Component } from "react";
 import SvgReactIcon from "../icon/SvgReactIcon";
 import { Level } from "./content/ELevel";
 import IContact, { contactContent } from "./content/IContact";
 import IEducation, { educationContent } from "./content/IEducation";
 import IExperience, { experienceContent } from "./content/IExperience";
+import IInterest, { interestContent } from "./content/IInterest";
 import ILanguage, { languageContent } from "./content/ILanguage";
+import IProfile from "./content/IProfile";
+import ISkill from "./content/ISkill";
 
 import "./style/container.css";
 
 interface IProps {}
 
-interface IState {
-  contactList?: IContact[];
+interface IState extends INavigationState, IContentState {
   jobList?: IExperience[];
   educationList?: IEducation[];
   languageList?: ILanguage[];
+  skillList?: ISkill[];
+  interestList?: IInterest[];
+}
+
+interface INavigationState {
+  contactList?: IContact[];
+}
+
+interface IContentState {
+  profile?: IProfile;
 }
 
 /** @todo: add hover helper (show info message about hovered text) + grey color */
@@ -27,6 +50,7 @@ export default class ContainerController extends Component<IProps, IState> {
       jobList: experienceContent,
       educationList: educationContent,
       languageList: languageContent,
+      interestList: interestContent,
     };
   }
 
@@ -41,8 +65,30 @@ export default class ContainerController extends Component<IProps, IState> {
         <ul>
           {this.state.contactList.map((contact) => (
             <li>
-              <SvgReactIcon icon={contact.icon} />
-              <span className="text">{contact.text}</span>
+              <SvgReactIcon
+                icons={[contact.icon]}
+                text={contact.text}
+                startWithIcon={true}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  private renderInterestList(): JSX.Element {
+    if (this.state.interestList == null) {
+      return <></>;
+    }
+
+    return (
+      <div className="about interest">
+        <h2 className="title">Interest</h2>
+        <ul>
+          {this.state.interestList.map((interest) => (
+            <li>
+              <SvgReactIcon icons={interest.icons} text={interest.name} />
             </li>
           ))}
         </ul>
@@ -225,9 +271,14 @@ export default class ContainerController extends Component<IProps, IState> {
             <div className="about">
               <h2 className="title">Experience</h2>
               <div className="card">
-                <div className="year-company">
+                <div className="date-company">
                   <h5>2021.09 - Present</h5>
                   <h5>Bredex GmbH</h5>
+                </div>
+                <div className="timeline">
+                  <span className="branch-up"></span>
+                  <span className="rounder"></span>
+                  <span className="branch-down"></span>
                 </div>
                 <div className="text">
                   <h4>Junior Fullstack java Developer</h4>
@@ -240,9 +291,38 @@ export default class ContainerController extends Component<IProps, IState> {
               </div>
 
               <div className="card">
-                <div className="year-company">
+                <div className="date-company">
                   <h5>2020.10 - 2021.03</h5>
                   <h5>Bredex GmbH</h5>
+                </div>
+                <div className="timeline">
+                  <span className="branch-up"></span>
+                  <span className="rounder"></span>
+                  <span className="branch-down"></span>
+                </div>
+                <div className="text">
+                  <h4>Junior Fullstack java Developer</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.
+                  </p>
+                </div>
+              </div>
+
+              <div className="card">
+                <div className="date-company">
+                  <h5>2021.09 - Present</h5>
+                  <h5>Bredex GmbH</h5>
+                </div>
+                <div className="timeline">
+                  <span className="branch-up"></span>
+                  <span className="rounder"></span>
+                  <span className="branch-down"></span>
                 </div>
                 <div className="text">
                   <h4>Junior Fullstack java Developer</h4>
@@ -255,7 +335,7 @@ export default class ContainerController extends Component<IProps, IState> {
               </div>
             </div>
 
-            <div className="about skills">
+            <div className="about l-skills">
               <h2 className="title">Professional L-Skills</h2>
               <div className="card">
                 <h4>Html</h4>
@@ -265,29 +345,43 @@ export default class ContainerController extends Component<IProps, IState> {
               </div>
               <div className="card">
                 <h4>CSS</h4>
-                <div className="percent"></div>
+                <div className="percent">
+                  <div style={{ width: "90%" }}></div>
+                </div>
               </div>
               <div className="card">
                 <h4>Typescript</h4>
-                <div className="percent"></div>
+                <div className="percent">
+                  <div style={{ width: "90%" }}></div>
+                </div>
               </div>
               <div className="card">
                 <h4>Java</h4>
-                <div className="percent"></div>
+                <div className="percent">
+                  <div style={{ width: "90%" }}></div>
+                </div>
               </div>
               <div className="card">
                 <h4>Javascript</h4>
-                <div className="percent"></div>
+                <div className="percent">
+                  <div style={{ width: "90%" }}></div>
+                </div>
               </div>
               <div className="card">
                 <h4>VBA</h4>
-                <div className="percent"></div>
+                <div className="percent">
+                  <div style={{ width: "90%" }}></div>
+                </div>
               </div>
               <div className="card">
                 <h4>Python</h4>
-                <div className="percent"></div>
+                <div className="percent">
+                  <div style={{ width: "90%" }}></div>
+                </div>
               </div>
             </div>
+
+            <>{this.renderInterestList()}</>
           </div>
         </div>
       </div>

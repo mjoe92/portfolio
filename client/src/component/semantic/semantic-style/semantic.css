@@ -2,6 +2,7 @@ header {
   top: 0;
   width: 100%;
   position: fixed;
+  z-index: 1;
 }
 
 header .navbar-collapse {
@@ -20,6 +21,7 @@ footer {
   height: 50px;
   text-align: center;
   color: white;
+  z-index: 1;
 }
 
 .nav-item {
