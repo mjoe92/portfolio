@@ -1,24 +1,13 @@
-import {
-  faCookie,
-  faDumbbell,
-  faGear,
-  faKeyboard,
-  faLanguage,
-  faPhotoFilm,
-  faRunning,
-  faSkiing,
-  faSwimmer,
-} from "@fortawesome/free-solid-svg-icons";
 import { Component } from "react";
 import SvgReactIcon from "../icon/SvgReactIcon";
 import { Level } from "./content/ELevel";
-import IContact, { contactContent } from "./content/IContact";
+import IContact, { contactNavigation } from "./content/IContact";
 import IEducation, { educationContent } from "./content/IEducation";
 import IExperience, { experienceContent } from "./content/IExperience";
 import IInterest, { interestContent } from "./content/IInterest";
 import ILanguage, { languageContent } from "./content/ILanguage";
-import IProfile from "./content/IProfile";
-import ISkill from "./content/ISkill";
+import IProfile, { profileContent } from "./content/IProfile";
+import ISkill, { skillContent } from "./content/ISkill";
 
 import "./style/container.css";
 
@@ -46,67 +35,49 @@ export default class ContainerController extends Component<IProps, IState> {
     super(props);
 
     this.state = {
-      contactList: contactContent,
+      contactList: contactNavigation,
       jobList: experienceContent,
       educationList: educationContent,
       languageList: languageContent,
       interestList: interestContent,
+      profile: profileContent,
+      skillList: skillContent,
     };
   }
 
-  private renderContactList(): JSX.Element {
+  private renderContactNavigation(): JSX.Element {
     if (this.state.contactList == null) {
       return <></>;
     }
 
     return (
-      <div className="anchor-point contact-info">
+      <div className="navigation-point contact-info">
         <h3 className="title">Contact Info</h3>
-        <ul>
+        <div className="contacts">
           {this.state.contactList.map((contact) => (
-            <li>
-              <SvgReactIcon
-                icons={[contact.icon]}
-                text={contact.text}
-                startWithIcon={true}
-              />
-            </li>
+            <SvgReactIcon
+              //id={contact}
+              icons={[contact.icon]}
+              text={contact.text}
+              startWithIcon={true}
+            />
           ))}
-        </ul>
+        </div>
       </div>
     );
   }
 
-  private renderInterestList(): JSX.Element {
-    if (this.state.interestList == null) {
-      return <></>;
-    }
-
-    return (
-      <div className="about interest">
-        <h2 className="title">Interest</h2>
-        <ul>
-          {this.state.interestList.map((interest) => (
-            <li>
-              <SvgReactIcon icons={interest.icons} text={interest.name} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
-
-  private renderJobList(): JSX.Element {
+  private renderJobNavigation(): JSX.Element {
     if (this.state.jobList == null) {
       return <></>;
     }
 
     return (
-      <div className="anchor-point experience">
+      <div className="navigation-point experience">
         <h3 className="title">Experience</h3>
-        <ul>
+        <div className="xp-s">
           {this.state.jobList.map((xp) => (
-            <li>
+            <div className="xp">
               <h5>
                 {this.getDateInFormat(xp.timeStart) +
                   " - " +
@@ -114,24 +85,24 @@ export default class ContainerController extends Component<IProps, IState> {
               </h5>
               <h4>{xp.title}</h4>
               <h4>{xp.employer}</h4>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     );
   }
 
-  private renderEducationList(): JSX.Element {
+  private renderEducationNavigation(): JSX.Element {
     if (this.state.educationList == null) {
       return <></>;
     }
 
     return (
-      <div className="anchor-point education">
+      <div className="navigation-point education">
         <h3 className="title">Education</h3>
-        <ul>
+        <div className="xp-s">
           {this.state.educationList.map((xp) => (
-            <li>
+            <div className="xp">
               <h5>
                 {this.getDateInFormat(xp.timeStart) +
                   " - " +
@@ -139,14 +110,14 @@ export default class ContainerController extends Component<IProps, IState> {
               </h5>
               <h4>{xp.title}</h4>
               <h4>{xp.institution}</h4>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     );
   }
 
-  private renderLanguageList(): JSX.Element {
+  private renderLanguageNavigation(): JSX.Element {
     if (this.state.languageList == null) {
       return <></>;
     }
@@ -190,11 +161,11 @@ export default class ContainerController extends Component<IProps, IState> {
     };
 
     return (
-      <div className="anchor-point language">
+      <div className="navigation-point language">
         <h3 className="title">Language</h3>
-        <ul>
+        <div className="xp-s">
           {this.state.languageList.map((xp) => (
-            <li>
+            <div className="xp">
               <span className="text">
                 {xp.name}
                 <span className="spec">
@@ -212,9 +183,127 @@ export default class ContainerController extends Component<IProps, IState> {
                   }}
                 />
               </span>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
+      </div>
+    );
+  }
+
+  private renderProfile(): JSX.Element {
+    if (this.state.profile == null) {
+      return <></>;
+    }
+
+    return (
+      <div className="about">
+        <h2 className="title">{this.state.profile.name}</h2>
+        <p>{this.state.profile.description}</p>
+      </div>
+    );
+  }
+
+  private renderExperienceContent(): JSX.Element {
+    if (this.state.jobList == null) {
+      return <></>;
+    }
+
+    return (
+      <div className="about">
+        <h2 className="title">Experience</h2>
+        {this.state.jobList.map((xp) => (
+          <div className="card">
+            <div className="date-company">
+              <h5>
+                {this.getDateInFormat(xp.timeStart) +
+                  " - " +
+                  this.getDateInFormat(xp.timeEnd)}
+              </h5>
+              <h5>{xp.employer}</h5>
+            </div>
+            <div className="timeline">
+              <span className="branch-up"></span>
+              <span className="rounder"></span>
+              <span className="branch-down"></span>
+            </div>
+            <div className="text">
+              <h4>{xp.title}</h4>
+              <p>{xp.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  private renderEducationContent(): JSX.Element {
+    if (this.state.educationList == null) {
+      return <></>;
+    }
+
+    return (
+      <div className="about">
+        <h2 className="title">Education</h2>
+        {this.state.educationList.map((xp) => (
+          <div className="card">
+            <div className="date-company">
+              <h5>
+                {this.getDateInFormat(xp.timeStart) +
+                  " - " +
+                  this.getDateInFormat(xp.timeEnd)}
+              </h5>
+              <h5>{xp.institution}</h5>
+            </div>
+            <div className="timeline">
+              <span className="branch-up"></span>
+              <span className="rounder"></span>
+              <span className="branch-down"></span>
+            </div>
+            <div className="text">
+              <h4>{xp.title}</h4>
+              <p>{xp.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  private renderSkillContent(): JSX.Element {
+    if (this.state.skillList == null) {
+      return <></>;
+    }
+
+    return (
+      <div className="about l-skills">
+        <h2 className="title">Hard Skills</h2>
+        {this.state.skillList.map((xp) => (
+          <div className="card">
+            <h4>{xp.name}</h4>
+            <div className="percent">
+              <div style={{ width: xp.level + "%" }}></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  private renderInterestContent(): JSX.Element {
+    if (this.state.interestList == null) {
+      return <></>;
+    }
+
+    return (
+      <div className="about interest">
+        <h2 className="title">Interest</h2>
+        <div className="xp-s">
+          {this.state.interestList.map((xp) => (
+            <div className="xp">
+              <SvgReactIcon icons={xp.icons} text={xp.name} />
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
@@ -243,145 +332,17 @@ export default class ContainerController extends Component<IProps, IState> {
                 <span>Fullstack Developer</span>
               </h2>
             </div>
-
-            <>{this.renderContactList()}</>
-            <>{this.renderJobList()}</>
-            <>{this.renderEducationList()}</>
-            <>{this.renderLanguageList()}</>
+            {this.renderContactNavigation()}
+            {this.renderJobNavigation()}
+            {this.renderEducationNavigation()}
+            {this.renderLanguageNavigation()}
           </div>
           <div className="content">
-            <div className="about">
-              <h2 className="title">Profile</h2>
-              <p>
-                Currently I'm searching opportunities in webdesigning and
-                application developing. I'm originally a mechanical engineer,
-                working as an experienced construction engineer for over 5 years
-                and also taking side projects in VBA programming for automatize
-                monotonous, lumberjack processes as a hobby. Now, I'm looking
-                forward to gain more experience in webdeveloping for my karrier.
-                I learned Java developing at Codecool to a junior level with
-                basics of HTML / CSS and JS languages. My main task is to become
-                a fullstack developer. Achiving both frontend and backend with
-                the most necessary up-to-date frameworks and APIs in order to be
-                always successful at my job. Some of my programming skills with
-                examples: https://www.codewars.com/users/mjoe92
-                https://github.com/mjoe92?tab=repositories
-              </p>
-            </div>
-            <div className="about">
-              <h2 className="title">Experience</h2>
-              <div className="card">
-                <div className="date-company">
-                  <h5>2021.09 - Present</h5>
-                  <h5>Bredex GmbH</h5>
-                </div>
-                <div className="timeline">
-                  <span className="branch-up"></span>
-                  <span className="rounder"></span>
-                  <span className="branch-down"></span>
-                </div>
-                <div className="text">
-                  <h4>Junior Fullstack java Developer</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </div>
-              </div>
-
-              <div className="card">
-                <div className="date-company">
-                  <h5>2020.10 - 2021.03</h5>
-                  <h5>Bredex GmbH</h5>
-                </div>
-                <div className="timeline">
-                  <span className="branch-up"></span>
-                  <span className="rounder"></span>
-                  <span className="branch-down"></span>
-                </div>
-                <div className="text">
-                  <h4>Junior Fullstack java Developer</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.
-                  </p>
-                </div>
-              </div>
-
-              <div className="card">
-                <div className="date-company">
-                  <h5>2021.09 - Present</h5>
-                  <h5>Bredex GmbH</h5>
-                </div>
-                <div className="timeline">
-                  <span className="branch-up"></span>
-                  <span className="rounder"></span>
-                  <span className="branch-down"></span>
-                </div>
-                <div className="text">
-                  <h4>Junior Fullstack java Developer</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="about l-skills">
-              <h2 className="title">Professional L-Skills</h2>
-              <div className="card">
-                <h4>Html</h4>
-                <div className="percent">
-                  <div style={{ width: "90%" }}></div>
-                </div>
-              </div>
-              <div className="card">
-                <h4>CSS</h4>
-                <div className="percent">
-                  <div style={{ width: "90%" }}></div>
-                </div>
-              </div>
-              <div className="card">
-                <h4>Typescript</h4>
-                <div className="percent">
-                  <div style={{ width: "90%" }}></div>
-                </div>
-              </div>
-              <div className="card">
-                <h4>Java</h4>
-                <div className="percent">
-                  <div style={{ width: "90%" }}></div>
-                </div>
-              </div>
-              <div className="card">
-                <h4>Javascript</h4>
-                <div className="percent">
-                  <div style={{ width: "90%" }}></div>
-                </div>
-              </div>
-              <div className="card">
-                <h4>VBA</h4>
-                <div className="percent">
-                  <div style={{ width: "90%" }}></div>
-                </div>
-              </div>
-              <div className="card">
-                <h4>Python</h4>
-                <div className="percent">
-                  <div style={{ width: "90%" }}></div>
-                </div>
-              </div>
-            </div>
-
-            <>{this.renderInterestList()}</>
+            {this.renderProfile()}
+            {this.renderExperienceContent()}
+            {this.renderEducationContent()}
+            {this.renderSkillContent()}
+            {this.renderInterestContent()}
           </div>
         </div>
       </div>

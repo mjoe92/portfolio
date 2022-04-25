@@ -1,7 +1,7 @@
-import AbstractContent from "./AContent";
+import AbstractIHistory from "./AIContent";
 import { Field } from "./EField";
 
-export default interface IExperience extends AbstractContent {
+export default interface IExperience extends AbstractIHistory {
   employer: string;
 }
 

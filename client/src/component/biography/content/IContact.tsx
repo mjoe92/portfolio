@@ -13,7 +13,7 @@ export default interface IContact {
   text: string;
 }
 
-export const contactContent: IContact[] = [
+export const contactNavigation: IContact[] = [
   {
     id: "telephone",
     icon: faPhone,

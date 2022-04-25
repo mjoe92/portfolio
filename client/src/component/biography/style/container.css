@@ -19,7 +19,7 @@
 }
 
 .container {
-  margin-top: 100px;
+  margin-top: 60px;
   position: relative;
   width: 100%;
   max-width: 1000px;
@@ -90,20 +90,20 @@
   font-weight: 300;
 }
 
-.container .anchor-point {
+.container .navigation-point {
   padding-top: 40px;
 }
 
-.container .anchor-point .title {
+.container .navigation-point .title {
   font-size: 18px;
 }
 
-.container .anchor-point ul {
+.container .navigation-point .contacts {
   position: relative;
   padding-left: 10px;
 }
 
-.container .anchor-point ul li {
+.container .navigation-point .contacts .svg-extended-icon {
   position: relative;
   list-style: none;
   margin: 10px 0;
@@ -111,14 +111,16 @@
   font-size: 16px;
 }
 
-.container .anchor-point ul li .svg-icon {
-  display: inline-block;
+.container .navigation-point .contacts .svg-extended-icon .svg-icon-series {
+  display: inline;
   width: 30px;
   font-size: 16px;
   color: #03a9f4;
+  padding-right: 10px;
 }
 
-.container .anchor-point ul li span {
+.container .navigation-point .contacts .svg-extended-icon .text {
+  display: inline;
   color: #fff;
   font-weight: 300;
 }
@@ -131,40 +133,44 @@
   margin-bottom: 20px;
 }
 
-.container .education ul, .container .experience ul {
+.container .education .xp-s, .container .experience .xp-s {
   padding-left: 0;
 }
 
-.container .education ul li:hover, .container .experience ul li:hover {
+.container .education .xp-s .xp:hover, .container .experience .xp-s .xp:hover {
   border: 5px solid rgba(3, 169, 244, 0.2);
   border-radius: 10px;
   background-color: rgba(3, 169, 244, 0.2);
 }
 
-.container .education ul li, .container .experience ul li {
+.container .education .xp-s .xp, .container .experience .xp-s .xp {
   border: 5px solid #003147;
   padding: 5px;
   margin: 0;
 }
 
-.container .education ul li h5, .container .experience ul li h5 {
+.container .education .xp-s .xp h5, .container .experience .xp-s .xp h5 {
   color: #03a9f4;
   font-weight: 500;
   font-size: 16px;
 }
 
-.container .education ul li h4:nth-child(), .container .experience ul li h4:nth-child() {
+.container .education .xp-s .xp h4:nth-child(), .container .experience .xp-s .xp h4:nth-child() {
   color: #fff;
   font-weight: 500;
 }
 
-.container .education ul li h4, .container .experience ul li h4 {
+.container .education .xp-s .xp h4, .container .experience .xp-s .xp h4 {
   color: #fff;
   font-weight: 300;
   font-size: 16px;
 }
 
-.container .anchor-point.language .percent {
+.container .navigation-point.language .text {
+  color: white;
+}
+
+.container .navigation-point.language .percent {
   position: relative;
   width: 100%;
   height: 6px;
@@ -173,7 +179,7 @@
   margin-top: 5px;
 }
 
-.container .anchor-point.language .percent div {
+.container .navigation-point.language .percent div {
   position: absolute;
   top: 0;
   left: 0;
@@ -190,6 +196,7 @@
 .container .content .title {
   color: #003147;
   text-transform: uppercase;
+  font-weight: 700;
   letter-spacing: 1px;
   margin-bottom: 10px;
 }
@@ -322,35 +329,41 @@
   background-color: #03a9f4;
 }
 
-.container .content .interest ul {
-  padding-left: 10px;
+.container .content .interest .xp-s {
+  padding-left: 0;
 }
 
-.container .content .interest ul li {
-  list-style: none;
+.container .content .interest .xp-s .xp {
+  padding: 5px 0px;
 }
 
-.container .content .interest ul li .text {
+.container .content .interest .xp-s .xp .svg-extended-icon {
+  position: relative;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 150px 1fr;
+      grid-template-columns: 150px 1fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .content .interest .xp-s .xp .svg-extended-icon .text {
   text-transform: uppercase;
   color: #848c90;
   font-weight: 500;
   font-size: 16px;
 }
 
-.container .content .interest ul li .svg-icon {
-  display: inline-block;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+.container .content .interest .xp-s .xp .svg-extended-icon .svg-icon {
+  position: relative;
+  width: 100%;
   width: 3rem;
   font-size: 2rem;
   color: #03a9f4;
-}
-
-.container .content .interest ul li .svg-icon .text {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 150px 1fr;
-      grid-template-columns: 150px 1fr;
 }
 /*# sourceMappingURL=container.css.map */

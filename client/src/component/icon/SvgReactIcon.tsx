@@ -21,25 +21,25 @@ export default function SvgReactIcon(props: Props): JSX.Element {
   }
 
   let result: JSX.Element = (
-    <>
+    <div className="svg-icon-series">
       {props.icons.map((image) => {
         return <FontAwesomeIcon className={iconClassName} icon={image} />;
       })}
-    </>
+    </div>
   );
 
-  if (props.text != null) {
+  if (props.text) {
     if (props.startWithIcon) {
       result = (
         <>
           {result}
-          <span className={textClassName}>{props.text}</span>
+          <div className={textClassName}>{props.text}</div>
         </>
       );
     } else {
       result = (
         <>
-          <span className={props.textClassName}>{props.text}</span>
+          <div className={textClassName}>{props.text}</div>
           {result}
         </>
       );

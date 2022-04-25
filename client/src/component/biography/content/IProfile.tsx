@@ -1,9 +1,11 @@
 export default interface IProfile {
   name: string;
+  description: string;
 }
 
-export const languageContent: IProfile = {
-  name:
+export const profileContent: IProfile = {
+  name: "Profile",
+  description:
     "Currently I'm searching opportunities in webdesigning and application developing." +
     " I'm originally a mechanical engineer, working as an experienced construction engineer for over 5 years" +
     " and also taking side projects in VBA programming for automatize monotonous, lumberjack processes as a hobby." +

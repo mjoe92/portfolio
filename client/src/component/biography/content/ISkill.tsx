@@ -1,50 +1,36 @@
-import { Level } from "./ELevel";
-
 export default interface ISkill {
   name: string;
-  oralLevel: Level;
-  writeLevel?: Level;
-  oralMessage?: string;
-  writeMessage?: string;
+  level: number;
+  timeStart?: Date;
 }
 
-export const languageContent: ISkill[] = [
+export const skillContent: ISkill[] = [
   {
-    name: "Hungarian",
-    oralLevel: Level.NATIVE,
-    oralMessage:
-      "Mandatory to know in Hungary, learnt from my father and in schools.",
+    name: "HTML",
+    level: 75,
   },
   {
-    name: "Russian",
-    oralLevel: Level.NATIVE,
-    writeLevel: Level.B2,
-    oralMessage:
-      "Since my mother is russian, I was able to learn from her" +
-      " and currently speaking it with my parents.",
-    writeMessage:
-      "Unfortunately there were less chances to learn writing," +
-      " my subject teacher teached me.",
+    name: "CSS",
+    level: 70,
   },
   {
-    name: "English",
-    oralLevel: Level.C1,
-    oralMessage:
-      "Learnt from my school teachers, practised in the workplaces" +
-      " and cartoon network. Sometimes when I tired, I go on Hunglish!",
+    name: "Typescript",
+    level: 30,
   },
   {
-    name: "German",
-    oralLevel: Level.A2,
-    oralMessage:
-      "Begin to learn in the university but kept prociding from BREDEX GmbH",
+    name: "Java",
+    level: 50,
   },
   {
-    name: "French",
-    oralLevel: Level.A0,
-    writeLevel: Level.A1,
-    oralMessage: "Learnt in the secondary school but forgot a lot every since.",
-    writeMessage:
-      "Still have better knowledge and more time to think during writing",
+    name: "Javascript",
+    level: 20,
+  },
+  {
+    name: "VBA",
+    level: 50,
+  },
+  {
+    name: "Python",
+    level: 10,
   },
 ];

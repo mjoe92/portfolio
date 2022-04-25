@@ -1,8 +1,10 @@
 import {
+  faBinoculars,
   faDumbbell,
   faGear,
   faKeyboard,
   faLanguage,
+  faMap,
   faPhotoFilm,
   faRunning,
   faSkiing,
@@ -21,8 +23,8 @@ export const interestContent: IInterest[] = [
     icons: [faSwimmer, faRunning, faDumbbell, faSkiing],
   },
   {
-    name: "Photography",
-    icons: [faPhotoFilm],
+    name: "Travelling",
+    icons: [faPhotoFilm, faMap],
   },
   {
     name: "Learning",

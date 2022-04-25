@@ -31,7 +31,7 @@ $content-date-color: #848c90
 	background-color: lightblue
 
 .container
-	margin-top: 100px
+	margin-top: 60px
 	position: relative
 	width: 100%
 	max-width: 1000px
@@ -86,30 +86,32 @@ $content-date-color: #848c90
 				font-size: 0.8em
 				font-weight: 300
 
-	.anchor-point
+	.navigation-point
 		padding-top: 40px
 
 		.title
 			font-size: 18px
 
-		ul
+		.contacts
 			position: relative
 			padding-left: 10px
 
-			li
+			.svg-extended-icon
 				position: relative
 				list-style: none
 				margin: 10px 0
 				cursor: pointer
 				font-size: $detail-text-size
 
-				.svg-icon
-					display: inline-block
+				.svg-icon-series
+					display: inline
 					width: 30px
 					font-size: $detail-text-size
 					color: $navigation-icon-color
+					padding-right: 10px
 
-				span
+				.text
+					display: inline
 					color: $detail-text-color
 					font-weight: 300
 
@@ -121,15 +123,15 @@ $content-date-color: #848c90
 		margin-bottom: 20px
 
 	.education, .experience
-		ul
+		.xp-s
 			padding-left: 0
 
-			li:hover
+			.xp:hover
 				border: 5px solid rgba(3, 169, 244, 0.2)
 				border-radius: 10px
 				background-color: rgba(3, 169, 244, 0.2)
 
-			li
+			.xp
 				border: 5px solid #003147
 				padding: 5px
 				margin: 0
@@ -148,7 +150,10 @@ $content-date-color: #848c90
 					font-weight: 300
 					font-size: $detail-text-size
 
-	.anchor-point.language
+	.navigation-point.language
+		.text
+			color: white
+
 		.percent
 			position: relative
 			width: 100%
@@ -172,6 +177,7 @@ $content-date-color: #848c90
 		.title
 			color: $content-title-color
 			text-transform: uppercase
+			font-weight: 700
 			letter-spacing: 1px
 			margin-bottom: 10px
 
@@ -276,25 +282,29 @@ $content-date-color: #848c90
 						background-color: #03a9f4
 
 		.interest
-			ul
-				padding-left: 10px
+			.xp-s
+				padding-left: 0
 
-				li
-					list-style: none
+				.xp
+					padding: 5px 0px
 
-					.text
-						text-transform: uppercase
-						color: $content-date-color
-						font-weight: 500
-						font-size: $content-left-font-size
+					.svg-extended-icon
+						position: relative
+						width: 100%
+						display: grid
+						grid-template-columns: $content-left-min-width 1fr
+						justify-content: center
+						align-items: center
 
-					.svg-icon
-						display: inline-block
-						align-items: flex-end
-						width: 3rem
-						font-size: 2rem
-						color: $navigation-icon-color
+						.text
+							text-transform: uppercase
+							color: $content-date-color
+							font-weight: 500
+							font-size: $content-left-font-size
 
-						.text //KIJAVITANI!
-							display: grid
-							grid-template-columns: $content-left-min-width 1fr
+						.svg-icon
+							position: relative
+							width: 100%
+							width: 3rem
+							font-size: 2rem
+							color: $navigation-icon-color
