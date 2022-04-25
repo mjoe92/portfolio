@@ -35,4 +35,3 @@ build/
 .mvn/wrapper/maven-wrapper.properties
 .mvn/wrapper/MavenWrapperDownloader.java
 client/src/component/biography/style/container.css.map
-client/src/component/biography/style/container.css.map
