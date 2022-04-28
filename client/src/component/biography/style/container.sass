@@ -260,7 +260,7 @@ $content-date-color: #848c90
 				display: grid
 				grid-template-columns: $content-left-min-width 1fr
 				justify-content: center
-				align-items: center
+				align-items: baseline
 
 				h4
 					text-transform: uppercase
@@ -304,7 +304,28 @@ $content-date-color: #848c90
 
 						.svg-icon
 							position: relative
-							width: 100%
-							width: 3rem
+							min-width: 4rem
 							font-size: 2rem
 							color: $navigation-icon-color
+
+/* date-company on top of card, hard skills title too, interest icons shrink */
+@media (max-width: 700px)
+	.container
+		margin: 10px
+		grid-template-columns: repeat(1, 1fr)
+
+@media ( max-width: 550px )
+	.about
+		.card
+			flex-direction: column
+
+			.date-company
+				margin-bottom: 50px
+
+		.timeline
+			display: none
+
+	.container
+		.content
+			.l-skills
+				.card
