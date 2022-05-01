@@ -317,6 +317,12 @@ export default class ContainerController extends Component<IProps, IState> {
     return (date.getMonth() < 9 ? "0" : "") + month + "." + date.getFullYear();
   }
 
+  private getPublicUrl(url: string): string {
+    const slash = url[0] == "/" ? "" : "/";
+
+    return process.env.PUBLIC_URL + slash + url;
+  }
+
   render() {
     return (
       <div className="controller">
@@ -324,7 +330,12 @@ export default class ContainerController extends Component<IProps, IState> {
           <div className="navigation">
             <div className="profile-text">
               <div className="img-box">
-                <img src="/public/images/profile/like_robert_de_niro.jpg" />
+                <img
+                  src={this.getPublicUrl(
+                    "images/profile/like_robert_de_niro.png"
+                  )}
+                  alt="mjoe92"
+                />
               </div>
               <h2>
                 Jozsef Csurgai
