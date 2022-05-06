@@ -7,6 +7,7 @@ export default interface IExperience extends AbstractIHistory {
 
 export const experienceContent: IExperience[] = [
   {
+    id: "bredex",
     title: "Junior Fullstack Java Developer",
     employer: "Bredex GmbH",
     timeStart: new Date(2021, 8),
@@ -15,6 +16,7 @@ export const experienceContent: IExperience[] = [
     field: Field.P,
   },
   {
+    id: "innostudio",
     title: "Mechanical Engineer",
     employer: "InnoStudio Inc.",
     timeStart: new Date(2020, 8),
@@ -23,6 +25,7 @@ export const experienceContent: IExperience[] = [
     field: Field.E,
   },
   {
+    id: "mirrotron",
     title: "Construction Engineer",
     employer: "Mirrotron Ltd.",
     timeStart: new Date(2019, 0),
@@ -31,6 +34,7 @@ export const experienceContent: IExperience[] = [
     field: Field.M,
   },
   {
+    id: "cg",
     title: "Construction Engineer",
     employer: "CG Electric Systems Hungary Zrt.",
     timeStart: new Date(2018, 0),
@@ -44,6 +48,7 @@ export const experienceContent: IExperience[] = [
     field: Field.M,
   },
   {
+    id: "ganz",
     title: "Mechanical Project Engineer",
     employer: "Ganz Engineering and Energetics Machinery Ltd.",
     timeStart: new Date(2016, 9),

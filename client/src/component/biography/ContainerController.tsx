@@ -77,15 +77,17 @@ export default class ContainerController extends Component<IProps, IState> {
         <h3 className="title">Experience</h3>
         <div className="xp-s">
           {this.state.jobList.map((xp) => (
-            <div className="xp">
-              <h5>
-                {this.getDateInFormat(xp.timeStart) +
-                  " - " +
-                  this.getDateInFormat(xp.timeEnd)}
-              </h5>
-              <h4>{xp.title}</h4>
-              <h4>{xp.employer}</h4>
-            </div>
+            <a href={this.createRef(xp.id)}>
+              <div className="xp">
+                <h5>
+                  {this.getDateInFormat(xp.timeStart) +
+                    " - " +
+                    this.getDateInFormat(xp.timeEnd)}
+                </h5>
+                <h4>{xp.title}</h4>
+                <h4>{xp.employer}</h4>
+              </div>
+            </a>
           ))}
         </div>
       </div>
@@ -102,15 +104,17 @@ export default class ContainerController extends Component<IProps, IState> {
         <h3 className="title">Education</h3>
         <div className="xp-s">
           {this.state.educationList.map((xp) => (
-            <div className="xp">
-              <h5>
-                {this.getDateInFormat(xp.timeStart) +
-                  " - " +
-                  this.getDateInFormat(xp.timeEnd)}
-              </h5>
-              <h4>{xp.title}</h4>
-              <h4>{xp.institution}</h4>
-            </div>
+            <a href={this.createRef(xp.id)}>
+              <div className="xp">
+                <h5>
+                  {this.getDateInFormat(xp.timeStart) +
+                    " - " +
+                    this.getDateInFormat(xp.timeEnd)}
+                </h5>
+                <h4>{xp.title}</h4>
+                <h4>{xp.institution}</h4>
+              </div>
+            </a>
           ))}
         </div>
       </div>
@@ -212,25 +216,28 @@ export default class ContainerController extends Component<IProps, IState> {
       <div className="about">
         <h2 className="title">Experience</h2>
         {this.state.jobList.map((xp) => (
-          <div className="card">
-            <div className="date-company">
-              <h5>
-                {this.getDateInFormat(xp.timeStart) +
-                  " - " +
-                  this.getDateInFormat(xp.timeEnd)}
-              </h5>
-              <h5>{xp.employer}</h5>
+          <>
+            <div className="card">
+              <span id={xp.id} className="anchor-jump"></span>
+              <div className="date-company">
+                <h5>
+                  {this.getDateInFormat(xp.timeStart) +
+                    " - " +
+                    this.getDateInFormat(xp.timeEnd)}
+                </h5>
+                <h5>{xp.employer}</h5>
+              </div>
+              <div className="timeline">
+                <span className="branch-up"></span>
+                <span className="rounder"></span>
+                <span className="branch-down"></span>
+              </div>
+              <div className="text">
+                <h4>{xp.title}</h4>
+                <p>{xp.description}</p>
+              </div>
             </div>
-            <div className="timeline">
-              <span className="branch-up"></span>
-              <span className="rounder"></span>
-              <span className="branch-down"></span>
-            </div>
-            <div className="text">
-              <h4>{xp.title}</h4>
-              <p>{xp.description}</p>
-            </div>
-          </div>
+          </>
         ))}
       </div>
     );
@@ -246,6 +253,7 @@ export default class ContainerController extends Component<IProps, IState> {
         <h2 className="title">Education</h2>
         {this.state.educationList.map((xp) => (
           <div className="card">
+            <span id={xp.id} className="anchor-jump"></span>
             <div className="date-company">
               <h5>
                 {this.getDateInFormat(xp.timeStart) +
@@ -322,6 +330,10 @@ export default class ContainerController extends Component<IProps, IState> {
 
     return process.env.PUBLIC_URL + slash + url;
   }
+
+  private createRef = (ref: string): string => {
+    return "#" + ref;
+  };
 
   render() {
     return (
