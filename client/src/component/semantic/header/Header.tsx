@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
 import "../semantic-style/semantic.css";
 import IPageItem from "./IPageItem";
 import { LeftNavItem } from "./LeftNavItem";
@@ -16,6 +16,12 @@ interface IState {
 export const Header: FC = () => {
   const [navLinks] = useState<IState[]>(LinkContent);
 
+  const disabled = (link: IState): boolean => {
+    return link.disabled == null || link.disabled == undefined
+      ? false
+      : link.disabled;
+  };
+
   return (
     <header className="navbar-fixed-top">
       <Navbar className="navbar navbar-expand-md navbar-dark bg-dark">
@@ -28,16 +34,16 @@ export const Header: FC = () => {
                 items={link.pages}
                 expo={link.expo}
                 title={link.title}
-                disabled={link.disabled}
+                disabled={disabled(link)}
               />
             ))}
           </Navbar.Collapse>
 
-          <Navbar.Collapse id="navbar" className="navbar">
+          {/* <Navbar.Collapse id="navbar" className="navbar">
             <Nav>
               <Nav.Link href="#blog">RIGHT-NAV</Nav.Link>
             </Nav>
-          </Navbar.Collapse>
+          </Navbar.Collapse> */}
         </Container>
       </Navbar>
     </header>

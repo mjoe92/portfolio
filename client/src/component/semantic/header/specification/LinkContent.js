@@ -63,14 +63,17 @@ const links = [
       {
         name: "Engineering",
         ref: "engineering",
+        disabled: true,
       },
       {
         name: "Programming",
         ref: "programming",
+        disabled: true,
       },
       {
         name: "Photographing",
         ref: "photographing",
+        disabled: true,
       },
     ],
   },

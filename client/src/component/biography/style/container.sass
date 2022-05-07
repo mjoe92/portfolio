@@ -15,7 +15,7 @@ $navigation-fade-color: $detail-fade-text
 $navigation-spec-color: $detail-bright-color
 
 /*! Right side - content style */
-$content-left-min-width: 150px
+$content-left-min-width: 140px
 $content-left-font-size: 16px
 
 $content-background-color: #fff
@@ -188,7 +188,7 @@ $content-date-color: #848c90
 	.content
 		position: relative
 		background: $detail-text-color
-		padding: 50px
+		padding: 50px 50px 80px 50px
 
 		.title
 			color: $content-title-color
@@ -196,6 +196,7 @@ $content-date-color: #848c90
 			font-weight: 700
 			letter-spacing: 1px
 			margin-bottom: 10px
+			vertical-align: text-top
 
 		p
 			color: $content-title-color
@@ -227,7 +228,7 @@ $content-date-color: #848c90
 						font-size: $content-left-font-size
 
 				.timeline
-					padding-right: 15px
+					padding: 0 15px 0 15px
 
 					.branch-up
 						display: block
@@ -332,7 +333,10 @@ $content-date-color: #848c90
 							font-size: 2rem
 							color: $navigation-icon-color
 
-/* date-company on top of card, hard skills title too, interest icons shrink */
+/* date-company on top of card, hard skills title too, interest icons shrink, change for 800px width */
+@media (max-width: 800px)
+	.container
+
 @media (max-width: 700px)
 	.container
 		margin-top: 60px

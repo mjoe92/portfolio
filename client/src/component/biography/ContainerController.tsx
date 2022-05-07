@@ -219,7 +219,7 @@ export default class ContainerController extends Component<IProps, IState> {
           <>
             <div className="card">
               <span id={xp.id} className="anchor-jump"></span>
-              <div className="date-company">
+              <div id={xp.id} className="date-company">
                 <h5>
                   {this.getDateInFormat(xp.timeStart) +
                     " - " +
@@ -254,7 +254,7 @@ export default class ContainerController extends Component<IProps, IState> {
         {this.state.educationList.map((xp) => (
           <div className="card">
             <span id={xp.id} className="anchor-jump"></span>
-            <div className="date-company">
+            <div id={xp.id} className="date-company">
               <h5>
                 {this.getDateInFormat(xp.timeStart) +
                   " - " +

@@ -206,7 +206,7 @@
 .container .content {
   position: relative;
   background: #fff;
-  padding: 50px;
+  padding: 50px 50px 80px 50px;
 }
 
 .container .content .title {
@@ -215,6 +215,7 @@
   font-weight: 700;
   letter-spacing: 1px;
   margin-bottom: 10px;
+  vertical-align: text-top;
 }
 
 .container .content p {
@@ -246,8 +247,8 @@
 }
 
 .container .content .about .card .date-company {
-  max-width: 150px;
-  min-width: 150px;
+  max-width: 140px;
+  min-width: 140px;
 }
 
 .container .content .about .card .date-company h5 {
@@ -258,7 +259,7 @@
 }
 
 .container .content .about .card .timeline {
-  padding-right: 15px;
+  padding: 0 15px 0 15px;
 }
 
 .container .content .about .card .timeline .branch-up {
@@ -322,8 +323,8 @@
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 150px 1fr;
-      grid-template-columns: 150px 1fr;
+  -ms-grid-columns: 140px 1fr;
+      grid-template-columns: 140px 1fr;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -367,8 +368,8 @@
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 150px 1fr;
-      grid-template-columns: 150px 1fr;
+  -ms-grid-columns: 140px 1fr;
+      grid-template-columns: 140px 1fr;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -391,7 +392,7 @@
   color: #03a9f4;
 }
 
-/* date-company on top of card, hard skills title too, interest icons shrink */
+/* date-company on top of card, hard skills title too, interest icons shrink, change for 800px width */
 @media (max-width: 700px) {
   .container {
     margin-top: 60px;

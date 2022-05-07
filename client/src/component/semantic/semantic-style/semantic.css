@@ -31,4 +31,8 @@ footer {
           align-items: center;
   margin-left: 10px;
 }
+
+.nav-item .disabled {
+  text-decoration: line-through;
+}
 /*# sourceMappingURL=semantic.css.map */
