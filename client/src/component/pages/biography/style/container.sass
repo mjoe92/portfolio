@@ -1,15 +1,8 @@
-$detail-text-size: 16px
-
-$detail-text-color: #fff
-$detail-highlight-color: #fff
-$detail-bright-color: #03a9f4
-$detail-contrast-color: #003147
-$detail-empty-percent-color: #cacaca
-$detail-fade-text: grey
+@import './_parameters.sass'
 
 /*! Left side - navigation style */
 $navigation-background-color: $detail-contrast-color
-$navigation-default-text-color: #fff
+$navigation-default-text-color: $detail-text-color
 $navigation-icon-color: $detail-bright-color
 $navigation-fade-color: $detail-fade-text
 $navigation-spec-color: $detail-bright-color
@@ -18,10 +11,10 @@ $navigation-spec-color: $detail-bright-color
 $content-left-min-width: 140px
 $content-left-font-size: 16px
 
-$content-background-color: #fff
+$content-background-color: $detail-background-color
 $content-title-color: $detail-contrast-color
-$content-timeline-color: $detail-bright-color
-$content-date-color: #848c90
+$content-xp-color: $detail-bright-color
+$content-date-color: $detail-fade-text
 
 .controller
 	margin: 0
@@ -49,7 +42,7 @@ $content-date-color: #848c90
 
 	.navigation
 		position: relative
-		background: #003147
+		background: $detail-contrast-color
 		padding: 40px
 
 		a
@@ -58,11 +51,11 @@ $content-date-color: #848c90
 	.profile-text
 		position: relative
 		display: flex
-		color: rgba(255, 255, 255, 0.5)
+		color: rgba($content-background-color, 0.5)
 		flex-direction: column
 		align-items: center
 		padding-bottom: 10px
-		border-bottom: 2px solid rgba(255, 255, 255, 0.5)
+		border-bottom: 2px solid rgba($content-background-color, 0.5)
 
 		.img-box
 			position: relative
@@ -135,12 +128,12 @@ $content-date-color: #848c90
 
 			.xp:hover
 				cursor: pointer
-				border: 5px solid rgba(3, 169, 244, 0.2)
+				border: 5px solid rgba($content-xp-color, 0.2)
 				border-radius: 10px
-				background-color: rgba(3, 169, 244, 0.2)
+				background-color: rgba($content-xp-color, 0.2)
 
 			.xp
-				border: 5px solid #003147
+				border: 5px solid $content-title-color
 				padding: 5px
 				margin: 0
 
@@ -248,10 +241,10 @@ $content-date-color: #848c90
 						margin-top: 0
 
 					.rounder:hover
-						background-color: rgba($content-timeline-color, 0.3)
+						background-color: rgba($content-xp-color, 0.3)
 
 					.rounder:active
-						background-color: $content-timeline-color
+						background-color: $content-xp-color
 
 					.branch-down
 						display: block
@@ -263,7 +256,7 @@ $content-date-color: #848c90
 				.text
 					h4
 						text-transform: uppercase
-						color: $content-timeline-color
+						color: $content-xp-color
 						font-weight: 600
 						font-size: $content-left-font-size
 
@@ -304,7 +297,7 @@ $content-date-color: #848c90
 						top: 0
 						left: 0
 						height: 100%
-						background-color: #03a9f4
+						background-color: $content-xp-color
 
 		.interest
 			.xp-s

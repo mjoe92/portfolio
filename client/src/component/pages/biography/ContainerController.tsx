@@ -1,5 +1,5 @@
 import { Component } from "react";
-import SvgReactIcon from "../icon/SvgReactIcon";
+import SvgReactIcon from "../../icon/SvgReactIcon";
 import { Level } from "./content/ELevel";
 import IContact, { contactNavigation } from "./content/IContact";
 import IEducation, { educationContent } from "./content/IEducation";

@@ -253,7 +253,7 @@
 
 .container .content .about .card .date-company h5 {
   text-transform: uppercase;
-  color: #848c90;
+  color: grey;
   font-weight: 600;
   font-size: 16px;
 }
@@ -266,7 +266,7 @@
   display: block;
   width: 2px;
   height: 10px;
-  background-color: #848c90;
+  background-color: grey;
   -webkit-transform: translate(7px, 0);
           transform: translate(7px, 0);
 }
@@ -278,7 +278,7 @@
   height: 16px;
   background-color: white;
   border-radius: 50%;
-  border: 3px solid #848c90;
+  border: 3px solid grey;
   margin-top: 0;
 }
 
@@ -294,7 +294,7 @@
   display: block;
   width: 2px;
   height: 110%;
-  background-color: #848c90;
+  background-color: grey;
   -webkit-transform: translate(7px, 0);
           transform: translate(7px, 0);
 }
@@ -335,7 +335,7 @@
 
 .container .content .l-skills .card h4 {
   text-transform: uppercase;
-  color: #848c90;
+  color: grey;
   font-weight: 500;
   font-size: 16px;
 }
@@ -380,7 +380,7 @@
 
 .container .content .interest .xp-s .xp .svg-extended-icon .text {
   text-transform: uppercase;
-  color: #848c90;
+  color: grey;
   font-weight: 500;
   font-size: 16px;
 }

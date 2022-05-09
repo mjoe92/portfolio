@@ -16,7 +16,7 @@ interface IState {
 export const Header: FC = () => {
   const [navLinks] = useState<IState[]>(LinkContent);
 
-  const disabled = (link: IState): boolean => {
+  const isDisabled = (link: IState): boolean => {
     return link.disabled == null || link.disabled == undefined
       ? false
       : link.disabled;
@@ -34,7 +34,7 @@ export const Header: FC = () => {
                 items={link.pages}
                 expo={link.expo}
                 title={link.title}
-                disabled={disabled(link)}
+                disabled={isDisabled(link)}
               />
             ))}
           </Navbar.Collapse>

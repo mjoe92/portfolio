@@ -4,9 +4,9 @@ import "./index.css";
 import App from "./main/App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { NoMatch } from "./component/NoMatch";
+import { NoMatch } from "./component/pages/mismatch/Mismatch";
 import { Header } from "./component/semantic/header/Header";
-import ContainerController from "./component/biography/ContainerController";
+import BiographyController from "./component/pages/biography/ContainerController";
 import { Footer } from "./component/semantic/footer/Footer";
 
 ReactDOM.render(
@@ -16,7 +16,8 @@ ReactDOM.render(
         <Route path="" element={<App />} />
         <Route path="header" element={<Header />} />
         <Route path="footer" element={<Footer />} />
-        <Route path="test" element={<ContainerController />} />
+        <Route path="test" element={<BiographyController />} />
+        <Route path="biography" element={<BiographyController />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </BrowserRouter>

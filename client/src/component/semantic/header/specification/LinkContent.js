@@ -58,7 +58,7 @@ const links = [
   {
     id: "aboutMe",
     title: "About me",
-    expo: "CV",
+    expo: "Biography",
     pages: [
       {
         name: "Engineering",

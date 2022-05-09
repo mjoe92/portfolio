@@ -5,7 +5,7 @@ import { Footer } from "../component/semantic/footer/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import ContainerController from "../component/biography/ContainerController";
+import ContainerController from "../component/pages/biography/ContainerController";
 
 export default function App() {
   return (

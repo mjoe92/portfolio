@@ -19,7 +19,7 @@ export const LeftNavItem: FC<IProps> = ({
 }) => {
   const renderNavList = () => {
     return items.map((item) => {
-      const ref: string = "#" + item.ref;
+      const ref: string = makeUrl(item.ref);
       return (
         <NavDropdown.Item
           key={item.name}
@@ -38,13 +38,17 @@ export const LeftNavItem: FC<IProps> = ({
       : page.disabled;
   };
 
+  const makeUrl = (expo: string): string => {
+    return expo.toLowerCase().replace(" ", "-");
+  };
+
   return (
     <NavDropdown
       id={id + "NavItem"}
       title={title}
       menuVariant="dark"
       disabled={disabled}>
-      <NavDropdown.Item key={expo} href={expo}>
+      <NavDropdown.Item key={expo} href={makeUrl(expo)}>
         {expo}
       </NavDropdown.Item>
       <NavDropdown.Divider />
