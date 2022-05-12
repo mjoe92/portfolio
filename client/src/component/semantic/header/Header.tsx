@@ -1,22 +1,13 @@
 import { FC, useState } from "react";
 import { Container, Navbar } from "react-bootstrap";
-import "../semantic-style/semantic.css";
-import IPageItem from "./IPageItem";
+import "../style/semantic.css";
 import { LeftNavItem } from "./LeftNavItem";
-import LinkContent from "./specification/LinkContent";
-
-interface IState {
-  id: string;
-  title: string;
-  expo: string;
-  pages: IPageItem[];
-  disabled?: boolean;
-}
+import ILink, { linkContent } from "./specification/ILink";
 
 export const Header: FC = () => {
-  const [navLinks] = useState<IState[]>(LinkContent);
+  const [navLinks] = useState<ILink[]>(linkContent);
 
-  const isDisabled = (link: IState): boolean => {
+  const isDisabled = (link: ILink): boolean => {
     return link.disabled == null || link.disabled == undefined
       ? false
       : link.disabled;

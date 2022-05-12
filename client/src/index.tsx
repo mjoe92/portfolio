@@ -1,26 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./main/App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { NoMatch } from "./component/pages/mismatch/Mismatch";
-import { Header } from "./component/semantic/header/Header";
-import BiographyController from "./component/pages/biography/ContainerController";
-import { Footer } from "./component/semantic/footer/Footer";
+import Router from "./router/Router";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="" element={<App />} />
-        <Route path="header" element={<Header />} />
-        <Route path="footer" element={<Footer />} />
-        <Route path="test" element={<BiographyController />} />
-        <Route path="biography" element={<BiographyController />} />
-        <Route path="*" element={<NoMatch />} />
-      </Routes>
-    </BrowserRouter>
+    <Router />
   </React.StrictMode>,
   document.getElementById("root")
 );

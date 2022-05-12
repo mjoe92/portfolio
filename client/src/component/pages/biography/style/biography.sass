@@ -1,5 +1,7 @@
 @import './_parameters.sass'
 
+$navbar-height: $detail-navbar-height
+
 /*! Left side - navigation style */
 $navigation-background-color: $detail-contrast-color
 $navigation-default-text-color: $detail-text-color
@@ -28,7 +30,7 @@ $content-date-color: $detail-fade-text
 	scroll-behavior: smooth
 
 .container
-	margin-top: 60px
+	margin-top: $navbar-height
 	position: relative
 	width: 100%
 	max-width: 1000px
@@ -345,8 +347,3 @@ $content-date-color: $detail-fade-text
 
 		.timeline
 			display: none
-
-	.container
-		.content
-			.l-skills
-				.card

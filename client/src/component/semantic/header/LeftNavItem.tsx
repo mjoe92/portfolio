@@ -1,13 +1,13 @@
 import { FC } from "react";
 import { NavDropdown } from "react-bootstrap";
-import IPageItem from "./IPageItem";
+import { IPage } from "./specification/ILink";
 
 interface IProps {
   id: string;
   title: string;
   expo: string;
   disabled?: boolean;
-  items: IPageItem[];
+  items: IPage[];
 }
 
 export const LeftNavItem: FC<IProps> = ({
@@ -32,7 +32,7 @@ export const LeftNavItem: FC<IProps> = ({
     });
   };
 
-  const isDisabled = (page: IPageItem): boolean => {
+  const isDisabled = (page: IPage): boolean => {
     return page.disabled == null || page.disabled == undefined
       ? false
       : page.disabled;

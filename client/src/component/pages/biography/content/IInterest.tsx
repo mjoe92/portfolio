@@ -1,5 +1,5 @@
 import {
-  faBinoculars,
+  faBars,
   faDumbbell,
   faGear,
   faKeyboard,
@@ -29,5 +29,9 @@ export const interestContent: IInterest[] = [
   {
     name: "Learning",
     icons: [faGear, faKeyboard, faLanguage],
+  },
+  {
+    name: "Work",
+    icons: [faBars],
   },
 ];

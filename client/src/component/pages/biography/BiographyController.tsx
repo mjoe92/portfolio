@@ -9,7 +9,7 @@ import ILanguage, { languageContent } from "./content/ILanguage";
 import IProfile, { profileContent } from "./content/IProfile";
 import ISkill, { skillContent } from "./content/ISkill";
 
-import "./style/container.css";
+import "./style/biography.css";
 
 interface IProps {}
 
@@ -30,7 +30,7 @@ interface IContentState {
 }
 
 /** @todo: add hover helper (show info message about hovered text) + grey color */
-export default class ContainerController extends Component<IProps, IState> {
+export default class BiographyController extends Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
 

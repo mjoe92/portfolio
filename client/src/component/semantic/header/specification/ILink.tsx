@@ -1,4 +1,18 @@
-const links = [
+export default interface ILink {
+  id: string;
+  title: string;
+  expo: string;
+  disabled?: boolean;
+  pages: IPage[];
+}
+
+export interface IPage {
+  disabled?: boolean;
+  name: string;
+  ref: string;
+}
+
+export const linkContent: ILink[] = [
   {
     id: "projects",
     title: "Projects",
@@ -78,5 +92,3 @@ const links = [
     ],
   },
 ];
-
-export default links;

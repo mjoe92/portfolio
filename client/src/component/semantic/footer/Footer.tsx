@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Navbar, Nav } from "react-bootstrap";
-import "../semantic-style/semantic.css";
+import "../style/semantic.css";
 
 export const Footer: FC = () => {
   return (
