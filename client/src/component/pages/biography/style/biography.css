@@ -96,7 +96,7 @@
 }
 
 .container .navigation-point {
-  padding-top: 40px;
+  padding-top: 30px;
 }
 
 .container .navigation-point .title {
@@ -108,7 +108,9 @@
 }
 
 .container .navigation-point .contacts .svg-extended-icon {
-  padding: 5px 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   padding-left: 10px;
   position: relative;
   list-style: none;
@@ -116,7 +118,7 @@
   font-size: 16px;
 }
 
-.container .navigation-point .contacts .svg-extended-icon .svg-icon-series {
+.container .navigation-point .contacts .svg-extended-icon .svg-icon-box {
   display: inline;
   width: 30px;
   font-size: 16px;

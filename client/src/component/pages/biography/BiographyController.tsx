@@ -58,7 +58,7 @@ export default class BiographyController extends Component<IProps, IState> {
             <SvgReactIcon
               //id={contact}
               icons={[contact.icon]}
-              text={contact.text}
+              description={contact.text}
               startWithIcon={true}
             />
           ))}
@@ -308,7 +308,7 @@ export default class BiographyController extends Component<IProps, IState> {
         <div className="xp-s">
           {this.state.interestList.map((xp) => (
             <div className="xp">
-              <SvgReactIcon icons={xp.icons} text={xp.name} />
+              <SvgReactIcon icons={xp.icons} description={<p>xp.name</p>} />
             </div>
           ))}
         </div>

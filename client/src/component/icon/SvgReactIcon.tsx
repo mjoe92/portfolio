@@ -5,7 +5,7 @@ interface Props {
   icons: IconDefinition[];
   iconClassName?: string;
   textClassName?: string;
-  text?: string;
+  description?: JSX.Element;
   startWithIcon?: boolean;
 }
 
@@ -21,25 +21,25 @@ export default function SvgReactIcon(props: Props): JSX.Element {
   }
 
   let result: JSX.Element = (
-    <div className="svg-icon-series">
+    <div className="svg-icon-box">
       {props.icons.map((image) => {
         return <FontAwesomeIcon className={iconClassName} icon={image} />;
       })}
     </div>
   );
 
-  if (props.text) {
+  if (props.description) {
     if (props.startWithIcon) {
       result = (
         <>
           {result}
-          <div className={textClassName}>{props.text}</div>
+          <div className={textClassName}>{props.description}</div>
         </>
       );
     } else {
       result = (
         <>
-          <div className={textClassName}>{props.text}</div>
+          <div className={textClassName}>{props.description}</div>
           {result}
         </>
       );
