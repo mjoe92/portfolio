@@ -42,6 +42,20 @@ export const LeftNavItem: FC<IProps> = ({
     return expo.toLowerCase().replace(" ", "-");
   };
 
+  const getTitleWithIniciale = (title: string): JSX.Element => {
+    const firstLetter: string = title[0];
+    const restStr: string = title.slice(1);
+
+    return (
+      <div>
+        <span className="ini" style={{ fontSize: "30px" }}>
+          {firstLetter}
+        </span>
+        <span>{restStr}</span>
+      </div>
+    );
+  };
+
   return (
     <NavDropdown
       id={id + "NavItem"}

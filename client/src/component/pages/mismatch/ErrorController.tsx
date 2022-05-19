@@ -17,18 +17,21 @@ export const ErrorController: FC = () => {
         icons={[faLinkSlash]}
         description={
           <p>
-            <b>Error code:</b> <em>404</em>
+            <b>Error code:</b>
+            &nbsp;
+            <em>404</em>
           </p>
         }
         startWithIcon={true}
       />
       <p>
-        <b>Cause:</b> Requested URL was not found, you cannot reach this page!
+        <b>Cause:</b>
+        &nbsp;Requested URL was not found, you cannot reach this page!
       </p>
       <p>
-        <b>Solution:</b> Use the <em>navigation bar</em> or{" "}
+        <b>Solution:</b> Use the <em>navigation bar</em> or&nbsp;
         <em>
-          return to <a href="http://localhost:3001/">main</a> page
+          return to&nbsp;<a href="http://localhost:3001/">main</a>&nbsp;page
         </em>
         ...!
       </p>

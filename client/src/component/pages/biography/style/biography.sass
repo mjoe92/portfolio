@@ -112,7 +112,7 @@ $content-date-color: $detail-fade-text
 					color: $navigation-icon-color
 					padding-right: 10px
 
-				.text
+				.text-box
 					display: inline
 					color: $detail-text-color
 					font-weight: 300
@@ -281,12 +281,14 @@ $content-date-color: $detail-fade-text
 				grid-template-columns: $content-left-min-width 1fr
 				justify-content: center
 				align-items: baseline
+				margin-bottom: 30px
 
 				h4
 					text-transform: uppercase
 					color: $content-date-color
 					font-weight: 500
 					font-size: $content-left-font-size
+					margin-bottom: 0
 
 				.percent
 					position: relative
@@ -306,7 +308,7 @@ $content-date-color: $detail-fade-text
 				padding-left: 0
 
 				.xp
-					padding: 5px 0px
+					padding: 10px 0px
 
 					.svg-extended-icon
 						position: relative
@@ -316,11 +318,16 @@ $content-date-color: $detail-fade-text
 						justify-content: center
 						align-items: center
 
-						.text
+						.text-box
 							text-transform: uppercase
 							color: $content-date-color
 							font-weight: 500
 							font-size: $content-left-font-size
+
+							h4
+								margin-bottom: 0
+								font-size: 16px
+								font-weight: 500
 
 						.svg-icon
 							position: relative

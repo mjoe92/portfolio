@@ -5,7 +5,7 @@ import { Footer } from "../component/semantic/footer/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import BiographyController from "../component/pages/biography/BiographyController";
+import BiographyController from "../component/pages/biography/controller/BiographyController";
 
 export default function App() {
   return (

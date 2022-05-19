@@ -11,7 +11,7 @@ interface Props {
 
 export default function SvgReactIcon(props: Props): JSX.Element {
   let iconClassName: string = "svg-icon";
-  let textClassName: string = "text";
+  let textClassName: string = "text-box";
 
   if (props.iconClassName) {
     iconClassName = props.iconClassName;

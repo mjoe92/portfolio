@@ -126,7 +126,7 @@
   padding-right: 10px;
 }
 
-.container .navigation-point .contacts .svg-extended-icon .text {
+.container .navigation-point .contacts .svg-extended-icon .text-box {
   display: inline;
   color: #fff;
   font-weight: 300;
@@ -333,6 +333,7 @@
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
+  margin-bottom: 30px;
 }
 
 .container .content .l-skills .card h4 {
@@ -340,6 +341,7 @@
   color: grey;
   font-weight: 500;
   font-size: 16px;
+  margin-bottom: 0;
 }
 
 .container .content .l-skills .card .percent {
@@ -362,7 +364,7 @@
 }
 
 .container .content .interest .xp-s .xp {
-  padding: 5px 0px;
+  padding: 10px 0px;
 }
 
 .container .content .interest .xp-s .xp .svg-extended-icon {
@@ -380,11 +382,17 @@
           align-items: center;
 }
 
-.container .content .interest .xp-s .xp .svg-extended-icon .text {
+.container .content .interest .xp-s .xp .svg-extended-icon .text-box {
   text-transform: uppercase;
   color: grey;
   font-weight: 500;
   font-size: 16px;
+}
+
+.container .content .interest .xp-s .xp .svg-extended-icon .text-box h4 {
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .container .content .interest .xp-s .xp .svg-extended-icon .svg-icon {
