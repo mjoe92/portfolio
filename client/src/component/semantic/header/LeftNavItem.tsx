@@ -58,6 +58,7 @@ export const LeftNavItem: FC<IProps> = ({
 
   return (
     <NavDropdown
+      align="end"
       id={id + "NavItem"}
       title={title}
       menuVariant="dark"

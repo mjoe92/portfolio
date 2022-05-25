@@ -1,5 +1,11 @@
 /*! Left side - navigation style */
 /*! Right side - content style */
+body {
+  background-image: none;
+  background-color: grey;
+  opacity: 0.9;
+}
+
 .controller {
   margin: 0;
   padding: 0;

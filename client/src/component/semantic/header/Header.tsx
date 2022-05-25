@@ -35,8 +35,9 @@ export const Header: FC = () => {
     );
   };
 
-  const renderPageGroups = (): JSX.Element[] => {
-    return navLinks.map((link) => (
+  const renderPageGroups = (): JSX.Element => {
+    return <Navbar.Collapse id="navbar" className="navbar">{
+      navLinks.map((link) => (
       <LeftNavItem
         id={link.id}
         items={link.pages}
@@ -44,7 +45,8 @@ export const Header: FC = () => {
         title={link.title}
         disabled={isDisabled(link)}
       />
-    ));
+    ))
+    }</Navbar.Collapse>
   };
 
   return (
@@ -53,9 +55,7 @@ export const Header: FC = () => {
         <Container fluid className="navbar-nav mr-auto">
           {renderMainPage()}
           <Navbar.Toggle aria-controls="navbar" />
-          <Navbar.Collapse id="navbar" className="navbar">
-            {renderPageGroups()}
-          </Navbar.Collapse>
+          {renderPageGroups()}
 
           {/* <Navbar.Collapse id="navbar" className="navbar">
             <Nav>
