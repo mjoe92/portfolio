@@ -25,12 +25,17 @@ export const LeftNavItem: FC<IProps> = ({
           key={item.name}
           href={ref}
           disabled={isDisabled(item)}
-          className="navDropItem">
+          className="navDropItem"
+          onChange={handleClick}>
           {item.name}
         </NavDropdown.Item>
       );
     });
   };
+
+  const handleClick = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    e.preventDefault();
+  }
 
   const isDisabled = (page: IPage): boolean => {
     return page.disabled == null || page.disabled == undefined
@@ -62,7 +67,8 @@ export const LeftNavItem: FC<IProps> = ({
       id={id + "NavItem"}
       title={title}
       menuVariant="dark"
-      disabled={disabled}>
+      disabled={disabled}
+      onChange={handleClick}>
       <NavDropdown.Item key={expo} href={makeUrl(expo)}>
         {expo}
       </NavDropdown.Item>

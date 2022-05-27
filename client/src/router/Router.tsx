@@ -17,7 +17,7 @@ export const Router: FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path="home" element={<HomeController />} />
-          <Route path="test" element={<BiographyController />} />
+          <Route path="biography" element={<BiographyController />} />
           <Route path="*" element={<ErrorController />} />
         </Routes>
       </BrowserRouter>

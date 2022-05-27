@@ -10,7 +10,6 @@ import {
 import SvgReactIcon from "../../icon/SvgReactIcon";
 import "../style/semantic.css";
 import { LeftNavItem } from "./LeftNavItem";
-import { RightNav } from "./RigthNav";
 import ILink, { linkContent } from "./specification/ILink";
 
 export const Header: FC = () => {
@@ -29,7 +28,7 @@ export const Header: FC = () => {
   const renderMainPage = (): JSX.Element => {
     //const navDropdownTitle = <Glyphicon glyph="star"> Dropdown </Glyphicon>;
     return (
-      <Navbar.Brand href="home">
+      <Navbar.Brand href="home" onSubmit={handleClick}>
         <SvgReactIcon icons={[faPager]} />
       </Navbar.Brand>
     );
@@ -48,6 +47,10 @@ export const Header: FC = () => {
     ))
     }</Navbar.Collapse>
   };
+
+  const handleClick = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    e.preventDefault();
+  }
 
   return (
     <header className="navbar-fixed-top">
