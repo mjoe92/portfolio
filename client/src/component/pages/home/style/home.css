@@ -1,4 +1,67 @@
-.container {
-  background-color: yellow;
+.controller {
+  padding-top: 60px;
+  background-color: #383838;
+  color: white;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: block;
+}
+
+.controller .brand {
+  margin-top: 30px;
+  margin-left: 60px;
+  margin-bottom: 100px;
+  padding: 0;
+  font-size: 2em;
+  text-transform: uppercase;
+  font-weight: 800;
+  line-height: 1.4em;
+}
+
+.controller .quote-message {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.controller .quote-message .quote-box {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 700px;
+}
+
+.controller .quote-message .quote-box .quote {
+  font-weight: 500;
+  font-style: italic;
+  font-size: 32px;
+  min-width: 150px;
+  max-width: 300px;
+  padding: 10px 40px 0 40px;
+  vertical-align: middle;
+  margin: 0;
+  line-height: 80px;
+}
+
+.controller .quote-message .letter-box {
+  width: 30%;
+  padding-left: 50px;
+}
+
+.controller .quote-message .letter-box .address {
+  font-size: 30px;
+  font-weight: 600;
+  padding-bottom: 15px;
+  padding-left: 20px;
+  word-spacing: 5px;
+}
+
+.controller .quote-message .letter-box .first-description {
+  line-height: 200%;
 }
 /*# sourceMappingURL=home.css.map */

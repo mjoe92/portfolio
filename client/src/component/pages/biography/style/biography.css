@@ -21,17 +21,17 @@ body {
       -ms-flex-align: top;
           align-items: top;
   min-height: 100vh;
-  background-color: lightblue;
+  background-color: #000000;
+  background-image: linear-gradient(315deg, #000000 20%, #414141 90%);
   scroll-behavior: smooth;
 }
 
 .container {
-  margin-top: 60px;
+  margin-top: 0;
   position: relative;
   width: 100%;
-  max-width: 1000px;
   min-height: 300px;
-  background: #fff;
+  background: #dbdbdb;
   padding: 0;
   z-index: 0;
   display: -ms-grid;
@@ -42,7 +42,7 @@ body {
 
 .container .navigation {
   position: relative;
-  background: #003147;
+  background: #383838;
   padding: 40px;
 }
 
@@ -55,7 +55,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(219, 219, 219, 0.5);
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -64,7 +64,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   padding-bottom: 10px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 2px solid rgba(219, 219, 219, 0.5);
 }
 
 .container .profile-text .img-box {
@@ -114,6 +114,7 @@ body {
 }
 
 .container .navigation-point .contacts .svg-extended-icon {
+  width: 100%;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -128,7 +129,7 @@ body {
   display: inline;
   width: 30px;
   font-size: 16px;
-  color: #03a9f4;
+  color: #000000;
   padding-right: 10px;
 }
 
@@ -152,19 +153,19 @@ body {
 
 .container .education .xp-s .xp:hover, .container .experience .xp-s .xp:hover {
   cursor: pointer;
-  border: 5px solid rgba(3, 169, 244, 0.2);
+  border: 5px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  background-color: rgba(3, 169, 244, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .container .education .xp-s .xp, .container .experience .xp-s .xp {
-  border: 5px solid #003147;
+  border: 5px solid #383838;
   padding: 5px;
   margin: 0;
 }
 
 .container .education .xp-s .xp h5, .container .experience .xp-s .xp h5 {
-  color: #03a9f4;
+  color: #000000;
   font-weight: 500;
   font-size: 16px;
 }
@@ -191,7 +192,7 @@ body {
 }
 
 .container .navigation-point.language .text .spec:hover {
-  color: #03a9f4;
+  color: #000000;
 }
 
 .container .navigation-point.language .percent {
@@ -208,17 +209,17 @@ body {
   top: 0;
   left: 0;
   height: 100%;
-  background: #03a9f4;
+  background: #000000;
 }
 
 .container .content {
   position: relative;
-  background: #fff;
+  background: #dbdbdb;
   padding: 50px 50px 80px 50px;
 }
 
 .container .content .title {
-  color: #003147;
+  color: #383838;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1px;
@@ -227,7 +228,7 @@ body {
 }
 
 .container .content p {
-  color: #003147;
+  color: #383838;
 }
 
 .container .content .about {
@@ -243,6 +244,7 @@ body {
 }
 
 .container .content .about .card {
+  background-color: #dbdbdb;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -291,11 +293,11 @@ body {
 }
 
 .container .content .about .card .timeline .rounder:hover {
-  background-color: rgba(3, 169, 244, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .container .content .about .card .timeline .rounder:active {
-  background-color: #03a9f4;
+  background-color: #000000;
 }
 
 .container .content .about .card .timeline .branch-down {
@@ -309,7 +311,7 @@ body {
 
 .container .content .about .card .text h4 {
   text-transform: uppercase;
-  color: #03a9f4;
+  color: #000000;
   font-weight: 600;
   font-size: 16px;
 }
@@ -319,7 +321,7 @@ body {
 }
 
 .container .content .about .card:first-of-type .branch-up {
-  background-color: #fff;
+  background-color: #dbdbdb;
 }
 
 .container .content .about:last-child {
@@ -362,7 +364,7 @@ body {
   top: 0;
   left: 0;
   height: 100%;
-  background-color: #03a9f4;
+  background-color: #000000;
 }
 
 .container .content .interest .xp-s {
@@ -405,7 +407,7 @@ body {
   position: relative;
   min-width: 4rem;
   font-size: 2rem;
-  color: #03a9f4;
+  color: #000000;
 }
 
 /* date-company on top of card, hard skills title too, interest icons shrink, change for 800px width */

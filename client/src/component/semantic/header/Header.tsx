@@ -1,11 +1,8 @@
-import { faGlobe, faPager } from "@fortawesome/free-solid-svg-icons";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { FC, useState } from "react";
 import {
-  Button,
   Container,
-  DropdownButton,
   Navbar,
-  NavDropdown,
 } from "react-bootstrap";
 import SvgReactIcon from "../../icon/SvgReactIcon";
 import "../style/semantic.css";
@@ -29,7 +26,7 @@ export const Header: FC = () => {
     //const navDropdownTitle = <Glyphicon glyph="star"> Dropdown </Glyphicon>;
     return (
       <Navbar.Brand href="home" onSubmit={handleClick}>
-        <SvgReactIcon icons={[faPager]} />
+        <SvgReactIcon icons={[faHouse]} />
       </Navbar.Brand>
     );
   };

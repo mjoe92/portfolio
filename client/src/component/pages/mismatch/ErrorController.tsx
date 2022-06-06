@@ -6,29 +6,12 @@ import "./style/mismatch.css";
 
 export const ErrorController: FC = () => {
   return (
+    <div className="background-mismatch">
       <div className="mismatch">
-        <SvgReactIcon
-          icons={[faLinkSlash]}
-          description={
-            <p>
-              <b>Error code:</b>
-              &nbsp;
-              <em>404</em>
-            </p>
-          }
-          startWithIcon={true}
-        />
-        <p>
-          <b>Cause:</b>
-          &nbsp;Requested URL was not found, you cannot reach this page!
-        </p>
-        <p>
-          <b>Solution:</b> Use the <em>navigation bar</em> or&nbsp;
-          <em>
-            return to&nbsp;<a href="http://localhost:3001/">main</a>&nbsp;page
-          </em>
-          ...!
-        </p>
+        <div className="url-code">404</div>
+        <p className="message">The requested URL was not found.</p>
+        <p className="return-link"><a href="http://localhost:3001/home">Return to main page</a></p>
       </div>
+    </div>
   );
 };

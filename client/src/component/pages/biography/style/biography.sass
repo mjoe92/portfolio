@@ -31,14 +31,14 @@ body
 	justify-content: center
 	align-items: top
 	min-height: 100vh
-	background-color: lightblue
+	background-color: #000000
+	background-image: linear-gradient(315deg, #000000 20%, #414141 90%)
 	scroll-behavior: smooth
 
 .container
-	margin-top: $navbar-height
+	margin-top: 0
 	position: relative
 	width: 100%
-	max-width: 1000px
 	min-height: 300px
 	background: $content-background-color
 	padding: 0
@@ -103,6 +103,7 @@ body
 			position: relative
 
 			.svg-extended-icon
+				width: 100%
 				display: inline-flex
 				padding-left: 10px
 				position: relative
@@ -187,7 +188,7 @@ body
 
 	.content
 		position: relative
-		background: $detail-text-color
+		background: $content-background-color
 		padding: 50px 50px 80px 50px
 
 		.title
@@ -212,6 +213,7 @@ body
 				width: 100%
 
 			.card
+				background-color: $content-background-color
 				display: flex
 				flex-direction: row
 				margin: 20px 0
