@@ -27,6 +27,7 @@ body {
 
 .container {
   margin-top: 0;
+  position: relative;
   width: 100%;
   min-height: 300px;
   background: #dbdbdb;
@@ -36,8 +37,6 @@ body {
   display: grid;
   -ms-grid-columns: 1fr 2fr;
       grid-template-columns: 1fr 2fr;
-  /*! Left side */
-  /*! Right side */
 }
 
 .container .navigation {
@@ -259,9 +258,6 @@ body {
 .container .content .about .card .date-company {
   max-width: 140px;
   min-width: 140px;
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
 }
 
 .container .content .about .card .date-company h5 {
@@ -273,15 +269,12 @@ body {
 
 .container .content .about .card .timeline {
   padding: 0 15px 0 15px;
-  -webkit-box-ordinal-group: 3;
-      -ms-flex-order: 2;
-          order: 2;
 }
 
 .container .content .about .card .timeline .branch-up {
   display: block;
   width: 2px;
-  height: 3px;
+  height: 10px;
   background-color: grey;
   -webkit-transform: translate(7px, 0);
           transform: translate(7px, 0);
@@ -313,12 +306,6 @@ body {
   background-color: grey;
   -webkit-transform: translate(7px, 0);
           transform: translate(7px, 0);
-}
-
-.container .content .about .card .text {
-  -webkit-box-ordinal-group: 4;
-      -ms-flex-order: 3;
-          order: 3;
 }
 
 .container .content .about .card .text h4 {
@@ -423,27 +410,9 @@ body {
 }
 
 /* date-company on top of card, hard skills title too, interest icons shrink, change for 800px width */
-@media (max-width: 1000px) {
-  .container .content .about .card .timeline {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-    padding-left: 0;
-  }
-  .container .content .about .card .date-company {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-  }
-  .container .content .about .card .text {
-    -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-            order: 3;
-  }
-}
-
-@media (max-width: 770px) {
+@media (max-width: 700px) {
   .container {
+    margin-top: 60px;
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
   }
@@ -451,15 +420,16 @@ body {
 
 @media (max-width: 550px) {
   .about .card {
-    direction: column;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
-  .about .card .text {
-    border-bottom: 2px solid #000;
+  .about .card .date-company {
+    margin-bottom: 50px;
   }
-  .about .card .timeline {
+  .about .timeline {
     display: none;
   }
 }
-/*# sourceMappingURL=biography.css.map */
+/*# sourceMappingURL=biography-old.css.map */

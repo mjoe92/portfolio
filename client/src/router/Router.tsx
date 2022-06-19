@@ -9,6 +9,7 @@ import { Header } from "../component/semantic/header/Header";
 import { Footer } from "../component/semantic/footer/Footer";
 import { FC } from "react";
 import HomeController from "../component/pages/home/controller/HomeController";
+import Test from "../component/pages/test/Test";
 
 export const Router: FC = () => {
   return (
@@ -19,6 +20,7 @@ export const Router: FC = () => {
           <Route path="home" element={<HomeController />} />
           <Route path="biography" element={<BiographyController />} />
           <Route path="*" element={<ErrorController />} />
+          <Route path="test" element={<Test />} />
         </Routes>
       </BrowserRouter>
       <Footer />

@@ -1,0 +1,174 @@
+/*! Left side - navigation style */
+/*! Right side - content style */
+.navigation {
+  position: relative;
+  background: #383838;
+  padding: 40px;
+}
+
+.navigation a {
+  text-decoration: none;
+}
+
+.navigation a .profile-text {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: rgba(219, 219, 219, 0.5);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(219, 219, 219, 0.5);
+}
+
+.navigation a .profile-text .img-box {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.navigation a .profile-text .img-box img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: c;
+     object-fit: c;
+}
+
+.navigation a .profile-text .img-box h2 {
+  color: #fff;
+  font-size: 1.4em;
+  margin-top: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 800;
+  line-height: 1.4em;
+}
+
+.navigation a .profile-text .img-box h2 span {
+  font-size: 0.8em;
+  font-weight: 300;
+}
+
+.navigation a .profile-text .navigation-point {
+  padding-top: 30px;
+}
+
+.navigation a .profile-text .navigation-point .title {
+  font-size: 18px;
+}
+
+.navigation a .profile-text .navigation-point .contacts {
+  position: relative;
+}
+
+.navigation a .profile-text .navigation-point .contacts .svg-extended-icon {
+  width: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding-left: 10px;
+  position: relative;
+  list-style: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.navigation a .profile-text .navigation-point .contacts .svg-extended-icon .svg-icon-box {
+  display: inline;
+  width: 30px;
+  font-size: 16px;
+  color: #000000;
+  padding-right: 10px;
+}
+
+.navigation a .profile-text .navigation-point .contacts .svg-extended-icon .text-box {
+  display: inline;
+  color: #fff;
+  font-weight: 300;
+}
+
+.navigation a .profile-text .title {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.navigation a .profile-text .education .xp-s, .navigation a .profile-text .experience .xp-s {
+  padding-left: 0;
+}
+
+.navigation a .profile-text .education .xp-s .xp:hover, .navigation a .profile-text .experience .xp-s .xp:hover {
+  cursor: pointer;
+  border: 5px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.navigation a .profile-text .education .xp-s .xp, .navigation a .profile-text .experience .xp-s .xp {
+  border: 5px solid #383838;
+  padding: 5px;
+  margin: 0;
+}
+
+.navigation a .profile-text .education .xp-s .xp h5, .navigation a .profile-text .experience .xp-s .xp h5 {
+  color: #000000;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.navigation a .profile-text .education .xp-s .xp h4:nth-child(), .navigation a .profile-text .experience .xp-s .xp h4:nth-child() {
+  color: #fff;
+  font-weight: 500;
+}
+
+.navigation a .profile-text .education .xp-s .xp h4, .navigation a .profile-text .experience .xp-s .xp h4 {
+  color: #fff;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.navigation a .profile-text .navigation-point.language .text {
+  color: white;
+}
+
+.navigation a .profile-text .navigation-point.language .text .spec {
+  padding-left: 5px;
+  color: grey;
+  cursor: pointer;
+}
+
+.navigation a .profile-text .navigation-point.language .text .spec:hover {
+  color: #000000;
+}
+
+.navigation a .profile-text .navigation-point.language .percent {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background-color: rgba(202, 202, 202, 0.3);
+  display: block;
+  margin: 10px 0px;
+}
+
+.navigation a .profile-text .navigation-point.language .percent div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #000000;
+}
+/*# sourceMappingURL=navigation.css.map */

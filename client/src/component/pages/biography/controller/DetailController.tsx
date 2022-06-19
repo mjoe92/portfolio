@@ -7,6 +7,8 @@ import IProfile, { profileContent } from "../content/IProfile";
 import ISkill, { skillContent } from "../content/ISkill";
 import ABiographyController from "./ABiographyController";
 
+import "../style/content.css"
+
 interface IProps {}
 
 interface IState {
@@ -60,18 +62,18 @@ export default class DetailController extends ABiographyController<
           <>
             <div className="card">
               <span id={xp.id} className="anchor-jump"></span>
-              <div id={xp.id} className="date-company">
-                <h5>
-                  {this.getTimeIntervalInFormat(xp.timeStart, xp.timeEnd)}
-                </h5>
-                <h5>{xp.employer}</h5>
-              </div>
               <div className="timeline">
                 <span className="branch-up"></span>
                 <span className="rounder"></span>
                 <span className="branch-down"></span>
               </div>
-              <div className="text">
+              <div id={xp.id} className="date-company card-right">
+                <h5>
+                  {this.getTimeIntervalInFormat(xp.timeStart, xp.timeEnd)}
+                </h5>
+                <h5>{xp.employer}</h5>
+              </div>
+              <div className="text card-right">
                 <h4>{xp.title}</h4>
                 <p>{xp.description}</p>
               </div>

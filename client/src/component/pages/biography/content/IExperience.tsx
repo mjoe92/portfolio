@@ -12,7 +12,9 @@ export const experienceContent: IExperience[] = [
     employer: "Bredex GmbH",
     timeStart: new Date(2021, 8),
     timeEnd: null,
-    description: "",
+    description: "My first job as a programmer in an international but mostly in a" + 
+      " german environment with a Volkswagen related project. Technical stacks:\n" +
+      "- SERVER: Oracle SQL, ",
     field: Field.P,
   },
   {
@@ -21,7 +23,7 @@ export const experienceContent: IExperience[] = [
     employer: "InnoStudio Inc.",
     timeStart: new Date(2020, 8),
     timeEnd: new Date(2021, 2),
-    description: "",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur temporibus nobis laboriosam sequi quam rerum, odio odit sit deleniti voluptatem necessitatibus fuga repellat repellendus nostrum voluptas eveniet fugit tenetur quas.",
     field: Field.E,
   },
   {
@@ -30,7 +32,7 @@ export const experienceContent: IExperience[] = [
     employer: "Mirrotron Ltd.",
     timeStart: new Date(2019, 0),
     timeEnd: new Date(2020, 3),
-    description: "",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quia quas tenetur quibusdam facere veniam fugit repudiandae esse, nisi, laudantium numquam facilis officiis animi mollitia quod! Qui ad facilis libero!",
     field: Field.M,
   },
   {
