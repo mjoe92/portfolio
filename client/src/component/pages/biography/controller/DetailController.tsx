@@ -155,12 +155,16 @@ export default class DetailController extends ABiographyController<
 
   render() {
     return (
-      <div className="content">
-        {this.renderProfile()}
-        {this.renderExperienceContent()}
-        {this.renderEducationContent()}
-        {this.renderSkillContent()}
-        {this.renderInterestContent()}
+      <div className="detail">
+        <div className="scroll">
+          {/* <div className="content"> */}
+            {this.renderProfile()}
+            {this.renderExperienceContent()}
+            {this.renderEducationContent()}
+            {this.renderSkillContent()}
+            {this.renderInterestContent()}
+          {/* </div> */}
+        </div>
       </div>
     );
   }

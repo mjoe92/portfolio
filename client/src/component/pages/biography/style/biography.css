@@ -40,17 +40,24 @@ body {
   /*! Right side */
 }
 
+.container .scroll {
+  height: 80vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
 .container .navigation {
   position: relative;
   background: #383838;
   padding: 40px;
 }
 
-.container .navigation a {
+.container .navigation .scroll a {
   text-decoration: none;
 }
 
-.container .navigation .profile-text {
+.container .navigation .scroll .profile-text {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -67,7 +74,7 @@ body {
   border-bottom: 2px solid rgba(219, 219, 219, 0.5);
 }
 
-.container .navigation .profile-text .img-box {
+.container .navigation .scroll .profile-text .img-box {
   position: relative;
   width: 200px;
   height: 200px;
@@ -76,7 +83,7 @@ body {
   margin-bottom: 20px;
 }
 
-.container .navigation .profile-text .img-box img {
+.container .navigation .scroll .profile-text .img-box img {
   position: absolute;
   top: 0;
   left: 0;
@@ -86,7 +93,7 @@ body {
      object-fit: c;
 }
 
-.container .navigation .profile-text h2 {
+.container .navigation .scroll .profile-text h2 {
   color: #fff;
   font-size: 1.4em;
   margin-top: 20px;
@@ -96,24 +103,24 @@ body {
   line-height: 1.4em;
 }
 
-.container .navigation .profile-text h2 span {
+.container .navigation .scroll .profile-text h2 span {
   font-size: 0.8em;
   font-weight: 300;
 }
 
-.container .navigation .navigation-point {
+.container .navigation .scroll .navigation-point {
   padding-top: 30px;
 }
 
-.container .navigation .navigation-point .title {
+.container .navigation .scroll .navigation-point .title {
   font-size: 18px;
 }
 
-.container .navigation .navigation-point .contacts {
+.container .navigation .scroll .navigation-point .contacts {
   position: relative;
 }
 
-.container .navigation .navigation-point .contacts .svg-extended-icon {
+.container .navigation .scroll .navigation-point .contacts .svg-extended-icon {
   width: 100%;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -125,7 +132,7 @@ body {
   font-size: 16px;
 }
 
-.container .navigation .navigation-point .contacts .svg-extended-icon .svg-icon-box {
+.container .navigation .scroll .navigation-point .contacts .svg-extended-icon .svg-icon-box {
   display: inline;
   width: 30px;
   font-size: 16px;
@@ -133,13 +140,13 @@ body {
   padding-right: 10px;
 }
 
-.container .navigation .navigation-point .contacts .svg-extended-icon .text-box {
+.container .navigation .scroll .navigation-point .contacts .svg-extended-icon .text-box {
   display: inline;
   color: #fff;
   font-weight: 300;
 }
 
-.container .navigation .title {
+.container .navigation .scroll .title {
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
@@ -147,55 +154,55 @@ body {
   margin-bottom: 20px;
 }
 
-.container .navigation .education .xp-s, .container .navigation .experience .xp-s {
+.container .navigation .scroll .education .xp-s, .container .navigation .scroll .experience .xp-s {
   padding-left: 0;
 }
 
-.container .navigation .education .xp-s .xp:hover, .container .navigation .experience .xp-s .xp:hover {
+.container .navigation .scroll .education .xp-s .xp:hover, .container .navigation .scroll .experience .xp-s .xp:hover {
   cursor: pointer;
   border: 5px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.container .navigation .education .xp-s .xp, .container .navigation .experience .xp-s .xp {
+.container .navigation .scroll .education .xp-s .xp, .container .navigation .scroll .experience .xp-s .xp {
   border: 5px solid #383838;
   padding: 5px;
   margin: 0;
 }
 
-.container .navigation .education .xp-s .xp h5, .container .navigation .experience .xp-s .xp h5 {
+.container .navigation .scroll .education .xp-s .xp h5, .container .navigation .scroll .experience .xp-s .xp h5 {
   color: #000000;
   font-weight: 500;
   font-size: 16px;
 }
 
-.container .navigation .education .xp-s .xp h4:nth-child(), .container .navigation .experience .xp-s .xp h4:nth-child() {
+.container .navigation .scroll .education .xp-s .xp h4:nth-child(), .container .navigation .scroll .experience .xp-s .xp h4:nth-child() {
   color: #fff;
   font-weight: 500;
 }
 
-.container .navigation .education .xp-s .xp h4, .container .navigation .experience .xp-s .xp h4 {
+.container .navigation .scroll .education .xp-s .xp h4, .container .navigation .scroll .experience .xp-s .xp h4 {
   color: #fff;
   font-weight: 300;
   font-size: 16px;
 }
 
-.container .navigation .navigation-point.language .text {
+.container .navigation .scroll .navigation-point.language .text {
   color: white;
 }
 
-.container .navigation .navigation-point.language .text .spec {
+.container .navigation .scroll .navigation-point.language .text .spec {
   padding-left: 5px;
   color: grey;
   cursor: pointer;
 }
 
-.container .navigation .navigation-point.language .text .spec:hover {
+.container .navigation .scroll .navigation-point.language .text .spec:hover {
   color: #000000;
 }
 
-.container .navigation .navigation-point.language .percent {
+.container .navigation .scroll .navigation-point.language .percent {
   position: relative;
   width: 100%;
   height: 6px;
@@ -204,7 +211,7 @@ body {
   margin: 10px 0px;
 }
 
-.container .navigation .navigation-point.language .percent div {
+.container .navigation .scroll .navigation-point.language .percent div {
   position: absolute;
   top: 0;
   left: 0;
@@ -212,13 +219,13 @@ body {
   background: #000000;
 }
 
-.container .content {
+.container .detail {
   position: relative;
   background: #dbdbdb;
-  padding: 50px 50px 80px 50px;
+  padding: 40px 40px 80px 40px;
 }
 
-.container .content .title {
+.container .detail .scroll .title {
   color: #383838;
   text-transform: uppercase;
   font-weight: 700;
@@ -227,23 +234,23 @@ body {
   vertical-align: text-top;
 }
 
-.container .content p {
+.container .detail .scroll p {
   color: #383838;
 }
 
-.container .content .about {
+.container .detail .scroll .about {
   margin-bottom: 50px;
   position: relative;
 }
 
-.container .content .about .anchor-jump {
+.container .detail .scroll .about .anchor-jump {
   position: absolute;
-  top: -75px;
+  top: -10px;
   visibility: hidden;
   width: 100%;
 }
 
-.container .content .about .card {
+.container .detail .scroll .about .card {
   background-color: #dbdbdb;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -256,7 +263,7 @@ body {
   border: none;
 }
 
-.container .content .about .card .date-company {
+.container .detail .scroll .about .card .date-company {
   max-width: 140px;
   min-width: 140px;
   -webkit-box-ordinal-group: 2;
@@ -264,21 +271,21 @@ body {
           order: 1;
 }
 
-.container .content .about .card .date-company h5 {
+.container .detail .scroll .about .card .date-company h5 {
   text-transform: uppercase;
   color: grey;
   font-weight: 600;
   font-size: 16px;
 }
 
-.container .content .about .card .timeline {
+.container .detail .scroll .about .card .timeline {
   padding: 0 15px 0 15px;
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
 }
 
-.container .content .about .card .timeline .branch-up {
+.container .detail .scroll .about .card .timeline .branch-up {
   display: block;
   width: 2px;
   height: 3px;
@@ -287,7 +294,7 @@ body {
           transform: translate(7px, 0);
 }
 
-.container .content .about .card .timeline .rounder {
+.container .detail .scroll .about .card .timeline .rounder {
   position: relative;
   display: block;
   width: 16px;
@@ -298,15 +305,15 @@ body {
   margin-top: 0;
 }
 
-.container .content .about .card .timeline .rounder:hover {
+.container .detail .scroll .about .card .timeline .rounder:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.container .content .about .card .timeline .rounder:active {
+.container .detail .scroll .about .card .timeline .rounder:active {
   background-color: #000000;
 }
 
-.container .content .about .card .timeline .branch-down {
+.container .detail .scroll .about .card .timeline .branch-down {
   display: block;
   width: 2px;
   height: 110%;
@@ -315,32 +322,32 @@ body {
           transform: translate(7px, 0);
 }
 
-.container .content .about .card .text {
+.container .detail .scroll .about .card .text {
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
 }
 
-.container .content .about .card .text h4 {
+.container .detail .scroll .about .card .text h4 {
   text-transform: uppercase;
   color: #000000;
   font-weight: 600;
   font-size: 16px;
 }
 
-.container .content .about .card:last-child .branch-down {
+.container .detail .scroll .about .card:last-child .branch-down {
   display: none;
 }
 
-.container .content .about .card:first-of-type .branch-up {
+.container .detail .scroll .about .card:first-of-type .branch-up {
   background-color: #dbdbdb;
 }
 
-.container .content .about:last-child {
+.container .detail .scroll .about:last-child {
   margin-bottom: 0;
 }
 
-.container .content .l-skills .card {
+.container .detail .scroll .l-skills .card {
   position: relative;
   width: 100%;
   display: -ms-grid;
@@ -356,7 +363,7 @@ body {
   margin-bottom: 30px;
 }
 
-.container .content .l-skills .card h4 {
+.container .detail .scroll .l-skills .card h4 {
   text-transform: uppercase;
   color: grey;
   font-weight: 500;
@@ -364,14 +371,14 @@ body {
   margin-bottom: 0;
 }
 
-.container .content .l-skills .card .percent {
+.container .detail .scroll .l-skills .card .percent {
   position: relative;
   width: 100%;
   height: 10px;
   background-color: #cacaca;
 }
 
-.container .content .l-skills .card .percent div {
+.container .detail .scroll .l-skills .card .percent div {
   position: absolute;
   top: 0;
   left: 0;
@@ -379,15 +386,15 @@ body {
   background-color: #000000;
 }
 
-.container .content .interest .xp-s {
+.container .detail .scroll .interest .xp-s {
   padding-left: 0;
 }
 
-.container .content .interest .xp-s .xp {
+.container .detail .scroll .interest .xp-s .xp {
   padding: 10px 0px;
 }
 
-.container .content .interest .xp-s .xp .svg-extended-icon {
+.container .detail .scroll .interest .xp-s .xp .svg-extended-icon {
   position: relative;
   width: 100%;
   display: -ms-grid;
@@ -402,20 +409,20 @@ body {
           align-items: center;
 }
 
-.container .content .interest .xp-s .xp .svg-extended-icon .text-box {
+.container .detail .scroll .interest .xp-s .xp .svg-extended-icon .text-box {
   text-transform: uppercase;
   color: grey;
   font-weight: 500;
   font-size: 16px;
 }
 
-.container .content .interest .xp-s .xp .svg-extended-icon .text-box h4 {
+.container .detail .scroll .interest .xp-s .xp .svg-extended-icon .text-box h4 {
   margin-bottom: 0;
   font-size: 16px;
   font-weight: 500;
 }
 
-.container .content .interest .xp-s .xp .svg-extended-icon .svg-icon {
+.container .detail .scroll .interest .xp-s .xp .svg-extended-icon .svg-icon {
   position: relative;
   min-width: 4rem;
   font-size: 2rem;
@@ -424,18 +431,18 @@ body {
 
 /* date-company on top of card, hard skills title too, interest icons shrink, change for 800px width */
 @media (max-width: 1000px) {
-  .container .content .about .card .timeline {
+  .container .detail .about .card .timeline {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
     padding-left: 0;
   }
-  .container .content .about .card .date-company {
+  .container .detail .about .card .date-company {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
   }
-  .container .content .about .card .text {
+  .container .detail .about .card .text {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
@@ -450,15 +457,15 @@ body {
 }
 
 @media (max-width: 550px) {
-  .about .card {
+  .container .detail .about .card {
     direction: column;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .about .card .text {
+  .container .detail .about .card .text {
     border-bottom: 2px solid #000;
   }
-  .about .card .timeline {
+  .container .detail .about .card .timeline {
     display: none;
   }
 }
