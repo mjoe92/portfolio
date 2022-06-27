@@ -1,8 +1,9 @@
+/*! General */
+/*! Scrollbar */
 /*! Left side - navigation style */
 /*! Right side - content style */
 body {
   background-image: none;
-  background-color: grey;
   opacity: 0.9;
 }
 
@@ -22,7 +23,7 @@ body {
           align-items: top;
   min-height: 100vh;
   background-color: #000000;
-  background-image: linear-gradient(315deg, #000000 20%, #414141 90%);
+  background-image: linear-gradient(315deg, #000000 20%, #383838 90%);
 }
 
 .container {
@@ -47,17 +48,42 @@ body {
   scroll-behavior: smooth;
 }
 
+.container ::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.container ::-webkit-scrollbar-track {
+  background: grey;
+  border-radius: 100vw;
+  margin-block: 0.5em;
+  margin-left: 20px;
+}
+
+.container ::-webkit-scrollbar-thumb {
+  background: #383838;
+  border: 0.1em solid grey;
+  border-radius: 100vw;
+}
+
+.container ::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+
 .container .navigation {
   position: relative;
   background: #383838;
   padding: 40px;
 }
 
-.container .navigation .scroll a {
+.container .navigation .scroll .about {
+  margin-right: 25px;
+}
+
+.container .navigation .scroll .about a {
   text-decoration: none;
 }
 
-.container .navigation .scroll .profile-text {
+.container .navigation .scroll .about .profile-text {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -74,7 +100,7 @@ body {
   border-bottom: 2px solid rgba(219, 219, 219, 0.5);
 }
 
-.container .navigation .scroll .profile-text .img-box {
+.container .navigation .scroll .about .profile-text .img-box {
   position: relative;
   width: 200px;
   height: 200px;
@@ -83,7 +109,7 @@ body {
   margin-bottom: 20px;
 }
 
-.container .navigation .scroll .profile-text .img-box img {
+.container .navigation .scroll .about .profile-text .img-box img {
   position: absolute;
   top: 0;
   left: 0;
@@ -93,7 +119,7 @@ body {
      object-fit: c;
 }
 
-.container .navigation .scroll .profile-text h2 {
+.container .navigation .scroll .about .profile-text h2 {
   color: #fff;
   font-size: 1.4em;
   margin-top: 20px;
@@ -103,24 +129,24 @@ body {
   line-height: 1.4em;
 }
 
-.container .navigation .scroll .profile-text h2 span {
+.container .navigation .scroll .about .profile-text h2 span {
   font-size: 0.8em;
   font-weight: 300;
 }
 
-.container .navigation .scroll .navigation-point {
+.container .navigation .scroll .about .navigation-point {
   padding-top: 30px;
 }
 
-.container .navigation .scroll .navigation-point .title {
+.container .navigation .scroll .about .navigation-point .title {
   font-size: 18px;
 }
 
-.container .navigation .scroll .navigation-point .contacts {
+.container .navigation .scroll .about .navigation-point .contacts {
   position: relative;
 }
 
-.container .navigation .scroll .navigation-point .contacts .svg-extended-icon {
+.container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon {
   width: 100%;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -132,7 +158,7 @@ body {
   font-size: 16px;
 }
 
-.container .navigation .scroll .navigation-point .contacts .svg-extended-icon .svg-icon-box {
+.container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .svg-icon-box {
   display: inline;
   width: 30px;
   font-size: 16px;
@@ -140,13 +166,13 @@ body {
   padding-right: 10px;
 }
 
-.container .navigation .scroll .navigation-point .contacts .svg-extended-icon .text-box {
+.container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box {
   display: inline;
   color: #fff;
   font-weight: 300;
 }
 
-.container .navigation .scroll .title {
+.container .navigation .scroll .about .title {
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
@@ -154,55 +180,55 @@ body {
   margin-bottom: 20px;
 }
 
-.container .navigation .scroll .education .xp-s, .container .navigation .scroll .experience .xp-s {
+.container .navigation .scroll .about .education .xp-s, .container .navigation .scroll .about .experience .xp-s {
   padding-left: 0;
 }
 
-.container .navigation .scroll .education .xp-s .xp:hover, .container .navigation .scroll .experience .xp-s .xp:hover {
+.container .navigation .scroll .about .education .xp-s .xp:hover, .container .navigation .scroll .about .experience .xp-s .xp:hover {
   cursor: pointer;
   border: 5px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.container .navigation .scroll .education .xp-s .xp, .container .navigation .scroll .experience .xp-s .xp {
+.container .navigation .scroll .about .education .xp-s .xp, .container .navigation .scroll .about .experience .xp-s .xp {
   border: 5px solid #383838;
   padding: 5px;
   margin: 0;
 }
 
-.container .navigation .scroll .education .xp-s .xp h5, .container .navigation .scroll .experience .xp-s .xp h5 {
+.container .navigation .scroll .about .education .xp-s .xp h5, .container .navigation .scroll .about .experience .xp-s .xp h5 {
   color: #000000;
   font-weight: 500;
   font-size: 16px;
 }
 
-.container .navigation .scroll .education .xp-s .xp h4:nth-child(), .container .navigation .scroll .experience .xp-s .xp h4:nth-child() {
+.container .navigation .scroll .about .education .xp-s .xp h4:nth-child(), .container .navigation .scroll .about .experience .xp-s .xp h4:nth-child() {
   color: #fff;
   font-weight: 500;
 }
 
-.container .navigation .scroll .education .xp-s .xp h4, .container .navigation .scroll .experience .xp-s .xp h4 {
+.container .navigation .scroll .about .education .xp-s .xp h4, .container .navigation .scroll .about .experience .xp-s .xp h4 {
   color: #fff;
   font-weight: 300;
   font-size: 16px;
 }
 
-.container .navigation .scroll .navigation-point.language .text {
-  color: white;
+.container .navigation .scroll .about .navigation-point.language .text {
+  color: #fff;
 }
 
-.container .navigation .scroll .navigation-point.language .text .spec {
+.container .navigation .scroll .about .navigation-point.language .text .spec {
   padding-left: 5px;
-  color: grey;
+  color: #383838;
   cursor: pointer;
 }
 
-.container .navigation .scroll .navigation-point.language .text .spec:hover {
+.container .navigation .scroll .about .navigation-point.language .text .spec:hover {
   color: #000000;
 }
 
-.container .navigation .scroll .navigation-point.language .percent {
+.container .navigation .scroll .about .navigation-point.language .percent {
   position: relative;
   width: 100%;
   height: 6px;
@@ -211,7 +237,7 @@ body {
   margin: 10px 0px;
 }
 
-.container .navigation .scroll .navigation-point.language .percent div {
+.container .navigation .scroll .about .navigation-point.language .percent div {
   position: absolute;
   top: 0;
   left: 0;
@@ -225,7 +251,11 @@ body {
   padding: 40px 40px 80px 40px;
 }
 
-.container .detail .scroll .title {
+.container .detail .scroll .about {
+  margin-right: 25px;
+}
+
+.container .detail .scroll .about .title {
   color: #383838;
   text-transform: uppercase;
   font-weight: 700;
@@ -234,23 +264,24 @@ body {
   vertical-align: text-top;
 }
 
-.container .detail .scroll p {
+.container .detail .scroll .about p {
   color: #383838;
 }
 
-.container .detail .scroll .about {
+.container .detail .scroll .about .info {
   margin-bottom: 50px;
+  margin-right: 25px;
   position: relative;
 }
 
-.container .detail .scroll .about .anchor-jump {
+.container .detail .scroll .about .info .anchor-jump {
   position: absolute;
-  top: -10px;
+  top: -25px;
   visibility: hidden;
   width: 100%;
 }
 
-.container .detail .scroll .about .card {
+.container .detail .scroll .about .info .card {
   background-color: #dbdbdb;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -263,7 +294,7 @@ body {
   border: none;
 }
 
-.container .detail .scroll .about .card .date-company {
+.container .detail .scroll .about .info .card .date-company {
   max-width: 140px;
   min-width: 140px;
   -webkit-box-ordinal-group: 2;
@@ -271,21 +302,21 @@ body {
           order: 1;
 }
 
-.container .detail .scroll .about .card .date-company h5 {
+.container .detail .scroll .about .info .card .date-company h5 {
   text-transform: uppercase;
   color: grey;
   font-weight: 600;
   font-size: 16px;
 }
 
-.container .detail .scroll .about .card .timeline {
+.container .detail .scroll .about .info .card .timeline {
   padding: 0 15px 0 15px;
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
 }
 
-.container .detail .scroll .about .card .timeline .branch-up {
+.container .detail .scroll .about .info .card .timeline .branch-up {
   display: block;
   width: 2px;
   height: 3px;
@@ -294,26 +325,26 @@ body {
           transform: translate(7px, 0);
 }
 
-.container .detail .scroll .about .card .timeline .rounder {
+.container .detail .scroll .about .info .card .timeline .rounder {
   position: relative;
   display: block;
   width: 16px;
   height: 16px;
-  background-color: white;
+  background-color: #fff;
   border-radius: 50%;
   border: 3px solid grey;
   margin-top: 0;
 }
 
-.container .detail .scroll .about .card .timeline .rounder:hover {
+.container .detail .scroll .about .info .card .timeline .rounder:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.container .detail .scroll .about .card .timeline .rounder:active {
+.container .detail .scroll .about .info .card .timeline .rounder:active {
   background-color: #000000;
 }
 
-.container .detail .scroll .about .card .timeline .branch-down {
+.container .detail .scroll .about .info .card .timeline .branch-down {
   display: block;
   width: 2px;
   height: 110%;
@@ -322,32 +353,32 @@ body {
           transform: translate(7px, 0);
 }
 
-.container .detail .scroll .about .card .text {
+.container .detail .scroll .about .info .card .text {
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
 }
 
-.container .detail .scroll .about .card .text h4 {
+.container .detail .scroll .about .info .card .text h4 {
   text-transform: uppercase;
   color: #000000;
   font-weight: 600;
   font-size: 16px;
 }
 
-.container .detail .scroll .about .card:last-child .branch-down {
+.container .detail .scroll .about .info .card:last-child .branch-down {
   display: none;
 }
 
-.container .detail .scroll .about .card:first-of-type .branch-up {
+.container .detail .scroll .about .info .card:first-of-type .branch-up {
   background-color: #dbdbdb;
 }
 
-.container .detail .scroll .about:last-child {
+.container .detail .scroll .about .info:last-child {
   margin-bottom: 0;
 }
 
-.container .detail .scroll .l-skills .card {
+.container .detail .scroll .about .l-skills .card {
   position: relative;
   width: 100%;
   display: -ms-grid;
@@ -363,7 +394,7 @@ body {
   margin-bottom: 30px;
 }
 
-.container .detail .scroll .l-skills .card h4 {
+.container .detail .scroll .about .l-skills .card h4 {
   text-transform: uppercase;
   color: grey;
   font-weight: 500;
@@ -371,14 +402,14 @@ body {
   margin-bottom: 0;
 }
 
-.container .detail .scroll .l-skills .card .percent {
+.container .detail .scroll .about .l-skills .card .percent {
   position: relative;
   width: 100%;
   height: 10px;
   background-color: #cacaca;
 }
 
-.container .detail .scroll .l-skills .card .percent div {
+.container .detail .scroll .about .l-skills .card .percent div {
   position: absolute;
   top: 0;
   left: 0;
@@ -386,15 +417,15 @@ body {
   background-color: #000000;
 }
 
-.container .detail .scroll .interest .xp-s {
+.container .detail .scroll .about .interest .xp-s {
   padding-left: 0;
 }
 
-.container .detail .scroll .interest .xp-s .xp {
+.container .detail .scroll .about .interest .xp-s .xp {
   padding: 10px 0px;
 }
 
-.container .detail .scroll .interest .xp-s .xp .svg-extended-icon {
+.container .detail .scroll .about .interest .xp-s .xp .svg-extended-icon {
   position: relative;
   width: 100%;
   display: -ms-grid;
@@ -409,40 +440,39 @@ body {
           align-items: center;
 }
 
-.container .detail .scroll .interest .xp-s .xp .svg-extended-icon .text-box {
+.container .detail .scroll .about .interest .xp-s .xp .svg-extended-icon .text-box {
   text-transform: uppercase;
   color: grey;
   font-weight: 500;
   font-size: 16px;
 }
 
-.container .detail .scroll .interest .xp-s .xp .svg-extended-icon .text-box h4 {
+.container .detail .scroll .about .interest .xp-s .xp .svg-extended-icon .text-box h4 {
   margin-bottom: 0;
   font-size: 16px;
   font-weight: 500;
 }
 
-.container .detail .scroll .interest .xp-s .xp .svg-extended-icon .svg-icon {
+.container .detail .scroll .about .interest .xp-s .xp .svg-extended-icon .svg-icon {
   position: relative;
   min-width: 4rem;
   font-size: 2rem;
   color: #000000;
 }
 
-/* date-company on top of card, hard skills title too, interest icons shrink, change for 800px width */
 @media (max-width: 1000px) {
-  .container .detail .about .card .timeline {
+  .container .detail .info .card .timeline {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
     padding-left: 0;
   }
-  .container .detail .about .card .date-company {
+  .container .detail .info .card .date-company {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
   }
-  .container .detail .about .card .text {
+  .container .detail .info .card .text {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
@@ -457,15 +487,15 @@ body {
 }
 
 @media (max-width: 550px) {
-  .container .detail .about .card {
+  .container .detail .info .card {
     direction: column;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .container .detail .about .card .text {
-    border-bottom: 2px solid #000;
+  .container .detail .info .card .text {
+    border-bottom: 2px solid #000000;
   }
-  .container .detail .about .card .timeline {
+  .container .detail .info .card .timeline {
     display: none;
   }
 }

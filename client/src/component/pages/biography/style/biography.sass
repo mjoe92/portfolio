@@ -1,27 +1,34 @@
 @import './_parameters.sass'
 
+/*! General */
+$background-dark-color: $content-dark-color
+$background-bright-color: $content-bright-color
+
+/*! Scrollbar */
+$scrollbar-track-color: $content-middle-contrast-color
+$scrollbar-thumb-color: $content-bright-color
+$scrollbar-hover-color: $content-dark-color
+
 /*! Left side - navigation style */
 $navigation-text-size: $content-text-size
 $navigation-empty-percent-color: $content-empty-percent-color
 
-$navigation-background-color: $content-contrast-color
+$navigation-background-color: $content-bright-color
 $navigation-default-text-color: $content-text-color
-$navigation-icon-color: $content-bright-color
-$navigation-fade-color: $content-fade-text
-$navigation-spec-color: $content-bright-color
+$navigation-icon-color: $content-dark-color
+$navigation-spec-color: $content-dark-color
 
 /*! Right side - content style */
 $detail-left-min-width: 140px
 $detail-left-font-size: 16px
 
 $detail-background-color: $content-background-color
-$detail-title-color: $content-contrast-color
-$detail-xp-color: $content-bright-color
-$detail-date-color: $content-fade-text
+$detail-title-color: $content-bright-color
+$detail-xp-color: $content-dark-color
+$detail-date-color: $content-middle-contrast-color
 
 body
 	background-image: none
-	background-color: grey
 	opacity: 0.9
 
 .controller
@@ -32,8 +39,8 @@ body
 	justify-content: center
 	align-items: top
 	min-height: 100vh
-	background-color: #000000
-	background-image: linear-gradient(315deg, #000000 20%, #414141 90%)
+	background-color: $background-dark-color
+	background-image: linear-gradient(315deg, $background-dark-color 20%, $background-bright-color 90%)
 
 .container
 	margin-top: 0
@@ -51,6 +58,23 @@ body
 		overflow-y: scroll
 		scroll-behavior: smooth
 
+	::-webkit-scrollbar
+		width: 0.5em
+
+	::-webkit-scrollbar-track
+		background: $scrollbar-track-color
+		border-radius: 100vw
+		margin-block: 0.5em
+		margin-left: 20px
+
+	::-webkit-scrollbar-thumb
+		background: $scrollbar-thumb-color
+		border: 0.1em solid $scrollbar-track-color
+		border-radius: 100vw
+
+	::-webkit-scrollbar-thumb:hover
+		background: $scrollbar-hover-color
+
 	/*! Left side */
 	.navigation
 		position: relative
@@ -58,140 +82,142 @@ body
 		padding: 40px
 
 		.scroll
+			.about
+				margin-right: 25px
 
-			a
-				text-decoration: none
+				a
+					text-decoration: none
 
-			.profile-text
-				position: relative
-				display: flex
-				color: rgba($detail-background-color, 0.5)
-				flex-direction: column
-				align-items: center
-				padding-bottom: 10px
-				border-bottom: 2px solid rgba($detail-background-color, 0.5)
-
-				.img-box
+				.profile-text
 					position: relative
-					width: 200px
-					height: 200px
-					border-radius: 50%
-					overflow: hidden
-					margin-bottom: 20px
+					display: flex
+					color: rgba($detail-background-color, 0.5)
+					flex-direction: column
+					align-items: center
+					padding-bottom: 10px
+					border-bottom: 2px solid rgba($detail-background-color, 0.5)
 
-					img
-						position: absolute
-						top: 0
-						left: 0
-						width: 100%
-						height: 100%
-						object-fit: c
+					.img-box
+						position: relative
+						width: 200px
+						height: 200px
+						border-radius: 50%
+						overflow: hidden
+						margin-bottom: 20px
 
-				h2
-					color: $navigation-default-text-color
-					font-size: 1.4em
-					margin-top: 20px
-					text-transform: uppercase
-					text-align: center
-					font-weight: 800
-					line-height: 1.4em
+						img
+							position: absolute
+							top: 0
+							left: 0
+							width: 100%
+							height: 100%
+							object-fit: c
 
-					span
-						font-size: 0.8em
-						font-weight: 300
+					h2
+						color: $navigation-default-text-color
+						font-size: 1.4em
+						margin-top: 20px
+						text-transform: uppercase
+						text-align: center
+						font-weight: 800
+						line-height: 1.4em
 
-			.navigation-point
-				padding-top: 30px
+						span
+							font-size: 0.8em
+							font-weight: 300
+
+				.navigation-point
+					padding-top: 30px
+
+					.title
+						font-size: 18px
+
+					.contacts
+						position: relative
+
+						.svg-extended-icon
+							width: 100%
+							display: inline-flex
+							padding-left: 10px
+							position: relative
+							list-style: none
+							cursor: pointer
+							font-size: $navigation-text-size
+
+							.svg-icon-box
+								display: inline
+								width: 30px
+								font-size: $navigation-text-size
+								color: $navigation-icon-color
+								padding-right: 10px
+
+							.text-box
+								display: inline
+								color: $navigation-default-text-color
+								font-weight: 300
 
 				.title
-					font-size: 18px
+					color: $navigation-default-text-color
+					text-transform: uppercase
+					font-weight: 600
+					letter-spacing: 1px
+					margin-bottom: 20px
 
-				.contacts
-					position: relative
+				.education, .experience
+					.xp-s
+						padding-left: 0
 
-					.svg-extended-icon
-						width: 100%
-						display: inline-flex
-						padding-left: 10px
+						.xp:hover
+							cursor: pointer
+							border: 5px solid rgba($detail-xp-color, 0.2)
+							border-radius: 10px
+							background-color: rgba($detail-xp-color, 0.2)
+
+						.xp
+							border: 5px solid $detail-title-color
+							padding: 5px
+							margin: 0
+
+							h5
+								color: $navigation-icon-color
+								font-weight: 500
+								font-size: $navigation-text-size
+
+							h4:nth-child()
+								color: $navigation-default-text-color
+								font-weight: 500
+
+							h4
+								color: $navigation-default-text-color
+								font-weight: 300
+								font-size: $navigation-text-size
+
+				.navigation-point.language
+					.text
+						color: $navigation-default-text-color
+
+						.spec
+							padding-left: 5px
+							color: $detail-title-color
+							cursor: pointer
+
+						.spec:hover
+							color: $navigation-spec-color
+
+					.percent
 						position: relative
-						list-style: none
-						cursor: pointer
-						font-size: $navigation-text-size
+						width: 100%
+						height: 6px
+						background-color: rgba($navigation-empty-percent-color, 0.3)
+						display: block
+						margin: 10px 0px
 
-						.svg-icon-box
-							display: inline
-							width: 30px
-							font-size: $navigation-text-size
-							color: $navigation-icon-color
-							padding-right: 10px
-
-						.text-box
-							display: inline
-							color: $navigation-default-text-color
-							font-weight: 300
-
-			.title
-				color: $navigation-default-text-color
-				text-transform: uppercase
-				font-weight: 600
-				letter-spacing: 1px
-				margin-bottom: 20px
-
-			.education, .experience
-				.xp-s
-					padding-left: 0
-
-					.xp:hover
-						cursor: pointer
-						border: 5px solid rgba($detail-xp-color, 0.2)
-						border-radius: 10px
-						background-color: rgba($detail-xp-color, 0.2)
-
-					.xp
-						border: 5px solid $detail-title-color
-						padding: 5px
-						margin: 0
-
-						h5
-							color: $navigation-icon-color
-							font-weight: 500
-							font-size: $navigation-text-size
-
-						h4:nth-child()
-							color: $navigation-default-text-color
-							font-weight: 500
-
-						h4
-							color: $navigation-default-text-color
-							font-weight: 300
-							font-size: $navigation-text-size
-
-			.navigation-point.language
-				.text
-					color: white
-
-					.spec
-						padding-left: 5px
-						color: $navigation-fade-color
-						cursor: pointer
-
-					.spec:hover
-						color: $navigation-spec-color
-
-				.percent
-					position: relative
-					width: 100%
-					height: 6px
-					background-color: rgba($navigation-empty-percent-color, 0.3)
-					display: block
-					margin: 10px 0px
-
-					div
-						position: absolute
-						top: 0
-						left: 0
-						height: 100%
-						background: $navigation-icon-color
+						div
+							position: absolute
+							top: 0
+							left: 0
+							height: 100%
+							background: $navigation-icon-color
 
 	/*! Right side */
 	.detail
@@ -200,167 +226,168 @@ body
 		padding: 40px 40px 80px 40px
 
 		.scroll
-
-			.title
-				color: $detail-title-color
-				text-transform: uppercase
-				font-weight: 700
-				letter-spacing: 1px
-				margin-bottom: 10px
-				vertical-align: text-top
-
-			p
-				color: $detail-title-color
-
 			.about
-				margin-bottom: 50px
-				position: relative
+				margin-right: 25px
+				.title
+					color: $detail-title-color
+					text-transform: uppercase
+					font-weight: 700
+					letter-spacing: 1px
+					margin-bottom: 10px
+					vertical-align: text-top
 
-				.anchor-jump
-					position: absolute
-					top: -10px
-					visibility: hidden
-					width: 100%
+				p
+					color: $detail-title-color
 
-				.card
-					background-color: $detail-background-color
-					display: flex
-					flex-direction: row
-					margin: 20px 0
-					border: none
+				.info
+					margin-bottom: 50px
+					margin-right: 25px
+					position: relative
 
-					.date-company
-						max-width: $detail-left-min-width
-						min-width: $detail-left-min-width
-						order: 1
+					.anchor-jump
+						position: absolute
+						top: -25px
+						visibility: hidden
+						width: 100%
 
-						h5
-							text-transform: uppercase
-							color: $detail-date-color
-							font-weight: 600
-							font-size: $detail-left-font-size
+					.card
+						background-color: $detail-background-color
+						display: flex
+						flex-direction: row
+						margin: 20px 0
+						border: none
 
-					.timeline
-						padding: 0 15px 0 15px
-						order: 2
+						.date-company
+							max-width: $detail-left-min-width
+							min-width: $detail-left-min-width
+							order: 1
 
-						.branch-up
-							display: block
-							width: 2px
-							height: 3px
-							background-color: $detail-date-color
-							transform: translate(7px, 0)
+							h5
+								text-transform: uppercase
+								color: $detail-date-color
+								font-weight: 600
+								font-size: $detail-left-font-size
 
-						.rounder
-							position: relative
-							display: block
-							width: 16px
-							height: 16px
-							background-color: white
-							border-radius: 50%
-							border: 3px solid $detail-date-color
-							margin-top: 0
+						.timeline
+							padding: 0 15px 0 15px
+							order: 2
 
-						.rounder:hover
-							background-color: rgba($detail-xp-color, 0.3)
+							.branch-up
+								display: block
+								width: 2px
+								height: 3px
+								background-color: $detail-date-color
+								transform: translate(7px, 0)
 
-						.rounder:active
-							background-color: $detail-xp-color
+							.rounder
+								position: relative
+								display: block
+								width: 16px
+								height: 16px
+								background-color: $navigation-default-text-color
+								border-radius: 50%
+								border: 3px solid $detail-date-color
+								margin-top: 0
 
+							.rounder:hover
+								background-color: rgba($detail-xp-color, 0.3)
+
+							.rounder:active
+								background-color: $detail-xp-color
+
+							.branch-down
+								display: block
+								width: 2px
+								height: 110%
+								background-color: $detail-date-color
+								transform: translate(7px, 0)
+
+						.text
+							order: 3
+
+							h4
+								text-transform: uppercase
+								color: $detail-xp-color
+								font-weight: 600
+								font-size: $detail-left-font-size
+
+					.card:last-child
 						.branch-down
-							display: block
-							width: 2px
-							height: 110%
-							background-color: $detail-date-color
-							transform: translate(7px, 0)
+							display: none
 
-					.text
-						order: 3
+					.card:first-of-type
+						.branch-up
+							background-color: $detail-background-color
+
+				.info:last-child
+					margin-bottom: 0
+
+				.l-skills
+					.card
+						position: relative
+						width: 100%
+						display: grid
+						grid-template-columns: $detail-left-min-width 1fr
+						justify-content: center
+						align-items: baseline
+						margin-bottom: 30px
 
 						h4
 							text-transform: uppercase
-							color: $detail-xp-color
-							font-weight: 600
+							color: $detail-date-color
+							font-weight: 500
 							font-size: $detail-left-font-size
+							margin-bottom: 0
 
-				.card:last-child
-					.branch-down
-						display: none
-
-				.card:first-of-type
-					.branch-up
-						background-color: $detail-background-color
-
-			.about:last-child
-				margin-bottom: 0
-
-			.l-skills
-				.card
-					position: relative
-					width: 100%
-					display: grid
-					grid-template-columns: $detail-left-min-width 1fr
-					justify-content: center
-					align-items: baseline
-					margin-bottom: 30px
-
-					h4
-						text-transform: uppercase
-						color: $detail-date-color
-						font-weight: 500
-						font-size: $detail-left-font-size
-						margin-bottom: 0
-
-					.percent
-						position: relative
-						width: 100%
-						height: 10px
-						background-color: $navigation-empty-percent-color
-
-						div
-							position: absolute
-							top: 0
-							left: 0
-							height: 100%
-							background-color: $detail-xp-color
-
-			.interest
-				.xp-s
-					padding-left: 0
-
-					.xp
-						padding: 10px 0px
-
-						.svg-extended-icon
+						.percent
 							position: relative
 							width: 100%
-							display: grid
-							grid-template-columns: $detail-left-min-width 1fr
-							justify-content: center
-							align-items: center
+							height: 10px
+							background-color: $navigation-empty-percent-color
 
-							.text-box
-								text-transform: uppercase
-								color: $detail-date-color
-								font-weight: 500
-								font-size: $detail-left-font-size
+							div
+								position: absolute
+								top: 0
+								left: 0
+								height: 100%
+								background-color: $detail-xp-color
 
-								h4
-									margin-bottom: 0
-									font-size: 16px
-									font-weight: 500
+				.interest
+					.xp-s
+						padding-left: 0
 
-							.svg-icon
+						.xp
+							padding: 10px 0px
+
+							.svg-extended-icon
 								position: relative
-								min-width: 4rem
-								font-size: 2rem
-								color: $navigation-icon-color
+								width: 100%
+								display: grid
+								grid-template-columns: $detail-left-min-width 1fr
+								justify-content: center
+								align-items: center
 
-/* date-company on top of card, hard skills title too, interest icons shrink, change for 800px width */
+								.text-box
+									text-transform: uppercase
+									color: $detail-date-color
+									font-weight: 500
+									font-size: $detail-left-font-size
+
+									h4
+										margin-bottom: 0
+										font-size: 16px
+										font-weight: 500
+
+								.svg-icon
+									position: relative
+									min-width: 4rem
+									font-size: 2rem
+									color: $navigation-icon-color
+
 @media (max-width: 1000px)
 	.container
 		.detail
-			.about
+			.info
 				.card
 
 					.timeline
@@ -380,13 +407,13 @@ body
 @media ( max-width: 550px )
 	.container
 		.detail
-			.about
+			.info
 				.card
 					direction: column
 					flex-wrap: wrap
 
 					.text
-						border-bottom: 2px solid #000
+						border-bottom: 2px solid $background-dark-color
 
 					.timeline
 						display: none

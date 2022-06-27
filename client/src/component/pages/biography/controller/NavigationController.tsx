@@ -197,23 +197,25 @@ export default class NavigationController extends ABiographyController<
     return (
       <div className="navigation">
         <div className="scroll">
-          <div className="profile-text">
-            <div className="img-box">
-              <img
-                src={this.getPublicUrl("images/profile/like_robert_de_niro.png")}
-                alt="mjoe92"
-              />
+          <div className="about">
+            <div className="profile-text">
+              <div className="img-box">
+                <img
+                  src={this.getPublicUrl("images/profile/like_robert_de_niro.png")}
+                  alt="mjoe92"
+                />
+              </div>
+              <h2>
+                Jozsef Csurgai
+                <br />
+                <span>Fullstack Developer</span>
+              </h2>
             </div>
-            <h2>
-              Jozsef Csurgai
-              <br />
-              <span>Fullstack Developer</span>
-            </h2>
+            {this.renderContactNavigation()}
+            {this.renderJobNavigation()}
+            {this.renderEducationNavigation()}
+            {this.renderLanguageNavigation()}
           </div>
-          {this.renderContactNavigation()}
-          {this.renderJobNavigation()}
-          {this.renderEducationNavigation()}
-          {this.renderLanguageNavigation()}
         </div>
       </div>
     );

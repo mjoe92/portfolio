@@ -43,7 +43,7 @@ export default class DetailController extends ABiographyController<
     }
 
     return (
-      <div className="about">
+      <div className="info">
         <h2 className="title">{this.state.profile.name}</h2>
         <p>{this.state.profile.description}</p>
       </div>
@@ -56,7 +56,7 @@ export default class DetailController extends ABiographyController<
     }
 
     return (
-      <div className="about">
+      <div className="info">
         <h2 className="title">Experience</h2>
         {this.state.jobList.map((xp) => (
           <>
@@ -90,7 +90,7 @@ export default class DetailController extends ABiographyController<
     }
 
     return (
-      <div className="about">
+      <div className="info">
         <h2 className="title">Education</h2>
         {this.state.educationList.map((xp) => (
           <div className="card">
@@ -120,7 +120,7 @@ export default class DetailController extends ABiographyController<
     }
 
     return (
-      <div className="about l-skills">
+      <div className="info l-skills">
         <h2 className="title">Hard Skills</h2>
         {this.state.skillList.map((xp) => (
           <div className="card">
@@ -140,7 +140,7 @@ export default class DetailController extends ABiographyController<
     }
 
     return (
-      <div className="about interest">
+      <div className="info interest">
         <h2 className="title">Interest</h2>
         <div className="xp-s">
           {this.state.interestList.map((xp) => (
@@ -157,6 +157,7 @@ export default class DetailController extends ABiographyController<
     return (
       <div className="detail">
         <div className="scroll">
+          <div className="about">
           {/* <div className="content"> */}
             {this.renderProfile()}
             {this.renderExperienceContent()}
@@ -164,6 +165,7 @@ export default class DetailController extends ABiographyController<
             {this.renderSkillContent()}
             {this.renderInterestContent()}
           {/* </div> */}
+          </div>
         </div>
       </div>
     );
