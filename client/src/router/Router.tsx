@@ -10,6 +10,7 @@ import { Footer } from "../component/semantic/footer/Footer";
 import { FC } from "react";
 import HomeController from "../component/pages/home/controller/HomeController";
 import Test from "../component/pages/test/Test";
+import { PageFragment } from "./EPageFragment"
 
 export const Router: FC = () => {
   return (
@@ -17,10 +18,10 @@ export const Router: FC = () => {
       <Header />
       <BrowserRouter>
         <Routes>
-          <Route path="home" element={<HomeController />} />
-          <Route path="biography" element={<BiographyController />} />
-          <Route path="*" element={<ErrorController />} />
-          <Route path="test" element={<Test />} />
+          <Route path={PageFragment.HOME} element={<HomeController />} />
+          <Route path={PageFragment.BIO} element={<BiographyController />} />
+          <Route path={PageFragment.ERROR} element={<ErrorController />} />
+          <Route path={PageFragment.TEST} element={<Test />} />
         </Routes>
       </BrowserRouter>
       <Footer />

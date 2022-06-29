@@ -4,15 +4,16 @@ import {
   Container,
   Navbar,
 } from "react-bootstrap";
+import { PageFragment } from "../../../router/EPageFragment";
 import SvgReactIcon from "../../icon/SvgReactIcon";
 import "../style/semantic.css";
 import { LeftNavItem } from "./LeftNavItem";
-import ILink, { linkContent } from "./specification/ILink";
+import IMainPage, { linkContent } from "./specification/ILink";
 
 export const Header: FC = () => {
-  const [navLinks] = useState<ILink[]>(linkContent);
+  const [navLinks] = useState<IMainPage[]>(linkContent);
 
-  const isDisabled = (link: ILink): boolean => {
+  const isDisabled = (link: IMainPage): boolean => {
     return link.disabled == null || link.disabled == undefined
       ? false
       : link.disabled;
@@ -25,7 +26,7 @@ export const Header: FC = () => {
   const renderMainPage = (): JSX.Element => {
     //const navDropdownTitle = <Glyphicon glyph="star"> Dropdown </Glyphicon>;
     return (
-      <Navbar.Brand href="home" onSubmit={handleClick}>
+      <Navbar.Brand href={PageFragment.HOME} onSubmit={handleClick}>
         <SvgReactIcon icons={[faHouse]} />
       </Navbar.Brand>
     );

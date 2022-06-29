@@ -1,4 +1,4 @@
-export default interface ILink {
+export default interface IMainPage {
   id: string;
   title: string;
   expo: string;
@@ -12,7 +12,7 @@ export interface IPage {
   ref: string;
 }
 
-export const linkContent: ILink[] = [
+export const linkContent: IMainPage[] = [
   {
     id: "projects",
     title: "Projects",

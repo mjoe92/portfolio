@@ -1,4 +1,5 @@
 @import './_parameters.sass'
+@import './_scrollbar.sass'
 
 /*! General */
 $background-dark-color: $content-dark-color
@@ -38,7 +39,6 @@ body
 	display: flex
 	justify-content: center
 	align-items: top
-	min-height: 100vh
 	background-color: $background-dark-color
 	background-image: linear-gradient(315deg, $background-dark-color 20%, $background-bright-color 90%)
 
@@ -51,29 +51,6 @@ body
 	z-index: 0
 	display: grid
 	grid-template-columns: 1fr 2fr
-
-	.scroll
-		height: 80vh
-		overflow: hidden
-		overflow-y: scroll
-		scroll-behavior: smooth
-
-	::-webkit-scrollbar
-		width: 0.5em
-
-	::-webkit-scrollbar-track
-		background: $scrollbar-track-color
-		border-radius: 100vw
-		margin-block: 0.5em
-		margin-left: 20px
-
-	::-webkit-scrollbar-thumb
-		background: $scrollbar-thumb-color
-		border: 0.1em solid $scrollbar-track-color
-		border-radius: 100vw
-
-	::-webkit-scrollbar-thumb:hover
-		background: $scrollbar-hover-color
 
 	/*! Left side */
 	.navigation
@@ -401,6 +378,21 @@ body
 						order: 3
 
 @media (max-width: 770px)
+	.scroll
+		height: 80vh
+		overflow: hidden
+		overflow-y: scroll
+		scroll-behavior: smooth
+
+	::-webkit-scrollbar
+		width: 0.25em
+
+	::-webkit-scrollbar-thumb
+		background: $scrollbar-track-color
+		border-radius: 100vw
+
+	::-webkit-scrollbar-thumb:hover
+		background: $scrollbar-hover-color
 	.container
 		grid-template-columns: repeat(1, 1fr)
 
