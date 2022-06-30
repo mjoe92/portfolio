@@ -15,6 +15,11 @@ export default class HomeController extends Component {
           <div className="quote-box">
             <div className="quote">"A message to anyone who enters my page for any reason"</div>
           </div>
+          <div className="timeline">
+            <span className="branch-up"></span>
+            <span className="rounder"></span>
+            <span className="branch-down"></span>
+          </div>
           <div className="letter-box">
             <div className="address">My Dear Visitor,</div>
             <div className="first-description message">

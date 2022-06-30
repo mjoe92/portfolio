@@ -7,8 +7,6 @@ import IProfile, { profileContent } from "../content/IProfile";
 import ISkill, { skillContent } from "../content/ISkill";
 import ABiographyController from "./ABiographyController";
 
-import "../style/content.css"
-
 interface IProps {}
 
 interface IState {

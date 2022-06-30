@@ -1,0 +1,35 @@
+@import './_parameters.sass'
+
+$scrollbar-track-color: $content-middle-contrast-color
+$scrollbar-thumb-color: $content-bright-color
+$scrollbar-hover-color: $content-dark-color
+
+.scroll
+  overflow: hidden
+  overflow-y: scroll
+  scroll-behavior: smooth
+
+::-webkit-scrollbar
+  width: 0.25em
+  height: 0.25em
+
+::-webkit-scrollbar-thumb
+  background: $scrollbar-track-color
+  border-radius: 100vw
+
+::-webkit-scrollbar-thumb:hover
+  background: $scrollbar-hover-color
+
+.container
+  .scroll
+    height: 90vh
+    overflow: hidden
+    overflow-y: scroll
+    scroll-behavior: smooth
+
+  ::-webkit-scrollbar
+    width: 0.25em
+
+  ::-webkit-scrollbar-thumb
+    background: $scrollbar-track-color
+    border-radius: 100vw
