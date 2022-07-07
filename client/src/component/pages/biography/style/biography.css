@@ -78,6 +78,13 @@ body {
   /*! Right side */
 }
 
+.container .protected {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 .container .navigation {
   position: relative;
   background: #383838;
@@ -85,7 +92,7 @@ body {
 }
 
 .container .navigation .scroll {
-  padding: 30px 0;
+  padding: 30px 0 60px 0;
 }
 
 .container .navigation .scroll .about {
@@ -232,8 +239,9 @@ body {
 
 .container .navigation .scroll .about .navigation-point.language .text .spec {
   padding-left: 5px;
-  color: #383838;
+  color: grey;
   cursor: pointer;
+  font-weight: 700;
 }
 
 .container .navigation .scroll .about .navigation-point.language .text .spec:hover {
@@ -263,6 +271,10 @@ body {
   padding: 10px 40px;
 }
 
+.container .detail .scroll {
+  padding-bottom: 30px;
+}
+
 .container .detail .scroll .about {
   margin-right: 25px;
 }
@@ -272,7 +284,7 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1px;
-  margin: 30px 0;
+  margin: 45px 0 30px 0;
   vertical-align: text-top;
 }
 
@@ -320,14 +332,14 @@ body {
   font-size: 16px;
 }
 
-.container .detail .scroll .about .info .card .timeline {
+.container .detail .scroll .about .info .card .branch {
   padding: 0 15px 0 15px;
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
 }
 
-.container .detail .scroll .about .info .card .timeline .branch-up {
+.container .detail .scroll .about .info .card .branch .branch-up {
   display: block;
   width: 2px;
   height: 3px;
@@ -336,7 +348,7 @@ body {
           transform: translate(7px, 0);
 }
 
-.container .detail .scroll .about .info .card .timeline .rounder {
+.container .detail .scroll .about .info .card .branch .rounder {
   position: relative;
   display: block;
   width: 16px;
@@ -347,15 +359,15 @@ body {
   margin-top: 0;
 }
 
-.container .detail .scroll .about .info .card .timeline .rounder:hover {
+.container .detail .scroll .about .info .card .branch .rounder:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.container .detail .scroll .about .info .card .timeline .rounder:active {
+.container .detail .scroll .about .info .card .branch .rounder:active {
   background-color: #000000;
 }
 
-.container .detail .scroll .about .info .card .timeline .branch-down {
+.container .detail .scroll .about .info .card .branch .branch-down {
   display: block;
   width: 2px;
   height: 110%;
@@ -484,7 +496,7 @@ body {
   .container .detail .info .card .text {
     border-bottom: 2px solid #000000;
   }
-  .container .detail .info .card .timeline {
+  .container .detail .info .card .branch {
     display: none;
   }
 }
@@ -498,13 +510,6 @@ body {
   }
   .controller .detail {
     padding: 50px 40px;
-  }
-  .scroll {
-    height: 80vh;
-    overflow: hidden;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-    padding-bottom: 30px;
   }
   ::-webkit-scrollbar {
     width: 0.25em;
@@ -522,6 +527,9 @@ body {
     background-color: #000000;
     background-image: linear-gradient(315deg, #000000 20%, #383838 90%);
   }
+  .container .sub-container .scroll {
+    padding-bottom: 0;
+  }
 }
 
 @media (max-width: 550px) {
@@ -533,7 +541,7 @@ body {
   .container .detail .info .card .text {
     border-bottom: 2px solid #000000;
   }
-  .container .detail .info .card .timeline {
+  .container .detail .info .card .branch {
     display: none;
   }
 }

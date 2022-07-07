@@ -38,6 +38,34 @@ export default class NavigationController extends ABiographyController<
     };
   }
 
+  render() {
+    return (
+      <div className="sub-container navigation protected">
+        <div className="scroll scroll-navigation">
+          <div className="about">
+            <div className="profile-text">
+              <div className="img-box">
+                <img
+                  src={this.getPublicUrl("images/profile/like_robert_de_niro.png")}
+                  alt="mjoe92"
+                />
+              </div>
+              <h2>
+                Jozsef Csurgai
+                <br />
+                <span>Fullstack Developer</span>
+              </h2>
+            </div>
+            {this.renderContactNavigation()}
+            {this.renderJobNavigation()}
+            {this.renderEducationNavigation()}
+            {this.renderLanguageNavigation()}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   private renderContactNavigation(): JSX.Element {
     if (this.state.contactList == null) {
       return <></>;
@@ -192,32 +220,4 @@ export default class NavigationController extends ABiographyController<
   private createRef = (ref: string): string => {
     return "#" + ref;
   };
-
-  render() {
-    return (
-      <div className="navigation">
-        <div className="scroll">
-          <div className="about">
-            <div className="profile-text">
-              <div className="img-box">
-                <img
-                  src={this.getPublicUrl("images/profile/like_robert_de_niro.png")}
-                  alt="mjoe92"
-                />
-              </div>
-              <h2>
-                Jozsef Csurgai
-                <br />
-                <span>Fullstack Developer</span>
-              </h2>
-            </div>
-            {this.renderContactNavigation()}
-            {this.renderJobNavigation()}
-            {this.renderEducationNavigation()}
-            {this.renderLanguageNavigation()}
-          </div>
-        </div>
-      </div>
-    );
-  }
 }

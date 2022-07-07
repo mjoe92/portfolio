@@ -1,6 +1,8 @@
-export enum PageFragment {
-  HOME = "home",
-  BIO = "biography",
+export enum EPageFragment {
+  HOME = "/",
+  BIOG = "biography",
+  ENGI = "engineering",
+  PROG = "programming",
   TEST = "test",
-  ERROR = "*"
+  ERR = "*",
 }

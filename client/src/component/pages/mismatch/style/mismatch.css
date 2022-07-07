@@ -16,6 +16,13 @@
           align-items: center;
 }
 
+.background-mismatch .protected {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 .background-mismatch .mismatch {
   width: 200px;
   height: 200px;
@@ -55,9 +62,12 @@
   text-decoration: none;
   color: black;
   font-weight: 400;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .background-mismatch .mismatch .return-link a:hover {
   font-weight: 700;
+  font-size: 13px;
 }
 /*# sourceMappingURL=mismatch.css.map */

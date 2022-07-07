@@ -7,10 +7,11 @@ import BiographyController from "../component/pages/biography/controller/Biograp
 import { ErrorController } from "../component/pages/mismatch/ErrorController";
 import { Header } from "../component/semantic/header/Header";
 import { Footer } from "../component/semantic/footer/Footer";
-import { FC } from "react";
+import { Component, FC, ReactChild, ReactFragment, ReactPortal } from "react";
 import HomeController from "../component/pages/home/controller/HomeController";
 import Test from "../component/pages/test/Test";
-import { PageFragment } from "./EPageFragment"
+import { EPageFragment } from "./EPageFragment"
+
 
 export const Router: FC = () => {
   return (
@@ -18,10 +19,10 @@ export const Router: FC = () => {
       <Header />
       <BrowserRouter>
         <Routes>
-          <Route path={PageFragment.HOME} element={<HomeController />} />
-          <Route path={PageFragment.BIO} element={<BiographyController />} />
-          <Route path={PageFragment.ERROR} element={<ErrorController />} />
-          <Route path={PageFragment.TEST} element={<Test />} />
+          <Route path={EPageFragment.HOME} element={<HomeController />} />
+          <Route path={EPageFragment.BIOG} element={<BiographyController />} />
+          <Route path={EPageFragment.ERR} element={<ErrorController />} />
+          <Route path={EPageFragment.TEST} element={<Test />} />
         </Routes>
       </BrowserRouter>
       <Footer />

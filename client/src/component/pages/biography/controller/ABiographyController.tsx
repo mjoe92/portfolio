@@ -1,9 +1,6 @@
 import { Component } from "react";
 
-export default abstract class ABiographyController<
-  IProps,
-  IState
-> extends Component<IProps, IState> {
+export default abstract class ABiographyController<IProps, IState> extends Component<IProps, IState> {
   protected getDateInFormat(date: Date | null): string {
     if (date == null) {
       return "Present";

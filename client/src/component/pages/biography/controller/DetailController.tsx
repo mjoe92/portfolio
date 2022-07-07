@@ -1,4 +1,5 @@
 import SvgReactIcon from "../../../icon/SvgReactIcon";
+import IUriProps from "../../IUriProps";
 import IEducation, { educationContent } from "../content/IEducation";
 import IExperience, { experienceContent } from "../content/IExperience";
 import IInterest, { interestContent } from "../content/IInterest";
@@ -35,6 +36,22 @@ export default class DetailController extends ABiographyController<
     };
   }
 
+  render() {
+    return (
+      <div className="sub-container detail protected">
+        <div className="scroll scroll-detail">
+          <div className="about">
+            {this.renderProfile()}
+            {this.renderExperienceContent()}
+            {this.renderEducationContent()}
+            {this.renderSkillContent()}
+            {this.renderInterestContent()}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   private renderProfile(): JSX.Element {
     if (this.state.profile == null) {
       return <></>;
@@ -60,7 +77,7 @@ export default class DetailController extends ABiographyController<
           <>
             <div className="card">
               <span id={xp.id} className="anchor-jump"></span>
-              <div className="timeline">
+              <div className="branch">
                 <span className="branch-up"></span>
                 <span className="rounder"></span>
                 <span className="branch-down"></span>
@@ -97,7 +114,7 @@ export default class DetailController extends ABiographyController<
               <h5>{this.getTimeIntervalInFormat(xp.timeStart, xp.timeEnd)}</h5>
               <h5>{xp.institution}</h5>
             </div>
-            <div className="timeline">
+            <div className="branch">
               <span className="branch-up"></span>
               <span className="rounder"></span>
               <span className="branch-down"></span>
@@ -146,24 +163,6 @@ export default class DetailController extends ABiographyController<
               <SvgReactIcon icons={xp.icons} description={<h4>{xp.name}</h4>} />
             </div>
           ))}
-        </div>
-      </div>
-    );
-  }
-
-  render() {
-    return (
-      <div className="detail">
-        <div className="scroll">
-          <div className="about">
-          {/* <div className="content"> */}
-            {this.renderProfile()}
-            {this.renderExperienceContent()}
-            {this.renderEducationContent()}
-            {this.renderSkillContent()}
-            {this.renderInterestContent()}
-          {/* </div> */}
-          </div>
         </div>
       </div>
     );

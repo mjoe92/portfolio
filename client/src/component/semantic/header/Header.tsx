@@ -4,7 +4,7 @@ import {
   Container,
   Navbar,
 } from "react-bootstrap";
-import { PageFragment } from "../../../router/EPageFragment";
+import { EPageFragment } from "../../../router/EPageFragment";
 import SvgReactIcon from "../../icon/SvgReactIcon";
 import "../style/semantic.css";
 import { LeftNavItem } from "./LeftNavItem";
@@ -26,7 +26,7 @@ export const Header: FC = () => {
   const renderMainPage = (): JSX.Element => {
     //const navDropdownTitle = <Glyphicon glyph="star"> Dropdown </Glyphicon>;
     return (
-      <Navbar.Brand href={PageFragment.HOME} onSubmit={handleClick}>
+      <Navbar.Brand href={EPageFragment.HOME} onSubmit={handleClick}>
         <SvgReactIcon icons={[faHouse]} />
       </Navbar.Brand>
     );

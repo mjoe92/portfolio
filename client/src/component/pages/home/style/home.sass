@@ -1,11 +1,15 @@
-.controller
-	background-color: #383838
-	color: white
-	width: 100%
+@import './_parameters.sass'
+
+.background-home
+	background-color: #000000
+	background-image: linear-gradient(315deg, #000000 20%, #414141 90%)
+	background-position: center
+	background-repeat: no-repeat
+	background-size: cover
 	height: 100vh
-	justify-content: center
 	display: block
-	height: fit-content
+	justify-content: center
+	align-items: center
 
 	.brand
 		margin-left: 60px
@@ -15,14 +19,20 @@
 		text-transform: uppercase
 		font-weight: 800
 		line-height: 1.4em
+		color: white
+		user-select: none
 
 	.quote-message
 		display: inline-flex
 		justify-content: center
 
+		.protected
+			color: white
+			user-select: none
+
 		.quote-box
 			justify-content: center
-			max-width: 700px
+			width: 30%
 
 			.quote
 				font-weight: 500
@@ -30,13 +40,24 @@
 				font-size: 32px
 				min-width: 150px
 				max-width: 300px
-				padding: 10px 40px 0 40px
+				padding: 10px 0 0 40px
 				vertical-align: middle
 				margin: 0
 				line-height: 80px
+				text-shadow: -10px 20px 5px #000000
 
-		.intermediate-box
+		.branch
 			justify-content: center
+
+			.line
+				display: block
+				width: 10px
+				height: 100%
+				background-color: black
+				margin: 0 50px 0 25px
+				overflow: hidden
+				box-shadow: 15px 20px 5px #000000
+				border-radius: 50%
 
 		.letter-box
 			width: 30%
@@ -47,6 +68,13 @@
 				padding-bottom: 15px
 				padding-left: 20px
 				word-spacing: 5px
+				text-shadow: 20px 20px 5px #000000
 
 			.first-description
 				line-height: 200%
+				text-shadow: 20px 20px 3px #000000
+
+@media (max-width: 770px)
+	.background-home
+		.quote-message
+			display: block
