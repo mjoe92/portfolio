@@ -38,7 +38,7 @@ export const LeftNavItem: FC<IProps> = ({
   }
 
   const isDisabled = (page: IPage): boolean => {
-    return page.disabled == null || page.disabled == undefined
+    return page.disabled === null || page.disabled === undefined
       ? false
       : page.disabled;
   };

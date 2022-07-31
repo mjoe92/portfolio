@@ -1,5 +1,4 @@
 import SvgReactIcon from "../../../icon/SvgReactIcon";
-import IUriProps from "../../IUriProps";
 import IEducation, { educationContent } from "../content/IEducation";
 import IExperience, { experienceContent } from "../content/IExperience";
 import IInterest, { interestContent } from "../content/IInterest";

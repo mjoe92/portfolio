@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  display: block;
+  display: flexbox;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -102,9 +102,36 @@
   text-shadow: 20px 20px 3px #000000;
 }
 
-@media (max-width: 770px) {
+@media (max-width: 850px), (max-height: 400px) {
+  .background-home {
+    overflow: scroll;
+  }
+  .background-home .brand {
+    margin-bottom: 70px;
+  }
   .background-home .quote-message {
     display: block;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    overflow: hidden;
+    margin-bottom: 60px;
+  }
+  .background-home .quote-message .quote-box {
+    text-align: center;
+    margin: auto;
+    height: 80vh;
+  }
+  .background-home .quote-message .quote-box .quote {
+    padding: 0;
+    min-width: 200px;
+  }
+  .background-home .quote-message .letter-box {
+    text-align: left;
+    line-height: 2;
+    margin: auto;
+    width: 70%;
+    height: 70vh;
   }
 }
 /*# sourceMappingURL=home.css.map */

@@ -7,7 +7,7 @@ import BiographyController from "../component/pages/biography/controller/Biograp
 import { ErrorController } from "../component/pages/mismatch/ErrorController";
 import { Header } from "../component/semantic/header/Header";
 import { Footer } from "../component/semantic/footer/Footer";
-import { Component, FC, ReactChild, ReactFragment, ReactPortal } from "react";
+import { FC } from "react";
 import HomeController from "../component/pages/home/controller/HomeController";
 import Test from "../component/pages/test/Test";
 import { EPageFragment } from "./EPageFragment"
