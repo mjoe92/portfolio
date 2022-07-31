@@ -6,10 +6,6 @@ import NavigationController from "./NavigationController";
 
 /** @todo: add hover helper (show info message about hovered text) + grey color */
 export default class BiographyController extends Component {
-  constructor(props: any) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="controller">

@@ -14,7 +14,7 @@ export const Header: FC = () => {
   const [navLinks] = useState<IMainPage[]>(linkContent);
 
   const isDisabled = (link: IMainPage): boolean => {
-    return link.disabled == null || link.disabled == undefined
+    return link.disabled === null || link.disabled === undefined
       ? false
       : link.disabled;
   };

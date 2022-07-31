@@ -153,7 +153,7 @@ export default class NavigationController extends ABiographyController<
 
       let oralResult: string = shortenIfNative(Level[oralLevel]);
 
-      if (writeLevel == undefined || writeLevel == null) {
+      if (writeLevel === undefined || writeLevel === null) {
         return "(" + oralResult + ")";
       }
 
@@ -163,7 +163,7 @@ export default class NavigationController extends ABiographyController<
     };
 
     const shortenIfNative = (levelStr: string): string => {
-      if (levelStr.toLowerCase() == "native") {
+      if (levelStr.toLowerCase() === "native") {
         return "N";
       }
 
@@ -174,7 +174,7 @@ export default class NavigationController extends ABiographyController<
       oralLevel: Level,
       writeLevel?: Level
     ): number => {
-      if (writeLevel == undefined || writeLevel == null) {
+      if (writeLevel === undefined || writeLevel === null) {
         writeLevel = oralLevel;
       }
 
@@ -212,7 +212,7 @@ export default class NavigationController extends ABiographyController<
   }
 
   private getPublicUrl(url: string): string {
-    const slash = url[0] == "/" ? "" : "/";
+    const slash = url[0] === "/" ? "" : "/";
 
     return process.env.PUBLIC_URL + slash + url;
   }
