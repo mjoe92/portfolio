@@ -5,7 +5,7 @@ import {
   Navbar,
 } from "react-bootstrap";
 import { EPageFragment } from "../../../router/EPageFragment";
-import SvgReactIcon from "../../icon/SvgReactIcon";
+import SvgReactIcon from "../../design/SvgReactIcon";
 import "../style/semantic.css";
 import { LeftNavItem } from "./LeftNavItem";
 import IMainPage, { linkContent } from "./specification/ILink";

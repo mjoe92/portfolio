@@ -46,27 +46,22 @@ body {
 .controller {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: top;
-      -ms-flex-align: top;
-          align-items: top;
   background-color: #000000;
   background-image: linear-gradient(315deg, #000000 20%, #383838 90%);
 }
 
-.container {
+.controller .container {
   margin-top: 0;
-  padding: 60px 0 0 0;
+  padding: 60px 0 50px 0;
   width: 100%;
   background: #dbdbdb;
-  z-index: 0;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 2fr;
@@ -74,36 +69,36 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  overflow: hidden;
   /*! Left side */
   /*! Right side */
 }
 
-.container .protected {
+.controller .container .protected {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
 }
 
-.container .navigation {
-  position: relative;
+.controller .container .navigation {
   background: #383838;
-  padding: 10px 40px;
+  padding: 10px 20px 10px 40px;
 }
 
-.container .navigation .scroll {
-  padding: 30px 0 60px 0;
+.controller .container .navigation .scroll {
+  padding: 30px 0;
 }
 
-.container .navigation .scroll .about {
+.controller .container .navigation .scroll .about {
   margin-right: 25px;
 }
 
-.container .navigation .scroll .about a {
+.controller .container .navigation .scroll .about a {
   text-decoration: none;
 }
 
-.container .navigation .scroll .about .profile-text {
+.controller .container .navigation .scroll .about .profile-text {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -120,7 +115,7 @@ body {
   border-bottom: 2px solid rgba(219, 219, 219, 0.5);
 }
 
-.container .navigation .scroll .about .profile-text .img-box {
+.controller .container .navigation .scroll .about .profile-text .img-box {
   position: relative;
   width: 200px;
   height: 200px;
@@ -128,7 +123,7 @@ body {
   overflow: hidden;
 }
 
-.container .navigation .scroll .about .profile-text .img-box img {
+.controller .container .navigation .scroll .about .profile-text .img-box img {
   position: absolute;
   top: 0;
   left: 0;
@@ -138,7 +133,7 @@ body {
      object-fit: c;
 }
 
-.container .navigation .scroll .about .profile-text h2 {
+.controller .container .navigation .scroll .about .profile-text h2 {
   color: #fff;
   font-size: 1.4em;
   margin-top: 20px;
@@ -148,24 +143,24 @@ body {
   line-height: 1.4em;
 }
 
-.container .navigation .scroll .about .profile-text h2 span {
+.controller .container .navigation .scroll .about .profile-text h2 span {
   font-size: 0.8em;
   font-weight: 300;
 }
 
-.container .navigation .scroll .about .navigation-point {
+.controller .container .navigation .scroll .about .navigation-point {
   padding-top: 30px;
 }
 
-.container .navigation .scroll .about .navigation-point .title {
+.controller .container .navigation .scroll .about .navigation-point .title {
   font-size: 18px;
 }
 
-.container .navigation .scroll .about .navigation-point .contacts {
+.controller .container .navigation .scroll .about .navigation-point .contacts {
   position: relative;
 }
 
-.container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon {
+.controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon {
   width: 100%;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -177,7 +172,7 @@ body {
   font-size: 16px;
 }
 
-.container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .svg-icon-box {
+.controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .svg-icon-box {
   display: inline;
   width: 30px;
   font-size: 16px;
@@ -185,13 +180,13 @@ body {
   padding-right: 10px;
 }
 
-.container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box {
+.controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box {
   display: inline;
   color: #fff;
   font-weight: 300;
 }
 
-.container .navigation .scroll .about .title {
+.controller .container .navigation .scroll .about .title {
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
@@ -199,56 +194,56 @@ body {
   margin-bottom: 20px;
 }
 
-.container .navigation .scroll .about .education .xp-s, .container .navigation .scroll .about .experience .xp-s {
+.controller .container .navigation .scroll .about .education .xp-s, .controller .container .navigation .scroll .about .experience .xp-s {
   padding-left: 0;
 }
 
-.container .navigation .scroll .about .education .xp-s .xp:hover, .container .navigation .scroll .about .experience .xp-s .xp:hover {
+.controller .container .navigation .scroll .about .education .xp-s .xp:hover, .controller .container .navigation .scroll .about .experience .xp-s .xp:hover {
   cursor: pointer;
   border: 5px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.container .navigation .scroll .about .education .xp-s .xp, .container .navigation .scroll .about .experience .xp-s .xp {
+.controller .container .navigation .scroll .about .education .xp-s .xp, .controller .container .navigation .scroll .about .experience .xp-s .xp {
   border: 5px solid #383838;
   padding: 5px;
   margin: 0;
 }
 
-.container .navigation .scroll .about .education .xp-s .xp h5, .container .navigation .scroll .about .experience .xp-s .xp h5 {
+.controller .container .navigation .scroll .about .education .xp-s .xp h5, .controller .container .navigation .scroll .about .experience .xp-s .xp h5 {
   color: #000000;
   font-weight: 500;
   font-size: 16px;
 }
 
-.container .navigation .scroll .about .education .xp-s .xp h4:nth-child(), .container .navigation .scroll .about .experience .xp-s .xp h4:nth-child() {
+.controller .container .navigation .scroll .about .education .xp-s .xp h4:nth-child(), .controller .container .navigation .scroll .about .experience .xp-s .xp h4:nth-child() {
   color: #fff;
   font-weight: 500;
 }
 
-.container .navigation .scroll .about .education .xp-s .xp h4, .container .navigation .scroll .about .experience .xp-s .xp h4 {
+.controller .container .navigation .scroll .about .education .xp-s .xp h4, .controller .container .navigation .scroll .about .experience .xp-s .xp h4 {
   color: #fff;
   font-weight: 300;
   font-size: 16px;
 }
 
-.container .navigation .scroll .about .navigation-point.language .text {
+.controller .container .navigation .scroll .about .navigation-point.language .text {
   color: #fff;
 }
 
-.container .navigation .scroll .about .navigation-point.language .text .spec {
+.controller .container .navigation .scroll .about .navigation-point.language .text .spec {
   padding-left: 5px;
   color: grey;
   cursor: pointer;
   font-weight: 700;
 }
 
-.container .navigation .scroll .about .navigation-point.language .text .spec:hover {
+.controller .container .navigation .scroll .about .navigation-point.language .text .spec:hover {
   color: #000000;
 }
 
-.container .navigation .scroll .about .navigation-point.language .percent {
+.controller .container .navigation .scroll .about .navigation-point.language .percent {
   position: relative;
   width: 100%;
   height: 6px;
@@ -257,7 +252,7 @@ body {
   margin: 10px 0px;
 }
 
-.container .navigation .scroll .about .navigation-point.language .percent div {
+.controller .container .navigation .scroll .about .navigation-point.language .percent div {
   position: absolute;
   top: 0;
   left: 0;
@@ -265,21 +260,16 @@ body {
   background: #000000;
 }
 
-.container .detail {
-  position: relative;
+.controller .container .detail {
   background: #dbdbdb;
-  padding: 10px 40px;
+  padding: 10px 20px 10px 40px;
 }
 
-.container .detail .scroll {
-  padding-bottom: 30px;
-}
-
-.container .detail .scroll .about {
+.controller .container .detail .scroll .about {
   margin-right: 25px;
 }
 
-.container .detail .scroll .about .title {
+.controller .container .detail .scroll .about .title {
   color: #383838;
   text-transform: uppercase;
   font-weight: 700;
@@ -288,23 +278,31 @@ body {
   vertical-align: text-top;
 }
 
-.container .detail .scroll .about p {
+.controller .container .detail .scroll .about p {
   color: #383838;
 }
 
-.container .detail .scroll .about .info {
+.controller .container .detail .scroll .about .info:first-of-type .title {
+  margin-top: 30px;
+}
+
+.controller .container .detail .scroll .about .info {
   margin-right: 25px;
   position: relative;
 }
 
-.container .detail .scroll .about .info .anchor-jump {
+.controller .container .detail .scroll .about .info a {
+  text-decoration: none;
+}
+
+.controller .container .detail .scroll .about .info .anchor-jump {
   position: absolute;
   top: -25px;
   visibility: hidden;
   width: 100%;
 }
 
-.container .detail .scroll .about .info .card {
+.controller .container .detail .scroll .about .info .card {
   background-color: #dbdbdb;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -317,7 +315,7 @@ body {
   border: none;
 }
 
-.container .detail .scroll .about .info .card .date-company {
+.controller .container .detail .scroll .about .info .card .date-company {
   max-width: 140px;
   min-width: 140px;
   -webkit-box-ordinal-group: 2;
@@ -325,21 +323,21 @@ body {
           order: 1;
 }
 
-.container .detail .scroll .about .info .card .date-company h5 {
+.controller .container .detail .scroll .about .info .card .date-company h5 {
   text-transform: uppercase;
   color: grey;
   font-weight: 600;
   font-size: 16px;
 }
 
-.container .detail .scroll .about .info .card .branch {
-  padding: 0 15px 0 15px;
+.controller .container .detail .scroll .about .info .card .branch {
+  padding: 0 15px;
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
 }
 
-.container .detail .scroll .about .info .card .branch .branch-up {
+.controller .container .detail .scroll .about .info .card .branch .branch-up {
   display: block;
   width: 2px;
   height: 3px;
@@ -348,7 +346,7 @@ body {
           transform: translate(7px, 0);
 }
 
-.container .detail .scroll .about .info .card .branch .rounder {
+.controller .container .detail .scroll .about .info .card .branch .rounder {
   position: relative;
   display: block;
   width: 16px;
@@ -359,15 +357,15 @@ body {
   margin-top: 0;
 }
 
-.container .detail .scroll .about .info .card .branch .rounder:hover {
+.controller .container .detail .scroll .about .info .card .branch .rounder:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.container .detail .scroll .about .info .card .branch .rounder:active {
+.controller .container .detail .scroll .about .info .card .branch .rounder:active {
   background-color: #000000;
 }
 
-.container .detail .scroll .about .info .card .branch .branch-down {
+.controller .container .detail .scroll .about .info .card .branch .branch-down {
   display: block;
   width: 2px;
   height: 110%;
@@ -376,32 +374,29 @@ body {
           transform: translate(7px, 0);
 }
 
-.container .detail .scroll .about .info .card .text {
+.controller .container .detail .scroll .about .info .card .text {
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
 }
 
-.container .detail .scroll .about .info .card .text h4 {
+.controller .container .detail .scroll .about .info .card .text h4 {
   text-transform: uppercase;
-  color: #000000;
-  font-weight: 600;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 800;
   font-size: 16px;
+  margin-bottom: 16px;
 }
 
-.container .detail .scroll .about .info .card:last-child .branch-down {
+.controller .container .detail .scroll .about .info .card:last-child .branch-down {
   display: none;
 }
 
-.container .detail .scroll .about .info .card:first-of-type .branch-up {
+.controller .container .detail .scroll .about .info .card:first-of-type .branch-up {
   background-color: #dbdbdb;
 }
 
-.container .detail .scroll .about .info:last-child {
-  margin-bottom: 0;
-}
-
-.container .detail .scroll .about .l-skills .card {
+.controller .container .detail .scroll .about .l-skills .card {
   position: relative;
   width: 100%;
   display: -ms-grid;
@@ -417,7 +412,7 @@ body {
   margin-bottom: 30px;
 }
 
-.container .detail .scroll .about .l-skills .card h4 {
+.controller .container .detail .scroll .about .l-skills .card h4 {
   text-transform: uppercase;
   color: grey;
   font-weight: 500;
@@ -425,14 +420,14 @@ body {
   margin-bottom: 0;
 }
 
-.container .detail .scroll .about .l-skills .card .percent {
+.controller .container .detail .scroll .about .l-skills .card .percent {
   position: relative;
   width: 100%;
   height: 10px;
   background-color: #cacaca;
 }
 
-.container .detail .scroll .about .l-skills .card .percent div {
+.controller .container .detail .scroll .about .l-skills .card .percent div {
   position: absolute;
   top: 0;
   left: 0;
@@ -440,19 +435,15 @@ body {
   background-color: #000000;
 }
 
-.container .detail .scroll .about .interest {
-  padding-bottom: 20px;
-}
-
-.container .detail .scroll .about .interest .xp-s {
+.controller .container .detail .scroll .about .interest .xp-s {
   padding-left: 0;
 }
 
-.container .detail .scroll .about .interest .xp-s .xp {
+.controller .container .detail .scroll .about .interest .xp-s .xp {
   padding: 10px 0px;
 }
 
-.container .detail .scroll .about .interest .xp-s .xp .svg-extended-icon {
+.controller .container .detail .scroll .about .interest .xp-s .xp .svg-extended-icon {
   position: relative;
   width: 100%;
   display: -ms-grid;
@@ -467,49 +458,56 @@ body {
           align-items: center;
 }
 
-.container .detail .scroll .about .interest .xp-s .xp .svg-extended-icon .text-box {
+.controller .container .detail .scroll .about .interest .xp-s .xp .svg-extended-icon .text-box {
   text-transform: uppercase;
   color: grey;
   font-weight: 500;
   font-size: 16px;
 }
 
-.container .detail .scroll .about .interest .xp-s .xp .svg-extended-icon .text-box h4 {
+.controller .container .detail .scroll .about .interest .xp-s .xp .svg-extended-icon .text-box h4 {
   margin-bottom: 0;
   font-size: 16px;
   font-weight: 500;
 }
 
-.container .detail .scroll .about .interest .xp-s .xp .svg-extended-icon .svg-icon {
+.controller .container .detail .scroll .about .interest .xp-s .xp .svg-extended-icon .svg-icon {
   position: relative;
   min-width: 4rem;
   font-size: 2rem;
   color: #000000;
 }
 
+.controller .container .sub-container {
+  height: calc(100vh - 110px);
+}
+
+.controller .container .sub-container .scroll {
+  height: calc(100vh - 130px);
+}
+
 @media (max-width: 1000px) {
-  .container .detail .info .card {
+  .controller .container .detail .scroll .about .info .card {
     direction: column;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .container .detail .info .card .text {
+  .controller .container .detail .scroll .about .info .card .text {
     border-bottom: 2px solid #000000;
   }
-  .container .detail .info .card .branch {
+  .controller .container .detail .scroll .about .info .card .branch {
     display: none;
+  }
+  .controller .container .detail .scroll .about .info .card .date-company {
+    max-width: none;
   }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 767px) {
   .controller {
-    height: 1900px;
-  }
-  .controller .navigation {
-    padding: 50px 40px;
-  }
-  .controller .detail {
-    padding: 50px 40px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
   ::-webkit-scrollbar {
     width: 0.25em;
@@ -521,28 +519,14 @@ body {
   ::-webkit-scrollbar-thumb:hover {
     background: #000000;
   }
-  .container {
+  .controller .container {
     -ms-grid-columns: (1fr)[1];
         grid-template-columns: repeat(1, 1fr);
     background-color: #000000;
     background-image: linear-gradient(315deg, #000000 20%, #383838 90%);
   }
-  .container .sub-container .scroll {
-    padding-bottom: 0;
-  }
-}
-
-@media (max-width: 550px) {
-  .container .detail .info .card {
-    direction: column;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  .container .detail .info .card .text {
-    border-bottom: 2px solid #000000;
-  }
-  .container .detail .info .card .branch {
-    display: none;
+  .controller .container .sub-container .scroll {
+    padding-bottom: 40px;
   }
 }
 /*# sourceMappingURL=biography.css.map */

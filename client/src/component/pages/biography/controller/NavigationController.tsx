@@ -1,4 +1,4 @@
-import SvgReactIcon from "../../../icon/SvgReactIcon";
+import SvgReactIcon from "../../../design/SvgReactIcon";
 import { Level } from "../content/ELevel";
 import IContact, { contactNavigation } from "../content/IContact";
 import IEducation, { educationContent } from "../content/IEducation";
@@ -98,7 +98,8 @@ export default class NavigationController extends ABiographyController<
         <h3 className="title">Experience</h3>
         <div className="xp-s">
           {this.state.jobList.map((xp) => (
-            <a href={this.createRef(xp.id)}>
+            <a href={this.createRef(xp.id + "-detail")}>
+              <span id={xp.id + "-navigation"} className="anchor-jump"></span>
               <div className="xp">
                 <h5>
                   {this.getTimeIntervalInFormat(xp.timeStart, xp.timeEnd)}
@@ -123,7 +124,8 @@ export default class NavigationController extends ABiographyController<
         <h3 className="title">Education</h3>
         <div className="xp-s">
           {this.state.educationList.map((xp) => (
-            <a href={this.createRef(xp.id)}>
+            <a href={this.createRef(xp.id + "-detail")}>
+              <span id={xp.id + "-navigation"} className="anchor-jump"></span>
               <div className="xp">
                 <h5>
                   {this.getTimeIntervalInFormat(xp.timeStart, xp.timeEnd)}
@@ -216,8 +218,4 @@ export default class NavigationController extends ABiographyController<
 
     return process.env.PUBLIC_URL + slash + url;
   }
-
-  private createRef = (ref: string): string => {
-    return "#" + ref;
-  };
 }
