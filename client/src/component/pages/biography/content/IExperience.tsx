@@ -11,7 +11,7 @@ export default interface IExperience extends AbstractIHistory {
 export const experienceContent: IExperience[] = [
   {
     id: "bredex",
-    title: "Junior Fullstack Java Developer",
+    title: ["Junior Fullstack Java Developer"],
     employer: "Bredex GmbH",
     timeStart: new Date(2021, 8),
     timeEnd: null,
@@ -45,7 +45,7 @@ export const experienceContent: IExperience[] = [
   },
   {
     id: "innostudio",
-    title: "Mechanical Engineer",
+    title: ["Mechanical Engineer"],
     employer: "InnoStudio Inc.",
     timeStart: new Date(2020, 8),
     timeEnd: new Date(2021, 2),
@@ -63,45 +63,106 @@ export const experienceContent: IExperience[] = [
   },
   {
     id: "mirrotron",
-    title: "Construction Engineer",
+    title: ["Construction Engineer"],
     employer: "Mirrotron Ltd.",
     timeStart: new Date(2019, 0),
     timeEnd: new Date(2020, 3),
     description: (
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quia
-        quas tenetur quibusdam facere veniam fugit repudiandae esse, nisi,
-        laudantium numquam facilis officiis animi mollitia quod! Qui ad facilis
-        libero!
-      </p>
+      <>
+        <p>
+          Most of the time I dealt with products series so far, but this company
+          specialized for very special individual devices under radioaktive
+          radiation. These are called&nbsp;
+          <span id="neutron-scattering-device" className="highlight-point">
+            Neutron Scattering Devices
+          </span>
+          &nbsp;which are usually setupped close to a&nbsp;
+          <span id="nuclear-reactor" className="highlight-point">
+            (testing) Nuclear Reactor{/** Csillabérc, Dubna, Sydney */}
+          </span>
+          .
+        </p>
+        <ul>
+          <p className="sub-title">My duties were:</p>
+          <li>
+            <span className="bulletpoint">as a</span> Construction Designer,
+            &nbsp;planning&nbsp;
+            <span id="scattering-device" className="highlight-point">
+              scattering devices
+              {/** beam-guides, chopper, shutter - explanation about steel structures under vacuum */}
+            </span>
+            &nbsp;in stressing, forming and coordinating construction.
+          </li>
+          <li>
+            <span className="bulletpoint">as a</span> Device Assembler,&nbsp;
+            <span id="precise set-up" className="highlight-point">
+              precise set-up
+              {/** teodolit, mitutoyo coo. machine -> link to picture in net */}
+            </span>
+            &nbsp;of parts and already built&nbsp;
+            <span id="subassemblies" className="highlight-point">
+              subassemblies
+              {/** mirror guide units, commercial products e.g pneum. pumps */}
+            </span>
+            &nbsp;into product.
+          </li>
+          <li>
+            <span className="bulletpoint">as a</span> Device Installer,
+          </li>
+        </ul>
+        {/** show reason why moving on */}
+      </>
     ),
     field: Field.M,
   },
   {
     id: "cg",
-    title: "Construction Engineer",
+    title: ["Construction Engineer"],
     employer: "CG Electric Systems Hungary Zrt.",
     timeStart: new Date(2018, 0),
     timeEnd: new Date(2018, 8),
     description: (
       <>
         <p>
-          I was responsible for: - Creating models, drawings and part list of a
-          transformer steel assembly in NX - Improving inner requirements and
-          'standard' drawings for better and faster work - Making functions and
-          smart apps linking between model attributes and excel drawings -
-          Creating programs and macros in Excel VBA
+          I came here prepared for another type of steel construction
+          designing:&nbsp;
+          <span id="high-power-transformer" className="highlight-point">
+            High Power Electric Transformers
+          </span>
+          . I also made my&nbsp;
+          <span id="mechatronics-msc" className="highlight-point">
+            Mechatronics MSc
+          </span>
+          &nbsp;
+          <span id="diploma" className="highlight-point">
+            diploma thesis
+          </span>
+          &nbsp;here.
         </p>
-        <p>
-          I came here prepared for another type of steel construction designing
-        </p>
+        <ul>
+          <p className="sub-title">I was responsible for:</p>
+          <li>
+            Creating models, drawings and part list of a transformer steel
+            assembly in&nbsp;
+            <span id="nx" className="highlight-point">
+              NX
+            </span>
+          </li>
+          <li>
+            Improving inner requirements and 'standard' drawings for better and
+            faster work
+          </li>
+          <li>Making macros in Excel VBA</li> {/** translator in form */}
+        </ul>
+        {/** show reason why moving on: end of agreement */}
       </>
     ),
     field: Field.M,
   },
   {
     id: "ganz",
-    title: ["Mechanical Project Engineer\n", "Construction Engineer"],
+    title: ["Mechanical Project Engineer", "Construction Engineer"],
+    // MPE: exclamation mark, popup window with 'not officially contracted'
     employer: "Ganz Engineering and Energetics Machinery Ltd.",
     timeStart: new Date(2016, 9),
     timeEnd: new Date(2017, 11),
@@ -135,7 +196,14 @@ export const experienceContent: IExperience[] = [
           <p className="sub-title">I was responsible for:</p>
           <li>
             Designing water pumps and extended water supply systems for units in
-            Solidworks, KOMPAS-3D CAD systems)
+            <span id="solidworks" className="highlight-point">
+              Solidworks
+            </span>
+            ,&nbsp;
+            <span id="kompas-3d" className="highlight-point">
+              KOMPAS-3D
+            </span>
+            &nbsp;CAD systems)
           </li>
           <li>Correcting technical issues by comments of suppliers</li>
           <li>
@@ -151,7 +219,7 @@ export const experienceContent: IExperience[] = [
   },
   {
     id: "siemens",
-    title: "Trainee Welding Engineer",
+    title: ["Trainee Welding Engineer"],
     employer: "Siemens Energy Ltd.",
     timeStart: new Date(2015, 1),
     timeEnd: new Date(2015, 11),
@@ -184,7 +252,7 @@ export const experienceContent: IExperience[] = [
           Lots of these jobs were repetative "wood-cutting" tasks done in Excel
           environment. It gave me the opportunity to dive deep to learn&nbsp;
           <span id="vba" className="highlight-point">
-            VBA programming
+            VBA programming {/** show / hide in picture: WPQS table sample */}
           </span>
           . By creating macros I was able to learn basics of functional
           programming which also increased mine and others administrative

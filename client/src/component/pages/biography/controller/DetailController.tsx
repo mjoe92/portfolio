@@ -87,7 +87,7 @@ export default class DetailController extends ABiographyController<
               <h5>{xp.employer}</h5>
             </div>
             <div className="text card-right">
-              <h4>{xp.title}</h4>
+              <h4>{this.toBreakLine(xp.title)}</h4>
               <div id={xp.id}>{xp.description}</div>
             </div>
           </div>
@@ -119,7 +119,7 @@ export default class DetailController extends ABiographyController<
               <span className="branch-down"></span>
             </div>
             <div className="text">
-              <h4>{xp.title}</h4>
+              <h4>{this.toBreakLine(xp.title)}</h4>
               <div id={xp.id}>{xp.description}</div>
             </div>
           </div>

@@ -26,13 +26,13 @@ export default abstract class ABiographyController<
     return "#" + ref;
   };
 
-  protected toBreakLine = (
-    args: string[] | String
-  ): JSX.Element[] | JSX.Element => {
-    if (args instanceof String) {
-      return <p>{args}</p>;
-    }
-
-    return args.map((arg) => <p>{arg}</p>);
+  protected toBreakLine = (args: String[]): JSX.Element => {
+    return (
+      <>
+        {args.map((arg) => (
+          <p>{arg}</p>
+        ))}
+      </>
+    );
   };
 }

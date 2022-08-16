@@ -46,7 +46,9 @@ export default class NavigationController extends ABiographyController<
             <div className="profile-text">
               <div className="img-box">
                 <img
-                  src={this.getPublicUrl("images/profile/like_robert_de_niro.png")}
+                  src={this.getPublicUrl(
+                    "images/profile/like_robert_de_niro.png"
+                  )}
                   alt="mjoe92"
                 />
               </div>
@@ -104,7 +106,7 @@ export default class NavigationController extends ABiographyController<
                 <h5>
                   {this.getTimeIntervalInFormat(xp.timeStart, xp.timeEnd)}
                 </h5>
-                <h4>{xp.title}</h4>
+                <h4>{this.toBreakLine(xp.title)}</h4>
                 <h4>{xp.employer}</h4>
               </div>
             </a>
@@ -130,7 +132,7 @@ export default class NavigationController extends ABiographyController<
                 <h5>
                   {this.getTimeIntervalInFormat(xp.timeStart, xp.timeEnd)}
                 </h5>
-                <h4>{xp.title}</h4>
+                <h4>{this.toBreakLine(xp.title)}</h4>
                 <h4>{xp.institution}</h4>
               </div>
             </a>
