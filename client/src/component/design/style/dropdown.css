@@ -1,0 +1,57 @@
+.trigger-button {
+  padding: 10px;
+  background: teal;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  width: 200px;
+}
+
+.dropdown-wrapper {
+  position: relative;
+  width: 200px;
+}
+
+.dropdown-wrapper .dropdown {
+  background: #fff;
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+ul {
+  background: #fff;
+  color: #000000;
+  list-style: none;
+  margin: 0;
+  font-size: 18px;
+  overflow: hidden;
+  height: 0px;
+  -webkit-transition: height 0.3s ease;
+  transition: height 0.3s ease;
+  padding: 0;
+}
+
+ul.active {
+  height: 100px;
+  overflow: auto;
+}
+
+li {
+  margin-bottom: 2px;
+}
+
+li:hover {
+  font-size: 19px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=dropdown.css.map */

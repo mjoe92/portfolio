@@ -24,20 +24,84 @@ export const experienceContent: IExperience[] = [
         </p>
         <ul>
           <p className="sub-title">Server (backend)</p>
-          <li>Oracle SQL DB</li>
-          <li>Java (Spring boot, Hibernate, JPA)</li>
-          <li>Git VCS</li>
+          <li>
+            <span id="oracleSql" className="highlight-point">
+              Oracle SQL
+            </span>
+          </li>
+          <li>
+            <span id="java" className="highlight-point">
+              Java
+            </span>
+            &nbsp; (
+            <span id="springBoot" className="highlight-point">
+              Spring boot
+            </span>
+            ,&nbsp;
+            <span id="hibernate" className="highlight-point">
+              Hibernate
+            </span>
+            ,&nbsp;
+            <span id="jpa" className="highlight-point">
+              JPA
+            </span>
+            )
+          </li>
+          <li>
+            <span id="git" className="highlight-point">
+              Git VCS
+            </span>
+          </li>
         </ul>
         <ul>
           <p className="sub-title">Client (frontend)</p>
-          <li>Java (FX)</li>
-          <li>(F)XML, HTML, CSS</li>
-          <li>Angular TS (WEB Client)</li>
+          <li>
+            <span id="javaFx" className="highlight-point">
+              Java (FX)
+            </span>
+          </li>
+          <li>
+            <span id="typescript" className="highlight-point">
+              Typescript
+            </span>
+          </li>
+          <li>
+            <span id="xml" className="highlight-point">
+              (F)XML
+            </span>
+            ,&nbsp;
+            <span id="html" className="highlight-point">
+              HTML
+            </span>
+            ,&nbsp;
+            <span id="css" className="highlight-point">
+              CSS
+            </span>
+          </li>
+          <li>
+            <span id="angular" className="highlight-point">
+              Angular
+            </span>
+          </li>
         </ul>
         <ul>
           <p className="sub-title">Soft skills</p>
           <li>Agile work (Scrum method)</li>
-          <li>Manager tools - Atlassian boards (Jira, Bitbucket, Bamboo)</li>
+          <li>
+            Manager tools - Atlassian boards (
+            <span id="jira" className="highlight-point">
+              Jira
+            </span>
+            ,&nbsp;
+            <span id="bitbucket" className="highlight-point">
+              Bitbucket
+            </span>
+            ,&nbsp;
+            <span id="bamboo" className="highlight-point">
+              Bamboo
+            </span>
+            )
+          </li>
         </ul>
       </>
     ),
@@ -52,11 +116,41 @@ export const experienceContent: IExperience[] = [
     description: (
       <>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quia
-          quas tenetur quibusdam facere veniam fugit repudiandae esse, nisi,
-          laudantium numquam facilis officiis animi mollitia quod! Qui ad
-          facilis libero!
+          I was involved only to a project related job, which was one of the
+          hungarian contribution branch of the scientific space industry (
+          <span id="esa" className="highlight-point">
+            ESA
+          </span>
+          ). They needed a mechanical engineer for planning a modularised&nbsp;
+          <span id="flow-chemical-device" className="highlight-point">
+            Flow Chemical Device
+          </span>
+          &nbsp;transported through a space shuttle on-board to the&nbsp;
+          <span id="iss" className="highlight-point">
+            ISS
+          </span>
+          .
         </p>
+        <ul>
+          <p className="sub-title">My duties were:</p>
+          <li>
+            Designing the mechanical controlling and flow system in&nbsp;
+            <span id="solidworks" className="highlight-point">
+              Solidworks
+            </span>
+            .
+          </li>
+          <li>
+            Preparing parts to&nbsp;
+            <span id="print3d" className="highlight-point">
+              3D printing
+            </span>
+            &nbsp;for local testing environment
+          </li>
+          <li>Negotiating with ESA members about distribution of 'workload'</li>
+        </ul>
+        {/** reason I left: very lack of support was given by this company,
+         * including sotfware and manifacture infrstructure to accomplish with an important care */}
       </>
     ),
     field: Field.E,
@@ -71,8 +165,8 @@ export const experienceContent: IExperience[] = [
       <>
         <p>
           Most of the time I dealt with products series so far, but this company
-          specialized for very special individual devices under radioaktive
-          radiation. These are called&nbsp;
+          specialized for very special individual devices which work under
+          radioaktive radiation. These are called&nbsp;
           <span id="neutron-scattering-device" className="highlight-point">
             Neutron Scattering Devices
           </span>
@@ -85,16 +179,27 @@ export const experienceContent: IExperience[] = [
         <ul>
           <p className="sub-title">My duties were:</p>
           <li>
-            <span className="bulletpoint">as a</span> Construction Designer,
+            <span className="bulletpoint">as a</span>&nbsp;
+            <span className="bold-italic">Construction Designer</span>,
             &nbsp;planning&nbsp;
             <span id="scattering-device" className="highlight-point">
               scattering devices
               {/** beam-guides, chopper, shutter - explanation about steel structures under vacuum */}
             </span>
-            &nbsp;in stressing, forming and coordinating construction.
+            , reforming shapes along&nbsp;
+            <span id="finite-element-method" className="highlight-point">
+              stress analyzer
+            </span>
+            &nbsp;checking in&nbsp;
+            <span id="solidworks" className="highlight-point">
+              Solidworks
+            </span>
+            , and coordinating construction.
           </li>
           <li>
-            <span className="bulletpoint">as a</span> Device Assembler,&nbsp;
+            <span className="bulletpoint">as a</span>&nbsp;
+            <span className="bold-italic">Device Assembler</span>
+            ,&nbsp;
             <span id="precise set-up" className="highlight-point">
               precise set-up
               {/** teodolit, mitutoyo coo. machine -> link to picture in net */}
@@ -107,10 +212,12 @@ export const experienceContent: IExperience[] = [
             &nbsp;into product.
           </li>
           <li>
-            <span className="bulletpoint">as a</span> Device Installer,
+            <span className="bulletpoint">as a</span>&nbsp;
+            <span className="bold-italic">Device Installer</span>, meaning by
+            on-site building with preciese alignment.
           </li>
         </ul>
-        {/** show reason why moving on */}
+        {/** show reason why moving on: lost job during COVID-19 */}
       </>
     ),
     field: Field.M,
@@ -154,7 +261,7 @@ export const experienceContent: IExperience[] = [
           </li>
           <li>Making macros in Excel VBA</li> {/** translator in form */}
         </ul>
-        {/** show reason why moving on: end of agreement */}
+        {/** show reason why moving on: end of agreement, no need more construction engineers */}
       </>
     ),
     field: Field.M,
@@ -258,6 +365,7 @@ export const experienceContent: IExperience[] = [
           programming which also increased mine and others administrative
           work-flow.
         </p>
+        {/** reason I left: no chance to take me as a full time welding engineer */}
       </>
     ),
     field: Field.E,

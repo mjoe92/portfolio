@@ -20,14 +20,27 @@ ul .sub-title {
 
 ul li {
   padding-left: 0.5rem;
-}
-
-#ganz ul li {
   padding-bottom: 6px;
   font-style: italic;
 }
 
-#ganz ul li:first-letter {
+#ganz ul li, #cg ul li, #innostudio ul li {
+  padding-bottom: 6px;
+  font-style: italic;
+}
+
+#ganz ul li:first-letter, #cg ul li:first-letter, #innostudio ul li:first-letter {
+  font-weight: 800;
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+#mirrotron ul li {
+  padding-bottom: 6px;
+  font-style: italic;
+}
+
+#mirrotron ul .bold-italic {
   font-weight: 800;
   font-size: 20px;
   opacity: 0.8;
