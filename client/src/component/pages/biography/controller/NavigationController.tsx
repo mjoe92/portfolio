@@ -79,7 +79,7 @@ export default class NavigationController extends ABiographyController<
         <div className="contacts">
           {this.state.contactList.map((contact) => (
             <SvgReactIcon
-              //id={contact}
+              key={contact.id}
               icons={[contact.icon]}
               description={contact.text}
               startWithIcon={true}

@@ -28,6 +28,8 @@ $detail-title-color: $content-bright-color
 $detail-xp-color: $content-dark-color
 $detail-date-color: $content-middle-contrast-color
 
+$detail-card-title-color: rgba($detail-xp-color, 0.6)
+
 body
 	background-image: none
 	opacity: 0.9
@@ -293,10 +295,23 @@ body
 
 								h4
 									text-transform: uppercase
-									color: rgba($detail-xp-color, 0.6)
+									color: $detail-card-title-color
 									font-weight: 800
 									font-size: $detail-left-font-size
 									margin-bottom: 16px
+									cursor: pointer
+
+									p
+										color: $detail-card-title-color
+
+								div
+									height: 0
+									transition: height 0.3s ease
+									overflow: hidden
+
+								.active
+									height: fit-content
+									overflow: auto
 
 						.card:last-child
 							.branch-down
@@ -382,8 +397,7 @@ body
 					.about
 						.info
 							.card
-								direction: column
-								flex-wrap: wrap
+								display: block
 
 								.text
 									border-bottom: 2px solid $background-dark-color

@@ -1,4 +1,6 @@
+import { Component } from "react";
 import SvgReactIcon from "../../../design/SvgReactIcon";
+import AbstractIHistory from "../content/AIHistory";
 import IEducation, { educationContent } from "../content/IEducation";
 import IExperience, { experienceContent } from "../content/IExperience";
 import IInterest, { interestContent } from "../content/IInterest";
@@ -59,7 +61,7 @@ export default class DetailController extends ABiographyController<
     return (
       <div className="info">
         <h2 className="title">{this.state.profile.name}</h2>
-        <p>{this.state.profile.description}</p>
+        {this.state.profile.description}
       </div>
     );
   }
@@ -73,24 +75,16 @@ export default class DetailController extends ABiographyController<
       <div className="info">
         <h2 className="title">Experience</h2>
         {this.state.jobList.map((xp) => (
-          <div className="card">
-            <span id={xp.id + "-detail"} className="anchor-jump"></span>
-            <div className="branch">
-              <span className="branch-up"></span>
-              <a href={this.createRef(xp.id + "-navigation")}>
-                <span className="rounder"></span>
-              </a>
-              <span className="branch-down"></span>
-            </div>
-            <div id={xp.id} className="date-company card-right">
-              <h5>{this.getTimeIntervalInFormat(xp.timeStart, xp.timeEnd)}</h5>
-              <h5>{xp.employer}</h5>
-            </div>
-            <div className="text card-right">
-              <h4>{this.toBreakLine(xp.title)}</h4>
-              <div id={xp.id}>{xp.description}</div>
-            </div>
-          </div>
+          <Card
+            history={xp}
+            place={xp.employer}
+            ref={this.createRef(xp.id + "-navigation")}
+            timeInterval={this.getTimeIntervalInFormat(
+              xp.timeStart,
+              xp.timeEnd
+            )}
+            xpNames={this.toBreakLine(xp.title)}
+          />
         ))}
       </div>
     );
@@ -105,24 +99,16 @@ export default class DetailController extends ABiographyController<
       <div className="info">
         <h2 className="title">Education</h2>
         {this.state.educationList.map((xp) => (
-          <div className="card">
-            <span id={xp.id + "-detail"} className="anchor-jump"></span>
-            <div id={xp.id} className="date-company">
-              <h5>{this.getTimeIntervalInFormat(xp.timeStart, xp.timeEnd)}</h5>
-              <h5>{xp.institution}</h5>
-            </div>
-            <div className="branch">
-              <span className="branch-up"></span>
-              <a href={this.createRef(xp.id + "-navigation")}>
-                <span className="rounder"></span>
-              </a>
-              <span className="branch-down"></span>
-            </div>
-            <div className="text">
-              <h4>{this.toBreakLine(xp.title)}</h4>
-              <div id={xp.id}>{xp.description}</div>
-            </div>
-          </div>
+          <Card
+            history={xp}
+            place={xp.institution}
+            ref={this.createRef(xp.id + "-navigation")}
+            timeInterval={this.getTimeIntervalInFormat(
+              xp.timeStart,
+              xp.timeEnd
+            )}
+            xpNames={this.toBreakLine(xp.title)}
+          />
         ))}
       </div>
     );
@@ -159,9 +145,71 @@ export default class DetailController extends ABiographyController<
         <div className="xp-s">
           {this.state.interestList.map((xp) => (
             <div className="xp">
-              <SvgReactIcon icons={xp.icons} description={<h4>{xp.name}</h4>} />
+              <SvgReactIcon
+                key={xp.name}
+                icons={xp.icons}
+                description={<h4>{xp.name}</h4>}
+              />
             </div>
           ))}
+        </div>
+      </div>
+    );
+  }
+}
+
+interface ICardProps {
+  history: AbstractIHistory;
+  place: string;
+  timeInterval: string;
+  ref: string;
+  xpNames: JSX.Element;
+}
+
+interface ICardState {
+  showDropdown: boolean;
+}
+
+export class Card extends Component<ICardProps, ICardState> {
+  constructor(props: ICardProps) {
+    super(props);
+
+    this.state = {
+      showDropdown: false,
+    };
+  }
+
+  render() {
+    return (
+      <div className="card">
+        <span
+          id={this.props.history.id + "-detail"}
+          className="anchor-jump"
+        ></span>
+        <div id={this.props.history.id} className="date-company">
+          <h5>{this.props.timeInterval}</h5>
+          <h5>{this.props.place}</h5>
+        </div>
+        <div className="branch">
+          <span className="branch-up"></span>
+          <a href={this.props.ref}>
+            <span
+              className="rounder"
+              onClick={() =>
+                this.setState({ showDropdown: !this.state.showDropdown })
+              }
+            ></span>
+          </a>
+          <span className="branch-down"></span>
+        </div>
+        <div className="text">
+          <h4>{this.props.xpNames}</h4>
+          <div
+            id={this.props.history.id}
+            className={this.state.showDropdown ? "active" : undefined}
+          >
+            {this.props.history.description}
+          </div>
         </div>
       </div>
     );

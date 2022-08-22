@@ -386,6 +386,25 @@ body {
   font-weight: 800;
   font-size: 16px;
   margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.controller .container .detail .scroll .about .info .card .text h4 p {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.controller .container .detail .scroll .about .info .card .text div {
+  height: 0;
+  -webkit-transition: height 0.3s ease;
+  transition: height 0.3s ease;
+  overflow: hidden;
+}
+
+.controller .container .detail .scroll .about .info .card .text .active {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: auto;
 }
 
 .controller .container .detail .scroll .about .info .card:last-child .branch-down {
@@ -488,9 +507,7 @@ body {
 
 @media (max-width: 1000px) {
   .controller .container .detail .scroll .about .info .card {
-    direction: column;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    display: block;
   }
   .controller .container .detail .scroll .about .info .card .text {
     border-bottom: 2px solid #000000;

@@ -14,13 +14,75 @@ export const educationContent: IEducation[] = [
     timeEnd: new Date(2021, 8),
     description: (
       <>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum."
+        <p>
+          As an extension of the&nbsp;
+          <a href="#codecool1-detail">Java Backend Developer course</a>, gives
+          an advanced inside to the Java EE platform.
+        </p>
+        <ul>
+          <p className="sub-title">Stack subjects:</p>
+          <li>
+            <span id="java" className="highlight-point">
+              Java with Frameworks and Plugins (
+              <span id="springBoot" className="highlight-point">
+                Spring Boot
+              </span>
+              ,&nbsp;
+              <span id="thymeleaf" className="highlight-point">
+                Thymeleaf
+              </span>
+              ,&nbsp;
+              <span id="jpa" className="highlight-point">
+                JPA
+              </span>
+              ,&nbsp;
+              <span id="hibernate" className="highlight-point">
+                Hibernate
+              </span>
+              ,&nbsp;
+              <span id="httpClient" className="highlight-point">
+                HTTP Client
+              </span>
+            </span>
+            )
+          </li>
+          <li>
+            <span id="html" className="highlight-point">
+              HTML
+            </span>
+            ,&nbsp;
+            <span id="css" className="highlight-point">
+              CSS (
+              <span id="sass" className="highlight-point">
+                SASS
+              </span>
+              )
+            </span>
+          </li>
+          <li>
+            <span id="postgres" className="highlight-point">
+              PostgreSQL
+            </span>
+            ,&nbsp;
+            <span id="mysql" className="highlight-point">
+              MySQL
+            </span>
+          </li>
+          <li>
+            <span id="docker" className="highlight-point">
+              Docker
+            </span>
+            &nbsp;(with&nbsp;
+            <span id="kubernetes" className="highlight-point">
+              Kubernetes
+            </span>
+            &nbsp;to&nbsp;
+            <span id="heroku" className="highlight-point">
+              Heroku platform
+            </span>
+            )
+          </li>
+        </ul>
       </>
     ),
     field: Field.P,
@@ -33,19 +95,52 @@ export const educationContent: IEducation[] = [
     timeEnd: new Date(2021, 2),
     description: (
       <>
-        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
-        illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-        explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-        odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-        voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum
-        quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
-        eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-        voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam
-        corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
-        Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
-        quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
-        voluptas nulla pariatur?"
+        <p>
+          During the COVID-19, my aim was very clear after I lost my&nbsp;
+          <span id="mirrotron" className="highlight-point">
+            job
+          </span>
+          : become a successful programmer. Thanks to the&nbsp;
+          <span id="governmentAid" className="highlight-point">
+            government's supporting aid{/** Újratervezés Program */}
+          </span>
+          , I was able to learn&nbsp;
+          <span id="javaBackend" className="highlight-point">
+            Java Backend
+            {/** https://ujratervezes.nive.hu/kepzesek/java-backend-fejleszto */}
+          </span>
+          &nbsp;completely free in the&nbsp;
+          <span id="codecool" className="highlight-point">
+            bootcamp
+          </span>
+          .
+        </p>
+        <ul>
+          <p className="sub-title">Stack subjects:</p>
+          <li>
+            <span id="java" className="highlight-point">
+              Java (with&nbsp;
+              <span id="javaFx" className="highlight-point">
+                FX
+              </span>
+              )
+            </span>
+          </li>
+          <li>
+            <span id="postgres" className="highlight-point">
+              PostgreSQL
+            </span>
+          </li>
+          <li>
+            <span id="git" className="highlight-point">
+              Git VCS&nbsp;(with&nbsp;
+              <span id="github" className="highlight-point">
+                GitHub
+              </span>
+              &nbsp;profile)
+            </span>
+          </li>
+        </ul>
       </>
     ),
     field: Field.P,
@@ -58,9 +153,25 @@ export const educationContent: IEducation[] = [
     timeEnd: new Date(2019, 0),
     description: (
       <>
-        "But I must explain to you how all this mistaken idea of denouncing
-        pleasure and praising pain was born and I will give you a complete
-        account of the system."
+        Looking for another challenge to study both mechanical engineering and
+        programming, I took another orientation to enlarge my knowledge
+        about&nbsp;
+        <span id="microcontroller" className="highlight-point">
+          microcontrollers
+        </span>
+        ,&nbsp;
+        <span id="proximitySensor" className="highlight-point">
+          proximity sensors
+        </span>
+        ,&nbsp;
+        <span id="optimalisationMethod" className="highlight-point">
+          optimalisational methods
+        </span>
+        &nbsp;and&nbsp;
+        <span id="regulationMechanism" className="highlight-point">
+          regulation mechanism
+        </span>
+        .{/** link to show list of subjects */}
       </>
     ),
     field: Field.E,
@@ -73,11 +184,24 @@ export const educationContent: IEducation[] = [
     timeEnd: new Date(2016, 7),
     description: (
       <>
-        "At vero eos et accusamus et iusto odio dignissimos ducimus qui
-        blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-        et quas molestias excepturi sint occaecati cupiditate non provident,
-        similique sunt in culpa qui officia deserunt mollitia animi, id est
-        laborum et dolorum fuga."
+        My interest in the&nbsp;
+        <span id="cnc" className="highlight-point">
+          CNC
+        </span>
+        &nbsp;field continued to spread towards workstations to&nbsp;
+        <span id="moreAxis" className="highlight-point">
+          more than 3-axis
+        </span>
+        &nbsp;tool controlling. This required another development aproach also
+        in the&nbsp;
+        <span id="cad" className="highlight-point">
+          CAD
+        </span>
+        &nbsp;and&nbsp;
+        <span id="cam" className="highlight-point">
+          CAM
+        </span>
+        &nbsp;field.
       </>
     ),
     field: Field.M,
@@ -90,10 +214,36 @@ export const educationContent: IEducation[] = [
     timeEnd: new Date(2015, 10),
     description: (
       <>
-        "On the other hand, we denounce with righteous indignation and dislike
-        men who are so beguiled and demoralized by the charms of pleasure of the
-        moment, so blinded by desire, that they cannot foresee the pain and
-        trouble that are bound to ensue."
+        Extending my interests about&nbsp;
+        <span id="cnc" className="highlight-point">
+          CNC
+        </span>
+        &nbsp;programming and manufacture, I took a&nbsp;
+        <span id="nqr" className="highlight-point">
+          NQR{/** National (Hungarian) Qualifications Register, OKJ képzés */}
+        </span>
+        &nbsp;course in&nbsp;
+        <span id="cad" className="highlight-point">
+          CAD
+        </span>
+        ,&nbsp;
+        <span id="cam" className="highlight-point">
+          CAM
+        </span>
+        &nbsp;and&nbsp;
+        <span id="cnc" className="highlight-point">
+          CNC
+        </span>
+        &nbsp;technology. This gave me basics of understanding raw material
+        handling, controlling&nbsp;
+        <span id="cncMachine" className="highlight-point">
+          3-axis CNC machines{/** turning and milling machines */}
+        </span>
+        &nbsp;and making tool guiding&nbsp;
+        <span id="gCode" className="highlight-point">
+          programs
+        </span>
+        .
       </>
     ),
     field: Field.M,
@@ -106,8 +256,23 @@ export const educationContent: IEducation[] = [
     timeEnd: new Date(2016, 5),
     description: (
       <>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua."
+        Studying basics with&nbsp;
+        <span id="mechanicalDevelopment" className="highlight-point">
+          Mechanical Development
+        </span>
+        &nbsp;specialisation. My preferred subjects were&nbsp;
+        <span id="cncAutomation" className="highlight-point">
+          CNC automation
+        </span>
+        , Mathematics, Basics of Programming,&nbsp;
+        <span id="acoustic" className="highlight-point">
+          Technical Acoustics and Noise Control
+        </span>
+        ,&nbsp;
+        <span id="cad" className="highlight-point">
+          CAD designing
+        </span>
+        .{/** link to show list of subjects */}
       </>
     ),
     field: Field.E,

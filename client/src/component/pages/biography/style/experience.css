@@ -6,6 +6,10 @@ h4 p {
   margin-bottom: 8px;
 }
 
+p a {
+  color: #383838;
+}
+
 ul {
   list-style-type: none;
   padding-left: 0.5rem;

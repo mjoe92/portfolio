@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface Props {
   icons: IconDefinition[];
+  key: string;
   iconClassName?: string;
   textClassName?: string;
   description?: JSX.Element;
@@ -23,7 +24,13 @@ export default function SvgReactIcon(props: Props): JSX.Element {
   let result: JSX.Element = (
     <div className="svg-icon-box">
       {props.icons.map((image) => {
-        return <FontAwesomeIcon className={iconClassName} icon={image} />;
+        return (
+          <FontAwesomeIcon
+            key={image.iconName.toString()}
+            className={iconClassName}
+            icon={image}
+          />
+        );
       })}
     </div>
   );

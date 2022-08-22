@@ -1,9 +1,6 @@
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { FC, useState } from "react";
-import {
-  Container,
-  Navbar,
-} from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
 import { EPageFragment } from "../../../router/EPageFragment";
 import SvgReactIcon from "../../design/SvgReactIcon";
 import "../style/semantic.css";
@@ -27,28 +24,31 @@ export const Header: FC = () => {
     //const navDropdownTitle = <Glyphicon glyph="star"> Dropdown </Glyphicon>;
     return (
       <Navbar.Brand href={EPageFragment.HOME} onSubmit={handleClick}>
-        <SvgReactIcon icons={[faHouse]} />
+        <SvgReactIcon key={"homePage"} icons={[faHouse]} />
       </Navbar.Brand>
     );
   };
 
   const renderPageGroups = (): JSX.Element => {
-    return <Navbar.Collapse id="navbar" className="navbar">{
-      navLinks.map((link) => (
-      <LeftNavItem
-        id={link.id}
-        items={link.pages}
-        expo={link.expo}
-        title={link.title}
-        disabled={isDisabled(link)}
-      />
-    ))
-    }</Navbar.Collapse>
+    return (
+      <Navbar.Collapse id="navbar" className="navbar">
+        {navLinks.map((link) => (
+          <LeftNavItem
+            id={link.id}
+            key={link.id}
+            items={link.pages}
+            expo={link.expo}
+            title={link.title}
+            disabled={isDisabled(link)}
+          />
+        ))}
+      </Navbar.Collapse>
+    );
   };
 
   const handleClick = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();
-  }
+  };
 
   return (
     <header className="navbar-fixed-top">

@@ -4,6 +4,7 @@ import { IPage } from "./specification/ILink";
 
 interface IProps {
   id: string;
+  key: string;
   title: string;
   expo: string;
   disabled?: boolean;
@@ -12,6 +13,7 @@ interface IProps {
 
 export const LeftNavItem: FC<IProps> = ({
   id,
+  key,
   title,
   expo,
   items,
@@ -26,7 +28,8 @@ export const LeftNavItem: FC<IProps> = ({
           href={ref}
           disabled={isDisabled(item)}
           className="navDropItem"
-          onChange={handleClick}>
+          onChange={handleClick}
+        >
           {item.name}
         </NavDropdown.Item>
       );
@@ -35,7 +38,7 @@ export const LeftNavItem: FC<IProps> = ({
 
   const handleClick = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();
-  }
+  };
 
   const isDisabled = (page: IPage): boolean => {
     return page.disabled === null || page.disabled === undefined
@@ -47,6 +50,7 @@ export const LeftNavItem: FC<IProps> = ({
     return expo.toLowerCase().replace(" ", "-");
   };
 
+  //later...
   const getTitleWithIniciale = (title: string): JSX.Element => {
     const firstLetter: string = title[0];
     const restStr: string = title.slice(1);
@@ -65,10 +69,12 @@ export const LeftNavItem: FC<IProps> = ({
     <NavDropdown
       align="end"
       id={id + "NavItem"}
+      key={key}
       title={title}
       menuVariant="dark"
       disabled={disabled}
-      onChange={handleClick}>
+      onChange={handleClick}
+    >
       <NavDropdown.Item key={expo} href={makeUrl(expo)}>
         {expo}
       </NavDropdown.Item>

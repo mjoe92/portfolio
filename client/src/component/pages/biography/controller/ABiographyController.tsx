@@ -26,7 +26,11 @@ export default abstract class ABiographyController<
     return "#" + ref;
   };
 
-  protected toBreakLine = (args: String[]): JSX.Element => {
+  protected toBreakLine = (args: string[]): JSX.Element => {
+    if (args.length === 1) {
+      return <>{args[0]}</>;
+    }
+
     return (
       <>
         {args.map((arg) => (
