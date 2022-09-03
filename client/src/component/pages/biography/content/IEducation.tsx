@@ -1,7 +1,7 @@
-import AbstractIHistory from "./AIHistory";
+import { AbstractIDetailedHistory } from "./AbstractIHistory";
 import { Field } from "./EField";
 
-export default interface IEducation extends AbstractIHistory {
+export default interface IEducation extends AbstractIDetailedHistory {
   institution: string;
 }
 

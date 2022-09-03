@@ -112,6 +112,7 @@ body
 
 						.title
 							font-size: 18px
+							cursor: pointer
 
 						.contacts
 							position: relative
@@ -124,6 +125,7 @@ body
 								list-style: none
 								cursor: pointer
 								font-size: $navigation-text-size
+								margin-bottom: 18px
 
 								.svg-icon-box
 									display: inline
@@ -132,10 +134,13 @@ body
 									color: $navigation-icon-color
 									padding-right: 10px
 
-								.text-box
+								.text-box, .text-box>p, .text-box>a>p
 									display: inline
 									color: $navigation-default-text-color
 									font-weight: 300
+
+							.svg-extended-icon:last-child
+								margin-bottom: 0
 
 					.title
 						color: $navigation-default-text-color
@@ -147,6 +152,9 @@ body
 					.education, .experience
 						.xp-s
 							padding-left: 0
+							max-height: 0
+							transition: max-height 0.3s
+							overflow: hidden
 
 							.xp:hover
 								cursor: pointer
@@ -172,6 +180,10 @@ body
 									color: $navigation-default-text-color
 									font-weight: 300
 									font-size: $navigation-text-size
+
+						.xp-s.show-dropdown
+							max-height: fit-content
+							transition: max-height 1s
 
 					.navigation-point.language
 						.text
@@ -245,6 +257,11 @@ body
 							margin: 20px 0
 							border: none
 
+							.text
+								.show-dropdown
+									p:last-child, ul:last-child, div:last-child
+										margin-bottom: 0
+
 							.date-company
 								max-width: $detail-left-min-width
 								min-width: $detail-left-min-width
@@ -277,11 +294,14 @@ body
 									border: 3px solid $detail-date-color
 									margin-top: 0
 
-								.rounder:hover
+								.rounder.active, .rounder:hover
 									background-color: rgba($detail-xp-color, 0.3)
 
 								.rounder:active
 									background-color: $detail-xp-color
+
+								.rounder.active:hover
+									background-color: $navigation-default-text-color
 
 								.branch-down
 									display: block
@@ -299,19 +319,18 @@ body
 									font-weight: 800
 									font-size: $detail-left-font-size
 									margin-bottom: 16px
-									cursor: pointer
 
 									p
 										color: $detail-card-title-color
 
 								div
-									height: 0
-									transition: height 0.3s ease
+									max-height: 0
+									transition: max-height 0.3s
 									overflow: hidden
 
-								.active
-									height: fit-content
-									overflow: auto
+								div.show-dropdown
+									max-height: fit-content
+									transition: max-height 1s
 
 						.card:last-child
 							.branch-down
@@ -397,10 +416,14 @@ body
 					.about
 						.info
 							.card
-								display: block
+								display: grid
 
 								.text
 									border-bottom: 2px solid $background-dark-color
+									padding-bottom: 8px
+
+									h4
+										cursor: pointer
 
 								.branch
 									display: none

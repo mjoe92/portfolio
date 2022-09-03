@@ -1,6 +1,6 @@
 import { Component } from "react";
 import SvgReactIcon from "../../../design/SvgReactIcon";
-import AbstractIHistory from "../content/AIHistory";
+import { AbstractIDetailedHistory } from "../content/AbstractIHistory";
 import IEducation, { educationContent } from "../content/IEducation";
 import IExperience, { experienceContent } from "../content/IExperience";
 import IInterest, { interestContent } from "../content/IInterest";
@@ -78,7 +78,7 @@ export default class DetailController extends ABiographyController<
           <Card
             history={xp}
             place={xp.employer}
-            ref={this.createRef(xp.id + "-navigation")}
+            reference={this.createRef(xp.id + "-navigation")}
             timeInterval={this.getTimeIntervalInFormat(
               xp.timeStart,
               xp.timeEnd
@@ -102,7 +102,7 @@ export default class DetailController extends ABiographyController<
           <Card
             history={xp}
             place={xp.institution}
-            ref={this.createRef(xp.id + "-navigation")}
+            reference={this.createRef(xp.id + "-navigation")}
             timeInterval={this.getTimeIntervalInFormat(
               xp.timeStart,
               xp.timeEnd
@@ -159,10 +159,10 @@ export default class DetailController extends ABiographyController<
 }
 
 interface ICardProps {
-  history: AbstractIHistory;
+  history: AbstractIDetailedHistory;
   place: string;
   timeInterval: string;
-  ref: string;
+  reference: string;
   xpNames: JSX.Element;
 }
 
@@ -192,9 +192,9 @@ export class Card extends Component<ICardProps, ICardState> {
         </div>
         <div className="branch">
           <span className="branch-up"></span>
-          <a href={this.props.ref}>
+          <a href={this.props.reference}>
             <span
-              className="rounder"
+              className={this.state.showDropdown ? "rounder active" : "rounder"}
               onClick={() =>
                 this.setState({ showDropdown: !this.state.showDropdown })
               }
@@ -203,15 +203,27 @@ export class Card extends Component<ICardProps, ICardState> {
           <span className="branch-down"></span>
         </div>
         <div className="text">
-          <h4>{this.props.xpNames}</h4>
+          <h4 onClick={() => this.handleDropdownShrunk()}>
+            {this.props.xpNames}
+          </h4>
           <div
             id={this.props.history.id}
-            className={this.state.showDropdown ? "active" : undefined}
+            className={this.state.showDropdown ? "show-dropdown" : undefined}
           >
             {this.props.history.description}
           </div>
         </div>
       </div>
     );
+  }
+
+  private handleDropdownShrunk(): void {
+    let windowWidth = window.innerWidth;
+
+    if (windowWidth > 1000) {
+      return;
+    }
+
+    return this.setState({ showDropdown: !this.state.showDropdown });
   }
 }

@@ -1,4 +1,6 @@
+import { Component } from "react";
 import SvgReactIcon from "../../../design/SvgReactIcon";
+import { AbstractIBaseHistory } from "../content/AbstractIHistory";
 import { Level } from "../content/ELevel";
 import IContact, { contactNavigation } from "../content/IContact";
 import IEducation, { educationContent } from "../content/IEducation";
@@ -19,6 +21,8 @@ interface IState {
   skillList?: ISkill[];
   interestList?: IInterest[];
   contactList?: IContact[];
+  showExperienceDropdown: boolean;
+  showEducationDropdown: boolean;
 }
 
 export default class NavigationController extends ABiographyController<
@@ -35,6 +39,8 @@ export default class NavigationController extends ABiographyController<
       languageList: languageContent,
       interestList: interestContent,
       skillList: skillContent,
+      showExperienceDropdown: true,
+      showEducationDropdown: true,
     };
   }
 
@@ -97,23 +103,38 @@ export default class NavigationController extends ABiographyController<
 
     return (
       <div className="navigation-point experience">
-        <h3 className="title">Experience</h3>
-        <div className="xp-s">
+        <h3
+          onClick={() => this.handleExperienceDropdownShrunk()}
+          className="title"
+        >
+          Experience
+        </h3>
+        <div
+          className={
+            this.state.showExperienceDropdown ? "xp-s show-dropdown" : "xp-s"
+          }
+        >
           {this.state.jobList.map((xp) => (
-            <a href={this.createRef(xp.id + "-detail")}>
-              <span id={xp.id + "-navigation"} className="anchor-jump"></span>
-              <div className="xp">
-                <h5>
-                  {this.getTimeIntervalInFormat(xp.timeStart, xp.timeEnd)}
-                </h5>
-                <h4>{this.toBreakLine(xp.title)}</h4>
-                <h4>{xp.employer}</h4>
-              </div>
-            </a>
+            <Card
+              id={xp.id + "-navigation"}
+              place={xp.employer}
+              timeInterval={this.getTimeIntervalInFormat(
+                xp.timeStart,
+                xp.timeEnd
+              )}
+              reference={this.createRef(xp.id + "-detail")}
+              xpNames={this.toBreakLine(xp.title)}
+            />
           ))}
         </div>
       </div>
     );
+  }
+
+  private handleExperienceDropdownShrunk(): void {
+    return this.setState({
+      showExperienceDropdown: !this.state.showExperienceDropdown,
+    });
   }
 
   private renderEducationNavigation(): JSX.Element {
@@ -123,23 +144,38 @@ export default class NavigationController extends ABiographyController<
 
     return (
       <div className="navigation-point education">
-        <h3 className="title">Education</h3>
-        <div className="xp-s">
+        <h3
+          onClick={() => this.handleEducationDropdownShrunk()}
+          className="title"
+        >
+          Education
+        </h3>
+        <div
+          className={
+            this.state.showEducationDropdown ? "xp-s show-dropdown" : "xp-s"
+          }
+        >
           {this.state.educationList.map((xp) => (
-            <a href={this.createRef(xp.id + "-detail")}>
-              <span id={xp.id + "-navigation"} className="anchor-jump"></span>
-              <div className="xp">
-                <h5>
-                  {this.getTimeIntervalInFormat(xp.timeStart, xp.timeEnd)}
-                </h5>
-                <h4>{this.toBreakLine(xp.title)}</h4>
-                <h4>{xp.institution}</h4>
-              </div>
-            </a>
+            <Card
+              id={xp.id + "-navigation"}
+              place={xp.institution}
+              timeInterval={this.getTimeIntervalInFormat(
+                xp.timeStart,
+                xp.timeEnd
+              )}
+              reference={this.createRef(xp.id + "-detail")}
+              xpNames={this.toBreakLine(xp.title)}
+            />
           ))}
         </div>
       </div>
     );
+  }
+
+  private handleEducationDropdownShrunk(): void {
+    return this.setState({
+      showEducationDropdown: !this.state.showEducationDropdown,
+    });
   }
 
   private renderLanguageNavigation(): JSX.Element {
@@ -219,5 +255,34 @@ export default class NavigationController extends ABiographyController<
     const slash = url[0] === "/" ? "" : "/";
 
     return process.env.PUBLIC_URL + slash + url;
+  }
+}
+
+interface ICardProps {
+  id: string;
+  place: string;
+  timeInterval: string;
+  reference: string;
+  xpNames: JSX.Element;
+}
+
+interface ICardState {}
+
+export class Card extends Component<ICardProps, ICardState> {
+  constructor(props: ICardProps) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <a href={this.props.reference}>
+        <span id={this.props.id + "-navigation"} className="anchor-jump"></span>
+        <div className="xp">
+          <h5>{this.props.timeInterval}</h5>
+          <h4>{this.props.xpNames}</h4>
+          <h4>{this.props.place}</h4>
+        </div>
+      </a>
+    );
   }
 }

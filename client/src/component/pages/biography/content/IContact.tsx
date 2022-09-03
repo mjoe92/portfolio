@@ -22,7 +22,11 @@ export const contactNavigation: IContact[] = [
   {
     id: "e-mail",
     icon: faEnvelope,
-    text: <p>djcsurgai@gmail.com</p>,
+    text: (
+      <a href="mailto:djcsurgai@gmail.com?subject=Nice Title&amp;body=Hey Joe,">
+        <p>djcsurgai@gmail.com</p>
+      </a>
+    ),
   },
   {
     id: "webpage",

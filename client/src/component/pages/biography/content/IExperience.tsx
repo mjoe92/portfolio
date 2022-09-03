@@ -1,9 +1,9 @@
-import AbstractIHistory from "./AIHistory";
+import { AbstractIDetailedHistory } from "./AbstractIHistory";
 import { Field } from "./EField";
 
 import "../style/experience.css";
 
-export default interface IExperience extends AbstractIHistory {
+export default interface IExperience extends AbstractIDetailedHistory {
   employer: string;
 }
 
