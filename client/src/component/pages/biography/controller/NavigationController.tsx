@@ -107,7 +107,7 @@ export default class NavigationController extends ABiographyController<
           onClick={() => this.handleExperienceDropdownShrunk()}
           className="title"
         >
-          Experience
+          Job Experience
         </h3>
         <div
           className={
@@ -116,7 +116,7 @@ export default class NavigationController extends ABiographyController<
         >
           {this.state.jobList.map((xp) => (
             <Card
-              id={xp.id + "-navigation"}
+              id={xp.id}
               place={xp.employer}
               timeInterval={this.getTimeIntervalInFormat(
                 xp.timeStart,
@@ -157,7 +157,7 @@ export default class NavigationController extends ABiographyController<
         >
           {this.state.educationList.map((xp) => (
             <Card
-              id={xp.id + "-navigation"}
+              id={xp.id}
               place={xp.institution}
               timeInterval={this.getTimeIntervalInFormat(
                 xp.timeStart,

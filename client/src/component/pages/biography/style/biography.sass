@@ -118,8 +118,7 @@ body
 							position: relative
 
 							.svg-extended-icon
-								width: 100%
-								display: inline-flex
+								display: block
 								padding-left: 10px
 								position: relative
 								list-style: none
@@ -129,10 +128,12 @@ body
 
 								.svg-icon-box
 									display: inline
-									width: 30px
 									font-size: $navigation-text-size
 									color: $navigation-icon-color
 									padding-right: 10px
+
+									svg
+										width: 20px
 
 								.text-box, .text-box>p, .text-box>a>p
 									display: inline
@@ -325,12 +326,10 @@ body
 
 								div
 									max-height: 0
-									transition: max-height 0.3s
-									overflow: hidden
+									overflow-y: hidden
 
 								div.show-dropdown
 									max-height: fit-content
-									transition: max-height 1s
 
 						.card:last-child
 							.branch-down

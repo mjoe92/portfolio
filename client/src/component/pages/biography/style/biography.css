@@ -162,10 +162,7 @@ body {
 }
 
 .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon {
-  width: 100%;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: block;
   padding-left: 10px;
   position: relative;
   list-style: none;
@@ -176,10 +173,13 @@ body {
 
 .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .svg-icon-box {
   display: inline;
-  width: 30px;
   font-size: 16px;
   color: #000000;
   padding-right: 10px;
+}
+
+.controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .svg-icon-box svg {
+  width: 20px;
 }
 
 .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box, .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > p, .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > a > p {
@@ -420,17 +420,13 @@ body {
 
 .controller .container .detail .scroll .about .info .card .text div {
   max-height: 0;
-  -webkit-transition: max-height 0.3s;
-  transition: max-height 0.3s;
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 .controller .container .detail .scroll .about .info .card .text div.show-dropdown {
   max-height: -webkit-fit-content;
   max-height: -moz-fit-content;
   max-height: fit-content;
-  -webkit-transition: max-height 1s;
-  transition: max-height 1s;
 }
 
 .controller .container .detail .scroll .about .info .card:last-child .branch-down {

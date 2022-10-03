@@ -30,6 +30,35 @@ export const profileContent: IProfile = {
         TO MAIN: you may wonder why all of these details here, but do not worry;
       </p>
       <p>Specializing in Fullstack developing</p>
+      <p>
+        My name is&nbsp;<b>Jozsef</b>&nbsp;David&nbsp;<b>Csurgai</b>&nbsp;and
+        I'm a&nbsp;
+        <span id="certification" className="highlight-point">
+          certified
+        </span>
+        &nbsp;
+        <span id="softwareEngineer" className="highlight-point">
+          Software Engineer
+        </span>
+        , and a graduated&nbsp;
+        <span id="mechanicalEngineer" className="highlight-point">
+          Mechanical Engineer
+        </span>
+        ...
+      </p>
+      <p>
+        During the COVID, I lost my&nbsp;
+        <span id="job" className="highlight-point">
+          job
+        </span>
+        , I needed to rethink my real primary&nbsp;
+        <span id="goals" className="highlight-point">
+          goals
+          {/* maintain mind-physics-work balance, consider the job as a hobby,
+           */}
+        </span>
+        . Fortunately both of them were found in my next career
+      </p>
     </>
   ),
 };

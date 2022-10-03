@@ -10,10 +10,9 @@ import { Footer } from "../component/semantic/footer/Footer";
 import { FC } from "react";
 import HomeController from "../component/pages/home/controller/HomeController";
 import Test from "../component/pages/test/Test";
-import { EPageFragment } from "./EPageFragment"
+import { EPageFragment } from "./EPageFragment";
 
-
-export const Router: FC = () => {
+export const Router = () => {
   return (
     <div className="background">
       <Header />
@@ -28,4 +27,4 @@ export const Router: FC = () => {
       <Footer />
     </div>
   );
-}
+};

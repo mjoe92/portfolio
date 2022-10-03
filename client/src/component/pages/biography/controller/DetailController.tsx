@@ -73,12 +73,12 @@ export default class DetailController extends ABiographyController<
 
     return (
       <div className="info">
-        <h2 className="title">Experience</h2>
+        <h2 className="title">Job Experience</h2>
         {this.state.jobList.map((xp) => (
           <Card
             history={xp}
             place={xp.employer}
-            reference={this.createRef(xp.id + "-navigation")}
+            reference={this.createRef(xp.id)}
             timeInterval={this.getTimeIntervalInFormat(
               xp.timeStart,
               xp.timeEnd
@@ -102,7 +102,7 @@ export default class DetailController extends ABiographyController<
           <Card
             history={xp}
             place={xp.institution}
-            reference={this.createRef(xp.id + "-navigation")}
+            reference={this.createRef(xp.id)}
             timeInterval={this.getTimeIntervalInFormat(
               xp.timeStart,
               xp.timeEnd
@@ -171,8 +171,11 @@ interface ICardState {
 }
 
 export class Card extends Component<ICardProps, ICardState> {
+  private textHeight;
+
   constructor(props: ICardProps) {
     super(props);
+    this.textHeight = 0;
 
     this.state = {
       showDropdown: false,
@@ -192,38 +195,53 @@ export class Card extends Component<ICardProps, ICardState> {
         </div>
         <div className="branch">
           <span className="branch-up"></span>
-          <a href={this.props.reference}>
+          <a href={this.props.reference + "-navigation"}>
             <span
-              className={this.state.showDropdown ? "rounder active" : "rounder"}
-              onClick={() =>
-                this.setState({ showDropdown: !this.state.showDropdown })
-              }
+              className={"rounder" + (this.state.showDropdown ? " active" : "")}
+              onClick={() => this.handleDropdownShrunkDefault()}
             ></span>
           </a>
           <span className="branch-down"></span>
         </div>
-        <div className="text">
-          <h4 onClick={() => this.handleDropdownShrunk()}>
-            {this.props.xpNames}
-          </h4>
-          <div
-            id={this.props.history.id}
-            className={this.state.showDropdown ? "show-dropdown" : undefined}
-          >
-            {this.props.history.description}
-          </div>
+        {this.renderText()}
+      </div>
+    );
+  }
+
+  private renderText(): JSX.Element {
+    return (
+      <div className="text">
+        <h4 onClick={() => this.handleDropdownShrunk(1000)}>
+          {this.props.xpNames}
+        </h4>
+        <div
+          id={this.props.history.id}
+          className={this.state.showDropdown ? "show-dropdown" : undefined}
+          // style={{ height: this.textHeight }}
+        >
+          {this.props.history.description}
         </div>
       </div>
     );
   }
 
-  private handleDropdownShrunk(): void {
+  private handleDropdownShrunk(minWidth: number): void {
     let windowWidth = window.innerWidth;
 
-    if (windowWidth > 1000) {
+    if (windowWidth > minWidth) {
       return;
     }
 
-    return this.setState({ showDropdown: !this.state.showDropdown });
+    this.handleDropdownShrunkDefault();
+  }
+
+  private handleDropdownShrunkDefault(): void {
+    // this.slowAnimation();
+    this.setState({ showDropdown: !this.state.showDropdown });
+  }
+
+  //TODO: fetch content size
+  private slowAnimation() {
+    throw new Error("Method not implemented.");
   }
 }
