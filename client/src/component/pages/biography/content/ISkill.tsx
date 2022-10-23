@@ -1,45 +1,40 @@
 export default interface ISkill {
   name: string;
-  level: number;
   timeStart: Date;
   timeEnd?: Date;
+  hide?: boolean;
 }
 
 export const skillContent: ISkill[] = [
   {
     name: "HTML",
-    level: 75,
-    timeStart: new Date(2020, 5),
+    timeStart: new Date(2020, 4),
   },
   {
     name: "CSS",
-    level: 70,
-    timeStart: new Date(2020, 5),
+    timeStart: new Date(2020, 4),
   },
   {
     name: "Typescript",
-    level: 30,
-    timeStart: new Date(2022, 3),
+    timeStart: new Date(2021, 10),
   },
   {
     name: "Java",
-    level: 50,
-    timeStart: new Date(2021, 9),
+    timeStart: new Date(2020, 10),
   },
   {
     name: "Javascript",
-    level: 20,
-    timeStart: new Date(2020, 5),
+    timeStart: new Date(2020, 4),
+    timeEnd: new Date(2021, 9),
   },
   {
     name: "VBA",
-    level: 50,
     timeStart: new Date(2016, 3),
     timeEnd: new Date(2020, 3),
   },
   {
     name: "Python",
-    level: 10,
     timeStart: new Date(2018, 6),
+    hide: true,
   },
 ];

@@ -391,6 +391,10 @@ body {
   background-color: #fff;
 }
 
+.controller .container .detail .scroll .about .info .card .branch .rounder.active:active {
+  background-color: #000000;
+}
+
 .controller .container .detail .scroll .about .info .card .branch .branch-down {
   display: block;
   width: 2px;
@@ -437,7 +441,11 @@ body {
   background-color: #dbdbdb;
 }
 
-.controller .container .detail .scroll .about .l-skills .card {
+.controller .container .detail .scroll .about .hard-skills .title {
+  margin-bottom: 45px;
+}
+
+.controller .container .detail .scroll .about .hard-skills .card {
   position: relative;
   width: 100%;
   display: -ms-grid;
@@ -453,7 +461,7 @@ body {
   margin-bottom: 30px;
 }
 
-.controller .container .detail .scroll .about .l-skills .card h4 {
+.controller .container .detail .scroll .about .hard-skills .card h4 {
   text-transform: uppercase;
   color: grey;
   font-weight: 500;
@@ -461,19 +469,96 @@ body {
   margin-bottom: 0;
 }
 
-.controller .container .detail .scroll .about .l-skills .card .percent {
+.controller .container .detail .scroll .about .hard-skills .card .percent {
   position: relative;
   width: 100%;
   height: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+.controller .container .detail .scroll .about .hard-skills .card .percent .percent-end-gap {
+  right: 0;
+  position: absolute;
+  height: 100%;
+  -webkit-animation: normal;
+          animation: normal;
+  -webkit-animation-name: gap-animation;
+          animation-name: gap-animation;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
   background-color: #cacaca;
 }
 
-.controller .container .detail .scroll .about .l-skills .card .percent div {
+@-webkit-keyframes gap-animation {
+  0% {
+    background-color: #cacaca;
+  }
+  50% {
+    background-color: grey;
+  }
+  100% {
+    background-color: #cacaca;
+  }
+}
+
+@keyframes gap-animation {
+  0% {
+    background-color: #cacaca;
+  }
+  50% {
+    background-color: grey;
+  }
+  100% {
+    background-color: #cacaca;
+  }
+}
+
+.controller .container .detail .scroll .about .hard-skills .card .percent .percent-effective {
   position: absolute;
-  top: 0;
-  left: 0;
+  height: 100%;
+  width: 90%;
+  background-color: #cacaca;
+}
+
+.controller .container .detail .scroll .about .hard-skills .card .percent .percent-effective .xp-bar {
+  position: absolute;
   height: 100%;
   background-color: #000000;
+}
+
+.controller .container .detail .scroll .about .hard-skills .card .percent .percent-effective .xp-limit {
+  position: absolute;
+  top: -5px;
+  width: 4px;
+  height: 20px;
+  border-radius: 2px;
+  background-color: grey;
+}
+
+.controller .container .detail .scroll .about .hard-skills .card .percent .percent-effective .xp-time-duration-text {
+  position: absolute;
+  font-size: 12px;
+  top: -28px;
+  height: 18px;
+  border-radius: 2px;
+  font-style: italic;
+  white-space: nowrap;
 }
 
 .controller .container .detail .scroll .about .interest .xp-s {

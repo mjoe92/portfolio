@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Constants } from "../../../../utils/Constants";
 import SvgReactIcon from "../../../design/SvgReactIcon";
 import { AbstractIBaseHistory } from "../content/AbstractIHistory";
 import { Level } from "../content/ELevel";
@@ -199,7 +200,7 @@ export default class NavigationController extends ABiographyController<
 
       let writeResult: string = shortenIfNative(Level[writeLevel]);
 
-      return "(" + oralResult + "/" + writeResult + ")";
+      return "(" + oralResult + Constants.SLASH + writeResult + ")";
     };
 
     const shortenIfNative = (levelStr: string): string => {
@@ -240,7 +241,7 @@ export default class NavigationController extends ABiographyController<
                       getPercentOfLevel(
                         xp.oralLevel,
                         xp.writeLevel
-                      ).toString() + "%",
+                      ).toString() + Constants.PERCENT,
                   }}
                 />
               </span>
@@ -252,7 +253,8 @@ export default class NavigationController extends ABiographyController<
   }
 
   private getPublicUrl(url: string): string {
-    const slash = url[0] === "/" ? "" : "/";
+    const slash =
+      url[0] === Constants.SLASH ? Constants.EMPTY : Constants.SLASH;
 
     return process.env.PUBLIC_URL + slash + url;
   }

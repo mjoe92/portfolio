@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { NavDropdown } from "react-bootstrap";
+import { Constants } from "../../../utils/Constants";
 import { IPage } from "./specification/ILink";
 
 interface IProps {
@@ -47,7 +48,7 @@ export const LeftNavItem: FC<IProps> = ({
   };
 
   const makeUrl = (expo: string): string => {
-    return expo.toLowerCase().replace(" ", "-");
+    return expo.toLowerCase().replace(Constants.SPACE, Constants.DASH);
   };
 
   //later...

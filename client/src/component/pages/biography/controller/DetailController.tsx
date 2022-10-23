@@ -1,4 +1,5 @@
-import { Component } from "react";
+import { Component, FC } from "react";
+import { Constants } from "../../../../utils/Constants";
 import SvgReactIcon from "../../../design/SvgReactIcon";
 import { AbstractIDetailedHistory } from "../content/AbstractIHistory";
 import IEducation, { educationContent } from "../content/IEducation";
@@ -119,17 +120,136 @@ export default class DetailController extends ABiographyController<
       return <></>;
     }
 
-    return (
-      <div className="info l-skills">
-        <h2 className="title">Hard Skills</h2>
-        {this.state.skillList.map((xp) => (
-          <div className="card">
-            <h4>{xp.name}</h4>
-            <div className="percent">
-              <div style={{ width: xp.level + "%" }}></div>
-            </div>
+    // const minDate = new Date(
+    //   Math.min.apply(null,
+    //     this.state.skillList
+    //       .filter((skill) => !skill.hide)
+    //       .map((xp) => xp.timeStart.getMilliseconds)
+    //   )
+    // );
+
+    // console.log(minDate.getTime());
+
+    const getTimeIntervalInText = (xp: ISkill): JSX.Element => {
+      const timeInterval: string = this.getYearMonthIntervalInText(
+        xp.timeStart,
+        xp.timeEnd
+      );
+
+      const minTimeStartInNumber = (skills?: ISkill[]): number => {
+        if (skills === undefined) {
+          throw new Error("skills undefined!");
+        }
+
+        const numbers: number[] = skills.map((skill) =>
+          skill.timeStart.getTime()
+        );
+        return Math.min(...numbers);
+      };
+
+      const maxTimeEndInNumber = (skills?: ISkill[]): number => {
+        if (skills === undefined) {
+          throw new Error("skills undefined!");
+        }
+
+        const numbers: number[] = skills.map((skill) =>
+          this.getActualTime(skill.timeEnd).getTime()
+        );
+        return Math.max(...numbers);
+      };
+
+      const ratioOfInterval = (minDate: Date, maxDate?: Date): number => {
+        if (maxDate === undefined) {
+          maxDate = new Date();
+        }
+
+        return (
+          ((maxDate.getTime() - minDate.getTime()) /
+            (maxTimeEndInNumber(this.state.skillList) -
+              minTimeStartInNumber(this.state.skillList))) *
+          100
+        );
+      };
+
+      const getDeadTime = (minDate?: Date, shrink?: number): number => {
+        if (shrink === undefined) {
+          shrink = 1;
+        }
+
+        return (
+          ratioOfInterval(
+            new Date(minTimeStartInNumber(this.state.skillList)),
+            minDate
+          ) / shrink
+        );
+      };
+
+      return (
+        <>
+          <div
+            className="xp-bar"
+            style={{
+              width:
+                ratioOfInterval(xp.timeStart, xp.timeEnd) + Constants.PERCENT,
+              left: getDeadTime(xp.timeStart) + Constants.PERCENT,
+            }}
+          />
+          <div
+            className="xp-limit"
+            style={{
+              left:
+                ratioOfInterval(xp.timeStart, xp.timeEnd) +
+                getDeadTime(xp.timeStart) +
+                Constants.PERCENT,
+            }}
+          />
+          <div
+            className="xp-time-duration-text"
+            style={{
+              left:
+                ratioOfInterval(xp.timeStart, xp.timeEnd) +
+                getDeadTime(xp.timeStart) -
+                1.5 * (timeInterval.length + 1) +
+                Constants.PERCENT,
+            }}
+          >
+            {timeInterval}
           </div>
-        ))}
+        </>
+      );
+    };
+
+    const hasAnimation = (date?: Date): string => {
+      return date === undefined ? Constants.EMPTY : "none";
+    };
+
+    const rightEndGapRatio = 15;
+
+    return (
+      <div className="info hard-skills">
+        <h2 className="title">Hard Skills</h2>
+        {this.state.skillList
+          .filter((skill) => !skill.hide)
+          .map((xp) => (
+            <div className="card">
+              <h4>{xp.name}</h4>
+              <div className="percent">
+                <div
+                  className="percent-end-gap"
+                  style={{
+                    width: rightEndGapRatio + Constants.PERCENT,
+                    animation: hasAnimation(xp.timeEnd),
+                  }}
+                />
+                <div
+                  className="percent-effective"
+                  style={{ width: 100 - rightEndGapRatio + Constants.PERCENT }}
+                >
+                  {getTimeIntervalInText(xp)}
+                </div>
+              </div>
+            </div>
+          ))}
       </div>
     );
   }
@@ -171,9 +291,9 @@ interface ICardState {
 }
 
 export class Card extends Component<ICardProps, ICardState> {
-  private textHeight;
+  private static timeoutInMs = 500;
 
-  constructor(props: ICardProps) {
+  constructor(props: ICardProps, private textHeight: number) {
     super(props);
     this.textHeight = 0;
 
@@ -197,7 +317,10 @@ export class Card extends Component<ICardProps, ICardState> {
           <span className="branch-up"></span>
           <a href={this.props.reference + "-navigation"}>
             <span
-              className={"rounder" + (this.state.showDropdown ? " active" : "")}
+              className={
+                "rounder" +
+                (this.state.showDropdown ? " active" : Constants.EMPTY)
+              }
               onClick={() => this.handleDropdownShrunkDefault()}
             ></span>
           </a>
@@ -217,7 +340,7 @@ export class Card extends Component<ICardProps, ICardState> {
         <div
           id={this.props.history.id}
           className={this.state.showDropdown ? "show-dropdown" : undefined}
-          // style={{ height: this.textHeight }}
+          //style={{ height: this.textHeight.valueOf() }}
         >
           {this.props.history.description}
         </div>
@@ -236,12 +359,26 @@ export class Card extends Component<ICardProps, ICardState> {
   }
 
   private handleDropdownShrunkDefault(): void {
-    // this.slowAnimation();
+    const minHeight = 0;
+    const maxHeight = 200;
+    const diffRatio = Math.abs(maxHeight - minHeight) / Card.timeoutInMs;
+
+    //const timeOut = setInterval(() => this.slowAnimation(diffRatio), 1);
+    //clearInterval(timeOut);
     this.setState({ showDropdown: !this.state.showDropdown });
   }
 
-  //TODO: fetch content size
-  private slowAnimation() {
-    throw new Error("Method not implemented.");
+  private slowAnimation(diffRatio: number): void {
+    if (this.state.showDropdown) {
+      this.textHeight--;
+      console.log(this.textHeight);
+    } else {
+      this.textHeight++;
+      console.log(this.textHeight);
+    }
+
+    if (0 === this.textHeight || 200 === Math.abs(this.textHeight)) {
+      return;
+    }
   }
 }

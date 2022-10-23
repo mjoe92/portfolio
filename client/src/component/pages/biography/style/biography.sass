@@ -26,6 +26,7 @@ $detail-left-font-size: 16px
 $detail-background-color: $content-background-color
 $detail-title-color: $content-bright-color
 $detail-xp-color: $content-dark-color
+$detail-xp-limit-color: $content-middle-contrast-color
 $detail-date-color: $content-middle-contrast-color
 
 $detail-card-title-color: rgba($detail-xp-color, 0.6)
@@ -304,6 +305,9 @@ body
 								.rounder.active:hover
 									background-color: $navigation-default-text-color
 
+								.rounder.active:active
+									background-color: $detail-xp-color
+
 								.branch-down
 									display: block
 									width: 2px
@@ -339,7 +343,10 @@ body
 							.branch-up
 								background-color: $detail-background-color
 
-					.l-skills
+					.hard-skills
+						.title
+							margin-bottom: 45px
+
 						.card
 							position: relative
 							width: 100%
@@ -360,14 +367,57 @@ body
 								position: relative
 								width: 100%
 								height: 10px
-								background-color: $navigation-empty-percent-color
+								justify-content: center
+								display: flex
+								flex-direction: row
+								justify-content: flex-start
+								align-content: flex-start
 
-								div
+								.percent-end-gap
+									right: 0
 									position: absolute
-									top: 0
-									left: 0
 									height: 100%
-									background-color: $detail-xp-color
+									animation: normal
+									animation-name: gap-animation
+									animation-duration: 2s
+									animation-iteration-count: infinite
+									background-color: $navigation-empty-percent-color
+
+									@keyframes gap-animation
+										0%
+											background-color: $navigation-empty-percent-color
+										50%
+											background-color: $detail-date-color
+										100%
+											background-color: $navigation-empty-percent-color
+
+								.percent-effective
+									position: absolute
+									height: 100%
+									width: 90%
+									background-color: $navigation-empty-percent-color
+
+									.xp-bar
+										position: absolute
+										height: 100%
+										background-color: $detail-xp-color
+
+									.xp-limit
+										position: absolute
+										top: -5px
+										width: 4px
+										height: 20px
+										border-radius: 2px
+										background-color: grey
+
+									.xp-time-duration-text
+										position: absolute
+										font-size: 12px
+										top: -28px
+										height: 18px
+										border-radius: 2px
+										font-style: italic
+										white-space: nowrap
 
 					.interest
 						.xp-s
