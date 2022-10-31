@@ -13,7 +13,7 @@
 
 	.brand
 		margin-left: 60px
-		margin-bottom: 100px
+		margin-bottom: calc(20% - 200px)
 		padding: 100px 0 0 0
 		font-size: 2em
 		text-transform: uppercase
@@ -38,10 +38,7 @@
 				font-weight: 500
 				font-style: italic
 				font-size: 32px
-				min-width: 150px
-				max-width: 300px
 				padding: 10px 0 0 40px
-				vertical-align: middle
 				margin: 0
 				line-height: 80px
 				text-shadow: -10px 20px 5px #000000
@@ -76,29 +73,50 @@
 
 @media (max-width: 850px), (max-height: 400px)
 	.background-home
-		overflow: scroll
 
 		.brand
-			margin-bottom: 70px
+			margin-bottom: 10px
 
 		.quote-message
+			overflow-y: hidden
+			position: relative
 			display: block
 			justify-content: center
 			overflow: hidden
-			margin-bottom: 60px
+			min-height: calc(100vh - 250px)
 
 			.quote-box
 				text-align: center
 				margin: auto
-				height: 80vh
+				width: 90%
+				position: relative
+				height: 160px
 
 				.quote
+					position: absolute
+					line-height: normal
 					padding: 0
-					min-width: 200px
+					height: 100%
+					top: 50%
+					margin-top: calc(15% - 120px)
+					text-shadow: 20px 20px 5px #000000
 
 			.letter-box
+				position: absolute
 				text-align: left
 				line-height: 2
-				margin: auto
-				width: 70%
-				height: 70vh
+				width: 80%
+				bottom: 0
+				margin-left: 10%
+
+				.address
+					padding-bottom: 15px
+
+				.first-description
+					max-height: 175px
+					overflow: hidden
+					overflow-y: scroll
+					scroll-behavior: smooth
+
+				::-webkit-scrollbar-thumb
+					border-radius: 100vw

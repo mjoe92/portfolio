@@ -21,20 +21,22 @@ export const LeftNavItem: FC<IProps> = ({
   disabled,
 }) => {
   const renderNavList = () => {
-    return items.map((item) => {
-      const ref: string = makeUrl(item.ref);
-      return (
-        <NavDropdown.Item
-          key={item.name}
-          href={ref}
-          disabled={isDisabled(item)}
-          className="navDropItem"
-          onChange={handleClick}
-        >
-          {item.name}
-        </NavDropdown.Item>
-      );
-    });
+    return items
+      .filter((item) => !item.disabled)
+      .map((item) => {
+        const ref: string = makeUrl(item.ref);
+        return (
+          <NavDropdown.Item
+            key={item.name}
+            href={ref}
+            disabled={isDisabled(item)}
+            className="navDropItem"
+            onChange={handleClick}
+          >
+            {item.name}
+          </NavDropdown.Item>
+        );
+      });
   };
 
   const handleClick = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -66,6 +68,18 @@ export const LeftNavItem: FC<IProps> = ({
     );
   };
 
+  const drawItemDivider = (): JSX.Element | null => {
+    const activeItemNumber = items.filter((item) => !item.disabled).length;
+
+    return activeItemNumber === 0 ? null : <NavDropdown.Divider />;
+  };
+
+  const renderExpoItem = () => (
+    <NavDropdown.Item key={expo} href={makeUrl(expo)}>
+      {expo}
+    </NavDropdown.Item>
+  );
+
   return (
     <NavDropdown
       align="end"
@@ -76,10 +90,8 @@ export const LeftNavItem: FC<IProps> = ({
       disabled={disabled}
       onChange={handleClick}
     >
-      <NavDropdown.Item key={expo} href={makeUrl(expo)}>
-        {expo}
-      </NavDropdown.Item>
-      <NavDropdown.Divider />
+      {renderExpoItem()}
+      {drawItemDivider()}
       {renderNavList()}
     </NavDropdown>
   );

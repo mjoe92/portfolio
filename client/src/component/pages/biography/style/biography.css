@@ -124,6 +124,7 @@ body {
 }
 
 .controller .container .navigation .scroll .about .profile-text .img-box img {
+  pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -155,6 +156,14 @@ body {
 .controller .container .navigation .scroll .about .navigation-point .title {
   font-size: 18px;
   cursor: pointer;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  gap: 15px;
+}
+
+.controller .container .navigation .scroll .about .navigation-point .title p {
+  margin-bottom: 0;
 }
 
 .controller .container .navigation .scroll .about .navigation-point .contacts {
@@ -166,7 +175,6 @@ body {
   padding-left: 10px;
   position: relative;
   list-style: none;
-  cursor: pointer;
   font-size: 16px;
   margin-bottom: 18px;
 }
@@ -186,6 +194,18 @@ body {
   display: inline;
   color: #fff;
   font-weight: 300;
+}
+
+.controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > p:hover, .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > a > p:hover {
+  cursor: pointer;
+}
+
+.controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > .active:hover, .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > .active:hover, .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > a > .active:hover {
+  font-weight: 600;
+}
+
+.controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > .offset {
+  padding-left: 30px;
 }
 
 .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon:last-child {
@@ -412,14 +432,22 @@ body {
 
 .controller .container .detail .scroll .about .info .card .text h4 {
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.6);
   font-weight: 800;
   font-size: 16px;
   margin-bottom: 16px;
+  width: 100%;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
 }
 
 .controller .container .detail .scroll .about .info .card .text h4 p {
+  margin: 0;
   color: rgba(0, 0, 0, 0.6);
+}
+
+.controller .container .detail .scroll .about .info .card .text h4 .icon {
+  display: none;
 }
 
 .controller .container .detail .scroll .about .info .card .text div {
@@ -536,25 +564,25 @@ body {
   background-color: #cacaca;
 }
 
-.controller .container .detail .scroll .about .hard-skills .card .percent .percent-effective .xp-bar {
-  position: absolute;
-  height: 100%;
-  background-color: #000000;
-}
-
 .controller .container .detail .scroll .about .hard-skills .card .percent .percent-effective .xp-limit {
   position: absolute;
-  top: -5px;
+  bottom: -5px;
   width: 4px;
   height: 20px;
   border-radius: 2px;
   background-color: grey;
 }
 
+.controller .container .detail .scroll .about .hard-skills .card .percent .percent-effective .xp-bar {
+  position: absolute;
+  height: 100%;
+  background-color: #000000;
+}
+
 .controller .container .detail .scroll .about .hard-skills .card .percent .percent-effective .xp-time-duration-text {
   position: absolute;
   font-size: 12px;
-  top: -28px;
+  bottom: 20px;
   height: 18px;
   border-radius: 2px;
   font-style: italic;
@@ -623,6 +651,29 @@ body {
   }
   .controller .container .detail .scroll .about .info .card .text h4 {
     cursor: pointer;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    gap: 10px;
+    margin-bottom: 5px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .controller .container .detail .scroll .about .info .card .text h4 .icon {
+    display: inline;
+  }
+  .controller .container .detail .scroll .about .info .card .text .show-dropdown {
+    padding-right: 14px;
+  }
+  .controller .container .detail .scroll .about .info .card .text .show-dropdown .show-right-branch1 {
+    /*! Right branch -> unfinished! */
+    position: absolute;
+    top: 0;
+    right: 6px;
+    width: 2px;
+    height: 70%;
+    background-color: grey;
   }
   .controller .container .detail .scroll .about .info .card .branch {
     display: none;

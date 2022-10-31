@@ -1,7 +1,6 @@
 import { Component } from "react";
 import { Constants } from "../../../../utils/Constants";
 import SvgReactIcon from "../../../design/SvgReactIcon";
-import { AbstractIBaseHistory } from "../content/AbstractIHistory";
 import { Level } from "../content/ELevel";
 import IContact, { contactNavigation } from "../content/IContact";
 import IEducation, { educationContent } from "../content/IEducation";
@@ -22,7 +21,7 @@ interface IState {
   skillList?: ISkill[];
   interestList?: IInterest[];
   contactList?: IContact[];
-  showExperienceDropdown: boolean;
+  showJobDropdown: boolean;
   showEducationDropdown: boolean;
 }
 
@@ -40,7 +39,7 @@ export default class NavigationController extends ABiographyController<
       languageList: languageContent,
       interestList: interestContent,
       skillList: skillContent,
-      showExperienceDropdown: true,
+      showJobDropdown: true,
       showEducationDropdown: true,
     };
   }
@@ -50,27 +49,31 @@ export default class NavigationController extends ABiographyController<
       <div className="sub-container navigation protected">
         <div className="scroll scroll-navigation">
           <div className="about">
-            <div className="profile-text">
-              <div className="img-box">
-                <img
-                  src={this.getPublicUrl(
-                    "images/profile/like_robert_de_niro.png"
-                  )}
-                  alt="mjoe92"
-                />
-              </div>
-              <h2>
-                Jozsef Csurgai
-                <br />
-                <span>Fullstack Developer</span>
-              </h2>
-            </div>
+            {this.renderProfile()}
             {this.renderContactNavigation()}
             {this.renderJobNavigation()}
             {this.renderEducationNavigation()}
             {this.renderLanguageNavigation()}
           </div>
         </div>
+      </div>
+    );
+  }
+
+  private renderProfile() {
+    return (
+      <div className="profile-text">
+        <div className="img-box">
+          <img
+            src={this.getPublicUrl("images/profile/like_robert_de_niro.png")}
+            alt="mjoe92"
+          />
+        </div>
+        <h2>
+          Jozsef Csurgai
+          <br />
+          <span>Fullstack Developer</span>
+        </h2>
       </div>
     );
   }
@@ -108,12 +111,11 @@ export default class NavigationController extends ABiographyController<
           onClick={() => this.handleExperienceDropdownShrunk()}
           className="title"
         >
-          Job Experience
+          <p>Job Experience</p>
+          {this.showDropdownIcon(this.state.showJobDropdown)}
         </h3>
         <div
-          className={
-            this.state.showExperienceDropdown ? "xp-s show-dropdown" : "xp-s"
-          }
+          className={this.state.showJobDropdown ? "xp-s show-dropdown" : "xp-s"}
         >
           {this.state.jobList.map((xp) => (
             <Card
@@ -134,7 +136,7 @@ export default class NavigationController extends ABiographyController<
 
   private handleExperienceDropdownShrunk(): void {
     return this.setState({
-      showExperienceDropdown: !this.state.showExperienceDropdown,
+      showJobDropdown: !this.state.showJobDropdown,
     });
   }
 
@@ -149,7 +151,8 @@ export default class NavigationController extends ABiographyController<
           onClick={() => this.handleEducationDropdownShrunk()}
           className="title"
         >
-          Education
+          <p>Education</p>
+          {this.showDropdownIcon(this.state.showEducationDropdown)}
         </h3>
         <div
           className={

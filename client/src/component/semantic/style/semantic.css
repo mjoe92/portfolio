@@ -6,9 +6,24 @@ header {
 }
 
 header .navbar-collapse {
-  margin-left: 20px;
-  max-width: 400px;
   font-size: 15px;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+header .navbar-collapse .nav-item {
+  margin: 0;
 }
 
 header .navbar-collapse .nav-item .nav-link .ini {

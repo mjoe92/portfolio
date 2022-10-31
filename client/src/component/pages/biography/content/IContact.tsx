@@ -24,27 +24,56 @@ export const contactNavigation: IContact[] = [
     icon: faEnvelope,
     text: (
       <a href="mailto:djcsurgai@gmail.com?subject=Nice Title&amp;body=Hey Joe,">
-        <p>djcsurgai@gmail.com</p>
+        <p className="active">djcsurgai@gmail.com</p>
       </a>
     ),
   },
   {
     id: "webpage",
     icon: faGlobe,
-    text: <p>www.mjoeworld.com</p>,
+    text: (
+      <a href="https://www.mjoeworld.com" target="_blank">
+        <p className="active">mjoeworld.com</p>
+      </a>
+    ),
   },
   {
     id: "linkedin",
     icon: faLink,
     text: (
       <a href="https://www.linkedin.com/in/jozsef-csurgai/" target="_blank">
-        <p>www.linkedin.com/in/jozsef-csurgai/</p>
+        <p className="active">linkedin.com/jozsef-csurgai</p>
       </a>
     ),
   },
   {
     id: "location",
     icon: faMapMarker,
-    text: <p>Hungary, Székesfehérvár</p>,
+    text: (
+      <>
+        <a
+          href="https://www.google.com/maps/place/Braunschweig/"
+          target="_blank"
+        >
+          <p className="active">Braunschweig (Germany)</p>
+        </a>
+        <br />
+        <a
+          href="https://www.google.com/maps/place/Székesfehérvár/"
+          target="_blank"
+          className="offset"
+        >
+          <p className="active">Székesfehérvár (Hungary)</p>
+        </a>
+        <br />
+        <a
+          href="https://www.google.com/maps/place/Budapest/"
+          target="_blank"
+          className="offset"
+        >
+          <p className="active">Budapest (Hungary)</p>
+        </a>
+      </>
+    ),
   },
 ];

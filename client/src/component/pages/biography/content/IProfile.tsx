@@ -3,6 +3,11 @@ export default interface IProfile {
   description: JSX.Element;
 }
 
+const calculateAge = (): number => {
+  let timeDiff = Math.abs(Date.now() - new Date(1992, 1, 18).getTime());
+  return Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
+};
+
 export const profileContent: IProfile = {
   name: "Profile",
   description: (
@@ -31,8 +36,8 @@ export const profileContent: IProfile = {
       </p>
       <p>Specializing in Fullstack developing</p>
       <p>
-        My name is&nbsp;<b>Jozsef</b>&nbsp;David&nbsp;<b>Csurgai</b>&nbsp;and
-        I'm a&nbsp;
+        My name is&nbsp;<b>Jozsef</b>&nbsp;David&nbsp;<b>Csurgai</b>&nbsp;(
+        {calculateAge()}) and I'm a&nbsp;
         <span id="certification" className="highlight-point">
           certified
         </span>
@@ -47,17 +52,14 @@ export const profileContent: IProfile = {
         ...
       </p>
       <p>
-        During the COVID, I lost my&nbsp;
-        <span id="job" className="highlight-point">
-          job
-        </span>
-        , I needed to rethink my real primary&nbsp;
+        During the COVID, I needed to rethink my real primary&nbsp;
         <span id="goals" className="highlight-point">
           goals
           {/* maintain mind-physics-work balance, consider the job as a hobby,
            */}
         </span>
-        . Fortunately both of them were found in my next career
+        . Fortunately both of them I found in my next career path as a
+        programmer.
       </p>
     </>
   ),

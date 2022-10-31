@@ -1,11 +1,9 @@
-import { Component, FC } from "react";
 import { Constants } from "../../../../utils/Constants";
 import SvgReactIcon from "../../../design/SvgReactIcon";
 import { AbstractIDetailedHistory } from "../content/AbstractIHistory";
 import IEducation, { educationContent } from "../content/IEducation";
 import IExperience, { experienceContent } from "../content/IExperience";
 import IInterest, { interestContent } from "../content/IInterest";
-import ILanguage, { languageContent } from "../content/ILanguage";
 import IProfile, { profileContent } from "../content/IProfile";
 import ISkill, { skillContent } from "../content/ISkill";
 import ABiographyController from "./ABiographyController";
@@ -15,7 +13,6 @@ interface IProps {}
 interface IState {
   jobList?: IExperience[];
   educationList?: IEducation[];
-  languageList?: ILanguage[];
   skillList?: ISkill[];
   interestList?: IInterest[];
   profile?: IProfile;
@@ -29,11 +26,10 @@ export default class DetailController extends ABiographyController<
     super(props);
 
     this.state = {
+      profile: profileContent,
       jobList: experienceContent,
       educationList: educationContent,
-      languageList: languageContent,
       interestList: interestContent,
-      profile: profileContent,
       skillList: skillContent,
     };
   }
@@ -44,7 +40,7 @@ export default class DetailController extends ABiographyController<
         <div className="scroll scroll-detail">
           <div className="about">
             {this.renderProfile()}
-            {this.renderExperienceContent()}
+            {this.renderJobContent()}
             {this.renderEducationContent()}
             {this.renderSkillContent()}
             {this.renderInterestContent()}
@@ -67,7 +63,7 @@ export default class DetailController extends ABiographyController<
     );
   }
 
-  private renderExperienceContent(): JSX.Element {
+  private renderJobContent(): JSX.Element {
     if (this.state.jobList == null) {
       return <></>;
     }
@@ -184,6 +180,17 @@ export default class DetailController extends ABiographyController<
         );
       };
 
+      const drawLimitLine = (leftOffset: number): JSX.Element => {
+        return (
+          <div
+            className="xp-limit"
+            style={{
+              left: leftOffset + Constants.PERCENT,
+            }}
+          />
+        );
+      };
+
       return (
         <>
           <div
@@ -194,22 +201,18 @@ export default class DetailController extends ABiographyController<
               left: getDeadTime(xp.timeStart) + Constants.PERCENT,
             }}
           />
-          <div
-            className="xp-limit"
-            style={{
-              left:
-                ratioOfInterval(xp.timeStart, xp.timeEnd) +
-                getDeadTime(xp.timeStart) +
-                Constants.PERCENT,
-            }}
-          />
+          {drawLimitLine(getDeadTime(xp.timeStart))}
+          {drawLimitLine(
+            ratioOfInterval(xp.timeStart, xp.timeEnd) +
+              getDeadTime(xp.timeStart)
+          )}
           <div
             className="xp-time-duration-text"
             style={{
               left:
-                ratioOfInterval(xp.timeStart, xp.timeEnd) +
+                ratioOfInterval(xp.timeStart, xp.timeEnd) / 2 +
                 getDeadTime(xp.timeStart) -
-                1.5 * (timeInterval.length + 1) +
+                timeInterval.length * 1.5 +
                 Constants.PERCENT,
             }}
           >
@@ -290,7 +293,7 @@ interface ICardState {
   showDropdown: boolean;
 }
 
-export class Card extends Component<ICardProps, ICardState> {
+export class Card extends ABiographyController<ICardProps, ICardState> {
   private static timeoutInMs = 500;
 
   constructor(props: ICardProps, private textHeight: number) {
@@ -335,14 +338,15 @@ export class Card extends Component<ICardProps, ICardState> {
     return (
       <div className="text">
         <h4 onClick={() => this.handleDropdownShrunk(1000)}>
-          {this.props.xpNames}
+          <p>{this.props.xpNames}</p>
+          {this.showDropdownIcon(this.state.showDropdown, "icon")}
         </h4>
         <div
           id={this.props.history.id}
           className={this.state.showDropdown ? "show-dropdown" : undefined}
-          //style={{ height: this.textHeight.valueOf() }}
         >
           {this.props.history.description}
+          <span className="show-right-branch" />
         </div>
       </div>
     );

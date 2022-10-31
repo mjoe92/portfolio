@@ -13,9 +13,9 @@ export default class HomeController extends Component {
         <h1 className="brand">MJOE</h1>
         <div className="quote-message">
           <div className="quote-box">
-            <div className="quote protected">
+            <p className="quote protected">
               "A message to anyone who enters my page for any reason"
-            </div>
+            </p>
           </div>
           <div className="branch">
             <span className="rounder"></span>

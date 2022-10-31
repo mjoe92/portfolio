@@ -88,6 +88,7 @@ body
 							overflow: hidden
 
 							img
+								pointer-events: none
 								position: absolute
 								top: 0
 								left: 0
@@ -114,6 +115,11 @@ body
 						.title
 							font-size: 18px
 							cursor: pointer
+							display: inline-flex
+							gap: 15px
+
+							p
+								margin-bottom: 0
 
 						.contacts
 							position: relative
@@ -123,7 +129,6 @@ body
 								padding-left: 10px
 								position: relative
 								list-style: none
-								cursor: pointer
 								font-size: $navigation-text-size
 								margin-bottom: 18px
 
@@ -140,6 +145,15 @@ body
 									display: inline
 									color: $navigation-default-text-color
 									font-weight: 300
+
+								.text-box>p:hover, .text-box>a>p:hover
+									cursor: pointer
+
+								.text-box>.active:hover, .text-box>.active:hover, .text-box>a>.active:hover
+									font-weight: 600
+
+								.text-box>.offset
+									padding-left: 30px
 
 							.svg-extended-icon:last-child
 								margin-bottom: 0
@@ -320,13 +334,18 @@ body
 
 								h4
 									text-transform: uppercase
-									color: $detail-card-title-color
 									font-weight: 800
 									font-size: $detail-left-font-size
 									margin-bottom: 16px
+									width: 100%
+									align-items: end
 
 									p
+										margin: 0
 										color: $detail-card-title-color
+
+									.icon
+										display: none
 
 								div
 									max-height: 0
@@ -397,23 +416,23 @@ body
 									width: 90%
 									background-color: $navigation-empty-percent-color
 
-									.xp-bar
-										position: absolute
-										height: 100%
-										background-color: $detail-xp-color
-
 									.xp-limit
 										position: absolute
-										top: -5px
+										bottom: -5px
 										width: 4px
 										height: 20px
 										border-radius: 2px
 										background-color: grey
 
+									.xp-bar
+										position: absolute
+										height: 100%
+										background-color: $detail-xp-color
+
 									.xp-time-duration-text
 										position: absolute
 										font-size: 12px
-										top: -28px
+										bottom: 20px
 										height: 18px
 										border-radius: 2px
 										font-style: italic
@@ -473,6 +492,25 @@ body
 
 									h4
 										cursor: pointer
+										display: inline-flex
+										gap: 10px
+										margin-bottom: 5px
+										justify-content: space-between
+
+										.icon
+											display: inline
+
+									.show-dropdown
+										padding-right: 14px
+
+										.show-right-branch1
+											/*! Right branch -> unfinished! */
+											position: absolute
+											top: 0
+											right: 6px
+											width: 2px
+											height: 70%
+											background-color: $detail-date-color
 
 								.branch
 									display: none

@@ -1,3 +1,5 @@
+import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Component } from "react";
 import { Constants } from "../../../../utils/Constants";
 
@@ -54,14 +56,14 @@ export default abstract class ABiographyController<
     }
 
     const yearInterval = end?.getFullYear() - start.getFullYear();
-    let yearIntervalText = Constants.EMPTY;
+    let yearIntervalText: string = Constants.EMPTY;
     if (yearInterval >= 1) {
       yearIntervalText =
         yearInterval + " YEAR" + (yearInterval === 1 ? Constants.EMPTY : "S");
     }
 
     const monthInterval = end?.getMonth() - start.getMonth();
-    let monthIntervalText = Constants.EMPTY;
+    let monthIntervalText: string = Constants.EMPTY;
     if (monthInterval >= 1) {
       monthIntervalText =
         monthInterval +
@@ -74,5 +76,14 @@ export default abstract class ABiographyController<
 
   protected getActualTime(time?: Date): Date {
     return time === undefined ? new Date() : time;
+  }
+
+  protected showDropdownIcon(
+    showDropdown: boolean,
+    className?: string
+  ): JSX.Element {
+    const image = showDropdown ? faAngleUp : faAngleDown;
+
+    return <FontAwesomeIcon icon={image} className={className} />;
   }
 }

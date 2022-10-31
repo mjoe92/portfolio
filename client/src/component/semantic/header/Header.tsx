@@ -2,6 +2,7 @@ import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { FC, useState } from "react";
 import { Container, Navbar } from "react-bootstrap";
 import { EPageFragment } from "../../../router/EPageFragment";
+import { Constants } from "../../../utils/Constants";
 import SvgReactIcon from "../../design/SvgReactIcon";
 import "../style/semantic.css";
 import { LeftNavItem } from "./LeftNavItem";
@@ -17,7 +18,7 @@ export const Header: FC = () => {
   };
 
   const makeUrl = (expo: string): string => {
-    return expo.toLowerCase().replace(" ", "-");
+    return expo.toLowerCase().replace(Constants.SPACE, Constants.DASH);
   };
 
   const renderMainPage = (): JSX.Element => {
@@ -32,16 +33,18 @@ export const Header: FC = () => {
   const renderPageGroups = (): JSX.Element => {
     return (
       <Navbar.Collapse id="navbar" className="navbar">
-        {navLinks.map((link) => (
-          <LeftNavItem
-            id={link.id}
-            key={link.id}
-            items={link.pages}
-            expo={link.expo}
-            title={link.title}
-            disabled={isDisabled(link)}
-          />
-        ))}
+        {navLinks
+          .filter((link) => !link.disabled)
+          .map((link) => (
+            <LeftNavItem
+              id={link.id}
+              key={link.id}
+              items={link.pages}
+              expo={link.expo}
+              title={link.title}
+              disabled={isDisabled(link)}
+            />
+          ))}
       </Navbar.Collapse>
     );
   };
