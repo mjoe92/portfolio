@@ -10,8 +10,6 @@ import ILanguage, { languageContent } from "../content/ILanguage";
 import ISkill, { skillContent } from "../content/ISkill";
 import ABiographyController from "./ABiographyController";
 
-//import "../style/navigation.css"
-
 interface IProps {}
 
 interface IState {

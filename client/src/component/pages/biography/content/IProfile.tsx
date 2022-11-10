@@ -4,7 +4,7 @@ export default interface IProfile {
 }
 
 const calculateAge = (): number => {
-  let timeDiff = Math.abs(Date.now() - new Date(1992, 1, 18).getTime());
+  const timeDiff = Math.abs(Date.now() - new Date(1992, 1, 18).getTime());
   return Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
 };
 
@@ -12,7 +12,7 @@ export const profileContent: IProfile = {
   name: "Profile",
   description: (
     <>
-      <p>
+      {/* <p>
         Currently I'm searching opportunities in webdesigning and application
         developing. I'm originally a mechanical engineer, working as an
         experienced construction engineer for over 5 years and also taking side
@@ -32,8 +32,8 @@ export const profileContent: IProfile = {
         </p>
       </p>
       <p>
-        TO MAIN: you may wonder why all of these details here, but do not worry;
-      </p>
+        {/* TO MAIN: you may wonder why all of these details here, but do not worry;
+      </p> */}
       <p>Specializing in Fullstack developing</p>
       <p>
         My name is&nbsp;<b>Jozsef</b>&nbsp;David&nbsp;<b>Csurgai</b>&nbsp;(
@@ -49,7 +49,13 @@ export const profileContent: IProfile = {
         <span id="mechanicalEngineer" className="highlight-point">
           Mechanical Engineer
         </span>
-        ...
+        .
+      </p>
+      <p>
+        I have more than 5 year-experience in&nbsp;
+        <span id="engineering-field" className="highlight-point">
+          engineering field
+        </span>
       </p>
       <p>
         During the COVID, I needed to rethink my real primary&nbsp;

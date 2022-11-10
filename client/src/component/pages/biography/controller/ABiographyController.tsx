@@ -12,9 +12,9 @@ export default abstract class ABiographyController<
       return "Present";
     }
 
-    const month: string = (date.getMonth() + 1).toString();
+    const month: number = date.getMonth() + 1;
     return (
-      (date.getMonth() < 9 ? "0" : Constants.EMPTY) +
+      (month <= 9 ? "0" : Constants.EMPTY) +
       month +
       Constants.DOT +
       date.getFullYear()

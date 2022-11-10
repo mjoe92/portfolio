@@ -42,7 +42,7 @@ export const contactNavigation: IContact[] = [
     icon: faLink,
     text: (
       <a href="https://www.linkedin.com/in/jozsef-csurgai/" target="_blank">
-        <p className="active">linkedin.com/jozsef-csurgai</p>
+        <p className="active">linkedin.com/csurgai</p>
       </a>
     ),
   },

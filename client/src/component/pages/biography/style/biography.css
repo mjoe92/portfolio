@@ -1,3 +1,11 @@
+/*! General */
+/*! Scrollbar */
+/*! Left side - navigation style */
+/*! Right side - content style */
+/*! General */
+/*! Scrollbar */
+/*! Left side - navigation style */
+/*! Right side - content style */
 .scroll {
   overflow: hidden;
   overflow-y: scroll;
@@ -38,47 +46,44 @@
 /*! Scrollbar */
 /*! Left side - navigation style */
 /*! Right side - content style */
-body {
-  background-image: none;
-  opacity: 0.9;
-}
-
-.controller {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background-color: #000000;
-  background-image: linear-gradient(315deg, #000000 20%, #383838 90%);
-}
-
-.controller .container {
-  margin-top: 0;
-  padding: 60px 0 50px 0;
-  width: 100%;
-  background: #dbdbdb;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 2fr;
-      grid-template-columns: 1fr 2fr;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+/*! General */
+/*! Scrollbar */
+/*! Left side - navigation style */
+/*! Right side - content style */
+.scroll {
   overflow: hidden;
-  /*! Left side */
-  /*! Right side */
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
-.controller .container .protected {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+::-webkit-scrollbar {
+  width: 0.25em;
+  height: 0.25em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+
+.container .scroll {
+  height: 90vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.container ::-webkit-scrollbar {
+  width: 0.25em;
+}
+
+.container ::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 100vw;
 }
 
 .controller .container .navigation {
@@ -160,6 +165,13 @@ body {
   display: -ms-inline-flexbox;
   display: inline-flex;
   gap: 15px;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .controller .container .navigation .scroll .about .navigation-point .title p {
@@ -201,7 +213,38 @@ body {
 }
 
 .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > .active:hover, .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > .active:hover, .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > a > .active:hover {
-  font-weight: 600;
+  -webkit-animation: normal;
+          animation: normal;
+  -webkit-animation-name: font-weight-animation;
+          animation-name: font-weight-animation;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes font-weight-animation {
+  0% {
+    font-weight: 300;
+  }
+  50% {
+    font-weight: 600;
+  }
+  100% {
+    font-weight: 300;
+  }
+}
+
+@keyframes font-weight-animation {
+  0% {
+    font-weight: 300;
+  }
+  50% {
+    font-weight: 600;
+  }
+  100% {
+    font-weight: 300;
+  }
 }
 
 .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > .offset {
@@ -296,6 +339,50 @@ body {
   left: 0;
   height: 100%;
   background: #000000;
+}
+
+/*! General */
+/*! Scrollbar */
+/*! Left side - navigation style */
+/*! Right side - content style */
+/*! General */
+/*! Scrollbar */
+/*! Left side - navigation style */
+/*! Right side - content style */
+.scroll {
+  overflow: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 0.25em;
+  height: 0.25em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+
+.container .scroll {
+  height: 90vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.container ::-webkit-scrollbar {
+  width: 0.25em;
+}
+
+.container ::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 100vw;
 }
 
 .controller .container .detail {
@@ -632,14 +719,6 @@ body {
   color: #000000;
 }
 
-.controller .container .sub-container {
-  height: calc(100vh - 110px);
-}
-
-.controller .container .sub-container .scroll {
-  height: calc(100vh - 130px);
-}
-
 @media (max-width: 1000px) {
   .controller .container .detail .scroll .about .info .card {
     display: -ms-grid;
@@ -681,6 +760,56 @@ body {
   .controller .container .detail .scroll .about .info .card .date-company {
     max-width: none;
   }
+}
+
+body {
+  background-image: none;
+  opacity: 0.9;
+}
+
+.controller {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #000000;
+  background-image: linear-gradient(315deg, #000000 20%, #383838 90%);
+}
+
+.controller .container {
+  padding: 60px 0 50px 0;
+  width: 100%;
+  background: #dbdbdb;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+  /*! Left side */
+  /*! Right side */
+}
+
+.controller .container .protected {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.controller .container .sub-container {
+  height: calc(100vh - 110px);
+}
+
+.controller .container .sub-container .scroll {
+  height: calc(100vh - 130px);
 }
 
 @media (max-width: 767px) {
