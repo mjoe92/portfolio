@@ -2,54 +2,6 @@
 /*! Scrollbar */
 /*! Left side - navigation style */
 /*! Right side - content style */
-/*! General */
-/*! Scrollbar */
-/*! Left side - navigation style */
-/*! Right side - content style */
-.scroll {
-  overflow: hidden;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-}
-
-::-webkit-scrollbar {
-  width: 0.25em;
-  height: 0.25em;
-}
-
-::-webkit-scrollbar-thumb {
-  background: grey;
-  border-radius: 100vw;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #000000;
-}
-
-.container .scroll {
-  height: 90vh;
-  overflow: hidden;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-}
-
-.container ::-webkit-scrollbar {
-  width: 0.25em;
-}
-
-.container ::-webkit-scrollbar-thumb {
-  background: grey;
-  border-radius: 100vw;
-}
-
-/*! General */
-/*! Scrollbar */
-/*! Left side - navigation style */
-/*! Right side - content style */
-/*! General */
-/*! Scrollbar */
-/*! Left side - navigation style */
-/*! Right side - content style */
 .scroll {
   overflow: hidden;
   overflow-y: scroll;
@@ -217,8 +169,8 @@
           animation: normal;
   -webkit-animation-name: font-weight-animation;
           animation-name: font-weight-animation;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
 }
@@ -341,10 +293,6 @@
   background: #000000;
 }
 
-/*! General */
-/*! Scrollbar */
-/*! Left side - navigation style */
-/*! Right side - content style */
 /*! General */
 /*! Scrollbar */
 /*! Left side - navigation style */
@@ -782,7 +730,9 @@ body {
 }
 
 .controller .container {
-  padding: 60px 0 50px 0;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  padding: 0;
   width: 100%;
   background: #dbdbdb;
   display: -ms-grid;
@@ -804,12 +754,9 @@ body {
           user-select: none;
 }
 
-.controller .container .sub-container {
-  height: calc(100vh - 110px);
-}
-
 .controller .container .sub-container .scroll {
-  height: calc(100vh - 130px);
+  height: calc(100vh - calc(calc(60px + 50px) + 20px));
+  padding-bottom: 20px;
 }
 
 @media (max-width: 767px) {
@@ -833,9 +780,6 @@ body {
         grid-template-columns: repeat(1, 1fr);
     background-color: #000000;
     background-image: linear-gradient(315deg, #000000 20%, #383838 90%);
-  }
-  .controller .container .sub-container .scroll {
-    padding-bottom: 40px;
   }
 }
 /*# sourceMappingURL=biography.css.map */

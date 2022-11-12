@@ -1,5 +1,6 @@
 export enum EPageFragment {
-  HOME = "/",
+  ROOT = "/",
+  HOME = "home",
   BIO = "biography",
   ENGI = "engineering",
   PROG = "programming",

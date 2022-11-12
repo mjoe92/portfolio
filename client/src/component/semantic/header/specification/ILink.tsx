@@ -9,7 +9,7 @@ export default interface IMainPage {
 export interface IPage {
   disabled?: boolean;
   name: string;
-  ref: string;
+  link: string;
 }
 
 export const linkContent: IMainPage[] = [
@@ -21,15 +21,15 @@ export const linkContent: IMainPage[] = [
     pages: [
       {
         name: "PCD",
-        ref: "pcd",
+        link: "pcd",
       },
       {
         name: "Web pages",
-        ref: "webPages",
+        link: "webPages",
       },
       {
         name: "Mini apps",
-        ref: "miniApps",
+        link: "miniApps",
       },
     ],
   },
@@ -41,15 +41,15 @@ export const linkContent: IMainPage[] = [
     pages: [
       {
         name: "Travel",
-        ref: "travel",
+        link: "travel",
       },
       {
         name: "Photograph",
-        ref: "photograph",
+        link: "photograph",
       },
       {
         name: "PE Training",
-        ref: "training",
+        link: "training",
       },
     ],
   },
@@ -61,11 +61,11 @@ export const linkContent: IMainPage[] = [
     pages: [
       {
         name: "Real estate-letting",
-        ref: "renting",
+        link: "renting",
       },
       {
         name: "!!!IDE KERÜLJÖN A WEBLAPKÉSZítés",
-        ref: "asdfkléá",
+        link: "asdfkléá",
       },
     ],
   },
@@ -76,17 +76,17 @@ export const linkContent: IMainPage[] = [
     pages: [
       {
         name: "Engineering",
-        ref: "engineering",
+        link: "engineering",
         disabled: true,
       },
       {
         name: "Programming",
-        ref: "programming",
+        link: "programming",
         disabled: true,
       },
       {
         name: "Photographing",
-        ref: "photographing",
+        link: "photographing",
         disabled: true,
       },
     ],

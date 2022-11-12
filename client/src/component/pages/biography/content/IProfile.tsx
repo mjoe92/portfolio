@@ -34,7 +34,6 @@ export const profileContent: IProfile = {
       <p>
         {/* TO MAIN: you may wonder why all of these details here, but do not worry;
       </p> */}
-      <p>Specializing in Fullstack developing</p>
       <p>
         My name is&nbsp;<b>Jozsef</b>&nbsp;David&nbsp;<b>Csurgai</b>&nbsp;(
         {calculateAge()}) and I'm a&nbsp;
@@ -49,23 +48,44 @@ export const profileContent: IProfile = {
         <span id="mechanicalEngineer" className="highlight-point">
           Mechanical Engineer
         </span>
-        .
+        . I'm open-minded, understanding and always willing to&nbsp;
+        {/* sharing knowledge, guiding, teaching */}
+        <span id="help-others" className="highlight-point">
+          help
+        </span>
+        . Often others are saying that I have a versatile personality and
+        obsessed with finishing anything what I have started.
       </p>
       <p>
-        I have more than 5 year-experience in&nbsp;
+        I spent more than 5 years in the&nbsp;
         <span id="engineering-field" className="highlight-point">
           engineering field
         </span>
-      </p>
-      <p>
-        During the COVID, I needed to rethink my real primary&nbsp;
+        , mostly as a <b>Mechanical Designer</b>. After a turning point I
+        changed my&nbsp;
         <span id="goals" className="highlight-point">
           goals
-          {/* maintain mind-physics-work balance, consider the job as a hobby,
-           */}
         </span>
-        . Fortunately both of them I found in my next career path as a
-        programmer.
+        , I took the courage to start my new career on IT. From 2020 'till now I
+        work mainly as a programmer, which is not just my job, but my hobby too.
+      </p>
+      <p>
+        But I do both with passion, as there are endless new challenges to enjoy
+        whenever an offer comes in terms. Basically I couldn't let my old
+        profession go; I'm a&nbsp;
+        <span id="fullstack-developer" className="highlight-point">
+          <b>Fullstack Developer</b>
+        </span>
+        &nbsp;in full-time, but I'm taking&nbsp;
+        <span id="term" className="highlight-point">
+          long, medium-term
+        </span>
+        &nbsp;projects as my&nbsp;
+        {/* 3D cad projects, linkage designing, website building */}
+        <span id="side-job" className="highlight-point">
+          side job
+        </span>
+        &nbsp;as well.
       </p>
     </>
   ),

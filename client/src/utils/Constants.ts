@@ -4,6 +4,7 @@ export enum Constants {
   DASH = "-",
   SPACE_DASH_SPACE = " - ",
   SLASH = "/",
+  SPACE_SLASH_SPACE = " / ",
   BACKSLASH = "\\",
   PLUS = "+",
   MINUS = "-",

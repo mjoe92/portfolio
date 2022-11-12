@@ -11,13 +11,13 @@ export default interface ILanguage {
 export const languageContent: ILanguage[] = [
   {
     name: "Hungarian",
-    oralLevel: Level.NATIVE,
+    oralLevel: Level.N,
     oralMessage:
       "Mandatory to know in Hungary, learnt from my father and in schools.",
   },
   {
     name: "Russian",
-    oralLevel: Level.NATIVE,
+    oralLevel: Level.N,
     writeLevel: Level.B2,
     oralMessage:
       "Since my mother is russian, I was able to learn from her" +

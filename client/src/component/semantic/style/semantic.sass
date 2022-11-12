@@ -1,4 +1,5 @@
 $icon-sizing: 1.5
+$text-color: white
 
 header
 	top: 0
@@ -29,6 +30,7 @@ header
 
 			.svg-extended-icon
 				.svg-icon
+					color: $text-color
 					position: relative
 					font-size: 1.5rem
 					text-align: center
@@ -42,18 +44,23 @@ header
 			.dropdown-menu[data-bs-popper]
 				right: 0
 
+				.dropdown-item
+					a
+						text-decoration: none
+						color: $text-color
+
 footer
 	position: fixed
 	bottom: 0
 	width: 100%
 	text-align: center
-	color: white
+	color: $text-color
 
 	.navbar
 		height: 50px
 
 .nav-item
-	color: white
+	color: $text-color
 	align-items: center
 	margin-left: 10px
 

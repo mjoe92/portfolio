@@ -1,8 +1,8 @@
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { FC, useState } from "react";
 import { Container, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { EPageFragment } from "../../../router/EPageFragment";
-import { Constants } from "../../../utils/Constants";
 import SvgReactIcon from "../../design/SvgReactIcon";
 import "../style/semantic.css";
 import { LeftNavItem } from "./LeftNavItem";
@@ -17,15 +17,13 @@ export const Header: FC = () => {
       : link.disabled;
   };
 
-  const makeUrl = (expo: string): string => {
-    return expo.toLowerCase().replace(Constants.SPACE, Constants.DASH);
-  };
-
   const renderMainPage = (): JSX.Element => {
     //const navDropdownTitle = <Glyphicon glyph="star"> Dropdown </Glyphicon>;
     return (
-      <Navbar.Brand href={EPageFragment.HOME} onSubmit={handleClick}>
-        <SvgReactIcon key={"homePage"} icons={[faHouse]} />
+      <Navbar.Brand onSubmit={handleClick}>
+        <Link to={EPageFragment.HOME}>
+          <SvgReactIcon key="homePage" icons={[faHouse]} />
+        </Link>
       </Navbar.Brand>
     );
   };

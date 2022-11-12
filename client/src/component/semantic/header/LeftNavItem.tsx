@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { Constants } from "../../../utils/Constants";
 import { IPage } from "./specification/ILink";
 
@@ -24,16 +25,16 @@ export const LeftNavItem: FC<IProps> = ({
     return items
       .filter((item) => !item.disabled)
       .map((item) => {
-        const ref: string = makeUrl(item.ref);
+        const link: string = makeUrl(item.link);
         return (
           <NavDropdown.Item
             key={item.name}
-            href={ref}
+            to={link}
             disabled={isDisabled(item)}
             className="navDropItem"
             onChange={handleClick}
           >
-            {item.name}
+            <Link to={link}>{item.name}</Link>
           </NavDropdown.Item>
         );
       });
@@ -75,8 +76,8 @@ export const LeftNavItem: FC<IProps> = ({
   };
 
   const renderExpoItem = () => (
-    <NavDropdown.Item key={expo} href={makeUrl(expo)}>
-      {expo}
+    <NavDropdown.Item key={expo}>
+      <Link to={makeUrl(expo)}>{expo}</Link>
     </NavDropdown.Item>
   );
 

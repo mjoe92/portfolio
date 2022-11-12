@@ -193,23 +193,15 @@ export default class NavigationController extends ABiographyController<
         return null;
       }
 
-      let oralResult: string = shortenIfNative(Level[oralLevel]);
+      let oralResult: string = Level[oralLevel];
 
       if (writeLevel === undefined || writeLevel === null) {
         return "(" + oralResult + ")";
       }
 
-      let writeResult: string = shortenIfNative(Level[writeLevel]);
+      let writeResult: string = Level[writeLevel];
 
-      return "(" + oralResult + Constants.SLASH + writeResult + ")";
-    };
-
-    const shortenIfNative = (levelStr: string): string => {
-      if (levelStr.toLowerCase() === "native") {
-        return "N";
-      }
-
-      return levelStr;
+      return "(" + oralResult + Constants.SPACE_SLASH_SPACE + writeResult + ")";
     };
 
     const getPercentOfLevel = (

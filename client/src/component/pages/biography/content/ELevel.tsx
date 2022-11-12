@@ -6,5 +6,5 @@ export enum Level {
   B2 = 5,
   C1 = 6,
   C2 = 7,
-  NATIVE = 8,
+  N = 8, // native
 }

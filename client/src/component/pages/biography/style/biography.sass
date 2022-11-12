@@ -1,8 +1,8 @@
-@import './_parameters.sass'
-@import './_scrollbar.sass'
+@import 'navigation'
+@import 'detail'
 
-@import './_navigation.sass'
-@import './_detail.sass'
+$navbar-sum-height: calc(#{$navbar-top-height} + #{$navbar-bottom-height})
+$navbar-scroll-height: calc(#{$navbar-sum-height} + 20px)
 
 body
 	background-image: none
@@ -18,7 +18,9 @@ body
 	background-image: linear-gradient(315deg, $background-dark-color 20%, $background-bright-color 90%)
 
 	.container
-		padding: 60px 0 50px 0
+		margin-top: $navbar-top-height
+		margin-bottom: $navbar-bottom-height
+		padding: 0
 		width: 100%
 		background: $detail-background-color
 		display: grid
@@ -33,10 +35,9 @@ body
 		/*! Right side */
 
 		.sub-container
-			height: calc(100vh - 110px)
-
 			.scroll
-				height: calc(100vh - 130px)
+				height: calc(100vh - #{$navbar-scroll-height})
+				padding-bottom: 20px
 
 @media (max-width: 767px)
 	.controller
@@ -57,7 +58,3 @@ body
 			grid-template-columns: repeat(1, 1fr)
 			background-color: $background-dark-color
 			background-image: linear-gradient(315deg, $background-dark-color 20%, $background-bright-color 90%)
-
-			.sub-container
-				.scroll
-					padding-bottom: 40px

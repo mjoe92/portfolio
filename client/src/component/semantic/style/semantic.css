@@ -39,6 +39,7 @@ header .navbar .navbar-brand {
 }
 
 header .navbar .navbar-brand .svg-extended-icon .svg-icon {
+  color: white;
   position: relative;
   font-size: 1.5rem;
   text-align: center;
@@ -57,6 +58,11 @@ header .navbar .navbar-brand .svg-extended-icon .svg-icon:hover {
 
 header .navbar .dropdown .dropdown-menu[data-bs-popper] {
   right: 0;
+}
+
+header .navbar .dropdown .dropdown-menu[data-bs-popper] .dropdown-item a {
+  text-decoration: none;
+  color: white;
 }
 
 footer {
