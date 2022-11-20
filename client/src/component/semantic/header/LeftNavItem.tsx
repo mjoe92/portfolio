@@ -77,7 +77,7 @@ export const LeftNavItem: FC<IProps> = ({
 
   const renderExpoItem = () => (
     <NavDropdown.Item key={expo}>
-      <Link to={makeUrl(expo)}>{expo}</Link>
+      <Link to={makeUrl(expo)}>{expo.toUpperCase()}</Link>
     </NavDropdown.Item>
   );
 
@@ -86,7 +86,7 @@ export const LeftNavItem: FC<IProps> = ({
       align="end"
       id={id + "NavItem"}
       key={key}
-      title={title}
+      title={title.toUpperCase()}
       menuVariant="dark"
       disabled={disabled}
       onChange={handleClick}

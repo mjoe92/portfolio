@@ -11,7 +11,7 @@ export default class HomeController extends Component {
     return (
       <div className="background-home">
         <h1 className="brand">MJOE</h1>
-        <div className="quote-message">
+        <div className="message-box">
           <div className="quote-box">
             <p className="quote protected">
               "A message to anyone who enters my page for any reason"

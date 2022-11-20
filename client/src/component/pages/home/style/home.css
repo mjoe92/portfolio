@@ -12,11 +12,12 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 .background-home .brand {
   margin-left: 60px;
-  margin-bottom: calc(20% - 200px);
+  margin-bottom: 0;
   padding: 100px 0 0 0;
   font-size: 2em;
   text-transform: uppercase;
@@ -29,7 +30,11 @@
           user-select: none;
 }
 
-.background-home .quote-message {
+.background-home .message-box {
+  top: 0;
+  -webkit-transform: translateY(calc(50vh - 50%));
+          transform: translateY(calc(50vh - 50%));
+  position: absolute;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -38,7 +43,7 @@
           justify-content: center;
 }
 
-.background-home .quote-message .protected {
+.background-home .message-box .protected {
   color: white;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -46,14 +51,14 @@
           user-select: none;
 }
 
-.background-home .quote-message .quote-box {
+.background-home .message-box .quote-box {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   width: 30%;
 }
 
-.background-home .quote-message .quote-box .quote {
+.background-home .message-box .quote-box .quote {
   font-weight: 500;
   font-style: italic;
   font-size: 32px;
@@ -63,13 +68,13 @@
   text-shadow: -10px 20px 5px #000000;
 }
 
-.background-home .quote-message .branch {
+.background-home .message-box .branch {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-.background-home .quote-message .branch .line {
+.background-home .message-box .branch .line {
   display: block;
   width: 10px;
   height: 100%;
@@ -81,11 +86,11 @@
   border-radius: 50%;
 }
 
-.background-home .quote-message .letter-box {
+.background-home .message-box .letter-box {
   width: 30%;
 }
 
-.background-home .quote-message .letter-box .address {
+.background-home .message-box .letter-box .address {
   font-size: 30px;
   font-weight: 600;
   padding-bottom: 15px;
@@ -94,16 +99,13 @@
   text-shadow: 20px 20px 5px #000000;
 }
 
-.background-home .quote-message .letter-box .first-description {
+.background-home .message-box .letter-box .first-description {
   line-height: 200%;
   text-shadow: 20px 20px 3px #000000;
 }
 
 @media (max-width: 850px), (max-height: 400px) {
-  .background-home .brand {
-    margin-bottom: 10px;
-  }
-  .background-home .quote-message {
+  .background-home .message-box {
     overflow-y: hidden;
     position: relative;
     display: block;
@@ -111,42 +113,42 @@
         -ms-flex-pack: center;
             justify-content: center;
     overflow: hidden;
-    min-height: calc(100vh - 250px);
+    min-height: calc(100vh - 300px);
   }
-  .background-home .quote-message .quote-box {
+  .background-home .message-box .quote-box {
     text-align: center;
     margin: auto;
     width: 90%;
     position: relative;
-    height: 160px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
-  .background-home .quote-message .quote-box .quote {
+  .background-home .message-box .quote-box .quote {
     position: absolute;
     line-height: normal;
     padding: 0;
-    height: 100%;
     top: 50%;
-    margin-top: calc(15% - 120px);
     text-shadow: 20px 20px 5px #000000;
   }
-  .background-home .quote-message .letter-box {
+  .background-home .message-box .letter-box {
     position: absolute;
     text-align: left;
     line-height: 2;
     width: 80%;
-    bottom: 0;
+    bottom: 60px;
     margin-left: 10%;
   }
-  .background-home .quote-message .letter-box .address {
+  .background-home .message-box .letter-box .address {
     padding-bottom: 15px;
   }
-  .background-home .quote-message .letter-box .first-description {
+  .background-home .message-box .letter-box .first-description {
     max-height: 175px;
     overflow: hidden;
     overflow-y: scroll;
     scroll-behavior: smooth;
   }
-  .background-home .quote-message .letter-box ::-webkit-scrollbar-thumb {
+  .background-home .message-box .letter-box ::-webkit-scrollbar-thumb {
     border-radius: 100vw;
   }
 }

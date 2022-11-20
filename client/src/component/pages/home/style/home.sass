@@ -8,10 +8,11 @@
 	display: flexbox
 	justify-content: center
 	align-items: center
+	position: relative
 
 	.brand
 		margin-left: 60px
-		margin-bottom: calc(20% - 200px)
+		margin-bottom: 0
 		padding: 100px 0 0 0
 		font-size: 2em
 		text-transform: uppercase
@@ -20,7 +21,10 @@
 		color: white
 		user-select: none
 
-	.quote-message
+	.message-box
+		top: 0
+		transform: translateY(calc(50vh - 50%))
+		position: absolute
 		display: inline-flex
 		justify-content: center
 
@@ -72,31 +76,26 @@
 @media (max-width: 850px), (max-height: 400px)
 	.background-home
 
-		.brand
-			margin-bottom: 10px
-
-		.quote-message
+		.message-box
 			overflow-y: hidden
 			position: relative
 			display: block
 			justify-content: center
 			overflow: hidden
-			min-height: calc(100vh - 250px)
+			min-height: calc(100vh - 300px)
 
 			.quote-box
 				text-align: center
 				margin: auto
 				width: 90%
 				position: relative
-				height: 160px
+				height: fit-content
 
 				.quote
 					position: absolute
 					line-height: normal
 					padding: 0
-					height: 100%
 					top: 50%
-					margin-top: calc(15% - 120px)
 					text-shadow: 20px 20px 5px #000000
 
 			.letter-box
@@ -104,7 +103,7 @@
 				text-align: left
 				line-height: 2
 				width: 80%
-				bottom: 0
+				bottom: 60px
 				margin-left: 10%
 
 				.address
