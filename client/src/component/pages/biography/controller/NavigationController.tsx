@@ -123,6 +123,7 @@ export default class NavigationController extends ABiographyController<
           {this.state.jobList.map((xp) => (
             <Card
               id={xp.id}
+              key={xp.id}
               place={xp.employer}
               timeInterval={this.getTimeIntervalInFormat(
                 xp.timeStart,
@@ -168,6 +169,7 @@ export default class NavigationController extends ABiographyController<
           {this.state.educationList.map((xp) => (
             <Card
               id={xp.id}
+              key={xp.id}
               place={xp.institution}
               timeInterval={this.getTimeIntervalInFormat(
                 xp.timeStart,
@@ -202,13 +204,11 @@ export default class NavigationController extends ABiographyController<
       }
 
       let oralResult: string = Level[oralLevel];
-
       if (writeLevel === undefined || writeLevel === null) {
         return "(" + oralResult + ")";
       }
 
       let writeResult: string = Level[writeLevel];
-
       return "(" + oralResult + Constants.SPACE_SLASH_SPACE + writeResult + ")";
     };
 
@@ -228,7 +228,7 @@ export default class NavigationController extends ABiographyController<
         <h3 className="title">Language</h3>
         <div className="xp-s">
           {this.state.languageList.map((xp) => (
-            <div className="xp">
+            <div className="xp" key={xp.name.toLowerCase()}>
               <span className="text">
                 {xp.name}
                 <span className="spec">
@@ -263,6 +263,7 @@ export default class NavigationController extends ABiographyController<
 
 interface ICardProps {
   id: string;
+  key: string;
   place: string;
   timeInterval: string;
   reference: string;

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { EPageFragment } from "../../../router/EPageFragment";
 import SvgReactIcon from "../../design/SvgReactIcon";
 import "../style/semantic.css";
-import { LeftNavItem } from "./LeftNavItem";
+import { NavItem } from "./NavItem";
 import IMainPage, { linkContent } from "./specification/ILink";
 
 export const Header: FC = () => {
@@ -34,7 +34,7 @@ export const Header: FC = () => {
         {navLinks
           .filter((link) => !link.disabled)
           .map((link) => (
-            <LeftNavItem
+            <NavItem
               id={link.id}
               key={link.id}
               items={link.pages}

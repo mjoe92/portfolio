@@ -500,7 +500,7 @@
 
 .controller .container .detail .scroll .about .info .card .text h4 {
   text-transform: uppercase;
-  font-weight: 800;
+  font-weight: 900;
   font-size: 16px;
   margin-bottom: 16px;
   width: 100%;
@@ -509,7 +509,7 @@
           align-items: end;
 }
 
-.controller .container .detail .scroll .about .info .card .text h4 p {
+.controller .container .detail .scroll .about .info .card .text h4 div {
   margin: 0;
   color: rgba(0, 0, 0, 0.6);
 }
@@ -518,14 +518,14 @@
   display: none;
 }
 
-.controller .container .detail .scroll .about .info .card .text div {
+.controller .container .detail .scroll .about .info .card .text .card-detail {
   max-height: 0;
   overflow-y: hidden;
   -webkit-transition: max-height 0.5s linear;
   transition: max-height 0.5s linear;
 }
 
-.controller .container .detail .scroll .about .info .card .text div.show {
+.controller .container .detail .scroll .about .info .card .text .card-detail.show {
   max-height: 600px;
 }
 

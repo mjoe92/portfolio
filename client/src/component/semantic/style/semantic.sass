@@ -1,5 +1,6 @@
 $icon-sizing: 1.5
 $text-color: white
+$nav-item-color: grey
 
 header
 	top: 0
@@ -44,10 +45,17 @@ header
 			.dropdown-menu[data-bs-popper]
 				right: 0
 
-				.dropdown-item
-					a
-						text-decoration: none
-						color: $text-color
+				.nav-item
+					display: block
+					text-decoration: none
+					color: $text-color
+					padding: 5px
+					margin: 0px 5px
+					border-radius: 4px
+					transition: background-color .5s linear
+
+				.nav-item:hover
+					background-color: rgba($nav-item-color, 0.5)
 
 footer
 	position: fixed

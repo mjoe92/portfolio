@@ -1,0 +1,301 @@
+@import 'scrollbar'
+
+.controller
+  .container
+    .detail
+      background: $detail-background-color
+      padding: 10px 20px 10px 40px
+
+      .scroll
+        .about
+          margin-right: 25px
+
+          .title
+            width: 100%
+            display: inline-flex
+            justify-content: space-between
+            color: $detail-title-color
+            text-transform: uppercase
+            font-weight: 700
+            letter-spacing: 1px
+            margin: 45px 0 30px 0
+            gap: 10px
+            align-items: center
+
+            p
+              margin: 0
+
+            svg
+
+          p
+            color: $detail-title-color
+
+          .info:first-of-type
+            .title
+              margin-top: 30px
+
+          .info
+            margin-right: 25px
+            position: relative
+
+            a
+              text-decoration: none
+
+            .anchor-jump
+              position: absolute
+              top: -25px
+              visibility: hidden
+              width: 100%
+
+            .card
+              background-color: $detail-background-color
+              display: flex
+              flex-direction: row
+              margin: 20px 0
+              border: none
+
+              .text
+                .show-dropdown
+                  p:last-child, ul:last-child, div:last-child
+                    margin-bottom: 0
+
+              .date-company
+                max-width: $detail-left-min-width
+                min-width: $detail-left-min-width
+                order: 1
+
+                h5
+                  text-transform: uppercase
+                  color: $detail-date-color
+                  font-weight: 600
+                  font-size: $detail-left-font-size
+
+              .branch
+                padding: 0 15px
+                order: 2
+
+                .branch-up
+                  display: block
+                  width: 2px
+                  height: 3px
+                  background-color: $detail-date-color
+                  transform: translate(7px, 0)
+
+                .rounder
+                  position: relative
+                  display: block
+                  width: 16px
+                  height: 16px
+                  background-color: $navigation-default-text-color
+                  border-radius: 50%
+                  border: 3px solid $detail-date-color
+                  margin-top: 0
+                  transition: background-color 0.5s linear
+
+                .rounder.active, .rounder:hover
+                  background-color: rgba($detail-xp-color, 0.3)
+
+                .rounder:active
+                  background-color: $detail-xp-color
+
+                .rounder.active:hover
+                  background-color: $navigation-default-text-color
+
+                .rounder.active:active
+                  background-color: $detail-xp-color
+
+                .branch-down
+                  display: block
+                  width: 2px
+                  height: 110%
+                  background-color: $detail-date-color
+                  transform: translate(7px, 0)
+
+              .text
+                order: 3
+
+                h4
+                  text-transform: uppercase
+                  font-weight: 900
+                  font-size: $detail-left-font-size
+                  margin-bottom: 16px
+                  width: 100%
+                  align-items: end
+
+                  div
+                    margin: 0
+                    color: $detail-card-title-color
+
+                  svg
+                    display: none
+
+                .card-detail
+                  max-height: 0
+                  overflow-y: hidden
+                  transition: max-height 0.5s linear
+
+                .card-detail.show
+                  max-height: 600px
+
+            .card:last-child
+              .branch-down
+                display: none
+
+            .card:first-of-type
+              .branch-up
+                background-color: $detail-background-color
+
+          .hard-skills
+            .title
+              margin-bottom: 45px
+
+            .card
+              position: relative
+              width: 100%
+              display: grid
+              grid-template-columns: $detail-left-min-width 1fr
+              justify-content: center
+              align-items: baseline
+              margin-bottom: 30px
+
+              h4
+                text-transform: uppercase
+                color: $detail-date-color
+                font-weight: 500
+                font-size: $detail-left-font-size
+                margin-bottom: 0
+
+              .percent
+                position: relative
+                width: 100%
+                height: 10px
+                justify-content: center
+                display: flex
+                flex-direction: row
+                justify-content: flex-start
+                align-content: flex-start
+
+                .percent-end-gap
+                  right: 0
+                  position: absolute
+                  height: 100%
+                  animation: normal
+                  animation-name: gap-animation
+                  animation-duration: 2s
+                  animation-iteration-count: infinite
+                  background-color: $navigation-empty-percent-color
+
+                  @keyframes gap-animation
+                    0%
+                      background-color: $navigation-empty-percent-color
+                    50%
+                      background-color: $detail-date-color
+                    100%
+                      background-color: $navigation-empty-percent-color
+
+                .percent-effective
+                  position: absolute
+                  height: 100%
+                  width: 90%
+                  background-color: $navigation-empty-percent-color
+
+                  .xp-limit
+                    position: absolute
+                    bottom: -5px
+                    width: 4px
+                    height: 20px
+                    border-radius: 2px
+                    background-color: grey
+
+                  .xp-bar
+                    position: absolute
+                    height: 100%
+                    background-color: $detail-xp-color
+
+                  .xp-time-duration-text
+                    position: absolute
+                    font-size: 12px
+                    bottom: 20px
+                    height: 18px
+                    border-radius: 2px
+                    font-style: italic
+                    white-space: nowrap
+
+          .interest
+            .xp-s
+              padding-left: 0
+
+              .xp
+                padding: 10px 0px
+
+                .svg-extended-icon
+                  position: relative
+                  width: 100%
+                  display: grid
+                  grid-template-columns: $detail-left-min-width 1fr
+                  justify-content: center
+                  align-items: center
+
+                  .text-box
+                    text-transform: uppercase
+                    color: $detail-date-color
+                    font-weight: 500
+                    font-size: $detail-left-font-size
+
+                    h4
+                      margin-bottom: 0
+                      font-size: 16px
+                      font-weight: 500
+
+                  .svg-icon
+                    position: relative
+                    min-width: 4rem
+                    font-size: 2rem
+                    color: $navigation-icon-color
+
+@media (max-width: 1000px)
+  .controller
+    .container
+      .detail
+        .scroll
+          .about
+            .info
+              .card
+                display: grid
+
+                .text
+                  border-bottom: 2px solid $background-dark-color
+                  padding-bottom: 8px
+
+                  h4
+                    display: inline-flex
+                    gap: 10px
+                    margin-bottom: 5px
+                    justify-content: space-between
+
+                    svg
+                      cursor: pointer
+                      display: inline
+                      transform: rotate(180deg)
+                      transition: transform 0.3s linear
+
+                    svg.show
+                      transform: rotate(0)
+
+                  .show-dropdown
+                    padding-right: 14px
+
+                    .show-right-branch1
+                      /*! Right branch -> unfinished! */
+                      position: absolute
+                      top: 14%
+                      right: 6px
+                      width: 2px
+                      height: 70%
+                      background-color: $detail-date-color
+
+                .branch
+                  display: none
+
+                .date-company
+                  max-width: none

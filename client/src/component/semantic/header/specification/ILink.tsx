@@ -25,11 +25,11 @@ export const linkContent: IMainPage[] = [
       },
       {
         name: "Web pages",
-        link: "webPages",
+        link: "web-pages",
       },
       {
         name: "Mini apps",
-        link: "miniApps",
+        link: "mini-apps",
       },
     ],
   },

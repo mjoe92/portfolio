@@ -60,9 +60,19 @@ header .navbar .dropdown .dropdown-menu[data-bs-popper] {
   right: 0;
 }
 
-header .navbar .dropdown .dropdown-menu[data-bs-popper] .dropdown-item a {
+header .navbar .dropdown .dropdown-menu[data-bs-popper] .nav-item {
+  display: block;
   text-decoration: none;
   color: white;
+  padding: 5px;
+  margin: 0px 5px;
+  border-radius: 4px;
+  -webkit-transition: background-color .5s linear;
+  transition: background-color .5s linear;
+}
+
+header .navbar .dropdown .dropdown-menu[data-bs-popper] .nav-item:hover {
+  background-color: rgba(128, 128, 128, 0.5);
 }
 
 footer {

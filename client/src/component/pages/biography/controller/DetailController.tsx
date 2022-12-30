@@ -21,6 +21,7 @@ interface IState {
   showAllDropdown: boolean;
 }
 
+// TODO: add keys to lists
 export default class DetailController extends ABiographyController<
   IProps,
   IState
@@ -77,6 +78,7 @@ export default class DetailController extends ABiographyController<
         <h2 className="title">Job Experience</h2>
         {this.state.jobList.map((xp) => (
           <Card
+            key={xp.id}
             history={xp}
             place={xp.employer}
             reference={this.createRef(xp.id)}
@@ -101,6 +103,7 @@ export default class DetailController extends ABiographyController<
         <h2 className="title">Education</h2>
         {this.state.educationList.map((xp) => (
           <Card
+            key={xp.id}
             history={xp}
             place={xp.institution}
             reference={this.createRef(xp.id)}
@@ -228,7 +231,7 @@ export default class DetailController extends ABiographyController<
         {this.state.skillList
           .filter((skill) => !skill.hide)
           .map((xp) => (
-            <div className="card">
+            <div className="card" key={xp.name}>
               <h4>{xp.name}</h4>
               <div className="percent">
                 <div
@@ -261,7 +264,7 @@ export default class DetailController extends ABiographyController<
         <h2 className="title">Interest</h2>
         <div className="xp-s">
           {this.state.interestList.map((xp) => (
-            <div className="xp">
+            <div className="xp" key={xp.name}>
               <SvgReactIcon
                 key={xp.name}
                 icons={xp.icons}
@@ -276,6 +279,7 @@ export default class DetailController extends ABiographyController<
 }
 
 interface ICardProps {
+  key: string;
   history: AbstractIDetailedHistory;
   place: string;
   timeInterval: string;
@@ -288,7 +292,7 @@ interface ICardState {
 }
 
 export class Card extends ABiographyController<ICardProps, ICardState> {
-  private static timeoutInMs = 500;
+  // private static timeoutInMs = 500;
 
   constructor(props: ICardProps, private textHeight: number) {
     super(props);
@@ -348,14 +352,17 @@ export class Card extends ABiographyController<ICardProps, ICardState> {
     return (
       <div className="text">
         <h4>
-          <p>{this.props.xpNames}</p>
+          <div>{this.props.xpNames}</div>
           <FontAwesomeIcon
             icon={faAngleUp}
             className={showDropdownClassName}
             onClick={() => this.handleDropdownShrunk(1000)}
           />
         </h4>
-        <div id={this.props.history.id} className={showDropdownClassName}>
+        <div
+          id={this.props.history.id}
+          className={`card-detail ${showDropdownClassName}`}
+        >
           {this.props.history.description}
           <span className="show-right-branch" />
         </div>

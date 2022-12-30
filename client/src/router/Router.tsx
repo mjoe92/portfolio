@@ -8,7 +8,6 @@ import { Header } from "../component/semantic/header/Header";
 import { Footer } from "../component/semantic/footer/Footer";
 import HomeController from "../component/pages/home/controller/HomeController";
 
-import "./style/background.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Router = () => {

@@ -1,5 +1,3 @@
-import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Component } from "react";
 import { Constants } from "../../../../utils/Constants";
 
@@ -36,6 +34,7 @@ export default abstract class ABiographyController<
     return Constants.HASHTAG + ref;
   };
 
+  // TODO: change to generic paramter implements key interface
   protected toBreakLine = (args: string[]): JSX.Element => {
     if (args.length === 1) {
       return <>{args[0]}</>;
@@ -44,7 +43,7 @@ export default abstract class ABiographyController<
     return (
       <>
         {args.map((arg) => (
-          <p>{arg}</p>
+          <p key={arg}>{arg}</p>
         ))}
       </>
     );
