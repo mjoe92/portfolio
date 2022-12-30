@@ -1,3 +1,5 @@
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Component } from "react";
 import { Constants } from "../../../../utils/Constants";
 import SvgReactIcon from "../../../design/SvgReactIcon";
@@ -110,7 +112,10 @@ export default class NavigationController extends ABiographyController<
           className="title"
         >
           <p>Job Experience</p>
-          {this.showDropdownIcon(this.state.showJobDropdown)}
+          <FontAwesomeIcon
+            icon={faAngleUp}
+            className={this.state.showJobDropdown ? "show" : undefined}
+          />
         </h3>
         <div
           className={this.state.showJobDropdown ? "xp-s show-dropdown" : "xp-s"}
@@ -150,7 +155,10 @@ export default class NavigationController extends ABiographyController<
           className="title"
         >
           <p>Education</p>
-          {this.showDropdownIcon(this.state.showEducationDropdown)}
+          <FontAwesomeIcon
+            icon={faAngleUp}
+            className={this.state.showEducationDropdown ? "show" : undefined}
+          />
         </h3>
         <div
           className={

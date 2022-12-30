@@ -1,16 +1,42 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import "./test.css";
 
-class Test extends Component {
+type IProps = {};
+export default class Test extends Component {
+  constructor(
+    props: IProps,
+    private buttonRef: React.RefObject<HTMLButtonElement>
+  ) {
+    super(props);
+    this.buttonRef = React.createRef();
+  }
+
+  private createShadowMouseMove(): void {
+    const btn = this.buttonRef.current;
+    if (btn !== null) {
+      btn.onmousemove = function (mouseEvent: MouseEvent) {
+        if (btn !== null) {
+          var x = mouseEvent.pageX - btn.offsetLeft;
+          var y = mouseEvent.pageY - btn.offsetTop;
+          btn.style.setProperty("--x", x + "px");
+          btn.style.setProperty("--y", y + "px");
+        }
+      };
+    }
+  }
+
   render() {
+    this.createShadowMouseMove();
     return (
-      <div className="fix-div">
-        <div className="tall-div">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi quia fuga nam ducimus accusamus, alias placeat laborum, illum illo vero cupiditate ab quo accusantium voluptatem harum voluptates doloremque, repellendus nesciunt? Dignissimos fuga rem, sunt aliquid corporis sed ad ratione dolore aliquam quo obcaecati mollitia quasi praesentium voluptates consequatur? Ipsum impedit odio iste magnam molestias? Architecto quam alias quia animi voluptates eveniet delectus harum, quo, doloremque libero dolor odit nostrum iste ipsum. Alias reprehenderit unde neque commodi. Porro vel qui dolorum recusandae esse. Nesciunt eveniet eaque laboriosam ipsam aperiam, iusto necessitatibus autem earum qui delectus? Alias, pariatur molestiae repellendus nesciunt nihil corporis qui quod delectus, distinctio hic sed? Alias tenetur, dolores corporis repudiandae ipsa laborum impedit quae aut consequuntur, doloribus iste modi facilis itaque debitis velit perferendis pariatur accusamus dolorem numquam qui! Nisi minima inventore quaerat rerum dolorem error nesciunt debitis architecto, suscipit ab nam vel temporibus magni, asperiores voluptatem sit pariatur. Quam, mollitia necessitatibus sunt voluptate est molestiae itaque accusantium. Voluptatibus cum quisquam aliquam in harum fugit a vitae nesciunt delectus aliquid! Blanditiis possimus tenetur quos, amet placeat iste quas eos incidunt rem ex! Optio natus praesentium laborum? Pariatur quas ea voluptatum atque beatae dolor quis perferendis officiis eius facilis?
-        </div>
-      </div>
+      <h1 id="shadow">
+        <span className="top">
+          somewhat <span className="white">creepy when your</span>
+        </span>
+        <div className="shadow">SHADOW</div>
+        <span className="bottom">
+          follows <span className="us">you & me</span> around
+        </span>
+      </h1>
     );
   }
 }
-
-export default Test;

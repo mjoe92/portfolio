@@ -359,7 +359,7 @@ export const experienceContent: IExperience[] = [
           Lots of these jobs were repetative "wood-cutting" tasks done in Excel
           environment. It gave me the opportunity to dive deep to learn&nbsp;
           <span id="vba" className="highlight-point">
-            VBA programming {/** show / hide in picture: WPQS table sample */}
+            VBA programming{/** show / hide in picture: WPQS table sample */}
           </span>
           . By creating macros I was able to learn basics of functional
           programming which also increased mine and others administrative

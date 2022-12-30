@@ -1,8 +1,8 @@
 import {
-  faBars,
   faCode,
   faDumbbell,
   faGear,
+  faGears,
   faKeyboard,
   faLanguage,
   faMap,
@@ -33,10 +33,6 @@ export const interestContent: IInterest[] = [
   },
   {
     name: "Work",
-    icons: [faBars],
-  },
-  {
-    name: "Coding",
-    icons: [faCode],
+    icons: [faGears, faCode],
   },
 ];

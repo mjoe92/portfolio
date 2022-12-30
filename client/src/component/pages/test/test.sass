@@ -1,8 +1,45 @@
-.fix-div
-  position: fixed
+// @import "compass/css3"
 
-  .tall-div
-    background-color: yellow
-    height: 1000px
-    width: 500px
-    overflow: scroll
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+@import url(https://fonts.googleapis.com/css?family=Alegreya+SC:400,700,900);
+
+$grey: #323232
+
+body
+  color: $grey
+  position: fixed
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  overflow: hidden
+
+h1
+  width: 600px
+  margin: 100px auto
+  transform: translateZ(0)
+  // @include text-shadow(3px 3px 0px rgba(196, 23, 83, 0.1) )
+  // @include single-transition(text-shadow, 20ms)
+  -webkit-text-stroke: 1px rgba(196, 23, 83, 0.5)
+
+  .top, .bottom
+    font-family: 'Alegreya SC'
+
+  .top
+    font-weight: 400
+    font-size: 46px
+
+  .bottom
+    font-size: 52px
+    font-weight: 700
+
+    .us
+      font-weight: 900
+
+  .shadow
+    font-size: 130px
+    font-family: 'Open Sans'
+    line-height: 80px
+
+  .white
+    color: white

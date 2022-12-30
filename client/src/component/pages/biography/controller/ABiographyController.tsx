@@ -77,13 +77,4 @@ export default abstract class ABiographyController<
   protected getActualTime(time?: Date): Date {
     return time === undefined ? new Date() : time;
   }
-
-  protected showDropdownIcon(
-    showDropdown: boolean,
-    className?: string
-  ): JSX.Element {
-    const image = showDropdown ? faAngleUp : faAngleDown;
-
-    return <FontAwesomeIcon icon={image} className={className} />;
-  }
 }

@@ -1,3 +1,5 @@
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Constants } from "../../../../utils/Constants";
 import SvgReactIcon from "../../../design/SvgReactIcon";
 import { AbstractIDetailedHistory } from "../content/AbstractIHistory";
@@ -11,11 +13,12 @@ import ABiographyController from "./ABiographyController";
 interface IProps {}
 
 interface IState {
+  profile?: IProfile;
   jobList?: IExperience[];
   educationList?: IEducation[];
   skillList?: ISkill[];
   interestList?: IInterest[];
-  profile?: IProfile;
+  showAllDropdown: boolean;
 }
 
 export default class DetailController extends ABiographyController<
@@ -29,8 +32,9 @@ export default class DetailController extends ABiographyController<
       profile: profileContent,
       jobList: experienceContent,
       educationList: educationContent,
-      interestList: interestContent,
       skillList: skillContent,
+      interestList: interestContent,
+      showAllDropdown: false,
     };
   }
 
@@ -115,16 +119,6 @@ export default class DetailController extends ABiographyController<
     if (this.state.skillList == null) {
       return <></>;
     }
-
-    // const minDate = new Date(
-    //   Math.min.apply(null,
-    //     this.state.skillList
-    //       .filter((skill) => !skill.hide)
-    //       .map((xp) => xp.timeStart.getMilliseconds)
-    //   )
-    // );
-
-    // console.log(minDate.getTime());
 
     const getTimeIntervalInText = (xp: ISkill): JSX.Element => {
       const timeInterval: string = this.getYearMonthIntervalInText(
@@ -312,39 +306,56 @@ export class Card extends ABiographyController<ICardProps, ICardState> {
           id={this.props.history.id + "-detail"}
           className="anchor-jump"
         ></span>
-        <div id={this.props.history.id} className="date-company">
-          <h5>{this.props.timeInterval}</h5>
-          <h5>{this.props.place}</h5>
-        </div>
-        <div className="branch">
-          <span className="branch-up"></span>
-          <a href={this.props.reference + "-navigation"}>
-            <span
-              className={
-                "rounder" +
-                (this.state.showDropdown ? " active" : Constants.EMPTY)
-              }
-              onClick={() => this.handleDropdownShrunkDefault()}
-            ></span>
-          </a>
-          <span className="branch-down"></span>
-        </div>
+        {this.renderDateCompany()}
+        {this.renderBranch()}
         {this.renderText()}
       </div>
     );
   }
 
+  private renderDateCompany(): JSX.Element {
+    return (
+      <div id={this.props.history.id} className="date-company">
+        <h5>{this.props.timeInterval}</h5>
+        <h5>{this.props.place}</h5>
+      </div>
+    );
+  }
+
+  private renderBranch(): JSX.Element {
+    return (
+      <div className="branch">
+        <span className="branch-up"></span>
+        <a href={this.props.reference + "-navigation"}>
+          <span
+            className={
+              "rounder" +
+              (this.state.showDropdown
+                ? Constants.SPACE + "active"
+                : Constants.EMPTY)
+            }
+            onClick={() => this.handleCardDropdown()}
+          />
+        </a>
+        <span className="branch-down"></span>
+      </div>
+    );
+  }
+
   private renderText(): JSX.Element {
+    let showDropdownClassName = this.state.showDropdown ? "show" : undefined;
+
     return (
       <div className="text">
-        <h4 onClick={() => this.handleDropdownShrunk(1000)}>
+        <h4>
           <p>{this.props.xpNames}</p>
-          {this.showDropdownIcon(this.state.showDropdown, "icon")}
+          <FontAwesomeIcon
+            icon={faAngleUp}
+            className={showDropdownClassName}
+            onClick={() => this.handleDropdownShrunk(1000)}
+          />
         </h4>
-        <div
-          id={this.props.history.id}
-          className={this.state.showDropdown ? "show-dropdown" : undefined}
-        >
+        <div id={this.props.history.id} className={showDropdownClassName}>
           {this.props.history.description}
           <span className="show-right-branch" />
         </div>
@@ -359,16 +370,10 @@ export class Card extends ABiographyController<ICardProps, ICardState> {
       return;
     }
 
-    this.handleDropdownShrunkDefault();
+    this.handleCardDropdown();
   }
 
-  private handleDropdownShrunkDefault(): void {
-    const minHeight = 0;
-    const maxHeight = 200;
-    const diffRatio = Math.abs(maxHeight - minHeight) / Card.timeoutInMs;
-
-    //const timeOut = setInterval(() => this.slowAnimation(diffRatio), 1);
-    //clearInterval(timeOut);
+  private handleCardDropdown(): void {
     this.setState({ showDropdown: !this.state.showDropdown });
   }
 

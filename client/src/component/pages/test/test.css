@@ -1,11 +1,48 @@
-.fix-div {
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+@import url(https://fonts.googleapis.com/css?family=Alegreya+SC:400,700,900);
+body {
+  color: #323232;
   position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
 }
 
-.fix-div .tall-div {
-  background-color: yellow;
-  height: 1000px;
-  width: 500px;
-  overflow: scroll;
+h1 {
+  width: 600px;
+  margin: 100px auto;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-text-stroke: 1px rgba(196, 23, 83, 0.5);
+}
+
+h1 .top, h1 .bottom {
+  font-family: 'Alegreya SC';
+}
+
+h1 .top {
+  font-weight: 400;
+  font-size: 46px;
+}
+
+h1 .bottom {
+  font-size: 52px;
+  font-weight: 700;
+}
+
+h1 .bottom .us {
+  font-weight: 900;
+}
+
+h1 .shadow {
+  font-size: 130px;
+  font-family: 'Open Sans';
+  line-height: 80px;
+}
+
+h1 .white {
+  color: white;
 }
 /*# sourceMappingURL=test.css.map */

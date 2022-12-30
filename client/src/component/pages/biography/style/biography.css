@@ -213,6 +213,21 @@
   font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 20px;
+  vertical-align: text-top;
+}
+
+.controller .container .navigation .scroll .about .title svg {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+  -webkit-transition: -webkit-transform 0.5s linear;
+  transition: -webkit-transform 0.5s linear;
+  transition: transform 0.5s linear;
+  transition: transform 0.5s linear, -webkit-transform 0.5s linear;
+}
+
+.controller .container .navigation .scroll .about .title svg.show {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 .controller .container .navigation .scroll .about .education .xp-s, .controller .container .navigation .scroll .about .experience .xp-s {
@@ -221,19 +236,16 @@
   -webkit-transition: max-height 0.3s;
   transition: max-height 0.3s;
   overflow: hidden;
-}
-
-.controller .container .navigation .scroll .about .education .xp-s .xp:hover, .controller .container .navigation .scroll .about .experience .xp-s .xp:hover {
-  cursor: pointer;
-  border: 5px solid rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-transition: max-height 0.5s linear;
+  transition: max-height 0.5s linear;
 }
 
 .controller .container .navigation .scroll .about .education .xp-s .xp, .controller .container .navigation .scroll .about .experience .xp-s .xp {
   border: 5px solid #383838;
   padding: 5px;
   margin: 0;
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
 }
 
 .controller .container .navigation .scroll .about .education .xp-s .xp h5, .controller .container .navigation .scroll .about .experience .xp-s .xp h5 {
@@ -253,12 +265,17 @@
   font-size: 16px;
 }
 
+.controller .container .navigation .scroll .about .education .xp-s .xp:hover, .controller .container .navigation .scroll .about .experience .xp-s .xp:hover {
+  cursor: pointer;
+  border: 5px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 .controller .container .navigation .scroll .about .education .xp-s.show-dropdown, .controller .container .navigation .scroll .about .experience .xp-s.show-dropdown {
-  max-height: -webkit-fit-content;
-  max-height: -moz-fit-content;
-  max-height: fit-content;
-  -webkit-transition: max-height 1s;
-  transition: max-height 1s;
+  max-height: 750px;
+  -webkit-transition: max-height 0.5s linear;
+  transition: max-height 0.5s linear;
 }
 
 .controller .container .navigation .scroll .about .navigation-point.language .text {
@@ -343,12 +360,26 @@
 }
 
 .controller .container .detail .scroll .about .title {
+  width: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   color: #383838;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1px;
   margin: 45px 0 30px 0;
-  vertical-align: text-top;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.controller .container .detail .scroll .about .title p {
+  margin: 0;
 }
 
 .controller .container .detail .scroll .about p {
@@ -432,6 +463,8 @@
   border-radius: 50%;
   border: 3px solid grey;
   margin-top: 0;
+  -webkit-transition: background-color 0.5s linear;
+  transition: background-color 0.5s linear;
 }
 
 .controller .container .detail .scroll .about .info .card .branch .rounder.active, .controller .container .detail .scroll .about .info .card .branch .rounder:hover {
@@ -481,19 +514,19 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
-.controller .container .detail .scroll .about .info .card .text h4 .icon {
+.controller .container .detail .scroll .about .info .card .text h4 svg {
   display: none;
 }
 
 .controller .container .detail .scroll .about .info .card .text div {
   max-height: 0;
   overflow-y: hidden;
+  -webkit-transition: max-height 0.5s linear;
+  transition: max-height 0.5s linear;
 }
 
-.controller .container .detail .scroll .about .info .card .text div.show-dropdown {
-  max-height: -webkit-fit-content;
-  max-height: -moz-fit-content;
-  max-height: fit-content;
+.controller .container .detail .scroll .about .info .card .text div.show {
+  max-height: 600px;
 }
 
 .controller .container .detail .scroll .about .info .card:last-child .branch-down {
@@ -677,7 +710,6 @@
     padding-bottom: 8px;
   }
   .controller .container .detail .scroll .about .info .card .text h4 {
-    cursor: pointer;
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
@@ -687,8 +719,19 @@
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  .controller .container .detail .scroll .about .info .card .text h4 .icon {
+  .controller .container .detail .scroll .about .info .card .text h4 svg {
+    cursor: pointer;
     display: inline;
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    -webkit-transition: -webkit-transform 0.3s linear;
+    transition: -webkit-transform 0.3s linear;
+    transition: transform 0.3s linear;
+    transition: transform 0.3s linear, -webkit-transform 0.3s linear;
+  }
+  .controller .container .detail .scroll .about .info .card .text h4 svg.show {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
   }
   .controller .container .detail .scroll .about .info .card .text .show-dropdown {
     padding-right: 14px;
@@ -696,7 +739,7 @@
   .controller .container .detail .scroll .about .info .card .text .show-dropdown .show-right-branch1 {
     /*! Right branch -> unfinished! */
     position: absolute;
-    top: 0;
+    top: 14%;
     right: 6px;
     width: 2px;
     height: 70%;

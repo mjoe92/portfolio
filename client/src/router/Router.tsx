@@ -1,14 +1,15 @@
 // import UserComponent from './component/user/UserComponent';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./style/background.css";
+import { EPageFragment } from "./EPageFragment";
+import { Routes, Route } from "react-router";
+import { BrowserRouter } from "react-router-dom";
 import BiographyController from "../component/pages/biography/controller/BiographyController";
 import { ErrorController } from "../component/pages/mismatch/ErrorController";
 import { Header } from "../component/semantic/header/Header";
 import { Footer } from "../component/semantic/footer/Footer";
 import HomeController from "../component/pages/home/controller/HomeController";
-// import Test from "../component/pages/test/Test";
-import { EPageFragment } from "./EPageFragment";
+
+import "./style/background.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Router = () => {
   return (
