@@ -78,9 +78,9 @@ export default class NavigationController extends ABiographyController<
     );
   }
 
-  private renderContactNavigation(): JSX.Element {
+  private renderContactNavigation(): JSX.Element | null {
     if (this.state.contactList == null) {
-      return <></>;
+      return null;
     }
 
     return (
@@ -100,9 +100,9 @@ export default class NavigationController extends ABiographyController<
     );
   }
 
-  private renderJobNavigation(): JSX.Element {
+  private renderJobNavigation(): JSX.Element | null {
     if (this.state.jobList == null) {
-      return <></>;
+      return null;
     }
 
     return (
@@ -143,9 +143,9 @@ export default class NavigationController extends ABiographyController<
     });
   }
 
-  private renderEducationNavigation(): JSX.Element {
+  private renderEducationNavigation(): JSX.Element | null {
     if (this.state.educationList == null) {
-      return <></>;
+      return null;
     }
 
     return (
@@ -188,9 +188,9 @@ export default class NavigationController extends ABiographyController<
     });
   }
 
-  private renderLanguageNavigation(): JSX.Element {
+  private renderLanguageNavigation(): JSX.Element | null {
     if (this.state.languageList == null) {
-      return <></>;
+      return null;
     }
 
     const getPrefixLevel = (

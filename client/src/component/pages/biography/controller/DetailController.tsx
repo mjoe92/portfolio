@@ -54,9 +54,9 @@ export default class DetailController extends ABiographyController<
     );
   }
 
-  private renderProfile(): JSX.Element {
+  private renderProfile(): JSX.Element | null {
     if (this.state.profile == null) {
-      return <></>;
+      return null;
     }
 
     return (
@@ -67,9 +67,9 @@ export default class DetailController extends ABiographyController<
     );
   }
 
-  private renderJobContent(): JSX.Element {
+  private renderJobContent(): JSX.Element | null {
     if (this.state.jobList == null) {
-      return <></>;
+      return null;
     }
 
     return (
@@ -91,9 +91,9 @@ export default class DetailController extends ABiographyController<
     );
   }
 
-  private renderEducationContent(): JSX.Element {
+  private renderEducationContent(): JSX.Element | null {
     if (this.state.educationList == null) {
-      return <></>;
+      return null;
     }
 
     return (
@@ -115,9 +115,9 @@ export default class DetailController extends ABiographyController<
     );
   }
 
-  private renderSkillContent(): JSX.Element {
+  private renderSkillContent(): JSX.Element | null {
     if (this.state.skillList == null) {
-      return <></>;
+      return null;
     }
 
     const getTimeIntervalInText = (xp: ISkill): JSX.Element => {
@@ -251,9 +251,9 @@ export default class DetailController extends ABiographyController<
     );
   }
 
-  private renderInterestContent(): JSX.Element {
+  private renderInterestContent(): JSX.Element | null {
     if (this.state.interestList == null) {
-      return <></>;
+      return null;
     }
 
     return (
