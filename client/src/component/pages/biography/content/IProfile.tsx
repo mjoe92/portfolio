@@ -78,7 +78,7 @@ export const profileContent: IProfile = {
         </span>
         &nbsp;in full-time, but I'm taking&nbsp;
         <span id="term" className="highlight-point">
-          long, medium-term
+          long, medium-term engineering
         </span>
         &nbsp;projects as my&nbsp;
         {/* 3D cad projects, linkage designing, website building */}
@@ -86,6 +86,13 @@ export const profileContent: IProfile = {
           side job
         </span>
         &nbsp;as well.
+      </p>
+      <p>
+        Please feel free to contact&nbsp;
+        <span id="contact" className="highlight-point">
+          me
+        </span>
+        &nbsp;whenever I can provide service.
       </p>
     </>
   ),

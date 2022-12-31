@@ -152,4 +152,39 @@
     border-radius: 100vw;
   }
 }
+
+@media (max-height: 750px) {
+  .background-home .message-box {
+    top: -45px;
+    min-height: calc(100vh - 200px);
+  }
+}
+
+@media (max-height: 630px) {
+  .background-home .message-box {
+    top: -60px;
+    min-height: calc(100vh - 180px);
+  }
+}
+
+@media (max-height: 570px) {
+  .background-home .message-box {
+    top: -70px;
+    min-height: calc(100vh - 160px);
+  }
+}
+
+@media (max-width: 310px) and (max-height: 830px) {
+  .background-home .message-box {
+    top: -40px;
+    min-height: calc(100vh - 220px);
+  }
+}
+
+@media (max-width: 310px) and (max-height: 720px) {
+  .background-home .message-box {
+    top: -60px;
+    min-height: calc(100vh - 200px);
+  }
+}
 /*# sourceMappingURL=home.css.map */

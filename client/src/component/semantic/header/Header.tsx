@@ -1,12 +1,13 @@
-import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { FC, useState } from "react";
 import { Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { EPageFragment } from "../../../router/EPageFragment";
 import SvgReactIcon from "../../design/SvgReactIcon";
-import "../style/semantic.css";
 import { NavItem } from "./NavItem";
 import IMainPage, { linkContent } from "./specification/ILink";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+
+import "../style/semantic.css";
 
 export const Header: FC = () => {
   const [navLinks] = useState<IMainPage[]>(linkContent);
@@ -58,12 +59,6 @@ export const Header: FC = () => {
           {renderMainPage()}
           <Navbar.Toggle aria-controls="navbar" />
           {renderPageGroups()}
-
-          {/* <Navbar.Collapse id="navbar" className="navbar">
-            <Nav>
-              <Nav.Link href="#blog">RIGHT-NAV</Nav.Link>
-            </Nav>
-          </Navbar.Collapse> */}
         </Container>
       </Navbar>
     </header>

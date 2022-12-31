@@ -67,7 +67,7 @@ export const NavItem: FC<IProps> = ({ id, title, expo, items, disabled }) => {
   };
 
   const renderExpoItem = () => (
-    <Link className="nav-item" to={expo}>
+    <Link className="nav-item" to={expo.toLowerCase()}>
       {expo.toUpperCase()}
     </Link>
   );
