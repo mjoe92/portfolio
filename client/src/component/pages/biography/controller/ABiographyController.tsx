@@ -58,7 +58,10 @@ export default abstract class ABiographyController<
     let yearIntervalText: string = Constants.EMPTY;
     if (yearInterval >= 1) {
       yearIntervalText =
-        yearInterval + " YEAR" + (yearInterval === 1 ? Constants.EMPTY : "S");
+        yearInterval +
+        Constants.SPACE +
+        "YEAR" +
+        (yearInterval === 1 ? Constants.EMPTY : "S");
     }
 
     const monthInterval = end?.getMonth() - start.getMonth();
@@ -66,7 +69,8 @@ export default abstract class ABiographyController<
     if (monthInterval >= 1) {
       monthIntervalText =
         monthInterval +
-        " MONTH" +
+        Constants.SPACE +
+        "MONTH" +
         (monthInterval === 1 ? Constants.EMPTY : "S");
     }
 

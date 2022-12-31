@@ -514,6 +514,10 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
+.controller .container .detail .scroll .about .info .card .text h4 div p {
+  color: rgba(0, 0, 0, 0.6);
+}
+
 .controller .container .detail .scroll .about .info .card .text h4 svg {
   display: none;
 }
