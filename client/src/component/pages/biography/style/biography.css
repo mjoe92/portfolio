@@ -390,6 +390,10 @@
   margin-top: 30px;
 }
 
+.controller .container .detail .scroll .about .info:first-of-type p:last-of-type {
+  margin: 0;
+}
+
 .controller .container .detail .scroll .about .info {
   margin-right: 25px;
   position: relative;
