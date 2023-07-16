@@ -1,4 +1,4 @@
-package com.portfolio.mjoe;
+package com.portfolio.web;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -26,11 +26,11 @@ public class PortfolioServer extends SpringBootServletInitializer {
      */
     public static void main(String[] args) {
         new SpringApplicationBuilder(PortfolioServer.class)
-                .properties("spring.config.name=portfolio-mjoe-server").build().run(args);
+                .properties("spring.config.name=portfolio-web-server").build().run(args);
     }
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.properties("spring.config.name=portfolio-mjoe-server");
+        return builder.properties("spring.config.name=portfolio-web-server");
     }
 }

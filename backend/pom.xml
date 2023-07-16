@@ -21,7 +21,8 @@
         <build.rootDirectory>${project.basedir}</build.rootDirectory>
         
         <spring-boot-starter-web.version>3.1.1</spring-boot-starter-web.version>
-        <springdoc-openapi-ui.version>1.7.0</springdoc-openapi-ui.version>
+        <springdoc-openapi-starter-webmvc-ui.version>2.1.0</springdoc-openapi-starter-webmvc-ui.version>
+        <jackson-databind-nullable.version>0.2.3</jackson-databind-nullable.version>
         <postgresql.version>42.6.0</postgresql.version>
         <h2.version>2.2.220</h2.version>
         <flyway.version>7.12.1</flyway.version>
@@ -33,11 +34,16 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring-boot-starter-web.version}</version>
         </dependency>
-        <!--OPEN API DOCUMENT-->
+        <!--OPEN API-->
         <dependency>
             <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-ui</artifactId>
-            <version>${springdoc-openapi-ui.version}</version>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${springdoc-openapi-starter-webmvc-ui.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>${jackson-databind-nullable.version}</version>
         </dependency>
         <!--DATABASE RELATION DEPENDENCIES-->
         <dependency>
@@ -62,6 +68,7 @@
             <artifactId>flyway-core</artifactId>
             <version>${flyway.version}</version>
         </dependency>
+        <!--        -->
         <!--TEST-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -70,4 +77,46 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>6.6.0</version>
+                <configuration>
+                    <generatorName>spring</generatorName>
+                    <configOptions>
+                        <dateLibrary>java8-localdatetime</dateLibrary>
+                        <library>spring-boot</library>
+                        <oas3>true</oas3>
+                        <useSpringController>true</useSpringController>
+                        <useSpringfox>false</useSpringfox>
+                        <useSwaggerUI>false</useSwaggerUI>
+                        <useSpringBoot3>true</useSpringBoot3>
+                    </configOptions>
+                    <output>${project.build.directory}/generated-sources/</output>
+                    <generateApiDocumentation>true</generateApiDocumentation>
+                    <generateModelDocumentation>true</generateModelDocumentation>
+                    <generateApis>true</generateApis>
+                    <supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-gibs-api</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <inputSpec>${project.basedir}/src/main/resources/interface/web-interface.yaml</inputSpec>
+                            <modelPackage>com.portfolio.web.rest.generated.dto</modelPackage>
+                            <generateApis>true</generateApis>
+                            <apiPackage>com.portfolio.web.rest.generated.api</apiPackage>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
