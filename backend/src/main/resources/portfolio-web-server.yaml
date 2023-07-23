@@ -1,3 +1,6 @@
+info:
+  app-name: portfolio
+
 logging:
   config: classpath:logback-spring.xml
   level:
@@ -17,17 +20,42 @@ management:
 
 server:
   port: 8081
+  servlet:
+    context-path: /${info.app-name}
+    session:
+      timeout: 2m
 
 spring:
   application:
     name: Portfolio server
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
+    tomcat:
+      url: jdbc:postgresql://localhost:5432/${info.app-name}
+      username: mjoe92
+      password: Monkey92
+      driver-class-name: org.postgresql.Driver
+      initial-size: 8
+      log-abandoned: true
+      max-active: 32
+      max-idle: 16
+      max-wait: 10000
+      min-evictable-idle-time-millis: 55000
+      min-idle: 4
+      remove-abandoned: true
+      remove-abandoned-timeout: 600
+      suspect-timeout: 300
+      test-on-borrow: true
+      time-between-eviction-runs-millis: 34000
+      validation-interval: 34000
+      validation-query: select 1 from dual
+      
+    platform: ${info.app-name}
+    url: ${spring.datasource.tomcat.url}
     username: postgres
     password: Monkey92
-    #    tomcat:
-    #      driver-class-name: org.postgresql.Driver
+    continue-on-error: false
+    driverClassName: ${spring.datasource.tomcat.driver-class-name}
     
   flyway:
     enabled: false
@@ -35,9 +63,27 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+      show-sql: false
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: false
+        format_sql: false
+        use_sql_comments: false
+        generate_statistics: false
+        order_inserts: true
+        order_updates: true
+        hbm2ddl:
+          auto: validate
+        jdbc:
+          batch_versioned_data: true
+          fetch_size: 1000
+          batch_size: 1000
+        auto_quote_keyword: true
+        default_batch_fetch_size: 1000
+        batch_fetch_style: dynamic
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
       
   mvc:
     throw-exception-if-no-handler-found: true
@@ -51,63 +97,3 @@ springdoc:
     disabled: true
   swagger-ui:
     path: swagger
-    
-#  datasource:
-#    tomcat:
-#      driver-class-name: org.postgresql.Driver
-#      initial-size: 8
-#      log-abandoned: true
-#      max-active: 32
-#      max-idle: 16
-#      max-wait: 10000
-#      min-evictable-idle-time-millis: 55000
-#      min-idle: 4
-#      remove-abandoned: true
-#      remove-abandoned-timeout: 600
-#      suspect-timeout: 300
-#      test-on-borrow: true
-#      time-between-eviction-runs-millis: 34000
-#      validation-interval: 34000
-#      validation-query: select 1 from dual
-#    type: org.apache.tomcat.jdbc.pool.DataSource
-#    url: ${spring.datasource.tomcat.url}
-#  mvc:
-#    throw-exception-if-no-handler-found: true
-#    pathmatch:
-#      matching-strategy: ant-path-matcher
-#  jpa:
-#    database-platform: org.hibernate.dialect.Oracle12cDialect
-#    open-in-view: false
-#    properties:
-#      hibernate:
-#        show_sql: false
-#        format_sql: false
-#        use_sql_comments: false
-#        generate_statistics: false
-#        order_inserts: true
-#        order_updates: true
-#        hbm2ddl:
-#          auto: validate
-#        jdbc:
-#          batch_versioned_data: true
-#          fetch_size: 1000
-#          batch_size: 1000
-#        auto_quote_keyword: true
-#        default_batch_fetch_size: 1000
-#        batch_fetch_style: dynamic
-#    hibernate:
-#      ddl-auto: validate
-#  jackson:
-#    serialization:
-#      WRITE_DATES_AS_TIMESTAMPS: false
-#
-#management:
-#  endpoint:
-#    health:
-#      show-details: always
-#  endpoints:
-#    web:
-#      exposure:
-#        include: "*"
-#
-#user-request-header-key: x-auth-user

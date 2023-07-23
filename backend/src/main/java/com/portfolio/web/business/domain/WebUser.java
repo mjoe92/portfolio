@@ -1,12 +1,12 @@
 package com.portfolio.web.business.domain;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "WEB_USER")
@@ -19,12 +19,15 @@ public class WebUser {
     private String firstName;
     
     @Column(name = "LAST_NAME")
+    @NotNull
     private String lastName;
     
-    @Column(name = "EMAIL")
-    private String email;
+    @Column(name = "EMAIL_ADDRESS")
+    @NotNull
+    private String emailAddress;
     
     @Column(name = "REGISTRATION_DATE")
+    @NotNull
     private LocalDateTime registrationDate;
 
     WebUser() { }
@@ -41,8 +44,8 @@ public class WebUser {
         return lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
     public LocalDateTime getRegistrationDate() {
@@ -61,8 +64,8 @@ public class WebUser {
         this.lastName = lastName;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public void setRegistrationDate(LocalDateTime registrationDate) {

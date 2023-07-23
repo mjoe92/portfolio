@@ -2,9 +2,7 @@ package com.portfolio.web.business.mapper;
 
 import com.portfolio.web.business.domain.WebUser;
 import com.portfolio.web.rest.generated.dto.WebUserDto;
-import org.springframework.stereotype.Component;
 
-@Component
 public class WebUserMapper {
     
     public static WebUserDto toDto(WebUser entity) {
@@ -13,7 +11,7 @@ public class WebUserMapper {
         dto.setId(entity.getId());
         dto.setFirstName(entity.getFirstName());
         dto.setLastName(entity.getLastName());
-        dto.setEmail(entity.getEmail());
+        dto.setEmailAddress(entity.getEmailAddress());
         dto.setRegistrationDate(entity.getRegistrationDate());
         
         return dto;
