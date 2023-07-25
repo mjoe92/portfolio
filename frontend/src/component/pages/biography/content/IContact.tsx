@@ -6,6 +6,7 @@ import {
   faPhone,
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
+import { JSX } from "react";
 
 export default interface IContact {
   id: string;

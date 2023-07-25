@@ -16,8 +16,8 @@ export default class Test extends Component {
     if (btn !== null) {
       btn.onmousemove = function (mouseEvent: MouseEvent) {
         if (btn !== null) {
-          var x = mouseEvent.pageX - btn.offsetLeft;
-          var y = mouseEvent.pageY - btn.offsetTop;
+          const x = mouseEvent.pageX - btn.offsetLeft;
+          const y = mouseEvent.pageY - btn.offsetTop;
           btn.style.setProperty("--x", x + "px");
           btn.style.setProperty("--y", y + "px");
         }

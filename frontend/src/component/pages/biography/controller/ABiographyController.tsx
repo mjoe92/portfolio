@@ -54,7 +54,7 @@ export default abstract class ABiographyController<
       end = new Date();
     }
 
-    const yearInterval = end?.getFullYear() - start.getFullYear();
+    const yearInterval: number = end?.getFullYear() - start.getFullYear();
     let yearIntervalText: string = Constants.EMPTY;
     if (yearInterval >= 1) {
       yearIntervalText =

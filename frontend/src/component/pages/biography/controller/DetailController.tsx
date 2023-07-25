@@ -9,6 +9,7 @@ import IInterest, { interestContent } from "../content/IInterest";
 import IProfile, { profileContent } from "../content/IProfile";
 import ISkill, { skillContent } from "../content/ISkill";
 import ABiographyController from "./ABiographyController";
+import { JSX } from "react";
 
 interface IProps {}
 

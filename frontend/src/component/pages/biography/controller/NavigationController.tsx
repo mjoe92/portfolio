@@ -11,6 +11,7 @@ import IInterest, { interestContent } from "../content/IInterest";
 import ILanguage, { languageContent } from "../content/ILanguage";
 import ISkill, { skillContent } from "../content/ISkill";
 import ABiographyController from "./ABiographyController";
+import { JSX } from "react";
 
 interface IProps {}
 

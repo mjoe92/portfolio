@@ -6,6 +6,7 @@ import SvgReactIcon from "../../design/SvgReactIcon";
 import { NavItem } from "./NavItem";
 import IMainPage, { linkContent } from "./specification/ILink";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { JSX } from "react";
 
 import "../style/semantic.css";
 
