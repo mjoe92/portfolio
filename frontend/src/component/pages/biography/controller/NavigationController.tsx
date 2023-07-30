@@ -204,13 +204,13 @@ export default class NavigationController extends ABiographyController<
         return null;
       }
 
-      let oralResult: string = Level[oralLevel];
+      let oralResult: string;
       if (writeLevel === undefined || writeLevel === null) {
-        return "(" + oralResult + ")";
+        oralResult = Level[oralLevel];
+      } else {
+        oralResult = Level[oralLevel] + Constants.SPACE_SLASH_SPACE + Level[writeLevel];
       }
-
-      let writeResult: string = Level[writeLevel];
-      return "(" + oralResult + Constants.SPACE_SLASH_SPACE + writeResult + ")";
+      return Constants.PARENTHESIS_LEFT + oralResult + Constants.PARENTHESIS_RIGHT;
     };
 
     const getPercentOfLevel = (
@@ -274,9 +274,6 @@ interface ICardProps {
 interface ICardState {}
 
 export class Card extends Component<ICardProps, ICardState> {
-  constructor(props: ICardProps) {
-    super(props);
-  }
 
   render() {
     return (

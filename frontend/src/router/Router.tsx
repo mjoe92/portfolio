@@ -7,23 +7,25 @@ import { Header } from "../component/semantic/header/Header";
 import { Footer } from "../component/semantic/footer/Footer";
 import BiographyController from "../component/pages/biography/controller/BiographyController";
 import HomeController from "../component/pages/home/controller/HomeController";
+import './style/router.css';
 // import Test from "../component/pages/test/Test";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import Test from "../component/pages/test/Test";
 
 export const Router = () => {
   return (
     <div className="background">
       <BrowserRouter>
-        <Header />
+        <Header/>
         <Routes>
-          <Route index element={<HomeController />} />
-          <Route path={EPageFragment.HOME} element={<HomeController />} />
-          <Route path={EPageFragment.BIO} element={<BiographyController />} />
-          <Route path={EPageFragment.ERR} element={<ErrorController />} />
-          {/*<Route path={EPageFragment.TEST} element={<Test />} /> */}
+          <Route index element={ <HomeController/> }/>
+          <Route path={ EPageFragment.HOME } element={ <HomeController/> }/>
+          <Route path={ EPageFragment.BIO } element={ <BiographyController/> }/>
+          <Route path={ EPageFragment.ERR } element={ <ErrorController/> }/>
+          <Route path={ EPageFragment.TEST } element={ <Test/> }/>
         </Routes>
-        <Footer />
+        <Footer/>
       </BrowserRouter>
     </div>
   );

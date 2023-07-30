@@ -28,50 +28,36 @@
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
-
 .container ::-webkit-scrollbar {
   width: 0.25em;
 }
-
 .container ::-webkit-scrollbar-thumb {
   background: grey;
   border-radius: 100vw;
 }
 
 .controller .container .navigation {
-  background: #383838;
+  background: #4b4b4b;
   padding: 10px 20px 10px 40px;
 }
-
 .controller .container .navigation .scroll {
   padding: 30px 0;
 }
-
 .controller .container .navigation .scroll .about {
   margin-right: 25px;
 }
-
 .controller .container .navigation .scroll .about a {
   text-decoration: none;
 }
-
 .controller .container .navigation .scroll .about .profile-text {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   color: rgba(219, 219, 219, 0.5);
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   padding-bottom: 10px;
   border-bottom: 2px solid rgba(219, 219, 219, 0.5);
 }
-
 .controller .container .navigation .scroll .about .profile-text .img-box {
   position: relative;
   width: 200px;
@@ -79,7 +65,6 @@
   border-radius: 50%;
   overflow: hidden;
 }
-
 .controller .container .navigation .scroll .about .profile-text .img-box img {
   pointer-events: none;
   position: absolute;
@@ -87,10 +72,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: c;
-     object-fit: c;
+  object-fit: cover;
 }
-
 .controller .container .navigation .scroll .about .profile-text h2 {
   color: #fff;
   font-size: 1.4em;
@@ -100,40 +83,28 @@
   font-weight: 800;
   line-height: 1.4em;
 }
-
 .controller .container .navigation .scroll .about .profile-text h2 span {
   font-size: 0.8em;
   font-weight: 300;
 }
-
 .controller .container .navigation .scroll .about .navigation-point {
   padding-top: 30px;
 }
-
 .controller .container .navigation .scroll .about .navigation-point .title {
   font-size: 18px;
   cursor: pointer;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   gap: 15px;
   width: 100%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
-
 .controller .container .navigation .scroll .about .navigation-point .title p {
   margin-bottom: 0;
 }
-
 .controller .container .navigation .scroll .about .navigation-point .contacts {
   position: relative;
 }
-
 .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon {
   display: block;
   padding-left: 10px;
@@ -142,51 +113,29 @@
   font-size: 16px;
   margin-bottom: 18px;
 }
-
 .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .svg-icon-box {
   display: inline;
   font-size: 16px;
   color: #000000;
   padding-right: 10px;
 }
-
 .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .svg-icon-box svg {
   width: 20px;
 }
-
 .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box, .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > p, .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > a > p {
   display: inline;
   color: #fff;
   font-weight: 300;
 }
-
 .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > p:hover, .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > a > p:hover {
   cursor: pointer;
 }
-
 .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > .active:hover, .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > .active:hover, .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > a > .active:hover {
-  -webkit-animation: normal;
-          animation: normal;
-  -webkit-animation-name: font-weight-animation;
-          animation-name: font-weight-animation;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation: normal;
+  animation-name: font-weight-animation;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
 }
-
-@-webkit-keyframes font-weight-animation {
-  0% {
-    font-weight: 300;
-  }
-  50% {
-    font-weight: 600;
-  }
-  100% {
-    font-weight: 300;
-  }
-}
-
 @keyframes font-weight-animation {
   0% {
     font-weight: 300;
@@ -198,15 +147,12 @@
     font-weight: 300;
   }
 }
-
 .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon .text-box > .offset {
   padding-left: 30px;
 }
-
 .controller .container .navigation .scroll .about .navigation-point .contacts .svg-extended-icon:last-child {
   margin-bottom: 0;
 }
-
 .controller .container .navigation .scroll .about .title {
   color: #fff;
   text-transform: uppercase;
@@ -215,93 +161,69 @@
   margin-bottom: 20px;
   vertical-align: text-top;
 }
-
 .controller .container .navigation .scroll .about .title svg {
-  -webkit-transform: rotate(0);
-          transform: rotate(0);
-  -webkit-transition: -webkit-transform 0.5s linear;
-  transition: -webkit-transform 0.5s linear;
+  transform: rotate(0);
   transition: transform 0.5s linear;
-  transition: transform 0.5s linear, -webkit-transform 0.5s linear;
 }
-
 .controller .container .navigation .scroll .about .title svg.show {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  transform: rotate(180deg);
 }
-
 .controller .container .navigation .scroll .about .education .xp-s, .controller .container .navigation .scroll .about .experience .xp-s {
   padding-left: 0;
   max-height: 0;
-  -webkit-transition: max-height 0.3s;
-  transition: max-height 0.3s;
   overflow: hidden;
-  -webkit-transition: max-height 0.5s linear;
   transition: max-height 0.5s linear;
 }
-
 .controller .container .navigation .scroll .about .education .xp-s .xp, .controller .container .navigation .scroll .about .experience .xp-s .xp {
-  border: 5px solid #383838;
+  border: 5px solid #4b4b4b;
   padding: 5px;
   margin: 0;
-  -webkit-transition: all 0.5s linear;
   transition: all 0.5s linear;
 }
-
 .controller .container .navigation .scroll .about .education .xp-s .xp h5, .controller .container .navigation .scroll .about .experience .xp-s .xp h5 {
   color: #000000;
   font-weight: 500;
   font-size: 16px;
 }
-
-.controller .container .navigation .scroll .about .education .xp-s .xp h4:nth-child(), .controller .container .navigation .scroll .about .experience .xp-s .xp h4:nth-child() {
+.controller .container .navigation .scroll .about .education .xp-s .xp h4:nth-child(n), .controller .container .navigation .scroll .about .experience .xp-s .xp h4:nth-child(n) {
   color: #fff;
   font-weight: 500;
 }
-
 .controller .container .navigation .scroll .about .education .xp-s .xp h4, .controller .container .navigation .scroll .about .experience .xp-s .xp h4 {
   color: #fff;
   font-weight: 300;
   font-size: 16px;
 }
-
 .controller .container .navigation .scroll .about .education .xp-s .xp:hover, .controller .container .navigation .scroll .about .experience .xp-s .xp:hover {
   cursor: pointer;
   border: 5px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.2);
 }
-
 .controller .container .navigation .scroll .about .education .xp-s.show-dropdown, .controller .container .navigation .scroll .about .experience .xp-s.show-dropdown {
   max-height: 750px;
-  -webkit-transition: max-height 0.5s linear;
   transition: max-height 0.5s linear;
 }
-
 .controller .container .navigation .scroll .about .navigation-point.language .text {
   color: #fff;
 }
-
 .controller .container .navigation .scroll .about .navigation-point.language .text .spec {
   padding-left: 5px;
   color: grey;
   cursor: pointer;
   font-weight: 700;
 }
-
 .controller .container .navigation .scroll .about .navigation-point.language .text .spec:hover {
   color: #000000;
 }
-
 .controller .container .navigation .scroll .about .navigation-point.language .percent {
   position: relative;
   width: 100%;
   height: 6px;
   background-color: rgba(202, 202, 202, 0.3);
   display: block;
-  margin: 10px 0px;
+  margin: 10px 0;
 }
-
 .controller .container .navigation .scroll .about .navigation-point.language .percent div {
   position: absolute;
   top: 0;
@@ -340,11 +262,9 @@
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
-
 .container ::-webkit-scrollbar {
   width: 0.25em;
 }
-
 .container ::-webkit-scrollbar-thumb {
   background: grey;
   border-radius: 100vw;
@@ -354,110 +274,78 @@
   background: #dbdbdb;
   padding: 10px 20px 10px 40px;
 }
-
 .controller .container .detail .scroll .about {
   margin-right: 25px;
 }
-
 .controller .container .detail .scroll .about .title {
   width: 100%;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  color: #383838;
+  justify-content: space-between;
+  color: #4b4b4b;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1px;
   margin: 45px 0 30px 0;
   gap: 10px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
-
 .controller .container .detail .scroll .about .title p {
   margin: 0;
 }
-
 .controller .container .detail .scroll .about p {
-  color: #383838;
+  color: #4b4b4b;
 }
-
 .controller .container .detail .scroll .about .info:first-of-type .title {
   margin-top: 30px;
 }
-
 .controller .container .detail .scroll .about .info:first-of-type p:last-of-type {
   margin: 0;
 }
-
 .controller .container .detail .scroll .about .info {
   margin-right: 25px;
   position: relative;
 }
-
 .controller .container .detail .scroll .about .info a {
   text-decoration: none;
 }
-
 .controller .container .detail .scroll .about .info .anchor-jump {
   position: absolute;
   top: -25px;
   visibility: hidden;
   width: 100%;
 }
-
 .controller .container .detail .scroll .about .info .card {
   background-color: #dbdbdb;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   margin: 20px 0;
   border: none;
 }
-
 .controller .container .detail .scroll .about .info .card .text .show-dropdown p:last-child, .controller .container .detail .scroll .about .info .card .text .show-dropdown ul:last-child, .controller .container .detail .scroll .about .info .card .text .show-dropdown div:last-child {
   margin-bottom: 0;
 }
-
 .controller .container .detail .scroll .about .info .card .date-company {
   max-width: 140px;
   min-width: 140px;
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
+  order: 1;
 }
-
 .controller .container .detail .scroll .about .info .card .date-company h5 {
   text-transform: uppercase;
   color: grey;
   font-weight: 600;
   font-size: 16px;
 }
-
 .controller .container .detail .scroll .about .info .card .branch {
   padding: 0 15px;
-  -webkit-box-ordinal-group: 3;
-      -ms-flex-order: 2;
-          order: 2;
+  order: 2;
 }
-
 .controller .container .detail .scroll .about .info .card .branch .branch-up {
   display: block;
   width: 2px;
   height: 3px;
   background-color: grey;
-  -webkit-transform: translate(7px, 0);
-          transform: translate(7px, 0);
+  transform: translate(7px, 0);
 }
-
 .controller .container .detail .scroll .about .info .card .branch .rounder {
   position: relative;
   display: block;
@@ -467,104 +355,74 @@
   border-radius: 50%;
   border: 3px solid grey;
   margin-top: 0;
-  -webkit-transition: background-color 0.5s linear;
   transition: background-color 0.5s linear;
 }
-
 .controller .container .detail .scroll .about .info .card .branch .rounder.active, .controller .container .detail .scroll .about .info .card .branch .rounder:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
-
 .controller .container .detail .scroll .about .info .card .branch .rounder:active {
   background-color: #000000;
 }
-
 .controller .container .detail .scroll .about .info .card .branch .rounder.active:hover {
   background-color: #fff;
 }
-
 .controller .container .detail .scroll .about .info .card .branch .rounder.active:active {
   background-color: #000000;
 }
-
 .controller .container .detail .scroll .about .info .card .branch .branch-down {
   display: block;
   width: 2px;
   height: 110%;
   background-color: grey;
-  -webkit-transform: translate(7px, 0);
-          transform: translate(7px, 0);
+  transform: translate(7px, 0);
 }
-
 .controller .container .detail .scroll .about .info .card .text {
-  -webkit-box-ordinal-group: 4;
-      -ms-flex-order: 3;
-          order: 3;
+  order: 3;
 }
-
 .controller .container .detail .scroll .about .info .card .text h4 {
   text-transform: uppercase;
   font-weight: 900;
   font-size: 16px;
   margin-bottom: 16px;
   width: 100%;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: end;
+  align-items: end;
 }
-
 .controller .container .detail .scroll .about .info .card .text h4 div {
   margin: 0;
   color: rgba(0, 0, 0, 0.6);
 }
-
 .controller .container .detail .scroll .about .info .card .text h4 div p {
   color: rgba(0, 0, 0, 0.6);
 }
-
 .controller .container .detail .scroll .about .info .card .text h4 svg {
   display: none;
 }
-
 .controller .container .detail .scroll .about .info .card .text .card-detail {
   max-height: 0;
   overflow-y: hidden;
-  -webkit-transition: max-height 0.5s linear;
   transition: max-height 0.5s linear;
 }
-
 .controller .container .detail .scroll .about .info .card .text .card-detail.show {
   max-height: 600px;
 }
-
 .controller .container .detail .scroll .about .info .card:last-child .branch-down {
   display: none;
 }
-
 .controller .container .detail .scroll .about .info .card:first-of-type .branch-up {
   background-color: #dbdbdb;
 }
-
 .controller .container .detail .scroll .about .hard-skills .title {
   margin-bottom: 45px;
 }
-
 .controller .container .detail .scroll .about .hard-skills .card {
   position: relative;
   width: 100%;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 140px 1fr;
-      grid-template-columns: 140px 1fr;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  grid-template-columns: 140px 1fr;
+  justify-content: center;
+  align-items: baseline;
   margin-bottom: 30px;
 }
-
 .controller .container .detail .scroll .about .hard-skills .card h4 {
   text-transform: uppercase;
   color: grey;
@@ -572,55 +430,25 @@
   font-size: 16px;
   margin-bottom: 0;
 }
-
 .controller .container .detail .scroll .about .hard-skills .card .percent {
   position: relative;
   width: 100%;
   height: 10px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -ms-flex-line-pack: start;
-      align-content: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
 }
-
 .controller .container .detail .scroll .about .hard-skills .card .percent .percent-end-gap {
   right: 0;
   position: absolute;
   height: 100%;
-  -webkit-animation: normal;
-          animation: normal;
-  -webkit-animation-name: gap-animation;
-          animation-name: gap-animation;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation: normal;
+  animation-name: gap-animation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
   background-color: #cacaca;
 }
-
-@-webkit-keyframes gap-animation {
-  0% {
-    background-color: #cacaca;
-  }
-  50% {
-    background-color: grey;
-  }
-  100% {
-    background-color: #cacaca;
-  }
-}
-
 @keyframes gap-animation {
   0% {
     background-color: #cacaca;
@@ -632,14 +460,12 @@
     background-color: #cacaca;
   }
 }
-
 .controller .container .detail .scroll .about .hard-skills .card .percent .percent-effective {
   position: absolute;
   height: 100%;
   width: 90%;
   background-color: #cacaca;
 }
-
 .controller .container .detail .scroll .about .hard-skills .card .percent .percent-effective .xp-limit {
   position: absolute;
   bottom: -5px;
@@ -648,13 +474,11 @@
   border-radius: 2px;
   background-color: grey;
 }
-
 .controller .container .detail .scroll .about .hard-skills .card .percent .percent-effective .xp-bar {
   position: absolute;
   height: 100%;
   background-color: #000000;
 }
-
 .controller .container .detail .scroll .about .hard-skills .card .percent .percent-effective .xp-time-duration-text {
   position: absolute;
   font-size: 12px;
@@ -664,43 +488,31 @@
   font-style: italic;
   white-space: nowrap;
 }
-
 .controller .container .detail .scroll .about .interest .xp-s {
   padding-left: 0;
 }
-
 .controller .container .detail .scroll .about .interest .xp-s .xp {
-  padding: 10px 0px;
+  padding: 10px 0;
 }
-
 .controller .container .detail .scroll .about .interest .xp-s .xp .svg-extended-icon {
   position: relative;
   width: 100%;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 140px 1fr;
-      grid-template-columns: 140px 1fr;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  grid-template-columns: 140px 1fr;
+  justify-content: center;
+  align-items: center;
 }
-
 .controller .container .detail .scroll .about .interest .xp-s .xp .svg-extended-icon .text-box {
   text-transform: uppercase;
   color: grey;
   font-weight: 500;
   font-size: 16px;
 }
-
 .controller .container .detail .scroll .about .interest .xp-s .xp .svg-extended-icon .text-box h4 {
   margin-bottom: 0;
   font-size: 16px;
   font-weight: 500;
 }
-
 .controller .container .detail .scroll .about .interest .xp-s .xp .svg-extended-icon .svg-icon {
   position: relative;
   min-width: 4rem;
@@ -710,7 +522,6 @@
 
 @media (max-width: 1000px) {
   .controller .container .detail .scroll .about .info .card {
-    display: -ms-grid;
     display: grid;
   }
   .controller .container .detail .scroll .about .info .card .text {
@@ -718,28 +529,19 @@
     padding-bottom: 8px;
   }
   .controller .container .detail .scroll .about .info .card .text h4 {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
     display: inline-flex;
     gap: 10px;
     margin-bottom: 5px;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
   .controller .container .detail .scroll .about .info .card .text h4 svg {
     cursor: pointer;
     display: inline;
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
-    -webkit-transition: -webkit-transform 0.3s linear;
-    transition: -webkit-transform 0.3s linear;
+    transform: rotate(180deg);
     transition: transform 0.3s linear;
-    transition: transform 0.3s linear, -webkit-transform 0.3s linear;
   }
   .controller .container .detail .scroll .about .info .card .text h4 svg.show {
-    -webkit-transform: rotate(0);
-            transform: rotate(0);
+    transform: rotate(0);
   }
   .controller .container .detail .scroll .about .info .card .text .show-dropdown {
     padding-right: 14px;
@@ -760,7 +562,6 @@
     max-width: none;
   }
 }
-
 body {
   background-image: none;
   opacity: 0.9;
@@ -770,41 +571,25 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   background-color: #000000;
-  background-image: linear-gradient(315deg, #000000 20%, #383838 90%);
+  background-image: linear-gradient(315deg, #000000 20%, #4b4b4b 90%);
 }
-
 .controller .container {
   margin-top: 60px;
   margin-bottom: 50px;
   padding: 0;
   width: 100%;
   background: #dbdbdb;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 2fr;
-      grid-template-columns: 1fr 2fr;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  grid-template-columns: 1fr 2fr;
+  justify-content: center;
   overflow: hidden;
-  /*! Left side */
-  /*! Right side */
 }
-
 .controller .container .protected {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
-
 .controller .container .sub-container .scroll {
   height: calc(100vh - calc(calc(60px + 50px) + 20px));
   padding-bottom: 20px;
@@ -812,8 +597,6 @@ body {
 
 @media (max-width: 767px) {
   .controller {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
     height: fit-content;
   }
   ::-webkit-scrollbar {
@@ -827,10 +610,10 @@ body {
     background: #000000;
   }
   .controller .container {
-    -ms-grid-columns: (1fr)[1];
-        grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     background-color: #000000;
-    background-image: linear-gradient(315deg, #000000 20%, #383838 90%);
+    background-image: linear-gradient(315deg, #000000 20%, #4b4b4b 90%);
   }
 }
+
 /*# sourceMappingURL=biography.css.map */

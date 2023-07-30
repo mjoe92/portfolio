@@ -4,62 +4,40 @@ header {
   position: fixed;
   z-index: 1;
 }
-
 header .navbar-collapse {
   font-size: 15px;
   width: 200px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-end;
 }
-
 header .navbar-collapse .nav-item {
   margin: 0;
 }
-
 header .navbar-collapse .nav-item .nav-link .ini {
   font-size: 10px;
 }
-
 header .navbar {
   height: 60px;
 }
-
 header .navbar .navbar-brand {
   margin: 0 40px;
 }
-
 header .navbar .navbar-brand .svg-extended-icon .svg-icon {
   color: white;
   position: relative;
   font-size: 1.5rem;
   text-align: center;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  -webkit-transition: -webkit-transform .1s linear;
-  transition: -webkit-transform .1s linear;
-  transition: transform .1s linear;
-  transition: transform .1s linear, -webkit-transform .1s linear;
+  transform: scale(1);
+  transition: transform 0.1s linear;
 }
-
 header .navbar .navbar-brand .svg-extended-icon .svg-icon:hover {
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
+  transform: scale(1.5);
 }
-
 header .navbar .dropdown .dropdown-menu[data-bs-popper] {
   right: 0;
 }
-
 header .navbar .dropdown .dropdown-menu[data-bs-popper] .nav-item {
   display: block;
   text-decoration: none;
@@ -67,10 +45,8 @@ header .navbar .dropdown .dropdown-menu[data-bs-popper] .nav-item {
   padding: 5px;
   margin: 0px 5px;
   border-radius: 4px;
-  -webkit-transition: background-color .5s linear;
-  transition: background-color .5s linear;
+  transition: background-color 0.5s linear;
 }
-
 header .navbar .dropdown .dropdown-menu[data-bs-popper] .nav-item:hover {
   background-color: rgba(128, 128, 128, 0.5);
 }
@@ -82,20 +58,17 @@ footer {
   text-align: center;
   color: white;
 }
-
 footer .navbar {
   height: 50px;
 }
 
 .nav-item {
   color: white;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   margin-left: 10px;
 }
-
 .nav-item .disabled {
   text-decoration: line-through;
 }
+
 /*# sourceMappingURL=semantic.css.map */

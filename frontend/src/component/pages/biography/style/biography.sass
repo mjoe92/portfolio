@@ -5,56 +5,53 @@ $navbar-sum-height: calc(#{$navbar-top-height} + #{$navbar-bottom-height})
 $navbar-scroll-height: calc(#{$navbar-sum-height} + 20px)
 
 body
-	background-image: none
-	opacity: 0.9
+  background-image: none
+  opacity: 0.9
 
 .controller
-	margin: 0
-	padding: 0
-	height: 100vh
-	display: flex
-	justify-content: center
-	background-color: $background-dark-color
-	background-image: linear-gradient(315deg, $background-dark-color 20%, $background-bright-color 90%)
+  margin: 0
+  padding: 0
+  height: 100vh
+  display: flex
+  justify-content: center
+  background-color: $background-dark-color
+  background-image: linear-gradient(315deg, $background-dark-color 20%, $background-bright-color 90%)
 
-	.container
-		margin-top: $navbar-top-height
-		margin-bottom: $navbar-bottom-height
-		padding: 0
-		width: 100%
-		background: $detail-background-color
-		display: grid
-		grid-template-columns: 1fr 2fr
-		justify-content: center
-		overflow: hidden
+  .container
+    margin-top: $navbar-top-height
+    margin-bottom: $navbar-bottom-height
+    padding: 0
+    width: 100%
+    background: $detail-background-color
+    display: grid
+    grid-template-columns: 1fr 2fr
+    justify-content: center
+    overflow: hidden
 
-		.protected
-			user-select: none
+    .protected
+      user-select: none
 
-		/*! Left side */
-		/*! Right side */
-
-		.sub-container
-			.scroll
-				height: calc(100vh - #{$navbar-scroll-height})
-				padding-bottom: 20px
+    .sub-container
+      .scroll
+        height: calc(100vh - #{$navbar-scroll-height})
+        padding-bottom: 20px
 
 @media (max-width: 767px)
-	.controller
-		height: fit-content
+  .controller
+    height: fit-content
 
-	::-webkit-scrollbar
-		width: 0.25em
+  ::-webkit-scrollbar
+    width: 0.25em
 
-	::-webkit-scrollbar-thumb
-		background: $scrollbar-track-color
-		border-radius: 100vw
+  ::-webkit-scrollbar-thumb
+    background: $scrollbar-track-color
+    border-radius: 100vw
 
-	::-webkit-scrollbar-thumb:hover
-		background: $scrollbar-hover-color
+  ::-webkit-scrollbar-thumb:hover
+    background: $scrollbar-hover-color
 
-	.controller
-		.container
-			grid-template-columns: repeat(1, 1fr)
-			background-color: $background-dark-color
-			background-image: linear-gradient(315deg, $background-dark-color 20%, $background-bright-color 90%)
+  .controller
+    .container
+      grid-template-columns: repeat(1, 1fr)
+      background-color: $background-dark-color
+      background-image: linear-gradient(315deg, $background-dark-color 20%, $background-bright-color 90%)

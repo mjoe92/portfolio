@@ -20,7 +20,6 @@ export const Header: FC = () => {
   };
 
   const renderMainPage = (): JSX.Element => {
-    //const navDropdownTitle = <Glyphicon glyph="star"> Dropdown </Glyphicon>;
     return (
       <Navbar.Brand onSubmit={handleClick}>
         <Link to={EPageFragment.HOME}>

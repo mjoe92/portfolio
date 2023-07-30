@@ -11,7 +11,7 @@ h4 p {
 }
 
 p a {
-  color: #383838;
+  color: #4b4b4b;
 }
 
 ul {
@@ -19,13 +19,11 @@ ul {
   padding-left: 0.5rem;
   margin-bottom: 8px;
 }
-
 ul .sub-title {
   font-weight: 500;
   text-transform: uppercase;
   margin-bottom: 8px;
 }
-
 ul li {
   padding-left: 0.5rem;
   padding-bottom: 6px;
@@ -36,7 +34,6 @@ ul li {
   padding-bottom: 6px;
   font-style: italic;
 }
-
 #ganz ul li:first-letter, #cg ul li:first-letter, #innostudio ul li:first-letter {
   font-weight: 800;
   font-size: 20px;
@@ -47,10 +44,10 @@ ul li {
   padding-bottom: 6px;
   font-style: italic;
 }
-
 #mirrotron ul .bold-italic {
   font-weight: 800;
   font-size: 20px;
   opacity: 0.8;
 }
+
 /*# sourceMappingURL=experience.css.map */
