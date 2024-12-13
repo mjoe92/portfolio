@@ -73,6 +73,7 @@ export const linkContent: IMainPage[] = [
     id: "aboutMe",
     title: "About me",
     expo: "Biography",
+    disabled: true,
     pages: [
       {
         name: "Engineering",

@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Constants } from "../../../../utils/Constants";
 
-export default abstract class ABiographyController<
+export default abstract class BaseController<
   IProps,
   IState
 > extends Component<IProps, IState> {

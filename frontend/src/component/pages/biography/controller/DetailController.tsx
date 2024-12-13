@@ -8,7 +8,7 @@ import IExperience, { experienceContent } from "../content/IExperience";
 import IInterest, { interestContent } from "../content/IInterest";
 import IProfile, { profileContent } from "../content/IProfile";
 import ISkill, { skillContent } from "../content/ISkill";
-import ABiographyController from "./ABiographyController";
+import BaseController from "./ABiographyController";
 import { JSX } from "react";
 
 interface IProps {}
@@ -23,7 +23,7 @@ interface IState {
 }
 
 // TODO: add keys to lists
-export default class DetailController extends ABiographyController<
+export default class DetailController extends BaseController<
   IProps,
   IState
 > {
@@ -292,7 +292,7 @@ interface ICardState {
   showDropdown: boolean;
 }
 
-export class Card extends ABiographyController<ICardProps, ICardState> {
+export class Card extends BaseController<ICardProps, ICardState> {
   // private static timeoutInMs = 500;
 
   constructor(props: ICardProps, private textHeight: number) {
