@@ -8,7 +8,7 @@ import IExperience, { experienceContent } from "../content/IExperience";
 import IInterest, { interestContent } from "../content/IInterest";
 import IProfile, { profileContent } from "../content/IProfile";
 import ISkill, { skillContent } from "../content/ISkill";
-import BaseController from "./ABiographyController";
+import BaseController from "./BaseController";
 import { JSX } from "react";
 
 interface IProps {}
@@ -19,7 +19,6 @@ interface IState {
   educationList?: IEducation[];
   skillList?: ISkill[];
   interestList?: IInterest[];
-  showAllDropdown: boolean;
 }
 
 // TODO: add keys to lists
@@ -36,7 +35,6 @@ export default class DetailController extends BaseController<
       educationList: educationContent,
       skillList: skillContent,
       interestList: interestContent,
-      showAllDropdown: false,
     };
   }
 
@@ -77,17 +75,15 @@ export default class DetailController extends BaseController<
     return (
       <div className="info">
         <h2 className="title">Job Experience</h2>
-        {this.state.jobList.map((xp) => (
+        {this.state.jobList.map((xp: IExperience) => (
           <Card
             key={xp.id}
             history={xp}
             place={xp.employer}
             reference={this.createRef(xp.id)}
-            timeInterval={this.getTimeIntervalInFormat(
-              xp.timeStart,
-              xp.timeEnd
-            )}
+            timeInterval={this.getTimeIntervalInFormat(xp.timeStart, xp.timeEnd)}
             xpNames={this.toBreakLine(xp.title)}
+            collapse={xp.collapse}
           />
         ))}
       </div>
@@ -108,11 +104,9 @@ export default class DetailController extends BaseController<
             history={xp}
             place={xp.institution}
             reference={this.createRef(xp.id)}
-            timeInterval={this.getTimeIntervalInFormat(
-              xp.timeStart,
-              xp.timeEnd
-            )}
+            timeInterval={this.getTimeIntervalInFormat(xp.timeStart, xp.timeEnd)}
             xpNames={this.toBreakLine(xp.title)}
+            collapse={xp.collapse}
           />
         ))}
       </div>
@@ -286,21 +280,19 @@ interface ICardProps {
   timeInterval: string;
   reference: string;
   xpNames: JSX.Element;
+  collapse?: boolean;
 }
 
 interface ICardState {
-  showDropdown: boolean;
+  collapse?: boolean;
 }
 
 export class Card extends BaseController<ICardProps, ICardState> {
-  // private static timeoutInMs = 500;
-
-  constructor(props: ICardProps, private textHeight: number) {
+  constructor(props: ICardProps) {
     super(props);
-    this.textHeight = 0;
 
     this.state = {
-      showDropdown: false,
+      collapse: props.collapse,
     };
   }
 
@@ -335,7 +327,7 @@ export class Card extends BaseController<ICardProps, ICardState> {
           <span
             className={
               "rounder" +
-              (this.state.showDropdown
+              (this.state.collapse
                 ? Constants.SPACE + "active"
                 : Constants.EMPTY)
             }
@@ -348,7 +340,7 @@ export class Card extends BaseController<ICardProps, ICardState> {
   }
 
   private renderText(): JSX.Element {
-    let showDropdownClassName = this.state.showDropdown ? "show" : undefined;
+    const collapseClassName = this.state.collapse ? "show" : undefined;
 
     return (
       <div className="text">
@@ -356,13 +348,13 @@ export class Card extends BaseController<ICardProps, ICardState> {
           <div>{this.props.xpNames}</div>
           <FontAwesomeIcon
             icon={faAngleUp}
-            className={showDropdownClassName}
+            className={collapseClassName}
             onClick={() => this.handleDropdownShrunk(1000)}
           />
         </h4>
         <div
           id={this.props.history.id}
-          className={`card-detail ${showDropdownClassName}`}
+          className={`card-detail ${collapseClassName}`}
         >
           {this.props.history.description}
           <span className="show-right-branch" />
@@ -372,7 +364,7 @@ export class Card extends BaseController<ICardProps, ICardState> {
   }
 
   private handleDropdownShrunk(minWidth: number): void {
-    let windowWidth = window.innerWidth;
+    const windowWidth = window.innerWidth;
 
     if (windowWidth > minWidth) {
       return;
@@ -382,20 +374,6 @@ export class Card extends BaseController<ICardProps, ICardState> {
   }
 
   private handleCardDropdown(): void {
-    this.setState({ showDropdown: !this.state.showDropdown });
-  }
-
-  private slowAnimation(diffRatio: number): void {
-    if (this.state.showDropdown) {
-      this.textHeight--;
-      console.log(this.textHeight);
-    } else {
-      this.textHeight++;
-      console.log(this.textHeight);
-    }
-
-    if (0 === this.textHeight || 200 === Math.abs(this.textHeight)) {
-      return;
-    }
+    this.setState({ collapse: !this.state.collapse });
   }
 }

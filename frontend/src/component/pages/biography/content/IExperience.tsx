@@ -11,10 +11,11 @@ export default interface IExperience extends AbstractIDetailedHistory {
 export const experienceContent: IExperience[] = [
   {
     id: "bredex",
-    title: ["Junior Fullstack Java Developer"],
+    title: ["Fullstack Java Developer"],
     employer: "Bredex GmbH",
     timeStart: new Date(2021, 8),
     timeEnd: null,
+    collapse: true,
     description: (
       <>
         <p>

@@ -11,4 +11,5 @@ export interface AbstractIBaseHistory {
 
 export interface AbstractIDetailedHistory extends AbstractIBaseHistory {
   description: JSX.Element;
+  collapse?: boolean
 }

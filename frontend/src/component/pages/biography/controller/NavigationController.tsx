@@ -10,7 +10,7 @@ import IExperience, { experienceContent } from "../content/IExperience";
 import IInterest, { interestContent } from "../content/IInterest";
 import ILanguage, { languageContent } from "../content/ILanguage";
 import ISkill, { skillContent } from "../content/ISkill";
-import BaseController from "./ABiographyController";
+import BaseController from "./BaseController";
 import { JSX } from "react";
 
 interface IProps {}
@@ -22,8 +22,8 @@ interface IState {
   skillList?: ISkill[];
   interestList?: IInterest[];
   contactList?: IContact[];
-  showJobDropdown: boolean;
-  showEducationDropdown: boolean;
+  collapseJob: boolean;
+  collapseEducation: boolean;
 }
 
 export default class NavigationController extends BaseController<
@@ -40,8 +40,8 @@ export default class NavigationController extends BaseController<
       languageList: languageContent,
       interestList: interestContent,
       skillList: skillContent,
-      showJobDropdown: true,
-      showEducationDropdown: true,
+      collapseJob: true,
+      collapseEducation: true,
     };
   }
 
@@ -115,11 +115,11 @@ export default class NavigationController extends BaseController<
           <p>Job Experience</p>
           <FontAwesomeIcon
             icon={faAngleUp}
-            className={this.state.showJobDropdown ? "show" : undefined}
+            className={this.state.collapseJob ? "show" : undefined}
           />
         </h3>
         <div
-          className={this.state.showJobDropdown ? "xp-s show-dropdown" : "xp-s"}
+          className={this.state.collapseJob ? "xp-s show-dropdown" : "xp-s"}
         >
           {this.state.jobList.map((xp) => (
             <Card
@@ -141,7 +141,7 @@ export default class NavigationController extends BaseController<
 
   private handleExperienceDropdownShrunk(): void {
     return this.setState({
-      showJobDropdown: !this.state.showJobDropdown,
+      collapseJob: !this.state.collapseJob,
     });
   }
 
@@ -159,12 +159,12 @@ export default class NavigationController extends BaseController<
           <p>Education</p>
           <FontAwesomeIcon
             icon={faAngleUp}
-            className={this.state.showEducationDropdown ? "show" : undefined}
+            className={this.state.collapseEducation ? "show" : undefined}
           />
         </h3>
         <div
           className={
-            this.state.showEducationDropdown ? "xp-s show-dropdown" : "xp-s"
+            this.state.collapseEducation ? "xp-s show-dropdown" : "xp-s"
           }
         >
           {this.state.educationList.map((xp) => (
@@ -187,7 +187,7 @@ export default class NavigationController extends BaseController<
 
   private handleEducationDropdownShrunk(): void {
     return this.setState({
-      showEducationDropdown: !this.state.showEducationDropdown,
+      collapseEducation: !this.state.collapseEducation,
     });
   }
 
