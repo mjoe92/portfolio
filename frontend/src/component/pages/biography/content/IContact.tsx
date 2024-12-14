@@ -12,6 +12,7 @@ export default interface IContact {
   id: string;
   icon: IconDefinition;
   text: JSX.Element;
+  disabled?: boolean;
 }
 
 export const contactNavigation: IContact[] = [
@@ -33,8 +34,8 @@ export const contactNavigation: IContact[] = [
     id: "webpage",
     icon: faGlobe,
     text: (
-      <a href="https://www.mjoeworld.com" target="_blank" rel="noreferrer">
-        <p className="active">mjoeworld.com</p>
+      <a href="https://mjoe92.github.io/portfolio/" target="_blank" rel="noreferrer">
+        <p className="active">github/mjoe92</p>
       </a>
     ),
   },
@@ -42,11 +43,7 @@ export const contactNavigation: IContact[] = [
     id: "linkedin",
     icon: faLink,
     text: (
-      <a
-        href="https://www.linkedin.com/in/jozsef-csurgai/"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a href="https://www.linkedin.com/in/jozsef-csurgai/" target="_blank" rel="noreferrer">
         <p className="active">linkedin.com/csurgai</p>
       </a>
     ),
@@ -56,29 +53,15 @@ export const contactNavigation: IContact[] = [
     icon: faMapMarker,
     text: (
       <>
-        <a
-          href="https://www.google.com/maps/place/Braunschweig/"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href="https://www.google.com/maps/place/Braunschweig/" target="_blank" rel="noreferrer">
           <p className="active">Braunschweig (Germany)</p>
         </a>
         <br />
-        <a
-          href="https://www.google.com/maps/place/Székesfehérvár/"
-          target="_blank"
-          className="offset"
-          rel="noreferrer"
-        >
+        <a href="https://www.google.com/maps/place/Székesfehérvár/" target="_blank" className="offset" rel="noreferrer">
           <p className="active">Székesfehérvár (Hungary)</p>
         </a>
         <br />
-        <a
-          href="https://www.google.com/maps/place/Budapest/"
-          target="_blank"
-          className="offset"
-          rel="noreferrer"
-        >
+        <a href="https://www.google.com/maps/place/Budapest/" target="_blank" className="offset" rel="noreferrer">
           <p className="active">Budapest (Hungary)</p>
         </a>
       </>

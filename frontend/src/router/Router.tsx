@@ -11,7 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export const Router = () => {
   return (
     <div className="background">
-      <BrowserRouter>
+      <BrowserRouter basename={EPageFragment.BASE}>
         <Header />
         <Routes>
           <Route index element={<BiographyController />} />

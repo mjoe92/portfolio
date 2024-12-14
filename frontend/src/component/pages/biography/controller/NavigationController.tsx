@@ -88,14 +88,11 @@ export default class NavigationController extends BaseController<
       <div className="navigation-point contact-info">
         <h3 className="title">Contact Info</h3>
         <div className="contacts">
-          {this.state.contactList.map((contact) => (
-            <SvgReactIcon
-              key={contact.id}
-              icons={[contact.icon]}
-              description={contact.text}
-              startWithIcon={true}
-            />
-          ))}
+          {this.state.contactList
+            .filter((contact) => !contact.disabled)
+            .map((contact) => (
+              <SvgReactIcon key={contact.id} icons={[contact.icon]} description={contact.text} startWithIcon={true} />
+            ))}
         </div>
       </div>
     );

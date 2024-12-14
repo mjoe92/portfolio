@@ -6,4 +6,5 @@ export enum EPageFragment {
   PROG = "programming",
   TEST = "test",
   ERR = "*",
+  BASE = "portfolio",
 }
