@@ -11,6 +11,7 @@ export enum Constants {
   COLON = ":",
   SEMICOLON = ",",
   COMMA = ",",
+  COMMA_SPACE = ", ",
   UNDERLINE = "_",
   SINGLE_QUOTE = "'",
   DOUBLE_QUOTE = '"',

@@ -2,11 +2,10 @@ import { FC, useState } from "react";
 import { Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { EPageFragment } from "../../../router/EPageFragment";
-import SvgReactIcon from "../../design/SvgReactIcon";
-import { NavItem } from "./NavItem";
-import IMainPage, { linkContent } from "./specification/ILink";
+import SvgReactIcon from "../../design/svg-react-icon";
+import { NavItem } from "./nav-item";
+import IMainPage, { linkContent } from "./specification/link";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
-import { JSX } from "react";
 
 import "../style/semantic.css";
 
@@ -56,7 +55,7 @@ export const Header: FC = () => {
     <header className="navbar-fixed-top">
       <Navbar className="navbar navbar-expand-md navbar-dark bg-dark">
         <Container fluid className="navbar-nav mr-auto">
-          {renderMainPage()}
+          {/* {renderMainPage()} */}
           <Navbar.Toggle aria-controls="navbar" />
           {renderPageGroups()}
         </Container>

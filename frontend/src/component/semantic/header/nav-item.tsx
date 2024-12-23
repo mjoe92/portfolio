@@ -1,9 +1,7 @@
 import { FC } from "react";
 import { NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Constants } from "../../../utils/Constants";
-import { IPage } from "./specification/ILink";
-import { JSX } from "react";
+import { IPage } from "./specification/link";
 
 interface IProps {
   id: string;
@@ -40,10 +38,6 @@ export const NavItem: FC<IProps> = ({ id, title, expo, items, disabled }) => {
 
   const handleClick = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();
-  };
-
-  const makeUrl = (expo: string): string => {
-    return expo.toLowerCase().replace(Constants.SPACE, Constants.DASH);
   };
 
   //later...

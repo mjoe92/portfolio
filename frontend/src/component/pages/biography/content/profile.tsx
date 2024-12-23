@@ -1,5 +1,3 @@
-import { JSX } from "react";
-
 export default interface IProfile {
   name: string;
   description: JSX.Element;
@@ -46,56 +44,36 @@ export const profileContent: IProfile = {
         <span id="softwareEngineer" className="highlight-point">
           Software Engineer
         </span>
-        , and a graduated&nbsp;
+        , graduated&nbsp;
         <span id="mechanicalEngineer" className="highlight-point">
           Mechanical Engineer
         </span>
         . I'm open-minded, understanding and always willing to&nbsp;
-        {/* sharing knowledge, guiding, teaching */}
         <span id="help-others" className="highlight-point">
           help
         </span>
-        . Often others are saying that I have a versatile personality and
-        obsessed with finishing anything what I have started.
+        . As others have said before, I have a versatile personality and I am obsessed with finishing anything what I
+        have started.
       </p>
       <p>
         I spent more than 5 years in the&nbsp;
         <span id="engineering-field" className="highlight-point">
           engineering field
         </span>
-        , mostly as a <b>Mechanical Designer</b>. After a turning point I
-        changed my&nbsp;
-        <span id="goals" className="highlight-point">
-          goals
-        </span>
-        , I took the courage to start my new career on IT. From 2020 'till now I
-        work mainly as a programmer, which is not just my job, but also my hobby.
+        , mostly as a <b>Mechanical Designer</b>. I was working mainly with CAD systems, calculating measurements,
+        designing mechanical parts for the structures of machines, and testing by static and dynamic overloads with
+        Finite element methods (FEM). Whenever I've got the opportunity to speed up certain administrative processes, I
+        created Excel-based macros to improve the documentations.
       </p>
       <p>
-        But I do both with passion, as there are endless new challenges to enjoy
-        whenever an offer comes in terms. Basically I couldn't let my old
-        profession go; I'm a&nbsp;
-        <span id="fullstack-developer" className="highlight-point">
-          <b>Fullstack Developer</b>
+        After a turning point I changed my goals, I took the courage to start my new career on IT. From 2020 'till now I
+        work mainly as a&nbsp;
+        <span id="fullStackEngineer" className="highlight-point">
+          <b>Full-Stack Engineer</b>
         </span>
-        &nbsp;in full-time, but I'm taking&nbsp;
-        <span id="term" className="highlight-point">
-          long, medium-term engineering
-        </span>
-        &nbsp;projects as my&nbsp;
-        {/* 3D cad projects, linkage designing, website building */}
-        <span id="side-job" className="highlight-point">
-          side job
-        </span>
-        &nbsp;as well.
+        , consisting the knowledge of both Backend and Frontend sides for inner software programs
+        and also web applications.
       </p>
-      {/* <p>
-        Please feel free to contact&nbsp;
-        <span id="contact" className="highlight-point">
-          me
-        </span>
-        &nbsp;whenever I can provide service and we can arrange a consultation.
-      </p> */}
     </>
   ),
 };

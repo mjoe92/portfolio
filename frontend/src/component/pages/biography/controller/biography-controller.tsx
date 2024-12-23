@@ -1,7 +1,7 @@
 import { Component } from "react";
 
-import DetailController from "./DetailController";
-import NavigationController from "./NavigationController";
+import DetailController from "./detail-controller";
+import NavigationController from "./navigation-controller";
 
 import "../style/biography.css";
 

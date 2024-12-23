@@ -88,26 +88,19 @@
                   svg
                     width: 20px
 
-                .text-box, .text-box > p, .text-box > a > p
+                .text-box, .text-box > span, .text-box > a > span
                   display: inline
                   color: $navigation-default-text-color
                   font-weight: 300
 
-                .text-box > p:hover, .text-box > a > p:hover
+                .text-box > span:hover, .text-box > a > span:hover
                   cursor: pointer
 
-                .text-box > .active:hover, .text-box > .active:hover, .text-box > a > .active:hover
-                  animation: normal
-                  animation-name: font-weight-animation
-                  animation-duration: 0.5s
-                  animation-iteration-count: infinite
-                  @keyframes font-weight-animation
-                    0%
-                      font-weight: 300
-                    50%
-                      font-weight: 600
-                    100%
-                      font-weight: 300
+                .text-box > a > .active, .text-box > span
+                  transition: font-weight 0.2s linear
+
+                .text-box > a > .active:hover, .text-box > span:hover
+                  font-weight: 600
 
                 .text-box > .offset
                   padding-left: 30px
@@ -130,7 +123,7 @@
             svg.show
               transform: rotate(180deg)
 
-          .education, .experience
+          .experience
             .xp-s
               padding-left: 0
               max-height: 0
@@ -173,7 +166,7 @@
 
               .spec
                 padding-left: 5px
-                color: $detail-date-color
+                color: $detail-date-place-color
                 cursor: pointer
                 font-weight: 700
 

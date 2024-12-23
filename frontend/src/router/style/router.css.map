@@ -1,1 +1,9 @@
-{"version":3,"sourceRoot":"","sources":["router.sass"],"names":[],"mappings":"AAAA;EACE;EACA;EACA","file":"router.css"}
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACV,KAAK,EAAE,KAAK;EACZ,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;CAAG",
+    "sources": [
+        "router.sass"
+    ],
+    "names": [],
+    "file": "router.css"
+}

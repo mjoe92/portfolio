@@ -1,4 +1,4 @@
-import { Level } from "./ELevel";
+import { Level } from "./level";
 
 export default interface ILanguage {
   name: string;
@@ -6,6 +6,7 @@ export default interface ILanguage {
   writeLevel?: Level;
   oralMessage?: string;
   writeMessage?: string;
+  disabled?: boolean;
 }
 
 export const languageContent: ILanguage[] = [
@@ -28,14 +29,14 @@ export const languageContent: ILanguage[] = [
   },
   {
     name: "English",
-    oralLevel: Level.C1,
+    oralLevel: Level.C2,
     oralMessage:
       "Learnt from my school teachers, practised in the workplaces" +
       " and cartoon network. Sometimes when I tired, I go on Hunglish!",
   },
   {
     name: "German",
-    oralLevel: Level.A2,
+    oralLevel: Level.C1,
     oralMessage:
       "Begin to learn in the university but kept prociding from BREDEX GmbH",
   },
@@ -46,5 +47,6 @@ export const languageContent: ILanguage[] = [
     oralMessage: "Learnt in the secondary school but forgot a lot every since.",
     writeMessage:
       "Still have better knowledge and more time to think during writing",
+    disabled: true,
   },
 ];

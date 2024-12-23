@@ -6,6 +6,9 @@
       background: $detail-background-color
       padding: 10px 20px 10px 40px
 
+      .active.highlight-text
+        border-bottom: 1px dotted
+
       .scroll
         .about
           margin-right: 25px
@@ -65,11 +68,22 @@
                 min-width: $detail-left-min-width
                 order: 1
 
-                h5
+                h5, h5 > a > span
                   text-transform: uppercase
-                  color: $detail-date-color
+                  color: $detail-date-place-color
                   font-weight: 600
                   font-size: $detail-left-font-size
+
+                h5 > a > span
+                  transition: all 0.1s linear
+                
+                h5 > a > span:hover
+                  font-weight: 700
+                  font-stretch: condensed
+
+                div:not(:first-child)
+                  border-top: 1px dotted
+                  padding-top: 5px
 
               .branch
                 padding: 0 15px
@@ -79,7 +93,7 @@
                   display: block
                   width: 2px
                   height: 3px
-                  background-color: $detail-date-color
+                  background-color: $detail-date-place-color
                   transform: translate(7px, 0)
 
                 .rounder
@@ -89,7 +103,7 @@
                   height: 16px
                   background-color: $navigation-default-text-color
                   border-radius: 50%
-                  border: 3px solid $detail-date-color
+                  border: 3px solid $detail-date-place-color
                   margin-top: 0
                   transition: background-color 0.5s linear
 
@@ -109,7 +123,7 @@
                   display: block
                   width: 2px
                   height: 110%
-                  background-color: $detail-date-color
+                  background-color: $detail-date-place-color
                   transform: translate(7px, 0)
 
               .text
@@ -162,12 +176,19 @@
               align-items: baseline
               margin-bottom: 30px
 
-              h4
-                text-transform: uppercase
-                color: $detail-date-color
+              h4, .frameworks
+                color: $detail-date-place-color
                 font-weight: 500
                 font-size: $detail-left-font-size
                 margin-bottom: 0
+
+              h4
+                text-transform: uppercase
+
+              .frameworks
+                margin-top: 6px
+                font-size: 12px
+                white-space: nowrap
 
               .percent
                 position: relative
@@ -192,7 +213,7 @@
                     0%
                       background-color: $navigation-empty-percent-color
                     50%
-                      background-color: $detail-date-color
+                      background-color: $detail-date-place-color
                     100%
                       background-color: $navigation-empty-percent-color
 
@@ -241,7 +262,7 @@
 
                   .text-box
                     text-transform: uppercase
-                    color: $detail-date-color
+                    color: $detail-date-place-color
                     font-weight: 500
                     font-size: $detail-left-font-size
 

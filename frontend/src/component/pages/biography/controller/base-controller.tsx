@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Constants } from "../../../../utils/Constants";
+import { Constants } from "../../../../utils/constants";
 
 export default abstract class BaseController<
   IProps,
