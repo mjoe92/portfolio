@@ -7,7 +7,14 @@
       padding: 10px 20px 10px 40px
 
       .active.highlight-text
-        border-bottom: 1px dotted
+        border-bottom: 1px solid rgba(0, 0, 0, 0)
+        text-underline-offset: 5px
+        text-decoration: underline dotted
+        transition: all 0.5s linear
+
+      .active.highlight-text:hover
+        border-bottom-color: rgba(0, 0, 0, 0.5)
+        text-decoration-color: transparent
 
       .scroll
         .about
@@ -75,11 +82,12 @@
                   font-size: $detail-left-font-size
 
                 h5 > a > span
-                  transition: all 0.1s linear
+                  transition: all 0.5s linear
+                  border-bottom: 2px dotted rgba(0, 0, 0, 0)
                 
                 h5 > a > span:hover
-                  font-weight: 700
                   font-stretch: condensed
+                  border-bottom-color: rgba(0, 0, 0, 0.5)
 
                 div:not(:first-child)
                   border-top: 1px dotted

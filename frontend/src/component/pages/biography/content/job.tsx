@@ -134,7 +134,7 @@ export const jobContent: HistoryEntry[] = [
           {loadHighlightedText("nuclearReactor", "(testing) Nuclear Reactor")} in&nbsp;
           {TextLinkProvider.load(TextLinkProvider.City.BUDAPEST, true)},&nbsp;
           {TextLinkProvider.load(TextLinkProvider.City.PEKING, true)},&nbsp;
-          {TextLinkProvider.load(TextLinkProvider.City.SYDNEY, true)},&nbsp;
+          {TextLinkProvider.load(TextLinkProvider.City.SYDNEY, true)} and&nbsp;
           {TextLinkProvider.load(TextLinkProvider.City.DUBNA, true)}.{/** Csillabérc, Dubna, Sydney */}
         </p>
         <ul>

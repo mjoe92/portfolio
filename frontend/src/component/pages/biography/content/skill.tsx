@@ -23,6 +23,11 @@ export const skillContent: ISkill[] = [
     frameworks: ["FX", "Spring", "Hessian", "Hibernate", "JPA"],
   },
   {
+    name: "SQL",
+    timeStart: new Date(2021, 0),
+    frameworks: ["PostgreSQL, MySQL, Oracle"]
+  },
+  {
     name: "Javascript",
     timeStart: new Date(2020, 4),
     timeEnd: new Date(2021, 9),
@@ -32,5 +37,5 @@ export const skillContent: ISkill[] = [
     name: "VBA",
     timeStart: new Date(2016, 3),
     timeEnd: new Date(2020, 3),
-  },
+  }
 ];

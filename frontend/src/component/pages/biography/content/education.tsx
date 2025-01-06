@@ -65,7 +65,7 @@ export const educationContent: HistoryEntry[] = [
     placePeriods: [
       {
         place: TextLinkProvider.Institut.CODECOOL,
-        timeStart: new Date(2020, 0),
+        timeStart: new Date(2020, 11),
         timeEnd: new Date(2021, 2),
       },
     ],
