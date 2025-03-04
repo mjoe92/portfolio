@@ -19,5 +19,5 @@ export enum Constants {
   DOT = ".",
   PERCENT = "%",
   PARENTHESIS_LEFT = "(",
-  PARENTHESIS_RIGHT = ")"
+  PARENTHESIS_RIGHT = ")",
 }

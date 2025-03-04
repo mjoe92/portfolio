@@ -1,43 +1,24 @@
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Component } from "react";
-import { Constants } from "../../../../utils/constants";
-import SvgReactIcon from "../../../design/svg-react-icon";
-import { Level } from "../content/level";
-import IContact, { contactNavigation } from "../content/contact";
-import { educationContent } from "../content/education";
-import { jobContent } from "../content/job";
-import IInterest, { interestContent } from "../content/interest";
-import ILanguage, { languageContent } from "../content/language";
-import ISkill, { skillContent } from "../content/skill";
-import BaseController from "./base-controller";
-import { ImageLoader } from "../../../../utils/image-loader";
-import { HistoryEntry } from "../content/base-history";
-
-interface IProps {}
+import { Constants } from "../../../../../utils/constants";
+import SvgReactIcon from "../../../../design/svg-react-icon";
+import { Level } from "../../content/level";
+import BaseController from "../base-controller";
+import { ImageLoader } from "../../../../../utils/image-loader";
+import { HistoryEntry } from "../../content/base-history";
+import { GeneralHistory } from "../../content/general-history";
 
 interface IState {
-  jobList: HistoryEntry[];
-  educationList: HistoryEntry[];
-  languageList: ILanguage[];
-  skillList: ISkill[];
-  interestList: IInterest[];
-  contactList: IContact[];
   collapseJob: boolean;
   collapseEducation: boolean;
 }
 
-export default class NavigationController extends BaseController<IProps, IState> {
-  constructor(props: IProps) {
+export default class NavigationController extends BaseController<GeneralHistory, IState> {
+  constructor(props: GeneralHistory) {
     super(props);
 
     this.state = {
-      contactList: contactNavigation,
-      jobList: jobContent,
-      educationList: educationContent,
-      languageList: languageContent,
-      interestList: interestContent,
-      skillList: skillContent,
       collapseJob: true,
       collapseEducation: true,
     };
@@ -75,7 +56,7 @@ export default class NavigationController extends BaseController<IProps, IState>
   }
 
   private renderContactNavigation(): JSX.Element | null {
-    if (this.state.contactList == null) {
+    if (this.props.contactList == null) {
       return null;
     }
 
@@ -83,7 +64,7 @@ export default class NavigationController extends BaseController<IProps, IState>
       <div className="navigation-point contact-info">
         <h3 className="title">Contact Info</h3>
         <div className="contacts">
-          {this.state.contactList
+          {this.props.contactList
             .filter((contact) => !contact.disabled)
             .map((contact) => (
               <SvgReactIcon key={contact.id} icons={[contact.icon]} description={contact.text} startWithIcon={true} />
@@ -98,11 +79,11 @@ export default class NavigationController extends BaseController<IProps, IState>
     let title: string;
     let collapse: boolean;
     if (isJobExperience) {
-      xpList = this.state.jobList;
+      xpList = this.props.jobList;
       title = "Job Experience";
       collapse = this.state.collapseJob;
     } else {
-      xpList = this.state.educationList;
+      xpList = this.props.educationList;
       title = "Education";
       collapse = this.state.collapseEducation;
     }
@@ -162,7 +143,7 @@ export default class NavigationController extends BaseController<IProps, IState>
   }
 
   private renderLanguageNavigation(): JSX.Element | null {
-    if (this.state.languageList == null) {
+    if (this.props.languageList == null) {
       return null;
     }
 
@@ -188,7 +169,7 @@ export default class NavigationController extends BaseController<IProps, IState>
       <div className="navigation-point language">
         <h3 className="title">Language</h3>
         <div className="xp-s">
-          {this.state.languageList
+          {this.props.languageList
             .filter((xp) => !xp.disabled)
             .map((xp) => (
               <div className="xp" key={xp.name.toLowerCase()}>

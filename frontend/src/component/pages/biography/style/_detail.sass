@@ -84,7 +84,7 @@
                 h5 > a > span
                   transition: all 0.5s linear
                   border-bottom: 2px dotted rgba(0, 0, 0, 0)
-                
+
                 h5 > a > span:hover
                   font-stretch: condensed
                   border-bottom-color: rgba(0, 0, 0, 0.5)
@@ -196,9 +196,10 @@
               .frameworks
                 margin-top: 6px
                 font-size: 12px
-                white-space: nowrap
+                width: fit-content
+                grid-column: 1/3
 
-              .percent
+              .skill-bar
                 position: relative
                 width: 100%
                 height: 10px
@@ -207,7 +208,7 @@
                 justify-content: flex-start
                 align-content: flex-start
 
-                .percent-end-gap
+                .end-gap
                   right: 0
                   position: absolute
                   height: 100%
@@ -225,33 +226,41 @@
                     100%
                       background-color: $navigation-empty-percent-color
 
-                .percent-effective
+                .past-bar
                   position: absolute
                   height: 100%
-                  width: 90%
                   background-color: $navigation-empty-percent-color
 
-                  .xp-limit
-                    position: absolute
-                    bottom: -5px
-                    width: 4px
-                    height: 20px
-                    border-radius: 2px
-                    background-color: grey
-
-                  .xp-bar
+                  .active-bar
                     position: absolute
                     height: 100%
-                    background-color: $detail-xp-color
 
-                  .xp-time-duration-text
-                    position: absolute
-                    font-size: 12px
-                    bottom: 20px
-                    height: 18px
-                    border-radius: 2px
-                    font-style: italic
-                    white-space: nowrap
+                    .active-limit
+                      position: absolute
+                      bottom: -5px
+                      width: 4px
+                      height: 20px
+                      border-radius: 2px
+                      background-color: grey
+
+                    .end-active-limit
+                      right: 0
+
+                    .active-bar-section
+                      position: relative
+                      height: 100%
+                      background-color: $detail-xp-color
+
+                    .active-time-duration-text
+                      position: absolute
+                      font-size: 12px
+                      height: 18px
+                      font-style: italic
+                      left: 6px
+                      white-space: nowrap
+                      overflow: hidden
+                      text-overflow: ellipsis
+
 
           .interest
             .xp-s

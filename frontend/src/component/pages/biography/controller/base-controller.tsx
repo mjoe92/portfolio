@@ -1,33 +1,19 @@
 import { Component } from "react";
 import { Constants } from "../../../../utils/constants";
+import { DateUtils } from "../../../../utils/date-util";
 
-export default abstract class BaseController<
-  IProps,
-  IState
-> extends Component<IProps, IState> {
+export default abstract class BaseController<IProps, IState> extends Component<IProps, IState> {
   protected getDateInFormat = (date: Date | null): string => {
-    if (date == null) {
+    if (!date) {
       return "Present";
     }
 
     const month: number = date.getMonth() + 1;
-    return (
-      (month <= 9 ? "0" : Constants.EMPTY) +
-      month +
-      Constants.DOT +
-      date.getFullYear()
-    );
+    return (month <= 9 ? "0" : Constants.EMPTY) + month + Constants.DOT + date.getFullYear();
   };
 
-  protected getTimeIntervalInFormat = (
-    startDate: Date,
-    endDate: Date | null
-  ): string => {
-    return (
-      this.getDateInFormat(startDate) +
-      Constants.SPACE_DASH_SPACE +
-      this.getDateInFormat(endDate)
-    );
+  protected getTimeIntervalInFormat = (startDate: Date, endDate: Date | null): string => {
+    return this.getDateInFormat(startDate) + Constants.SPACE_DASH_SPACE + this.getDateInFormat(endDate);
   };
 
   protected createRef = (ref: string): string => {
@@ -48,36 +34,4 @@ export default abstract class BaseController<
       </>
     );
   };
-
-  protected getYearMonthIntervalInText = (start: Date, end?: Date): string => {
-    if (end === undefined || end === null) {
-      end = new Date();
-    }
-
-    const yearInterval: number = end?.getFullYear() - start.getFullYear();
-    let yearIntervalText: string = Constants.EMPTY;
-    if (yearInterval >= 1) {
-      yearIntervalText =
-        yearInterval +
-        Constants.SPACE +
-        "YEAR" +
-        (yearInterval === 1 ? Constants.EMPTY : "S");
-    }
-
-    const monthInterval = end?.getMonth() - start.getMonth();
-    let monthIntervalText: string = Constants.EMPTY;
-    if (monthInterval >= 1) {
-      monthIntervalText =
-        monthInterval +
-        Constants.SPACE +
-        "MONTH" +
-        (monthInterval === 1 ? Constants.EMPTY : "S");
-    }
-
-    return yearIntervalText + Constants.SPACE + monthIntervalText;
-  };
-
-  protected getActualTime(time?: Date): Date {
-    return time === undefined ? new Date() : time;
-  }
 }

@@ -582,10 +582,15 @@
 .controller .container .detail .scroll .about .hard-skills .card .frameworks {
   margin-top: 6px;
   font-size: 12px;
-  white-space: nowrap;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
 }
 
-.controller .container .detail .scroll .about .hard-skills .card .percent {
+.controller .container .detail .scroll .about .hard-skills .card .skill-bar {
   position: relative;
   width: 100%;
   height: 10px;
@@ -603,7 +608,7 @@
       align-content: flex-start;
 }
 
-.controller .container .detail .scroll .about .hard-skills .card .percent .percent-end-gap {
+.controller .container .detail .scroll .about .hard-skills .card .skill-bar .end-gap {
   right: 0;
   position: absolute;
   height: 100%;
@@ -642,14 +647,18 @@
   }
 }
 
-.controller .container .detail .scroll .about .hard-skills .card .percent .percent-effective {
+.controller .container .detail .scroll .about .hard-skills .card .skill-bar .past-bar {
   position: absolute;
   height: 100%;
-  width: 90%;
   background-color: #cacaca;
 }
 
-.controller .container .detail .scroll .about .hard-skills .card .percent .percent-effective .xp-limit {
+.controller .container .detail .scroll .about .hard-skills .card .skill-bar .past-bar .active-bar {
+  position: absolute;
+  height: 100%;
+}
+
+.controller .container .detail .scroll .about .hard-skills .card .skill-bar .past-bar .active-bar .active-limit {
   position: absolute;
   bottom: -5px;
   width: 4px;
@@ -658,20 +667,25 @@
   background-color: grey;
 }
 
-.controller .container .detail .scroll .about .hard-skills .card .percent .percent-effective .xp-bar {
-  position: absolute;
+.controller .container .detail .scroll .about .hard-skills .card .skill-bar .past-bar .active-bar .end-active-limit {
+  right: 0;
+}
+
+.controller .container .detail .scroll .about .hard-skills .card .skill-bar .past-bar .active-bar .active-bar-section {
+  position: relative;
   height: 100%;
   background-color: #000000;
 }
 
-.controller .container .detail .scroll .about .hard-skills .card .percent .percent-effective .xp-time-duration-text {
+.controller .container .detail .scroll .about .hard-skills .card .skill-bar .past-bar .active-bar .active-time-duration-text {
   position: absolute;
   font-size: 12px;
-  bottom: 20px;
   height: 18px;
-  border-radius: 2px;
   font-style: italic;
+  left: 6px;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .controller .container .detail .scroll .about .interest .xp-s {

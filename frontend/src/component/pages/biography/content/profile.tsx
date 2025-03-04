@@ -1,10 +1,12 @@
+import { DateUtils } from "../../../../utils/date-util";
+
 export default interface IProfile {
   name: string;
   description: JSX.Element;
 }
 
 const calculateAge = (): number => {
-  const timeDiff = Math.abs(Date.now() - new Date(1992, 1, 18).getTime());
+  const timeDiff = Math.abs(DateUtils.NOW.getTime() - new Date(1992, 1, 18).getTime());
   return Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
 };
 
