@@ -9,6 +9,7 @@ export enum Constants {
   PLUS = "+",
   MINUS = "-",
   COLON = ":",
+  COLON_SPACE = ": ",
   SEMICOLON = ",",
   COMMA = ",",
   COMMA_SPACE = ", ",
@@ -18,6 +19,7 @@ export enum Constants {
   HASHTAG = "#",
   DOT = ".",
   PERCENT = "%",
+  SPACE_PARENTHESIS_LEFT = " (",
   PARENTHESIS_LEFT = "(",
   PARENTHESIS_RIGHT = ")",
 }

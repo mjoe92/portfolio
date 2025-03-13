@@ -1,5 +1,7 @@
-export default interface ISkill {
-  name: string;
+import translate from "../../../../i18n/locale-service"; 
+
+export default interface Skill {
+  names: string[];
   intervals: Interval[];
   frameworks?: string[];
   hide?: boolean;
@@ -10,56 +12,60 @@ export interface Interval {
   endTime?: Date;
 }
 
-export const skillContent: ISkill[] = [
+const translateSkills = (...keys: string[]): string[] => {
+  return keys.map(key => translate(key));
+}
+
+export const skillContent: Skill[] = [
   {
-    name: "HTML, CSS",
+    names: translateSkills("html", "css"),
     intervals: [
       {
         startTime: new Date(2020, 4),
       },
     ],
-    frameworks: ["SASS", "SCSS", "Bootstrap"],
+    frameworks: translateSkills("sass", "scss", "bootstrap"),
   },
   {
-    name: "Typescript",
+    names: translateSkills("typescript"),
     intervals: [
       {
         startTime: new Date(2021, 10),
       },
     ],
-    frameworks: ["Angular", "React", "PrimeNG", "AG-Grid"],
+    frameworks: translateSkills("angular", "react", "prime-ng", "ag-grid"),
   },
   {
-    name: "Java",
+    names: translateSkills("java"),
     intervals: [
       {
         startTime: new Date(2020, 7),
       },
     ],
-    frameworks: [
-      "FX",
-      "Spring",
-      "Hessian",
-      "Hibernate",
-      "JPA",
-      "Lombok",
-      "Log4J",
-      "Swagger",
-      "Quartz Scheduler",
-      "Apache POI",
-    ],
+    frameworks: translateSkills(
+      "fx",
+      "spring",
+      "hessian",
+      "hibernate",
+      "jpa",
+      "lombok",
+      "log4j",
+      "swagger",
+      "quartz-scheduler",
+      "apache-poi",
+    ),
   },
   {
-    name: "SQL",
+    names: translateSkills("sql"),
     intervals: [
       {
         startTime: new Date(2021, 0),
       },
     ],
-    frameworks: ["PostgreSQL, MySQL, Oracle"],
+    frameworks: translateSkills("postgresql", "my-sql", "oracle"),
   },
   {
-    name: "JavaScript",
+    names: translateSkills("javascript"),
     intervals: [
       {
         startTime: new Date(2020, 4),
@@ -69,10 +75,10 @@ export const skillContent: ISkill[] = [
         startTime: new Date(2023, 8),
       },
     ],
-    frameworks: ["jQuery", "Jasmine", "Karma"],
+    frameworks: translateSkills("jquery", "jasmine", "karma"),
   },
   {
-    name: "VBA",
+    names: translateSkills("vba"),
     intervals: [
       {
         startTime: new Date(2016, 3),
@@ -81,12 +87,12 @@ export const skillContent: ISkill[] = [
     ],
   },
   {
-    name: "XML, XML-Schema, XSLT",
+    names: translateSkills("xml", "xml-schema", "xslt"),
     intervals: [
       {
         startTime: new Date(2021, 0),
       },
     ],
-    frameworks: ["Maven", "Apache FOP", "JAXB", "JINX"],
+    frameworks: translateSkills("maven", "apache-fop", "jaxb", "jinx"),
   },
 ];

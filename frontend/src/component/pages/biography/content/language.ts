@@ -1,7 +1,7 @@
 import { Level } from "./level";
 
 export default interface ILanguage {
-  name: string;
+  key: string;
   oralLevel: Level;
   writeLevel?: Level;
   oralMessage?: string;
@@ -11,13 +11,13 @@ export default interface ILanguage {
 
 export const languageContent: ILanguage[] = [
   {
-    name: "Hungarian",
+    key: "hungarian",
     oralLevel: Level.N,
     oralMessage:
       "Mandatory to know in Hungary, learnt from my father and in schools.",
   },
   {
-    name: "Russian",
+    key: "russian",
     oralLevel: Level.N,
     writeLevel: Level.B2,
     oralMessage:
@@ -28,20 +28,20 @@ export const languageContent: ILanguage[] = [
       " my subject teacher teached me.",
   },
   {
-    name: "English",
+    key: "english",
     oralLevel: Level.C2,
     oralMessage:
       "Learnt from my school teachers, practised in the workplaces" +
       " and cartoon network. Sometimes when I tired, I go on Hunglish!",
   },
   {
-    name: "German",
-    oralLevel: Level.C1,
+    key: "german",
+    oralLevel: Level.B2,
     oralMessage:
       "Begin to learn in the university but kept prociding from BREDEX GmbH",
   },
   {
-    name: "French",
+    key: "rench",
     oralLevel: Level.A0,
     writeLevel: Level.A1,
     oralMessage: "Learnt in the secondary school but forgot a lot every since.",

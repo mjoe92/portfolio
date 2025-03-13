@@ -3,7 +3,7 @@ import { TextLinkProvider } from "./text-link-provider";
 
 export interface HistoryEntry {
   id: string;
-  title: string[];
+  titles: string[];
   placePeriods: PlacePeriod[];
   field: Field;
   description: JSX.Element;

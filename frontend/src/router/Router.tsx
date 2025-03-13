@@ -4,9 +4,9 @@ import { Routes, Route } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import { Header } from "../component/semantic/header/header";
 import { Footer } from "../component/semantic/footer/footer";
-import BiographyController from "../component/pages/biography/controller/biography-controller";
 import './style/router.css';
 import "bootstrap/dist/css/bootstrap.min.css";
+import { BiographyController } from "../component/pages/biography/controller/biography-controller";
 
 export const Router = () => {
   return (

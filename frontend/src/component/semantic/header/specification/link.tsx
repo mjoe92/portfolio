@@ -1,18 +1,18 @@
-export default interface IMainPage {
+export default interface MainPage {
   id: string;
   title: string;
   expo: string;
   disabled?: boolean;
-  pages: IPage[];
+  pages: PageLink[];
 }
 
-export interface IPage {
+export interface PageLink {
   disabled?: boolean;
   name: string;
   link: string;
 }
 
-export const linkContent: IMainPage[] = [
+export const linkContent: MainPage[] = [
   {
     id: "projects",
     title: "Projects",
@@ -21,17 +21,17 @@ export const linkContent: IMainPage[] = [
     pages: [
       {
         name: "PCD",
-        link: "pcd",
+        link: "pcd"
       },
       {
         name: "Web pages",
-        link: "web-pages",
+        link: "web-pages"
       },
       {
         name: "Mini apps",
-        link: "mini-apps",
-      },
-    ],
+        link: "mini-apps"
+      }
+    ]
   },
   {
     id: "blog",
@@ -41,17 +41,17 @@ export const linkContent: IMainPage[] = [
     pages: [
       {
         name: "Travel",
-        link: "travel",
+        link: "travel"
       },
       {
         name: "Photograph",
-        link: "photograph",
+        link: "photograph"
       },
       {
         name: "PE Training",
-        link: "training",
-      },
-    ],
+        link: "training"
+      }
+    ]
   },
   {
     id: "others",
@@ -61,13 +61,13 @@ export const linkContent: IMainPage[] = [
     pages: [
       {
         name: "Real estate-letting",
-        link: "renting",
+        link: "renting"
       },
       {
         name: "!!!IDE KERÜLJÖN A WEBLAPKÉSZítés",
-        link: "asdfkléá",
-      },
-    ],
+        link: "asdfkléá"
+      }
+    ]
   },
   {
     id: "aboutMe",
@@ -78,18 +78,18 @@ export const linkContent: IMainPage[] = [
       {
         name: "Engineering",
         link: "engineering",
-        disabled: true,
+        disabled: true
       },
       {
         name: "Programming",
         link: "programming",
-        disabled: true,
+        disabled: true
       },
       {
         name: "Photographing",
         link: "photographing",
-        disabled: true,
-      },
-    ],
-  },
+        disabled: true
+      }
+    ]
+  }
 ];

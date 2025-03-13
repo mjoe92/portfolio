@@ -11,7 +11,8 @@ import {
   faSkiing,
   faSwimmer,
   IconDefinition,
-} from "@fortawesome/free-solid-svg-icons";
+} from "@fortawesome/free-solid-svg-icons"; 
+import translate from "../../../../i18n/locale-service";
 
 export default interface IInterest {
   name: string;
@@ -20,19 +21,19 @@ export default interface IInterest {
 
 export const interestContent: IInterest[] = [
   {
-    name: "Sport",
+    name: translate("sport"),
     icons: [faSwimmer, faRunning, faDumbbell, faSkiing],
   },
   {
-    name: "Travelling",
+    name: translate("travelling"),
     icons: [faPhotoFilm, faMap],
   },
   {
-    name: "Learning",
+    name: translate("learning"),
     icons: [faGear, faKeyboard, faLanguage],
   },
   {
-    name: "Work",
+    name: translate("work"),
     icons: [faGears, faCode],
   },
 ];
