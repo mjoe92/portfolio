@@ -5,21 +5,24 @@ import "../style/experience.css";
 import { TextLinkProvider } from "./text-link-provider";
 import translate from "../../../../i18n/locale-service";
 import { Constants } from "../../../../utils/constants";
-import City = TextLinkProvider.City;
 import { Trans } from "react-i18next";
+import Company = TextLinkProvider.Company;
+import City = TextLinkProvider.City;
 
-export const jobContent: HistoryEntry[] = [
+const jobContent: HistoryEntry[] = [
   {
     id: "bredex",
     titles: [`${ translate("full-stack") + Constants.SPACE + translate("java-developer") }`],
     placePeriods: [
       {
-        place: TextLinkProvider.Company.BREDEX_GMBH,
+        place: Company.BREDEX_GMBH,
+        cities: [City.BRAUNSCHWEIG],
         timeStart: new Date(2023, 0),
         timeEnd: null
       },
       {
-        place: TextLinkProvider.Company.BREDEX_HU,
+        place: Company.BREDEX_HU,
+        cities: [City.BUDAPEST, City.SZEKESFEHERVAR],
         timeStart: new Date(2021, 8),
         timeEnd: new Date(2022, 11)
       }
@@ -83,7 +86,8 @@ export const jobContent: HistoryEntry[] = [
     titles: [translate("mechanical-engineer")],
     placePeriods: [
       {
-        place: TextLinkProvider.Company.INNOSTUDIO,
+        place: Company.INNOSTUDIO,
+        cities: [City.BUDAPEST],
         timeStart: new Date(2020, 8),
         timeEnd: new Date(2021, 2)
       }
@@ -93,9 +97,9 @@ export const jobContent: HistoryEntry[] = [
         <p>{ translate("innostudio-description") }</p>
         <ul>
           <p className="sub-title">{ translate("my-duties") }</p>
-          <li>{ translate("my-duties-1") }</li>
-          <li>{ translate("my-duties-2") }</li>
-          <li>{ translate("my-duties-3") }</li>
+          <li>{ translate("innostudio-task-1") }</li>
+          <li>{ translate("innostudio-task-2") }</li>
+          <li>{ translate("innostudio-task-3") }</li>
         </ul>
       </>
     ),
@@ -106,7 +110,8 @@ export const jobContent: HistoryEntry[] = [
     titles: [translate("construction-engineer")],
     placePeriods: [
       {
-        place: TextLinkProvider.Company.MIRROTRON,
+        place: Company.MIRROTRON,
+        cities: [City.BUDAPEST, City.PEKING, City.SYDNEY, City.DUBNA],
         timeStart: new Date(2019, 0),
         timeEnd: new Date(2020, 3)
       }
@@ -119,8 +124,8 @@ export const jobContent: HistoryEntry[] = [
         </p>
         <ul>
           <p className="sub-title">{ translate("my-duties") }</p>
-          { [[4, "construction-designer"], [5, "device-assembler"], [6, "device-installer"], [7, "process-developer"]].map((duty, index) =>
-            <li key={ `duty-${ index }` }><Trans i18nKey={ `my-duties-${ duty[0] }` }
+          { [[1, "construction-designer"], [2, "device-assembler"], [3, "device-installer"], [4, "process-developer"]].map((duty, index) =>
+            <li key={ `duty-${ index }` }><Trans i18nKey={ `mirrotron-task-${ duty[0] }` }
                                                  components={ { tag: <span className="highlighted"/> } }
                                                  values={ { profession: translate(`${ duty[1] }`) } }/>
             </li>) }
@@ -134,7 +139,8 @@ export const jobContent: HistoryEntry[] = [
     titles: [translate("construction-engineer")],
     placePeriods: [
       {
-        place: TextLinkProvider.Company.CG_HUNGARY,
+        place: Company.CG_HUNGARY,
+        cities: [City.BUDAPEST],
         timeStart: new Date(2018, 0),
         timeEnd: new Date(2018, 8)
       }
@@ -144,9 +150,9 @@ export const jobContent: HistoryEntry[] = [
         <p>{ translate("cg-description") }</p>
         <ul>
           <p className="sub-title">{ translate("responsible") }</p>
-          <li>{ translate("responsible-1") }</li>
-          <li>{ translate("responsible-2") }</li>
-          <li>{ translate("responsible-3") }</li>
+          <li>{ translate("cg-task-1") }</li>
+          <li>{ translate("cg-task-2") }</li>
+          <li>{ translate("cg-task-3") }</li>
         </ul>
       </>
     ),
@@ -158,7 +164,8 @@ export const jobContent: HistoryEntry[] = [
     // MPE: exclamation mark, popup window with 'not officially contracted'
     placePeriods: [
       {
-        place: TextLinkProvider.Company.GANZ_EEM,
+        place: Company.GANZ_EEM,
+        cities: [City.BUDAPEST],
         timeStart: new Date(2016, 9),
         timeEnd: new Date(2017, 11)
       }
@@ -169,9 +176,9 @@ export const jobContent: HistoryEntry[] = [
         <p>{ translate("ganz-eem-description-2") }</p>
         <ul>
           <p className="sub-title">{ translate("responsible") }</p>
-          <li>{ translate("responsible-4") }</li>
-          <li>{ translate("responsible-5") }</li>
-          <li>{ translate("responsible-6") }</li>
+          <li>{ translate("ganz-task-1") }</li>
+          <li>{ translate("ganz-task-2") }</li>
+          <li>{ translate("ganz-task-3") }</li>
         </ul>
       </>
     ),
@@ -182,7 +189,8 @@ export const jobContent: HistoryEntry[] = [
     titles: [translate("welding-engineer-intern")],
     placePeriods: [
       {
-        place: TextLinkProvider.Company.SIEMENS,
+        place: Company.SIEMENS,
+        cities: [City.BUDAPEST],
         timeStart: new Date(2015, 1),
         timeEnd: new Date(2015, 11)
       }
@@ -196,3 +204,5 @@ export const jobContent: HistoryEntry[] = [
     field: Field.E
   }
 ];
+
+export default jobContent;

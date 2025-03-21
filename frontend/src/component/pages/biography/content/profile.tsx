@@ -13,7 +13,7 @@ const calculateAge = (): number => {
   return Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
 };
 
-export const profileContent: IProfile = {
+const profileContent: IProfile = {
   name: translate(`profile`),
   description: (
     <>
@@ -23,3 +23,5 @@ export const profileContent: IProfile = {
     </>
   )
 };
+
+export default profileContent;

@@ -151,11 +151,13 @@
   vertical-align: text-top;
 }
 .controller .container .navigation .scroll .about .title svg {
-  transform: rotate(0);
-  transition: transform 0.5s linear;
+  cursor: pointer;
+  display: inline;
+  transform: rotate(180deg);
+  transition: transform 0.3s linear;
 }
 .controller .container .navigation .scroll .about .title svg.show {
-  transform: rotate(180deg);
+  transform: rotate(0);
 }
 .controller .container .navigation .scroll .about .experience .xp-s {
   padding-left: 0;
@@ -269,9 +271,8 @@
   padding: 10px 20px 10px 40px;
 }
 .controller .container .detail .active.highlight-text {
-  border-bottom: 1px solid rgba(0, 0, 0, 0);
+  border-bottom: 2px dotted rgba(0, 0, 0, 0);
   text-underline-offset: 5px;
-  text-decoration: underline dotted;
   transition: all 0.5s linear;
 }
 .controller .container .detail .active.highlight-text:hover {
@@ -292,9 +293,19 @@
   margin: 45px 0 30px 0;
   gap: 10px;
   align-items: center;
+  cursor: pointer;
 }
 .controller .container .detail .scroll .about .title p {
   margin: 0;
+}
+.controller .container .detail .scroll .about .title svg {
+  cursor: pointer;
+  display: inline;
+  transform: rotate(180deg);
+  transition: transform 0.3s linear;
+}
+.controller .container .detail .scroll .about .title svg.show {
+  transform: rotate(0);
 }
 .controller .container .detail .scroll .about p {
   color: #4b4b4b;
@@ -333,19 +344,25 @@
   min-width: 140px;
   order: 1;
 }
-.controller .container .detail .scroll .about .info .card .date-company h5, .controller .container .detail .scroll .about .info .card .date-company h5 > a > span {
+.controller .container .detail .scroll .about .info .card .date-company .date-company-text, .controller .container .detail .scroll .about .info .card .date-company .date-company-text > a > span {
   text-transform: uppercase;
   color: grey;
   font-weight: 600;
-  font-size: 16px;
+  line-height: normal;
 }
-.controller .container .detail .scroll .about .info .card .date-company h5 > a > span {
+.controller .container .detail .scroll .about .info .card .date-company .date-company-text > a > span {
   transition: all 0.5s linear;
   border-bottom: 2px dotted rgba(0, 0, 0, 0);
 }
-.controller .container .detail .scroll .about .info .card .date-company h5 > a > span:hover {
+.controller .container .detail .scroll .about .info .card .date-company .date-company-text > a > span:hover {
   font-stretch: condensed;
   border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+.controller .container .detail .scroll .about .info .card .date-company .date-company-text.time {
+  font-size: 16px;
+}
+.controller .container .detail .scroll .about .info .card .date-company .date-company-text.company {
+  font-size: 14px;
 }
 .controller .container .detail .scroll .about .info .card .date-company div:not(:first-child) {
   border-top: 1px dotted;
@@ -399,7 +416,7 @@
   text-transform: uppercase;
   font-weight: 900;
   font-size: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   width: 100%;
   align-items: end;
 }
@@ -412,6 +429,26 @@
 }
 .controller .container .detail .scroll .about .info .card .text h4 svg {
   display: none;
+}
+.controller .container .detail .scroll .about .info .card .text .date-company-text, .controller .container .detail .scroll .about .info .card .text .date-company-text > a > span {
+  text-transform: uppercase;
+  color: grey;
+  font-weight: 600;
+  line-height: normal;
+}
+.controller .container .detail .scroll .about .info .card .text .date-company-text > a > span {
+  transition: all 0.5s linear;
+  border-bottom: 2px dotted rgba(0, 0, 0, 0);
+}
+.controller .container .detail .scroll .about .info .card .text .date-company-text > a > span:hover {
+  font-stretch: condensed;
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+.controller .container .detail .scroll .about .info .card .text .date-company-text.place {
+  font-size: 14px;
+}
+.controller .container .detail .scroll .about .info .card .text .date-company-text.place > a > span {
+  text-wrap: nowrap;
 }
 .controller .container .detail .scroll .about .info .card .text .card-detail {
   max-height: 0;
@@ -440,15 +477,16 @@
   margin-bottom: 30px;
 }
 .controller .container .detail .scroll .about .hard-skills .card h4, .controller .container .detail .scroll .about .hard-skills .card .frameworks {
-  color: grey;
   font-weight: 500;
   font-size: 16px;
   margin-bottom: 0;
 }
-.controller .container .detail .scroll .about .hard-skills .card h4 {
+.controller .container .detail .scroll .about .hard-skills .card h4 > a > span {
   text-transform: uppercase;
+  color: grey;
 }
-.controller .container .detail .scroll .about .hard-skills .card .frameworks {
+.controller .container .detail .scroll .about .hard-skills .card .frameworks, .controller .container .detail .scroll .about .hard-skills .card .frameworks > a > span {
+  color: grey;
   margin-top: 6px;
   font-size: 12px;
   width: fit-content;

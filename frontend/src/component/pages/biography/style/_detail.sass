@@ -1,4 +1,20 @@
 @import 'scrollbar'
+@import 'opener'
+
+@mixin date-company-text
+  .date-company-text, .date-company-text > a > span
+    text-transform: uppercase
+    color: $detail-date-place-color
+    font-weight: 600
+    line-height: normal
+
+  .date-company-text > a > span
+    transition: all 0.5s linear
+    border-bottom: 2px dotted rgba(0, 0, 0, 0)
+
+  .date-company-text > a > span:hover
+    font-stretch: condensed
+    border-bottom-color: rgba(0, 0, 0, 0.5)
 
 .controller
   .container
@@ -7,9 +23,8 @@
       padding: 10px 20px 10px 40px
 
       .active.highlight-text
-        border-bottom: 1px solid rgba(0, 0, 0, 0)
+        border-bottom: 2px dotted rgba(0, 0, 0, 0)
         text-underline-offset: 5px
-        text-decoration: underline dotted
         transition: all 0.5s linear
 
       .active.highlight-text:hover
@@ -31,9 +46,12 @@
             margin: 45px 0 30px 0
             gap: 10px
             align-items: center
+            cursor: pointer
 
             p
               margin: 0
+
+            @include opener
 
           p
             color: $detail-title-color
@@ -75,19 +93,13 @@
                 min-width: $detail-left-min-width
                 order: 1
 
-                h5, h5 > a > span
-                  text-transform: uppercase
-                  color: $detail-date-place-color
-                  font-weight: 600
+                @include date-company-text
+
+                .date-company-text.time
                   font-size: $detail-left-font-size
 
-                h5 > a > span
-                  transition: all 0.5s linear
-                  border-bottom: 2px dotted rgba(0, 0, 0, 0)
-
-                h5 > a > span:hover
-                  font-stretch: condensed
-                  border-bottom-color: rgba(0, 0, 0, 0.5)
+                .date-company-text.company
+                  font-size: 14px
 
                 div:not(:first-child)
                   border-top: 1px dotted
@@ -141,7 +153,7 @@
                   text-transform: uppercase
                   font-weight: 900
                   font-size: $detail-left-font-size
-                  margin-bottom: 16px
+                  margin-bottom: 8px
                   width: 100%
                   align-items: end
 
@@ -154,6 +166,14 @@
 
                   svg
                     display: none
+
+                @include date-company-text
+
+                .date-company-text.place
+                  font-size: 14px
+
+                .date-company-text.place > a > span
+                  text-wrap: nowrap
 
                 .card-detail
                   max-height: 0
@@ -185,15 +205,16 @@
               margin-bottom: 30px
 
               h4, .frameworks
-                color: $detail-date-place-color
                 font-weight: 500
                 font-size: $detail-left-font-size
                 margin-bottom: 0
 
-              h4
+              h4 > a > span
                 text-transform: uppercase
+                color: $detail-date-place-color
 
-              .frameworks
+              .frameworks, .frameworks > a > span
+                color: $detail-date-place-color
                 margin-top: 6px
                 font-size: 12px
                 width: fit-content
@@ -317,14 +338,7 @@
                     margin-bottom: 5px
                     justify-content: space-between
 
-                    svg
-                      cursor: pointer
-                      display: inline
-                      transform: rotate(180deg)
-                      transition: transform 0.3s linear
-
-                    svg.show
-                      transform: rotate(0)
+                    @include opener
 
                   .show-dropdown
                     padding-right: 14px

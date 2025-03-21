@@ -36,16 +36,53 @@ export namespace TextLinkProvider {
   }
 
   export enum Website {
-    GITHUB = `https://github.com`,
-    LINKEDIN = `https://www.linkedin.com`,
-    GMAIL = `https://mail.google.com`,
+    GITHUB = "https://github.com",
+    LINKEDIN = "https://www.linkedin.com",
+    GMAIL = "https://mail.google.com",
+    TYPESCRIPT = "https://www.typescriptlang.org/",
+    ANGULAR = "https://angular.dev/",
+    REACT = "https://react.dev/",
+    PRIMENG = "https://primeng.org/",
+    AG_GRID = "https://www.ag-grid.com/",
+    SQL = "https://wikipedia.org/wiki/SQL",
+    POSTGRE_SQL = "https://www.postgresql.org/",
+    MY_SQL = "https://www.mysql.com/",
+    ORACLE = "https://docs.oracle.com/en/database/oracle/oracle-database/18/sqlrf/Introduction-to-Oracle-SQL.html",
+    MAVEN = "https://maven.apache.org/",
+    APACHE_FOP = "https://xmlgraphics.apache.org/fop/",
+    JAXB = "https://javaee.github.io/jaxb-v2/",
+    JINX = "https://exceljava.com/",
+    JAVA = "https://www.java.com/",
+    FX = "https://openjfx.io/",
+    SPRING = "https://spring.io/",
+    HESSIAN = "http://hessian.caucho.com/",
+    HIBERNATE = "https://hibernate.org/",
+    JPA = "https://spring.io/projects/spring-data-jpa",
+    LOMBOK = "https://projectlombok.org/",
+    LOG4J = "https://logging.apache.org/log4j/2.x/index.html",
+    SWAGGER = "https://swagger.io/",
+    QUARTZ_SCHEDULER = "https://www.quartz-scheduler.org/",
+    APACHE_POI = "https://poi.apache.org/",
+    HTML = "https://developer.mozilla.org/docs/Web/HTML",
+    CSS = "https://developer.mozilla.org/docs/Web/CSS",
+    SASS = "https://sass-lang.com/documentation/modules/",
+    SCSS = "https://sass-lang.com/documentation/syntax/",
+    BOOTSTRAP = "https://getbootstrap.com/",
+    JAVASCRIPT = "https://www.javascript.com/",
+    JQUERY = "https://jquery.com/",
+    JASMINE = "https://jasmine.github.io/",
+    KARMA = "https://karma-runner.github.io/6.4/index.html",
+    VBA = "https://learn.microsoft.com/office/vba/library-reference/concepts/getting-started-with-vba-in-office",
+    XSLT = "https://developer.mozilla.org/docs/Web/XML/XSLT",
+    XML = "https://developer.mozilla.org/docs/Web/XML/Guides/XML_introduction",
+    XML_SCHEMA = "https://wikipedia.org/wiki/XML_Schema_(W3C)"
   }
 
   export function load(keys: (Company | Institut | City | Website)[], highlight?: boolean, link?: string) {
     return <>
       { keys
       .map<React.ReactNode>(key => mapToLink(key, highlight, link))
-      .reduce((prev, curr) => [prev, Constants.COMMA_SPACE, curr])
+      .reduce((prev, curr) => [prev, Constants.SPACE_MIDDLE_DOT_SPACE, curr])
       }
     </>;
   }
@@ -59,7 +96,7 @@ export namespace TextLinkProvider {
 
     const infoLink = link || info.link;
     return (
-      <a key={ key } href={ infoLink } target="_blank" rel="noreferrer">
+      <a key={ infoLink } href={ infoLink } target="_blank" rel="noreferrer">
         <span className={ className }>{ info.name }</span>
       </a>
     );
@@ -83,6 +120,43 @@ export namespace TextLinkProvider {
     createCityEntry(City.DUBNA, "russia"),
     createCityEntry(City.PEKING, "china"),
     createCityEntry(City.SYDNEY, "australia"),
+    createHardSkillEntry(Website.TYPESCRIPT, 'typescript'),
+    createHardSkillEntry(Website.ANGULAR, 'angular'),
+    createHardSkillEntry(Website.REACT, 'react'),
+    createHardSkillEntry(Website.PRIMENG, 'prime-ng'),
+    createHardSkillEntry(Website.AG_GRID, 'ag-grid'),
+    createHardSkillEntry(Website.SQL, 'sql'),
+    createHardSkillEntry(Website.POSTGRE_SQL, 'postgresql'),
+    createHardSkillEntry(Website.MY_SQL, 'mysql'),
+    createHardSkillEntry(Website.ORACLE, 'oracle'),
+    createHardSkillEntry(Website.MAVEN, 'maven'),
+    createHardSkillEntry(Website.APACHE_FOP, 'apache-fop'),
+    createHardSkillEntry(Website.JAXB, 'jaxb'),
+    createHardSkillEntry(Website.JINX, 'jinx'),
+    createHardSkillEntry(Website.JAVA, 'java'),
+    createHardSkillEntry(Website.FX, 'fx'),
+    createHardSkillEntry(Website.SPRING, 'spring'),
+    createHardSkillEntry(Website.HESSIAN, 'hessian'),
+    createHardSkillEntry(Website.HIBERNATE, 'hibernate'),
+    createHardSkillEntry(Website.JPA, 'jpa'),
+    createHardSkillEntry(Website.LOMBOK, 'lombok'),
+    createHardSkillEntry(Website.LOG4J, 'log4j'),
+    createHardSkillEntry(Website.SWAGGER, 'swagger'),
+    createHardSkillEntry(Website.QUARTZ_SCHEDULER, 'quartz-scheduler'),
+    createHardSkillEntry(Website.APACHE_POI, 'apache-poi'),
+    createHardSkillEntry(Website.HTML, 'html'),
+    createHardSkillEntry(Website.CSS, 'css'),
+    createHardSkillEntry(Website.SASS, 'sass'),
+    createHardSkillEntry(Website.SCSS, 'scss'),
+    createHardSkillEntry(Website.BOOTSTRAP, 'bootstrap'),
+    createHardSkillEntry(Website.JAVASCRIPT, 'javascript'),
+    createHardSkillEntry(Website.JQUERY, 'jquery'),
+    createHardSkillEntry(Website.JASMINE, 'jasmine'),
+    createHardSkillEntry(Website.KARMA, 'karma'),
+    createHardSkillEntry(Website.VBA, 'vba'),
+    createHardSkillEntry(Website.XML, 'xml'),
+    createHardSkillEntry(Website.XSLT, 'xslt'),
+    createHardSkillEntry(Website.XML_SCHEMA, 'xml-schema'),
     [
       Website.GITHUB,
       {
@@ -112,6 +186,16 @@ export namespace TextLinkProvider {
       {
         name: `${ translate(city) } (${ translate(countryKey) })`,
         link: `https://www.google.com/maps/place/${ city }`
+      }
+    ];
+  }
+
+  function createHardSkillEntry(website: Website, name: string): [Website, LinkInformation] {
+    return [
+      website,
+      {
+        name: translate(name),
+        link: website
       }
     ];
   }

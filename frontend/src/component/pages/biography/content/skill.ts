@@ -1,9 +1,12 @@
-import translate from "../../../../i18n/locale-service"; 
+import { TextLinkProvider } from "./text-link-provider"; 
+import React from "react"; 
 
-export default interface Skill {
-  names: string[];
+import Website = TextLinkProvider.Website;
+
+export interface Skill {
+  names: React.JSX.Element;
   intervals: Interval[];
-  frameworks?: string[];
+  frameworks?: React.JSX.Element;
   hide?: boolean;
 }
 
@@ -12,60 +15,60 @@ export interface Interval {
   endTime?: Date;
 }
 
-const translateSkills = (...keys: string[]): string[] => {
-  return keys.map(key => translate(key));
+const createLinksWithTranslations = (...keys: Website[]) => {
+  return TextLinkProvider.load(keys, true);
 }
 
-export const skillContent: Skill[] = [
+const skillContent: Skill[] = [
   {
-    names: translateSkills("html", "css"),
+    names: createLinksWithTranslations(Website.HTML, Website.CSS),
     intervals: [
       {
         startTime: new Date(2020, 4),
       },
     ],
-    frameworks: translateSkills("sass", "scss", "bootstrap"),
+    frameworks: createLinksWithTranslations(Website.SASS, Website.SCSS, Website.BOOTSTRAP),
   },
   {
-    names: translateSkills("typescript"),
+    names: createLinksWithTranslations(Website.TYPESCRIPT),
     intervals: [
       {
         startTime: new Date(2021, 10),
       },
     ],
-    frameworks: translateSkills("angular", "react", "prime-ng", "ag-grid"),
+    frameworks: createLinksWithTranslations(Website.ANGULAR, Website.REACT, Website.PRIMENG, Website.AG_GRID),
   },
   {
-    names: translateSkills("java"),
+    names: createLinksWithTranslations(Website.JAVA),
     intervals: [
       {
         startTime: new Date(2020, 7),
       },
     ],
-    frameworks: translateSkills(
-      "fx",
-      "spring",
-      "hessian",
-      "hibernate",
-      "jpa",
-      "lombok",
-      "log4j",
-      "swagger",
-      "quartz-scheduler",
-      "apache-poi",
+    frameworks: createLinksWithTranslations(
+      Website.FX,
+      Website.SPRING,
+      Website.HESSIAN,
+      Website.HIBERNATE,
+      Website.JPA,
+      Website.LOMBOK,
+      Website.LOG4J,
+      Website.SWAGGER,
+      Website.QUARTZ_SCHEDULER,
+      Website.APACHE_POI,
     ),
   },
   {
-    names: translateSkills("sql"),
+    names: createLinksWithTranslations(Website.SQL),
     intervals: [
       {
         startTime: new Date(2021, 0),
       },
     ],
-    frameworks: translateSkills("postgresql", "my-sql", "oracle"),
+    frameworks: createLinksWithTranslations(Website.POSTGRE_SQL, Website.MY_SQL, Website.ORACLE),
   },
   {
-    names: translateSkills("javascript"),
+    names: createLinksWithTranslations(Website.JAVASCRIPT),
     intervals: [
       {
         startTime: new Date(2020, 4),
@@ -75,10 +78,10 @@ export const skillContent: Skill[] = [
         startTime: new Date(2023, 8),
       },
     ],
-    frameworks: translateSkills("jquery", "jasmine", "karma"),
+    frameworks: createLinksWithTranslations(Website.JQUERY, Website.JASMINE, Website.KARMA),
   },
   {
-    names: translateSkills("vba"),
+    names: createLinksWithTranslations(Website.VBA),
     intervals: [
       {
         startTime: new Date(2016, 3),
@@ -87,12 +90,14 @@ export const skillContent: Skill[] = [
     ],
   },
   {
-    names: translateSkills("xml", "xml-schema", "xslt"),
+    names: createLinksWithTranslations(Website.XML, Website.XML_SCHEMA, Website.XSLT),
     intervals: [
       {
         startTime: new Date(2021, 0),
       },
     ],
-    frameworks: translateSkills("maven", "apache-fop", "jaxb", "jinx"),
+    frameworks: createLinksWithTranslations(Website.MAVEN, Website.APACHE_FOP, Website.JAXB, Website.JINX),
   },
 ];
+
+export default skillContent;

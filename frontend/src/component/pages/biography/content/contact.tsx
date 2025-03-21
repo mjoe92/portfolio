@@ -8,40 +8,45 @@ import {
 import { TextLinkProvider } from "./text-link-provider";
 import React from "react";
 
-export interface IContact {
+import Website = TextLinkProvider.Website;
+import City = TextLinkProvider.City;
+
+export interface Contact {
   id: string;
   icon: IconDefinition;
   text: React.JSX.Element;
   disabled?: boolean;
 }
 
-export const contactNavigation: IContact[] = [
+const contactNavigation: Contact[] = [
   {
     id: "e-mail",
     icon: faEnvelope,
-    text: TextLinkProvider.load([TextLinkProvider.Website.GMAIL], false, "mailto:djcsurgai@gmail.com?subject=Nice Title&amp;body=Hey Joe")
+    text: TextLinkProvider.load([Website.GMAIL], false, "mailto:djcsurgai@gmail.com?subject=Nice Title&amp;body=Hey Joe")
   },
   {
     id: "webpage",
     icon: faGlobe,
-    text: TextLinkProvider.load([TextLinkProvider.Website.GITHUB])
+    text: TextLinkProvider.load([Website.GITHUB])
   },
   {
     id: "linkedin",
     icon: faLink,
-    text: TextLinkProvider.load([TextLinkProvider.Website.LINKEDIN])
+    text: TextLinkProvider.load([Website.LINKEDIN])
   },
   {
     id: "location",
     icon: faMapMarker,
     text: (
       <>
-        { TextLinkProvider.load([TextLinkProvider.City.BRAUNSCHWEIG]) },
+        { TextLinkProvider.load([City.BRAUNSCHWEIG]) },
         <br/>
-        { TextLinkProvider.load([TextLinkProvider.City.BUDAPEST]) },
+        { TextLinkProvider.load([City.BUDAPEST]) },
         <br/>
-        { TextLinkProvider.load([TextLinkProvider.City.SZEKESFEHERVAR]) },
+        { TextLinkProvider.load([City.SZEKESFEHERVAR]) },
       </>
     )
   }
 ];
+
+export default contactNavigation;

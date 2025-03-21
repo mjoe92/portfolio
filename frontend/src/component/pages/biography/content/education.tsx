@@ -3,13 +3,17 @@ import { HistoryEntry } from "./base-history";
 import { Field } from "./field";
 import { TextLinkProvider } from "./text-link-provider";
 
-export const educationContent: HistoryEntry[] = [
+import Institut = TextLinkProvider.Institut;
+import City = TextLinkProvider.City;
+
+const educationContent: HistoryEntry[] = [
   {
     id: "codecool2",
     titles: [translate("java-enterprise-backend-developer")],
     placePeriods: [
       {
-        place: TextLinkProvider.Institut.CODECOOL,
+        place: Institut.CODECOOL,
+        cities: [City.BUDAPEST],
         timeStart: new Date(2021, 5),
         timeEnd: new Date(2021, 8)
       }
@@ -33,7 +37,8 @@ export const educationContent: HistoryEntry[] = [
     titles: [translate("java-backend-developer")],
     placePeriods: [
       {
-        place: TextLinkProvider.Institut.CODECOOL,
+        place: Institut.CODECOOL,
+        cities: [City.BUDAPEST],
         timeStart: new Date(2020, 11),
         timeEnd: new Date(2021, 2)
       }
@@ -56,7 +61,8 @@ export const educationContent: HistoryEntry[] = [
     titles: [translate("mechatronics-msc")],
     placePeriods: [
       {
-        place: TextLinkProvider.Institut.OBUDAI_UNIVERSITY,
+        place: Institut.OBUDAI_UNIVERSITY,
+        cities: [City.BUDAPEST],
         timeStart: new Date(2016, 8),
         timeEnd: new Date(2019, 0)
       }
@@ -69,7 +75,8 @@ export const educationContent: HistoryEntry[] = [
     titles: [translate("four-and-five-axis-programming-technology")],
     placePeriods: [
       {
-        place: TextLinkProvider.Institut.NCT_ACADEMY,
+        place: Institut.NCT_ACADEMY,
+        cities: [City.BUDAPEST],
         timeStart: new Date(2015, 10),
         timeEnd: new Date(2016, 7)
       }
@@ -82,7 +89,8 @@ export const educationContent: HistoryEntry[] = [
     titles: [translate("cad-cam-cnc-programming")],
     placePeriods: [
       {
-        place: TextLinkProvider.Institut.NCT_ACADEMY,
+        place: Institut.NCT_ACADEMY,
+        cities: [City.BUDAPEST],
         timeStart: new Date(2015, 2),
         timeEnd: new Date(2015, 10)
       }
@@ -95,7 +103,8 @@ export const educationContent: HistoryEntry[] = [
     titles: [translate("mechanical-engineer-bsc")],
     placePeriods: [
       {
-        place: TextLinkProvider.Institut.BME,
+        place: Institut.BME,
+        cities: [City.BUDAPEST],
         timeStart: new Date(2011, 8),
         timeEnd: new Date(2016, 5)
       }
@@ -104,3 +113,5 @@ export const educationContent: HistoryEntry[] = [
     field: Field.E
   }
 ];
+
+export default educationContent;

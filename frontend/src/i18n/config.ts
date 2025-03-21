@@ -1,5 +1,6 @@
 import {initReactI18next} from "react-i18next";
 import detector from "i18next-browser-languagedetector";
+import backend from "i18next-http-backend";
 
 import english from "./translations/en.json";
 import german from "./translations/de.json";
@@ -10,13 +11,9 @@ import { Language } from "./language";
 import { Constants } from "../utils/constants";
 import i18next from "i18next";
 
-// const detectionOptions = {
-//   order: ["path", "cookie", "navigator", "localStorage", "subdomain", "queryString", "htmlTag"],
-//   lookupFromPathIndex: 0,
-// };
-
 i18next
   .use(detector)
+  .use(backend)
   .use(initReactI18next)
   .init({
     load: 'languageOnly',
@@ -44,7 +41,6 @@ i18next
       escapeValue: false,
     },
     react: {
-      wait: true,
       useSuspense: true,
       defaultTransParent: "div",
       transEmptyNodeValue: Constants.EMPTY,
@@ -53,10 +49,5 @@ i18next
       transWrapTextNodes: Constants.EMPTY,
     },
   });
-  // }, (error, t) => {
-  //   if (error) {
-  //     console.error(error);
-  //   }
-  // });
 
 export default i18next;

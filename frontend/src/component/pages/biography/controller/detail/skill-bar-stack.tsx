@@ -1,6 +1,6 @@
 import { Constants } from "../../../../../utils/constants";
 import { getIntervalInText, NOW } from "../../../../../utils/date-util";
-import Skill from "../../content/skill";
+import { Skill } from "../../content/skill";
 
 interface ISkillMinMaxInterval {
   skill: Skill;

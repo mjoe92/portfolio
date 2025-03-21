@@ -7,6 +7,8 @@ import translate from "../../../i18n/locale-service";
 import { Constants } from "../../../utils/constants";
 import i18next from "i18next";
 
+import './style/footer.css';
+
 export const Footer: FC = () => {
   const currentLanguage = i18next.language;
 
@@ -38,15 +40,14 @@ export const Footer: FC = () => {
         <DropdownButton
           title={ currentLanguage.toUpperCase() }
           variant="secondary"
-          drop="up">
-          {
-            Object.values(Language).map(language =>
-              <DropdownItem key={ language } variant="secondary"
-                            onClick={ () => i18next.changeLanguage(language).then(() => window.location.reload())
-                            }>
-                { createDropdownItemText(language) }
-              </DropdownItem>)
-          }
+          drop="up"
+          data-bs-theme="dark">{
+          Object.values(Language).map(language =>
+            <DropdownItem key={ language }
+                          onClick={ () => i18next.changeLanguage(language).then(() => window.location.reload()) }>
+              { createDropdownItemText(language) }
+            </DropdownItem>)
+        }
         </DropdownButton>
       </Navbar>
     </footer>

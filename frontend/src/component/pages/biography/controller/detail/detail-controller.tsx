@@ -3,17 +3,30 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Constants } from "../../../../../utils/constants";
 import SvgReactIcon from "../../../../design/svg-react-icon";
 import { HistoryEntry, PlacePeriod } from "../../content/base-history";
-import { profileContent } from "../../content/profile";
-import Skill from "../../content/skill";
+import profileContent from "../../content/profile";
 import { TextLinkProvider } from "../../content/text-link-provider";
-import { GeneralHistory } from "../../content/general-history";
 import SkillBarStack from "./skill-bar-stack";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { createLinkRef, getTimeIntervalInFormat, toBreakLine } from "../base-controller-utils";
 import { NOW } from "../../../../../utils/date-util";
 import translate from "../../../../../i18n/locale-service";
+import skillContent, { Skill } from "../../content/skill";
+import interestContent from "../../content/interest";
+import jobContent from "../../content/job";
+import educationContent from "../../content/education";
 
-const DetailController = ({ jobList, educationList, skillList, interestList }: GeneralHistory) => {
+const DetailController = () => {
+  const [collapseJobs, setCollapseJobs] = useState(true);
+  const [collapseEducations, setCollapseEducations] = useState(true);
+
+  const isMounted = useRef(false);
+  useEffect(() => {
+    if (!isMounted.current) {
+      isMounted.current = true;
+      return;
+    }
+  });
+
   const renderProfile = () => {
     return (
       <div className="info">
@@ -23,25 +36,42 @@ const DetailController = ({ jobList, educationList, skillList, interestList }: G
     );
   };
 
-  const renderXpContent = (xps: HistoryEntry[], title: string) => {
+  const renderXpContent = (xps: HistoryEntry[], isJob: boolean) => {
+    let title: string, mainCollapse: boolean;
+    if (isJob) {
+      title = translate("job-experience");
+      mainCollapse = collapseJobs;
+    } else {
+      title = translate("education");
+      mainCollapse = collapseEducations;
+    }
+
+    const cards = xps.map((xp: HistoryEntry) => <Card
+      id={ xp.id }
+      key={ xp.id }
+      description={ xp.description }
+      placePeriods={ xp.placePeriods }
+      titles={ toBreakLine(xp.titles) }
+      mainCollapse={ mainCollapse }
+      collapse={ xp.collapse }
+      isMounted={ isMounted.current }/>
+    );
+
+    const collapseClassName = mainCollapse ? "show" : undefined;
     return (
       <div className="info">
-        <h2 className="title">{ title }</h2>
-        { xps.map((xp: HistoryEntry) => (
-          <Card
-            id={ xp.id }
-            key={ xp.id }
-            description={ xp.description }
-            placePeriods={ xp.placePeriods }
-            xpNames={ toBreakLine(xp.titles) }
-            collapse={ xp.collapse }
-          />
-        )) }
+        <h3 onClick={ () => isJob ? setCollapseJobs(!collapseJobs) : setCollapseEducations(!collapseEducations) }
+            className="title">
+          <p>{ title }</p>
+          <FontAwesomeIcon icon={ faAngleUp } className={ collapseClassName }/>
+        </h3>
+        { cards }
       </div>
     );
   };
 
   const renderSkillContent = () => {
+    const skillList = skillContent;
     if (!skillList) {
       return null;
     }
@@ -56,15 +86,13 @@ const DetailController = ({ jobList, educationList, skillList, interestList }: G
     .map((interval) => (interval.endTime ? interval.endTime.getTime() : NOW.getTime()));
     const maxDateTime = Math.max(...endDateTimes);
 
-    const joinedTranslatedNames = (names: string[]) => names.map((name) => translate(name)).join(Constants.COMMA_SPACE);
-
     const createSkillCard = (xp: Skill, minDateTime: number, maxDateTime: number) => {
       return (
         <div className="card" key={ xp.names.toString() }>
-          <h4>{ joinedTranslatedNames(xp.names) }</h4>
+          <h4>{ xp.names }</h4>
           <SkillBarStack key={ xp.names.toString() } skill={ xp } minDateTime={ minDateTime }
                          maxDateTime={ maxDateTime }/>
-          { xp.frameworks && <span className="frameworks">({ xp.frameworks.join(Constants.COMMA_SPACE) })</span> }
+          { xp.frameworks && <span className="frameworks">({ xp.frameworks })</span> }
         </div>
       );
     };
@@ -80,6 +108,7 @@ const DetailController = ({ jobList, educationList, skillList, interestList }: G
   };
 
   const renderInterestContent = () => {
+    const interestList = interestContent;
     if (!interestList) {
       return null;
     }
@@ -103,8 +132,8 @@ const DetailController = ({ jobList, educationList, skillList, interestList }: G
       <div className="scroll scroll-detail">
         <div className="about">
           { renderProfile() }
-          { renderXpContent(jobList, translate("job-experience")) }
-          { renderXpContent(educationList, translate("education")) }
+          { renderXpContent(jobContent, true) }
+          { renderXpContent(educationContent, false) }
           { renderSkillContent() }
           { renderInterestContent() }
         </div>
@@ -113,24 +142,34 @@ const DetailController = ({ jobList, educationList, skillList, interestList }: G
   );
 };
 
-interface ICardProps {
+interface CardProps {
   id: string;
   description: React.JSX.Element;
   placePeriods: PlacePeriod[];
-  xpNames: React.JSX.Element;
+  titles: React.JSX.Element;
+  mainCollapse: boolean;
   collapse?: boolean;
+  isMounted: boolean;
 }
 
-const Card = (props: ICardProps) => {
+const Card = (props: CardProps) => {
   const [collapse, setCollapse] = useState(props.collapse);
+  useEffect(() => {
+    if (!props.isMounted) {
+      return;
+    }
+
+    setCollapse(props.mainCollapse);
+  }, [props.mainCollapse]);
 
   const renderPeriodPlaces = () => {
     return (
       <div id={ props.id } className="date-company">
         { props.placePeriods.map((placePeriod: PlacePeriod) => (
           <div key={ placePeriod.place }>
-            <h5>{ getTimeIntervalInFormat(placePeriod.timeStart, placePeriod.timeEnd) }</h5>
-            <h5>{ TextLinkProvider.load([placePeriod.place]) }</h5>
+            <h5
+              className="date-company-text time">{ getTimeIntervalInFormat(placePeriod.timeStart, placePeriod.timeEnd) }</h5>
+            <h5 className="date-company-text company">{ TextLinkProvider.load([placePeriod.place]) }</h5>
           </div>
         )) }
       </div>
@@ -158,10 +197,12 @@ const Card = (props: ICardProps) => {
     return (
       <div className="text">
         <h4>
-          <div>{ props.xpNames }</div>
+          <div>{ props.titles }</div>
           <FontAwesomeIcon icon={ faAngleUp } className={ collapseClassName }
                            onClick={ () => handleDropdownShrunk(1000) }/>
         </h4>
+        <h5
+          className="date-company-text place">{ TextLinkProvider.load(props.placePeriods.flatMap(place => place.cities)) }</h5>
         <div id={ props.id } className={ `card-detail ${ collapseClassName }` }>
           { props.description }
           <span className="show-right-branch"/>

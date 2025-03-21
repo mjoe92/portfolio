@@ -1,6 +1,6 @@
 import { Level } from "./level";
 
-export default interface ILanguage {
+export interface Language {
   key: string;
   oralLevel: Level;
   writeLevel?: Level;
@@ -9,7 +9,7 @@ export default interface ILanguage {
   disabled?: boolean;
 }
 
-export const languageContent: ILanguage[] = [
+const languageContent: Language[] = [
   {
     key: "hungarian",
     oralLevel: Level.N,
@@ -50,3 +50,5 @@ export const languageContent: ILanguage[] = [
     disabled: true,
   },
 ];
+
+export default languageContent;

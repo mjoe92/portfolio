@@ -22,4 +22,5 @@ export enum Constants {
   SPACE_PARENTHESIS_LEFT = " (",
   PARENTHESIS_LEFT = "(",
   PARENTHESIS_RIGHT = ")",
+  SPACE_MIDDLE_DOT_SPACE = " · ",
 }

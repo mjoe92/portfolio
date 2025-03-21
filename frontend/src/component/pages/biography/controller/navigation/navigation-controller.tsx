@@ -6,22 +6,19 @@ import SvgReactIcon from "../../../../design/svg-react-icon";
 import { Level } from "../../content/level";
 import { ImageLoader } from "../../../../../utils/image-loader";
 import { HistoryEntry } from "../../content/base-history";
-import { GeneralHistory } from "../../content/general-history";
 import translate from "../../../../../i18n/locale-service";
 import { createLinkRef, getTimeIntervalInFormat, toBreakLine } from "../base-controller-utils";
+import contactNavigation from "../../content/contact";
+import jobContent from "../../content/job";
+import educationContent from "../../content/education";
+import languageContent from "../../content/language";
 
-const NavigationController = ({ contactList, jobList, educationList, languageList }: GeneralHistory) => {
+const NavigationController = () => {
   const [collapseJob, setCollapseJob] = useState(true);
   const [collapseEducation, setCollapseEducation] = useState(true);
 
   const handleDropdownShrunk = useCallback(
-    (isJobExperience: boolean) => {
-      if (isJobExperience) {
-        setCollapseJob(!collapseJob);
-      } else {
-        setCollapseEducation(!collapseEducation);
-      }
-    },
+    (isJob: boolean) => isJob ? setCollapseJob(!collapseJob) : setCollapseEducation(!collapseEducation),
     [collapseJob, collapseEducation]
   );
 
@@ -40,7 +37,8 @@ const NavigationController = ({ contactList, jobList, educationList, languageLis
     </div>
   );
 
-  const renderContactNavigation = () => {
+  const renderContact = () => {
+    const contactList = contactNavigation;
     if (!contactList) {
       return null;
     }
@@ -60,7 +58,7 @@ const NavigationController = ({ contactList, jobList, educationList, languageLis
   };
 
   const renderContentNavigation = (isJobExperience: boolean) => {
-    const xpList: HistoryEntry[] = isJobExperience ? jobList : educationList;
+    const xpList: HistoryEntry[] = isJobExperience ? jobContent : educationContent;
     const title: string = isJobExperience ? translate("job-experience") : translate("education");
     const collapse: boolean = isJobExperience ? collapseJob : collapseEducation;
 
@@ -98,7 +96,8 @@ const NavigationController = ({ contactList, jobList, educationList, languageLis
     );
   };
 
-  const renderLanguageNavigation = () => {
+  const renderLanguage = () => {
+    const languageList = languageContent;
     if (!languageList) {
       return null;
     }
@@ -145,10 +144,10 @@ const NavigationController = ({ contactList, jobList, educationList, languageLis
       <div className="scroll scroll-navigation">
         <div className="about">
           { renderProfile() }
-          { renderContactNavigation() }
+          { renderContact() }
           { renderContentNavigation(true) }
           { renderContentNavigation(false) }
-          { renderLanguageNavigation() }
+          { renderLanguage() }
         </div>
       </div>
     </div>

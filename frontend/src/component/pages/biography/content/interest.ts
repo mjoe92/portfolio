@@ -14,12 +14,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons"; 
 import translate from "../../../../i18n/locale-service";
 
-export default interface IInterest {
+export interface Interest {
   name: string;
   icons: IconDefinition[];
 }
 
-export const interestContent: IInterest[] = [
+const interestContent: Interest[] = [
   {
     name: translate("sport"),
     icons: [faSwimmer, faRunning, faDumbbell, faSkiing],
@@ -33,7 +33,9 @@ export const interestContent: IInterest[] = [
     icons: [faGear, faKeyboard, faLanguage],
   },
   {
-    name: translate("work"),
+    name: translate("developing"),
     icons: [faGears, faCode],
   },
 ];
+
+export default interestContent;

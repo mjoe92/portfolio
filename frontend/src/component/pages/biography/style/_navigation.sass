@@ -1,4 +1,5 @@
 @import 'scrollbar'
+@import 'opener'
 
 .controller
   .container
@@ -116,12 +117,7 @@
             margin-bottom: 20px
             vertical-align: text-top
 
-            svg
-              transform: rotate(0)
-              transition: transform 0.5s linear
-
-            svg.show
-              transform: rotate(180deg)
+            @include opener
 
           .experience
             .xp-s
