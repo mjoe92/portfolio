@@ -69,9 +69,9 @@ const jobContent: HistoryEntry[] = [
         </ul>
         <ul>
           <p className="sub-title">{ translate("deployment-tools") }</p>
-          <li>{ translate("remote-artifact-repository") } (JFrog)</li>
+          <li>{ translate("remote-artifact-repository") } ({ translate("jfrog") })</li>
           <li>
-            Atlassian tools ({ translate("bitbucket") }
+            { translate("atlassian-tools") } ({ translate("bitbucket") }
             ,&nbsp;
             { translate("bamboo") })
           </li>

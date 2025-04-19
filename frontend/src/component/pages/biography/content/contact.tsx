@@ -43,7 +43,7 @@ const contactNavigation: Contact[] = [
         <br/>
         { TextLinkProvider.load([City.BUDAPEST]) },
         <br/>
-        { TextLinkProvider.load([City.SZEKESFEHERVAR]) },
+        { TextLinkProvider.load([City.SZEKESFEHERVAR]) }
       </>
     )
   }

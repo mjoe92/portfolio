@@ -175,6 +175,7 @@
   color: #000000;
   font-weight: 500;
   font-size: 16px;
+  text-transform: uppercase;
 }
 .controller .container .navigation .scroll .about .experience .xp-s .xp h4:nth-child(n) {
   color: #fff;

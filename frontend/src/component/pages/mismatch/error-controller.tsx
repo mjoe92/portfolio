@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { EPageFragment } from "../../../router/EPageFragment";
+import { PageFragment } from "../../../router/page-fragment";
 
 import "./style/mismatch.css";
 
@@ -10,7 +10,7 @@ export const ErrorController: FC = () => {
         <div className="url-code">404</div>
         <p className="message">The requested URL was not found.</p>
         <p className="return-link">
-          <a href={EPageFragment.HOME}>Return to main page</a>
+          <a href={ PageFragment.HOME }>Return to main page</a>
         </p>
       </div>
     </div>

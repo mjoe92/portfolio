@@ -1,4 +1,4 @@
-export enum EPageFragment {
+export enum PageFragment {
   ROOT = "/",
   HOME = "home",
   BIO = "biography",
