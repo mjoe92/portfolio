@@ -1,16 +1,17 @@
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 
 interface Props {
   icons: IconDefinition[];
   key: string;
   iconClassName?: string;
   textClassName?: string;
-  description?: JSX.Element;
+  description?: React.JSX.Element;
   startWithIcon?: boolean;
 }
 
-export default function SvgReactIcon(props: Props): JSX.Element {
+export default function SvgReactIcon(props: Props): React.JSX.Element {
   let iconClassName: string = "svg-icon";
   let textClassName: string = "text-box";
 
@@ -21,17 +22,17 @@ export default function SvgReactIcon(props: Props): JSX.Element {
     textClassName = props.textClassName;
   }
 
-  let result: JSX.Element = (
+  let result: React.JSX.Element = (
     <div className="svg-icon-box">
-      {props.icons.map((image) => {
+      { props.icons.map((image) => {
         return (
           <FontAwesomeIcon
-            key={image.iconName.toString()}
-            className={iconClassName}
-            icon={image}
+            key={ image.iconName.toString() }
+            className={ iconClassName }
+            icon={ image }
           />
         );
-      })}
+      }) }
     </div>
   );
 
@@ -39,19 +40,19 @@ export default function SvgReactIcon(props: Props): JSX.Element {
     if (props.startWithIcon) {
       result = (
         <>
-          {result}
-          <div className={textClassName}>{props.description}</div>
+          { result }
+          <div className={ textClassName }>{ props.description }</div>
         </>
       );
     } else {
       result = (
         <>
-          <div className={textClassName}>{props.description}</div>
-          {result}
+          <div className={ textClassName }>{ props.description }</div>
+          { result }
         </>
       );
     }
   }
 
-  return <div className="svg-extended-icon">{result}</div>;
+  return <div className="svg-extended-icon">{ result }</div>;
 }

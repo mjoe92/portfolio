@@ -43,7 +43,7 @@ header .navbar .dropdown .dropdown-menu[data-bs-popper] .nav-item {
   text-decoration: none;
   color: white;
   padding: 5px;
-  margin: 0px 5px;
+  margin: 0 5px;
   border-radius: 4px;
   transition: background-color 0.5s linear;
 }
@@ -63,6 +63,14 @@ footer .dropdown-menu {
 }
 footer .navbar {
   padding: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+footer .navbar .navbar-left {
+  justify-content: flex-start;
+}
+footer .navbar .navbar-right {
+  justify-content: flex-end;
 }
 
 .nav-item {

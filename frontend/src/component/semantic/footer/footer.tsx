@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { DropdownButton, Navbar } from "react-bootstrap";
+import React, { FC } from "react";
+import { Button, DropdownButton, Navbar } from "react-bootstrap";
 import "../style/semantic.css";
 import DropdownItem from "react-bootstrap/DropdownItem";
 import { Language } from "../../../i18n/language";
@@ -8,6 +8,8 @@ import { Constants } from "../../../utils/constants";
 import i18next from "i18next";
 
 import './style/footer.css';
+import { faPrint } from "@fortawesome/free-solid-svg-icons";
+import SvgReactIcon from "../../design/svg-react-icon";
 
 export const Footer: FC = () => {
   const currentLanguage = i18next.language;
@@ -34,21 +36,52 @@ export const Footer: FC = () => {
     }
   };
 
+  const exportPdf = () => {
+    let fileName: string;
+    let outputFileName: string;
+    switch (currentLanguage) {
+      case Language.HUNGARIAN:
+        fileName = "CV_HU.pdf";
+        outputFileName = "Önéletrajz_Csurgai_József.pdf";
+        break;
+      case Language.GERMAN:
+        fileName = "CV_DE.pdf";
+        outputFileName = "Lebenslauf_Jozsef_Csurgai.pdf";
+        break;
+      default:
+        fileName = "CV_EN.pdf";
+        outputFileName = "Biography_Jozsef_Csurgai.pdf";
+    }
+
+    const fileUrl = `/documents/${ fileName }`;
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.download = outputFileName;
+    link.click();
+  };
+
   return (
     <footer className="navbar-fixed-bottom">
       <Navbar className="navbar navbar-expand-md navbar-dark bg-dark">
-        <DropdownButton
-          title={ currentLanguage.toUpperCase() }
-          variant="secondary"
-          drop="up"
-          data-bs-theme="dark">{
-          Object.values(Language).map(language =>
-            <DropdownItem key={ language }
-                          onClick={ () => i18next.changeLanguage(language).then(() => window.location.reload()) }>
-              { createDropdownItemText(language) }
-            </DropdownItem>)
-        }
-        </DropdownButton>
+        <div className="navbar-left">
+          <DropdownButton
+            title={ currentLanguage.toUpperCase() }
+            variant="secondary"
+            drop="up"
+            data-bs-theme="dark">{
+            Object.values(Language).map(language =>
+              <DropdownItem key={ language }
+                            onClick={ () => i18next.changeLanguage(language).then(() => window.location.reload()) }>
+                { createDropdownItemText(language) }
+              </DropdownItem>)
+          }
+          </DropdownButton>
+        </div>
+        <div className="navbar-right">
+          <Button variant="secondary" onClick={ exportPdf }>
+            <SvgReactIcon key={ "print" } icons={ [faPrint] }/>
+          </Button>
+        </div>
       </Navbar>
     </footer>
   );

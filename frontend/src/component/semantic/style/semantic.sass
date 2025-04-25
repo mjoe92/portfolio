@@ -50,7 +50,7 @@ header
           text-decoration: none
           color: $text-color
           padding: 5px
-          margin: 0px 5px
+          margin: 0 5px
           border-radius: 4px
           transition: background-color .5s linear
 
@@ -69,6 +69,14 @@ footer
 
   .navbar
     padding: 6px
+    display: flex
+    justify-content: space-between
+
+    .navbar-left
+      justify-content: flex-start
+
+    .navbar-right
+      justify-content: flex-end
 
 .nav-item
   color: $text-color
