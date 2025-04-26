@@ -1,14 +1,13 @@
-import { Constants } from "./constants";
+import { Constants } from "./constants"; 
+import translate from "../i18n/locale-service";
 
 export class FileUrlResolver {
-  static load(name: string, type: Type): string {
-    const slash = name[0] === Constants.SLASH ? Constants.EMPTY : Constants.SLASH;
-
-    return process.env.PUBLIC_URL + slash + type + slash + name;
+  static load(folderName: FolderType, nameKey: string, ...value: any[]): string {
+    return process.env.PUBLIC_URL + Constants.SLASH + folderName + Constants.SLASH + translate(nameKey, value);
   }
 }
 
-export enum Type {
+export enum FolderType {
   IMAGE =  "images",
   DOCUMENT = "documents",
 }

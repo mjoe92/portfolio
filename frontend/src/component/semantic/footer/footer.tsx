@@ -10,7 +10,7 @@ import i18next from "i18next";
 import './style/footer.css';
 import { faPrint } from "@fortawesome/free-solid-svg-icons";
 import SvgReactIcon from "../../design/svg-react-icon";
-import { FileUrlResolver, Type } from "../../../utils/file-url-resolver";
+import { FileUrlResolver, FolderType } from "../../../utils/file-url-resolver";
 
 export const Footer: FC = () => {
   const currentLanguage = i18next.language;
@@ -38,20 +38,9 @@ export const Footer: FC = () => {
   };
 
   const exportPdf = () => {
-    const createOutputFileName = (): string => {
-      switch (currentLanguage) {
-        case Language.HUNGARIAN:
-          return "Önéletrajz_Csurgai_József.pdf";
-        case Language.GERMAN:
-          return "Lebenslauf_Jozsef_Csurgai.pdf";
-        default:
-          return "Biography_Jozsef_Csurgai.pdf";
-      }
-    };
-
     const link = document.createElement("a");
-    link.href = FileUrlResolver.load(`CV_${ currentLanguage.toUpperCase() }.pdf`, Type.DOCUMENT);
-    link.download = createOutputFileName();
+    link.href = FileUrlResolver.load(FolderType.DOCUMENT, "cv-input-file-name", currentLanguage.toUpperCase());
+    link.download = translate("cv-output-file-name");
     link.click();
   };
 
