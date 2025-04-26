@@ -4,7 +4,7 @@ import React, { useCallback, useState } from "react";
 import { Constants } from "../../../../../utils/constants";
 import SvgReactIcon from "../../../../design/svg-react-icon";
 import { Level } from "../../content/level";
-import { ImageLoader } from "../../../../../utils/image-loader";
+import { FileUrlResolver, Type } from "../../../../../utils/file-url-resolver";
 import { HistoryEntry } from "../../content/base-history";
 import translate from "../../../../../i18n/locale-service";
 import { createLinkRef, getTimeIntervalInFormat, toBreakLine } from "../base-controller-utils";
@@ -25,7 +25,7 @@ const NavigationController = () => {
   const renderProfile = () => (
     <div className="profile-text">
       <div className="img-box">
-        <img src={ ImageLoader.load("office_style_grayscale.jpg") } alt="profile face"/>
+        <img src={ FileUrlResolver.load("office_style_grayscale.jpg", Type.IMAGE) } alt="profile face"/>
       </div>
       <h2>
         { translate("me") }

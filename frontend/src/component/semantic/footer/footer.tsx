@@ -10,6 +10,7 @@ import i18next from "i18next";
 import './style/footer.css';
 import { faPrint } from "@fortawesome/free-solid-svg-icons";
 import SvgReactIcon from "../../design/svg-react-icon";
+import { FileUrlResolver, Type } from "../../../utils/file-url-resolver";
 
 export const Footer: FC = () => {
   const currentLanguage = i18next.language;
@@ -37,26 +38,20 @@ export const Footer: FC = () => {
   };
 
   const exportPdf = () => {
-    let fileName: string;
-    let outputFileName: string;
-    switch (currentLanguage) {
-      case Language.HUNGARIAN:
-        fileName = "CV_HU.pdf";
-        outputFileName = "Önéletrajz_Csurgai_József.pdf";
-        break;
-      case Language.GERMAN:
-        fileName = "CV_DE.pdf";
-        outputFileName = "Lebenslauf_Jozsef_Csurgai.pdf";
-        break;
-      default:
-        fileName = "CV_EN.pdf";
-        outputFileName = "Biography_Jozsef_Csurgai.pdf";
-    }
+    const createOutputFileName = (): string => {
+      switch (currentLanguage) {
+        case Language.HUNGARIAN:
+          return "Önéletrajz_Csurgai_József.pdf";
+        case Language.GERMAN:
+          return "Lebenslauf_Jozsef_Csurgai.pdf";
+        default:
+          return "Biography_Jozsef_Csurgai.pdf";
+      }
+    };
 
-    const fileUrl = `/documents/${ fileName }`;
     const link = document.createElement("a");
-    link.href = fileUrl;
-    link.download = outputFileName;
+    link.href = FileUrlResolver.load(`CV_${ currentLanguage.toUpperCase() }.pdf`, Type.DOCUMENT);
+    link.download = createOutputFileName();
     link.click();
   };
 
