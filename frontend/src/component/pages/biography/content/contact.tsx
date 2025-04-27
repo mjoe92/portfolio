@@ -18,7 +18,7 @@ export interface Contact {
   disabled?: boolean;
 }
 
-const contactNavigation: Contact[] = [
+const contactNavigation = (): Contact[] => [
   {
     id: "e-mail",
     icon: faEnvelope,

@@ -3,26 +3,28 @@ import { Button, DropdownButton, Navbar } from "react-bootstrap";
 import "../style/semantic.css";
 import DropdownItem from "react-bootstrap/DropdownItem";
 import { Language } from "../../../i18n/language";
-import translate from "../../../i18n/locale-service";
 import { Constants } from "../../../utils/constants";
-import i18next from "i18next";
+import i18next, { changeLanguage } from "i18next";
 
 import './style/footer.css';
 import { faPrint } from "@fortawesome/free-solid-svg-icons";
 import SvgReactIcon from "../../design/svg-react-icon";
 import { FileUrlResolver, FolderType } from "../../../utils/file-url-resolver";
+import { useTranslation } from "react-i18next";
 
 export const Footer: FC = () => {
   const currentLanguage = i18next.language;
+
+  const { t } = useTranslation();
 
   const createDropdownItemText = (language: Language) => {
     const createFullLanguageText = (languageKey: string) => {
       const prefix = language.toUpperCase() + Constants.COLON_SPACE;
       if (currentLanguage === Language.ENGLISH) {
-        return prefix + translate(languageKey);
+        return prefix + t(languageKey);
       }
 
-      return prefix + languageKey + Constants.SPACE_PARENTHESIS_LEFT + translate(languageKey) + Constants.PARENTHESIS_RIGHT;
+      return prefix + languageKey + Constants.SPACE_PARENTHESIS_LEFT + t(languageKey) + Constants.PARENTHESIS_RIGHT;
     };
 
     switch (language) {
@@ -40,7 +42,7 @@ export const Footer: FC = () => {
   const exportPdf = () => {
     const link = document.createElement("a");
     link.href = FileUrlResolver.load(FolderType.DOCUMENT, "cv-input-file-name", currentLanguage.toUpperCase());
-    link.download = translate("cv-output-file-name");
+    link.download = t("cv-output-file-name");
     link.click();
   };
 
@@ -55,7 +57,7 @@ export const Footer: FC = () => {
             data-bs-theme="dark">{
             Object.values(Language).map(language =>
               <DropdownItem key={ language }
-                            onClick={ () => i18next.changeLanguage(language).then(() => window.location.reload()) }>
+                            onClick={ () => changeLanguage(language) }>
                 { createDropdownItemText(language) }
               </DropdownItem>)
           }

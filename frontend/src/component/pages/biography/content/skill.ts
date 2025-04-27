@@ -19,7 +19,7 @@ const createLinksWithTranslations = (...keys: Website[]) => {
   return TextLinkProvider.load(keys, true);
 }
 
-const skillContent: Skill[] = [
+const skillContent = (): Skill[] => [
   {
     names: createLinksWithTranslations(Website.HTML, Website.CSS),
     intervals: [

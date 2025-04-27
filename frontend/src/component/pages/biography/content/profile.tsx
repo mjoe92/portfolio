@@ -1,7 +1,7 @@
-import translate from "../../../../i18n/locale-service";
 import { NOW } from "../../../../utils/date-util";
 import React from "react";
 import { Trans } from "react-i18next";
+import { t } from "i18next";
 
 export interface IProfile {
   name: string;
@@ -13,8 +13,8 @@ const calculateAge = (): number => {
   return Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
 };
 
-const profileContent: IProfile = {
-  name: translate(`profile`),
+const profileContent = (): IProfile => ({
+  name: t(`profile`),
   description: (
     <>
       <p><Trans i18nKey="profile-description-1" values={ { 0: calculateAge() } }/></p>
@@ -22,6 +22,6 @@ const profileContent: IProfile = {
       <p><Trans i18nKey="profile-description-3"/></p>
     </>
   )
-};
+});
 
 export default profileContent;

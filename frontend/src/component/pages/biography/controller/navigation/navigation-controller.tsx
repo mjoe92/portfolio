@@ -6,16 +6,16 @@ import SvgReactIcon from "../../../../design/svg-react-icon";
 import { Level } from "../../content/level";
 import { FileUrlResolver, FolderType } from "../../../../../utils/file-url-resolver";
 import { HistoryEntry } from "../../content/base-history";
-import translate from "../../../../../i18n/locale-service";
 import { createLinkRef, getTimeIntervalInFormat, toBreakLine } from "../base-controller-utils";
 import contactNavigation from "../../content/contact";
-import jobContent from "../../content/job";
-import educationContent from "../../content/education";
 import languageContent from "../../content/language";
+import { useTranslation } from "react-i18next";
 
-const NavigationController = () => {
+const NavigationController = (props: { jobs: HistoryEntry[], courses: HistoryEntry[] }) => {
   const [collapseJob, setCollapseJob] = useState(true);
   const [collapseEducation, setCollapseEducation] = useState(true);
+
+  const { t } = useTranslation();
 
   const handleDropdownShrunk = useCallback(
     (isJob: boolean) => isJob ? setCollapseJob(!collapseJob) : setCollapseEducation(!collapseEducation),
@@ -28,24 +28,24 @@ const NavigationController = () => {
         <img src={ FileUrlResolver.load(FolderType.IMAGE, "profile-picture") } alt="profile face"/>
       </div>
       <h2>
-        { translate("me") }
+        { t("me") }
         <br/>
         <span>
-          { translate("full-stack") } { translate("developer") }
+          { t("full-stack") } { t("developer") }
         </span>
       </h2>
     </div>
   );
 
   const renderContact = () => {
-    const contactList = contactNavigation;
+    const contactList = contactNavigation();
     if (!contactList) {
       return null;
     }
 
     return (
       <div className="navigation-point contact-info">
-        <h3 className="title">{ translate("contact") }</h3>
+        <h3 className="title">{ t("contact") }</h3>
         <div className="contacts">
           { contactList.filter((contact) => !contact.disabled)
           .map((contact) => (
@@ -58,8 +58,8 @@ const NavigationController = () => {
   };
 
   const renderContentNavigation = (isJobExperience: boolean) => {
-    const xpList: HistoryEntry[] = isJobExperience ? jobContent : educationContent;
-    const title: string = isJobExperience ? translate("job-experience") : translate("education");
+    const xpList: HistoryEntry[] = isJobExperience ? props.jobs : props.courses;
+    const title: string = isJobExperience ? t("job-experience") : t("education");
     const collapse: boolean = isJobExperience ? collapseJob : collapseEducation;
 
     const navigationCard = (xp: HistoryEntry) => {
@@ -69,7 +69,7 @@ const NavigationController = () => {
       const endDates: (Date | null)[] = xp.placePeriods.map((period) => period.timeEnd);
       const maxDate: Date | null = endDates.reduce((a, b) => (a && b ? (a > b ? a : b) : a && b));
 
-      const places = xp.placePeriods.map((period) => translate(period.place)).join(Constants.COMMA_SPACE);
+      const places = xp.placePeriods.map((period) => t(period.place)).join(Constants.COMMA_SPACE);
 
       return (
         <a key={ xp.id } href={ createLinkRef(xp.id, Constants.HASHTAG, "detail") }>
@@ -119,13 +119,13 @@ const NavigationController = () => {
 
     return (
       <div className="navigation-point language">
-        <h3 className="title">{ translate("language") }</h3>
+        <h3 className="title">{ t("language") }</h3>
         <div className="xp-s">
           { languageList.filter((xp) => !xp.disabled)
           .map((xp) => (
             <div className="xp" key={ xp.key.toLowerCase() }>
                 <span className="text">
-                  { translate(xp.key) }
+                  { t(xp.key) }
                   <span className="spec">{ getPrefixLevel(xp.oralLevel, xp.writeLevel) }</span>
                 </span>
               <span className="percent">

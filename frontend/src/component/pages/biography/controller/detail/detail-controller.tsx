@@ -9,15 +9,15 @@ import SkillBarStack from "./skill-bar-stack";
 import React, { useEffect, useRef, useState } from "react";
 import { createLinkRef, getTimeIntervalInFormat, toBreakLine } from "../base-controller-utils";
 import { NOW } from "../../../../../utils/date-util";
-import translate from "../../../../../i18n/locale-service";
 import skillContent, { Skill } from "../../content/skill";
 import interestContent from "../../content/interest";
-import jobContent from "../../content/job";
-import educationContent from "../../content/education";
+import { useTranslation } from "react-i18next";
 
-const DetailController = () => {
+const DetailController = (props: { jobs: HistoryEntry[], courses: HistoryEntry[] }) => {
   const [collapseJobs, setCollapseJobs] = useState(true);
   const [collapseEducations, setCollapseEducations] = useState(true);
+
+  const { t } = useTranslation();
 
   const isMounted = useRef(false);
   useEffect(() => {
@@ -28,10 +28,12 @@ const DetailController = () => {
   });
 
   const renderProfile = () => {
+    const profile = profileContent();
+
     return (
       <div className="info">
-        <h2 className="title">{ profileContent.name }</h2>
-        { profileContent.description }
+        <h2 className="title">{ profile.name }</h2>
+        { profile.description }
       </div>
     );
   };
@@ -39,10 +41,10 @@ const DetailController = () => {
   const renderXpContent = (xps: HistoryEntry[], isJob: boolean) => {
     let title: string, mainCollapse: boolean;
     if (isJob) {
-      title = translate("job-experience");
+      title = t("job-experience");
       mainCollapse = collapseJobs;
     } else {
-      title = translate("education");
+      title = t("education");
       mainCollapse = collapseEducations;
     }
 
@@ -71,19 +73,15 @@ const DetailController = () => {
   };
 
   const renderSkillContent = () => {
-    const skillList = skillContent;
+    const skillList = skillContent();
     if (!skillList) {
       return null;
     }
 
-    const startDateTimes = skillList
-    .flatMap((skill) => skill.intervals)
-    .map((interval) => interval.startTime.getTime());
+    const startDateTimes = skillList.flatMap((skill) => skill.intervals).map((interval) => interval.startTime.getTime());
     const minDateTime = Math.min(...startDateTimes);
 
-    const endDateTimes = skillList
-    .flatMap((skill) => skill.intervals)
-    .map((interval) => (interval.endTime ? interval.endTime.getTime() : NOW.getTime()));
+    const endDateTimes = skillList.flatMap((skill) => skill.intervals).map((interval) => (interval.endTime ? interval.endTime.getTime() : NOW.getTime()));
     const maxDateTime = Math.max(...endDateTimes);
 
     const createSkillCard = (xp: Skill, minDateTime: number, maxDateTime: number) => {
@@ -99,7 +97,7 @@ const DetailController = () => {
 
     return (
       <div className="info hard-skills">
-        <h2 className="title">Hard Skills</h2>
+        <h2 className="title">{ t('hard-skills') }</h2>
         { skillList.filter((skill) => !skill.hide || skill.intervals)
         .sort((first, next) => next.intervals[0].startTime.getTime() - first.intervals[0].startTime.getTime())
         .map((xp) => createSkillCard(xp, minDateTime, maxDateTime)) }
@@ -108,14 +106,14 @@ const DetailController = () => {
   };
 
   const renderInterestContent = () => {
-    const interestList = interestContent;
+    const interestList = interestContent();
     if (!interestList) {
       return null;
     }
 
     return (
       <div className="info interest">
-        <h2 className="title">{ translate("interest") }</h2>
+        <h2 className="title">{ t("interest") }</h2>
         <div className="xp-s">
           { interestList.map((xp) => (
             <div className="xp" key={ xp.name }>
@@ -132,8 +130,8 @@ const DetailController = () => {
       <div className="scroll scroll-detail">
         <div className="about">
           { renderProfile() }
-          { renderXpContent(jobContent, true) }
-          { renderXpContent(educationContent, false) }
+          { renderXpContent(props.jobs, true) }
+          { renderXpContent(props.courses, false) }
           { renderSkillContent() }
           { renderInterestContent() }
         </div>

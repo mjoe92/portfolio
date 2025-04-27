@@ -1,6 +1,6 @@
-import translate from "../../../../i18n/locale-service";
 import React from "react";
 import { Constants } from "../../../../utils/constants";
+import { t } from "i18next";
 
 export namespace TextLinkProvider {
   interface LinkInformation {
@@ -78,144 +78,136 @@ export namespace TextLinkProvider {
     XML_SCHEMA = "https://wikipedia.org/wiki/XML_Schema_(W3C)"
   }
 
-  export function load(keys: (Company | Institut | City | Website)[], highlight?: boolean, link?: string) {
+  export const load = (keys: (Company | Institut | City | Website)[], highlight?: boolean, link?: string) => {
     return <>
       { keys
       .map<React.ReactNode>(key => mapToLink(key, highlight, link))
       .reduce((prev, curr) => [prev, Constants.SPACE_MIDDLE_DOT_SPACE, curr])
       }
     </>;
-  }
+  };
 
   function mapToLink(key: Company | Institut | City | Website, highlight?: boolean, link?: string): React.JSX.Element {
-    const info = keyToLinkInfos.get(key)!;
+    const info: [string, string?] = keyToLinks.get(key)!;
+    let entry: LinkInformation;
+    if (isEnum(City, key)) {
+      entry = createCityLink(key, info[0]);
+    } else if (isEnum(Website, key)) {
+      entry = createWebsiteLink(key, info);
+    } else {
+      entry = createInstitutCompanyLink(key, info);
+    }
+
     let className = "active";
     if (highlight) {
       className += " highlight-text";
     }
 
-    const infoLink = link || info.link;
+    const infoLink = link || entry.link;
     return (
       <a key={ infoLink } href={ infoLink } target="_blank" rel="noreferrer">
-        <span className={ className }>{ info.name }</span>
+        <span className={ className }>{ entry.name }</span>
       </a>
     );
   }
 
-  const keyToLinkInfos = new Map<Company | Institut | City | Website, LinkInformation>([
-    createInstitutCompanyEntry(Company.BREDEX_GMBH, `https://www.bredex.de`),
-    createInstitutCompanyEntry(Company.BREDEX_HU, `https://www.bredex.hu`),
-    createInstitutCompanyEntry(Company.INNOSTUDIO, `https://innostudio.org`),
-    createInstitutCompanyEntry(Company.MIRROTRON, `https://mirrotron.com`),
-    createInstitutCompanyEntry(Company.CG_HUNGARY, `https://www.ganzelectric.com/`, "cg-from-2023"),
-    createInstitutCompanyEntry(Company.GANZ_EEM, `https://ganz.info.hu`),
-    createInstitutCompanyEntry(Company.SIEMENS, `https://www.siemens-energy.com`),
-    createInstitutCompanyEntry(Institut.CODECOOL, `https://codecool.com`),
-    createInstitutCompanyEntry(Institut.OBUDAI_UNIVERSITY, `https://uni-obuda.hu`),
-    createInstitutCompanyEntry(Institut.NCT_ACADEMY, `https://nctakademia.hu`),
-    createInstitutCompanyEntry(Institut.BME, `https://www.bme.hu`),
-    createCityEntry(City.BRAUNSCHWEIG, "germany"),
-    createCityEntry(City.SZEKESFEHERVAR, "hungary"),
-    createCityEntry(City.BUDAPEST, "hungary"),
-    createCityEntry(City.DUBNA, "russia"),
-    createCityEntry(City.PEKING, "china"),
-    createCityEntry(City.SYDNEY, "australia"),
-    createHardSkillEntry(Website.TYPESCRIPT, 'typescript'),
-    createHardSkillEntry(Website.ANGULAR, 'angular'),
-    createHardSkillEntry(Website.REACT, 'react'),
-    createHardSkillEntry(Website.PRIMENG, 'prime-ng'),
-    createHardSkillEntry(Website.AG_GRID, 'ag-grid'),
-    createHardSkillEntry(Website.SQL, 'sql'),
-    createHardSkillEntry(Website.POSTGRE_SQL, 'postgresql'),
-    createHardSkillEntry(Website.MY_SQL, 'mysql'),
-    createHardSkillEntry(Website.ORACLE, 'oracle'),
-    createHardSkillEntry(Website.MAVEN, 'maven'),
-    createHardSkillEntry(Website.APACHE_FOP, 'apache-fop'),
-    createHardSkillEntry(Website.JAXB, 'jaxb'),
-    createHardSkillEntry(Website.JINX, 'jinx'),
-    createHardSkillEntry(Website.JAVA, 'java'),
-    createHardSkillEntry(Website.FX, 'fx'),
-    createHardSkillEntry(Website.SPRING, 'spring'),
-    createHardSkillEntry(Website.HESSIAN, 'hessian'),
-    createHardSkillEntry(Website.HIBERNATE, 'hibernate'),
-    createHardSkillEntry(Website.JPA, 'jpa'),
-    createHardSkillEntry(Website.LOMBOK, 'lombok'),
-    createHardSkillEntry(Website.LOG4J, 'log4j'),
-    createHardSkillEntry(Website.SWAGGER, 'swagger'),
-    createHardSkillEntry(Website.QUARTZ_SCHEDULER, 'quartz-scheduler'),
-    createHardSkillEntry(Website.APACHE_POI, 'apache-poi'),
-    createHardSkillEntry(Website.HTML, 'html'),
-    createHardSkillEntry(Website.CSS, 'css'),
-    createHardSkillEntry(Website.SASS, 'sass'),
-    createHardSkillEntry(Website.SCSS, 'scss'),
-    createHardSkillEntry(Website.BOOTSTRAP, 'bootstrap'),
-    createHardSkillEntry(Website.JAVASCRIPT, 'javascript'),
-    createHardSkillEntry(Website.JQUERY, 'jquery'),
-    createHardSkillEntry(Website.JASMINE, 'jasmine'),
-    createHardSkillEntry(Website.KARMA, 'karma'),
-    createHardSkillEntry(Website.VBA, 'vba'),
-    createHardSkillEntry(Website.XML, 'xml'),
-    createHardSkillEntry(Website.XSLT, 'xslt'),
-    createHardSkillEntry(Website.XML_SCHEMA, 'xml-schema'),
-    [
-      Website.GITHUB,
-      {
-        name: `github.com/mjoe92`,
-        link: `${ Website.GITHUB }/mjoe92`
-      }
-    ],
-    [
-      Website.LINKEDIN,
-      {
-        name: `linkedin.com/csurgai`,
-        link: `${ Website.LINKEDIN }/in/jozsef-csurgai`
-      }
-    ],
-    [
-      Website.GMAIL,
-      {
-        name: `djcsurgai@gmail.com`,
-        link: `${ Website.GMAIL }`
-      }
-    ]
+  function isEnum<T extends object>(enumObject: T, value: unknown): value is T[keyof T] {
+    return Object.values(enumObject).includes(value as T[keyof T]);
+  }
+
+  const keyToLinks = new Map<Company | Institut | City | Website, [string, string?]>([
+    [Company.BREDEX_GMBH, [`https://www.bredex.de`]],
+    [Company.BREDEX_HU, [`https://www.bredex.hu`]],
+    [Company.INNOSTUDIO, [`https://innostudio.org`]],
+    [Company.MIRROTRON, [`https://mirrotron.com`]],
+    [Company.CG_HUNGARY, [`https://www.ganzelectric.com/`, "cg-from-2023"]],
+    [Company.GANZ_EEM, [`https://ganz.info.hu`]],
+    [Company.SIEMENS, [`https://www.siemens-energy.com`]],
+    [Institut.CODECOOL, [`https://codecool.com`]],
+    [Institut.OBUDAI_UNIVERSITY, [`https://uni-obuda.hu`]],
+    [Institut.NCT_ACADEMY, [`https://nctakademia.hu`]],
+    [Institut.BME, [`https://www.bme.hu`]],
+    [City.BRAUNSCHWEIG, [`germany`]],
+    [City.SZEKESFEHERVAR, [`hungary`]],
+    [City.BUDAPEST, [`hungary`]],
+    [City.DUBNA, [`russia`]],
+    [City.PEKING, [`china`]],
+    [City.SYDNEY, [`australia`]],
+    [Website.TYPESCRIPT, [`typescript`]],
+    [Website.ANGULAR, [`angular`]],
+    [Website.REACT, [`react`]],
+    [Website.PRIMENG, [`prime-ng`]],
+    [Website.AG_GRID, [`ag-grid`]],
+    [Website.SQL, [`sql`]],
+    [Website.POSTGRE_SQL, [`postgresql`]],
+    [Website.MY_SQL, [`mysql`]],
+    [Website.ORACLE, [`oracle`]],
+    [Website.MAVEN, [`maven`]],
+    [Website.APACHE_FOP, [`apache-fop`]],
+    [Website.JAXB, [`jaxb`]],
+    [Website.JINX, [`jinx`]],
+    [Website.JAVA, [`java`]],
+    [Website.JAVASCRIPT, [`javascript`]],
+    [Website.FX, [`fx`]],
+    [Website.SPRING, [`spring`]],
+    [Website.HESSIAN, [`hessian`]],
+    [Website.HIBERNATE, [`hibernate`]],
+    [Website.JPA, [`jpa`]],
+    [Website.LOMBOK, [`lombok`]],
+    [Website.LOG4J, [`log4j`]],
+    [Website.SWAGGER, [`swagger`]],
+    [Website.QUARTZ_SCHEDULER, [`quartz-scheduler`]],
+    [Website.APACHE_POI, [`apache-poi`]],
+    [Website.HTML, [`html`]],
+    [Website.CSS, [`css`]],
+    [Website.SASS, [`sass`]],
+    [Website.SCSS, [`scss`]],
+    [Website.BOOTSTRAP, [`bootstrap`]],
+    [Website.JQUERY, [`jquery`]],
+    [Website.JASMINE, [`jasmine`]],
+    [Website.KARMA, [`karma`]],
+    [Website.VBA, [`vba`]],
+    [Website.XML, [`xml`]],
+    [Website.XSLT, [`xslt`]],
+    [Website.XML_SCHEMA, [`xml-schema`]],
+    [Website.GMAIL, [`djcsurgai@gmail.com`, '/']],
+    [Website.GITHUB, [`github.com/mjoe92`, 'mjoe92']],
+    [Website.LINKEDIN, [`linkedin.com/csurgai`, `in/jozsef-csurgai`]]
   ]);
 
-  function createCityEntry(city: City, countryKey: string): [City, LinkInformation] {
-    return [
-      city,
-      {
-        name: `${ translate(city) } (${ translate(countryKey) })`,
-        link: `https://www.google.com/maps/place/${ city }`
-      }
-    ];
+  function createCityLink(city: City, countryKey: string): LinkInformation {
+    return {
+      name: `${ t(city) } (${ t(countryKey) })`,
+      link: `https://www.google.com/maps/place/${ city }`
+    };
   }
 
-  function createHardSkillEntry(website: Website, name: string): [Website, LinkInformation] {
-    return [
-      website,
-      {
-        name: translate(name),
-        link: website
-      }
-    ];
-  }
-
-  function createInstitutCompanyEntry(
-    key: Institut | Company,
-    page: string,
-    nameSuffix?: string
-  ): [Institut | Company, LinkInformation] {
-    let name = `${ translate(key) }`;
-    if (nameSuffix) {
-      name += ` (${ translate(nameSuffix) })`;
+  function createWebsiteLink(website: Website, info: [string, string?]): LinkInformation {
+    if (info.length > 1) {
+      return {
+        name: info[0],
+        link: `${ website }/${ info[1] }`
+      };
     }
 
-    return [
-      key,
-      {
-        name: `${ name }`,
-        link: `${ page }`
-      }
-    ];
+    return {
+      name: t(info[0]),
+      link: website
+    };
+  }
+
+  function createInstitutCompanyLink(
+    key: Institut | Company,
+    link: [string, string?]
+  ): LinkInformation {
+    let name = `${ t(key) }`;
+    if (link.length > 1) {
+      name += ` (${ t(link[1]) })`;
+    }
+
+    return {
+      name: `${ name }`,
+      link: `${ link[0] }`
+    };
   }
 }

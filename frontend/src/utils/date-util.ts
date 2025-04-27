@@ -1,5 +1,5 @@
 import { Constants } from "./constants"; 
-import translate from "../i18n/locale-service";
+import { t } from "i18next";
 
   export const NOW = new Date();
 
@@ -7,17 +7,21 @@ import translate from "../i18n/locale-service";
     const dateInterval = new Date(diffInMilli);
 
     const yearInterval = dateInterval.getFullYear() - 1970;
-    let yearIntervalText: string = Constants.EMPTY;
-    if (yearInterval >= 1) {
+    let yearIntervalText: string;
+    if (yearInterval < 1) {
+      yearIntervalText = Constants.EMPTY;
+    } else {
       const yearTextKey = yearInterval === 1 ? "year" : "years-skill";
-      yearIntervalText = yearInterval + Constants.SPACE + translate(yearTextKey);
+      yearIntervalText = yearInterval + Constants.SPACE + t(yearTextKey);
     }
 
     const monthInterval = dateInterval.getMonth();
-    let monthIntervalText: string = Constants.EMPTY;
-    if (monthInterval >= 1) {
+    let monthIntervalText: string;
+    if (monthInterval < 1) {
+      monthIntervalText = Constants.EMPTY;
+    } else {
       const monthTextKey = monthInterval === 1 ? "month" : "months-skill";
-      monthIntervalText = monthInterval + Constants.SPACE + translate(monthTextKey);
+      monthIntervalText = monthInterval + Constants.SPACE + t(monthTextKey);
     }
 
     return yearIntervalText + Constants.SPACE + monthIntervalText;

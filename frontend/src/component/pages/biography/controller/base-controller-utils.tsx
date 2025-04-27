@@ -1,9 +1,9 @@
 import { Constants } from "../../../../utils/constants";
-import translate from "../../../../i18n/locale-service";
+import { t } from "i18next";
 
 export const getDateInFormat = (date: Date | null): string => {
   if (!date) {
-    return translate("present");
+    return t("present");
   }
 
   const month: number = date.getMonth() + 1;

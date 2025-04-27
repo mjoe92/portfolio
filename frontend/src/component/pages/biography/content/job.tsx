@@ -3,16 +3,16 @@ import { Field } from "./field";
 
 import "../style/experience.css";
 import { TextLinkProvider } from "./text-link-provider";
-import translate from "../../../../i18n/locale-service";
 import { Constants } from "../../../../utils/constants";
 import { Trans } from "react-i18next";
 import Company = TextLinkProvider.Company;
 import City = TextLinkProvider.City;
+import { t } from "i18next";
 
-const jobContent: HistoryEntry[] = [
+const jobContent = (): HistoryEntry[] => [
   {
     id: "bredex",
-    titles: [`${ translate("full-stack") + Constants.SPACE + translate("java-developer") }`],
+    titles: [`${ t("full-stack") + Constants.SPACE + t("java-developer") }`],
     placePeriods: [
       {
         place: Company.BREDEX_GMBH,
@@ -30,52 +30,52 @@ const jobContent: HistoryEntry[] = [
     collapse: true,
     description: (
       <>
-        <p>{ translate("bredex-description") }</p>
+        <p>{ t("bredex-description") }</p>
         <ul>
-          <p className="sub-title">{ translate("server-backend") }</p>
-          <li>{ translate("oracle-sql") }</li>
+          <p className="sub-title">{ t("server-backend") }</p>
+          <li>{ t("oracle-sql") }</li>
           <li>
-            { translate("java") }
-            &nbsp; ({ translate("spring-boot") }
+            { t("java") }
+            &nbsp; ({ t("spring-boot") }
             ;&nbsp;
-            { translate("hibernate") }
+            { t("hibernate") }
             ,&nbsp;
-            { translate("jpa") })
+            { t("jpa") })
           </li>
-          <li>{ translate("git") }</li>
+          <li>{ t("git") }</li>
         </ul>
         <ul>
-          <p className="sub-title">{ translate("client-frontend") }</p>
-          <li>{ translate("java-fx") }</li>
+          <p className="sub-title">{ t("client-frontend") }</p>
+          <li>{ t("java-fx") }</li>
           <li>
-            { translate("typescript") } ({ translate("angular") })
+            { t("typescript") } ({ t("angular") })
           </li>
           <li>
-            { translate("xml") }
+            { t("xml") }
             ,&nbsp;
-            { translate("html") }
+            { t("html") }
             ,&nbsp;
-            { translate("css") }
-          </li>
-        </ul>
-        <ul>
-          <p className="sub-title">{ translate("soft-skills") }</p>
-          <li>
-            { translate("agile-work") } ({ translate("scrum-method") })
-          </li>
-          <li>
-            { translate("manager-tools") } - { translate("atlassian-boards-jira") }
+            { t("css") }
           </li>
         </ul>
         <ul>
-          <p className="sub-title">{ translate("deployment-tools") }</p>
-          <li>{ translate("remote-artifact-repository") } ({ translate("jfrog") })</li>
+          <p className="sub-title">{ t("soft-skills") }</p>
           <li>
-            { translate("atlassian-tools") } ({ translate("bitbucket") }
-            ,&nbsp;
-            { translate("bamboo") })
+            { t("agile-work") } ({ t("scrum-method") })
           </li>
-          <li>{ translate("ocp") }</li>
+          <li>
+            { t("manager-tools") } - { t("atlassian-boards-jira") }
+          </li>
+        </ul>
+        <ul>
+          <p className="sub-title">{ t("deployment-tools") }</p>
+          <li>{ t("remote-artifact-repository") } ({ t("jfrog") })</li>
+          <li>
+            { t("atlassian-tools") } ({ t("bitbucket") }
+            ,&nbsp;
+            { t("bamboo") })
+          </li>
+          <li>{ t("ocp") }</li>
         </ul>
       </>
     ),
@@ -83,7 +83,7 @@ const jobContent: HistoryEntry[] = [
   },
   {
     id: "innostudio",
-    titles: [translate("mechanical-engineer")],
+    titles: [t("mechanical-engineer")],
     placePeriods: [
       {
         place: Company.INNOSTUDIO,
@@ -94,12 +94,12 @@ const jobContent: HistoryEntry[] = [
     ],
     description: (
       <>
-        <p>{ translate("innostudio-description") }</p>
+        <p>{ t("innostudio-description") }</p>
         <ul>
-          <p className="sub-title">{ translate("my-duties") }</p>
-          <li>{ translate("innostudio-task-1") }</li>
-          <li>{ translate("innostudio-task-2") }</li>
-          <li>{ translate("innostudio-task-3") }</li>
+          <p className="sub-title">{ t("my-duties") }</p>
+          <li>{ t("innostudio-task-1") }</li>
+          <li>{ t("innostudio-task-2") }</li>
+          <li>{ t("innostudio-task-3") }</li>
         </ul>
       </>
     ),
@@ -107,7 +107,7 @@ const jobContent: HistoryEntry[] = [
   },
   {
     id: "mirrotron",
-    titles: [translate("construction-engineer")],
+    titles: [t("construction-engineer")],
     placePeriods: [
       {
         place: Company.MIRROTRON,
@@ -119,15 +119,15 @@ const jobContent: HistoryEntry[] = [
     description: (
       <>
         <p>
-          { translate("mirrotron-description") + Constants.SPACE }
+          { t("mirrotron-description") + Constants.SPACE }
           { TextLinkProvider.load([City.BUDAPEST, City.PEKING, City.SYDNEY, City.DUBNA], true) }{ Constants.DOT }
         </p>
         <ul>
-          <p className="sub-title">{ translate("my-duties") }</p>
+          <p className="sub-title">{ t("my-duties") }</p>
           { [[1, "construction-designer"], [2, "device-assembler"], [3, "device-installer"], [4, "process-developer"]].map((duty, index) =>
             <li key={ `duty-${ index }` }><Trans i18nKey={ `mirrotron-task-${ duty[0] }` }
                                                  components={ { tag: <span className="highlighted"/> } }
-                                                 values={ { profession: translate(`${ duty[1] }`) } }/>
+                                                 values={ { profession: t(`${ duty[1] }`) } }/>
             </li>) }
         </ul>
       </>
@@ -136,7 +136,7 @@ const jobContent: HistoryEntry[] = [
   },
   {
     id: "cg",
-    titles: [translate("construction-engineer")],
+    titles: [t("construction-engineer")],
     placePeriods: [
       {
         place: Company.CG_HUNGARY,
@@ -147,12 +147,12 @@ const jobContent: HistoryEntry[] = [
     ],
     description: (
       <>
-        <p>{ translate("cg-description") }</p>
+        <p>{ t("cg-description") }</p>
         <ul>
-          <p className="sub-title">{ translate("responsible") }</p>
-          <li>{ translate("cg-task-1") }</li>
-          <li>{ translate("cg-task-2") }</li>
-          <li>{ translate("cg-task-3") }</li>
+          <p className="sub-title">{ t("responsible") }</p>
+          <li>{ t("cg-task-1") }</li>
+          <li>{ t("cg-task-2") }</li>
+          <li>{ t("cg-task-3") }</li>
         </ul>
       </>
     ),
@@ -160,7 +160,7 @@ const jobContent: HistoryEntry[] = [
   },
   {
     id: "ganz",
-    titles: [translate("mechanical-project-engineer"), translate("construction-engineer")],
+    titles: [t("mechanical-project-engineer"), t("construction-engineer")],
     // MPE: exclamation mark, popup window with 'not officially contracted'
     placePeriods: [
       {
@@ -172,13 +172,13 @@ const jobContent: HistoryEntry[] = [
     ],
     description: (
       <>
-        <p>{ translate("ganz-eem-description-1") }</p>
-        <p>{ translate("ganz-eem-description-2") }</p>
+        <p>{ t("ganz-eem-description-1") }</p>
+        <p>{ t("ganz-eem-description-2") }</p>
         <ul>
-          <p className="sub-title">{ translate("responsible") }</p>
-          <li>{ translate("ganz-task-1") }</li>
-          <li>{ translate("ganz-task-2") }</li>
-          <li>{ translate("ganz-task-3") }</li>
+          <p className="sub-title">{ t("responsible") }</p>
+          <li>{ t("ganz-task-1") }</li>
+          <li>{ t("ganz-task-2") }</li>
+          <li>{ t("ganz-task-3") }</li>
         </ul>
       </>
     ),
@@ -186,7 +186,7 @@ const jobContent: HistoryEntry[] = [
   },
   {
     id: "siemens",
-    titles: [translate("welding-engineer-intern")],
+    titles: [t("welding-engineer-intern")],
     placePeriods: [
       {
         place: Company.SIEMENS,
@@ -197,8 +197,8 @@ const jobContent: HistoryEntry[] = [
     ],
     description: (
       <>
-        <p>{ translate("trainee-description-1") }</p>
-        <p>{ translate("trainee-description-2") }</p>
+        <p>{ t("trainee-description-1") }</p>
+        <p>{ t("trainee-description-2") }</p>
       </>
     ),
     field: Field.E

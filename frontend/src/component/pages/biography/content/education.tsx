@@ -1,4 +1,4 @@
-import translate from "../../../../i18n/locale-service";
+import { t } from "i18next";
 import { HistoryEntry } from "./base-history";
 import { Field } from "./field";
 import { TextLinkProvider } from "./text-link-provider";
@@ -6,10 +6,10 @@ import { TextLinkProvider } from "./text-link-provider";
 import Institut = TextLinkProvider.Institut;
 import City = TextLinkProvider.City;
 
-const educationContent: HistoryEntry[] = [
+const educationContent = (): HistoryEntry[] => [
   {
     id: "codecool2",
-    titles: [translate("java-enterprise-backend-developer")],
+    titles: [t("java-enterprise-backend-developer")],
     placePeriods: [
       {
         place: Institut.CODECOOL,
@@ -20,13 +20,13 @@ const educationContent: HistoryEntry[] = [
     ],
     description: (
       <>
-        <p>{ translate("codecool-description-1") }</p>
+        <p>{ t("codecool-description-1") }</p>
         <ul>
-          <p className="sub-title">{ translate("tech-stacks-colon") }</p>
-          <li>{ translate("tech-stack-1") }</li>
-          <li>{ translate("tech-stack-2") }</li>
-          <li>{ translate("tech-stack-3") }</li>
-          <li>{ translate("tech-stack-4") }</li>
+          <p className="sub-title">{ t("tech-stacks-colon") }</p>
+          <li>{ t("tech-stack-1") }</li>
+          <li>{ t("tech-stack-2") }</li>
+          <li>{ t("tech-stack-3") }</li>
+          <li>{ t("tech-stack-4") }</li>
         </ul>
       </>
     ),
@@ -34,7 +34,7 @@ const educationContent: HistoryEntry[] = [
   },
   {
     id: "codecool1",
-    titles: [translate("java-backend-developer")],
+    titles: [t("java-backend-developer")],
     placePeriods: [
       {
         place: Institut.CODECOOL,
@@ -45,12 +45,12 @@ const educationContent: HistoryEntry[] = [
     ],
     description: (
       <>
-        <p>{ translate("codecool-description-2") }</p>
+        <p>{ t("codecool-description-2") }</p>
         <ul>
-          <p className="sub-title">{ translate("tech-stacks-colon") }</p>
-          <li>{ translate("tech-stack-5") }</li>
-          <li>{ translate("tech-stack-6") }</li>
-          <li>{ translate("tech-stack-7") }</li>
+          <p className="sub-title">{ t("tech-stacks-colon") }</p>
+          <li>{ t("tech-stack-5") }</li>
+          <li>{ t("tech-stack-6") }</li>
+          <li>{ t("tech-stack-7") }</li>
         </ul>
       </>
     ),
@@ -58,7 +58,7 @@ const educationContent: HistoryEntry[] = [
   },
   {
     id: "obudai",
-    titles: [translate("mechatronics-msc")],
+    titles: [t("mechatronics-msc")],
     placePeriods: [
       {
         place: Institut.OBUDAI_UNIVERSITY,
@@ -67,12 +67,12 @@ const educationContent: HistoryEntry[] = [
         timeEnd: new Date(2019, 0)
       }
     ],
-    description: translate("obudai-description"),
+    description: t("obudai-description"),
     field: Field.E
   },
   {
     id: "nct2",
-    titles: [translate("four-and-five-axis-programming-technology")],
+    titles: [t("four-and-five-axis-programming-technology")],
     placePeriods: [
       {
         place: Institut.NCT_ACADEMY,
@@ -81,12 +81,12 @@ const educationContent: HistoryEntry[] = [
         timeEnd: new Date(2016, 7)
       }
     ],
-    description: translate("nct-description-1"),
+    description: t("nct-description-1"),
     field: Field.M
   },
   {
     id: "nct1",
-    titles: [translate("cad-cam-cnc-programming")],
+    titles: [t("cad-cam-cnc-programming")],
     placePeriods: [
       {
         place: Institut.NCT_ACADEMY,
@@ -95,12 +95,12 @@ const educationContent: HistoryEntry[] = [
         timeEnd: new Date(2015, 10)
       }
     ],
-    description: translate("nct-description-2"),
+    description: t("nct-description-2"),
     field: Field.M
   },
   {
     id: "bme",
-    titles: [translate("mechanical-engineer-bsc")],
+    titles: [t("mechanical-engineer-bsc")],
     placePeriods: [
       {
         place: Institut.BME,
@@ -109,7 +109,7 @@ const educationContent: HistoryEntry[] = [
         timeEnd: new Date(2016, 5)
       }
     ],
-    description: translate("bme-description"),
+    description: t("bme-description"),
     field: Field.E
   }
 ];
