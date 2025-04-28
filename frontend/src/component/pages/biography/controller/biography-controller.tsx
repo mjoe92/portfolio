@@ -4,11 +4,14 @@ import "../style/biography.css";
 import NavigationController from "./navigation/navigation-controller";
 import jobContent from "../content/job";
 import educationContent from "../content/education";
+import { useTranslation } from "react-i18next";
 
 /** @todo: add hover helper (show info message about hovered text) + grey color */
 export const BiographyController = () => {
-  const jobs = jobContent();
-  const courses = educationContent();
+  const { t } = useTranslation();
+
+  const jobs = jobContent(t);
+  const courses = educationContent(t);
 
   return <div className="controller">
     <div className="container">

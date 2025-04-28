@@ -1,4 +1,3 @@
-import { t } from "i18next";
 import { HistoryEntry } from "./base-history";
 import { Field } from "./field";
 import { TextLinkProvider } from "./text-link-provider";
@@ -6,7 +5,7 @@ import { TextLinkProvider } from "./text-link-provider";
 import Institut = TextLinkProvider.Institut;
 import City = TextLinkProvider.City;
 
-const educationContent = (): HistoryEntry[] => [
+const educationContent = (t: (key: string) => string): HistoryEntry[] => [
   {
     id: "codecool2",
     titles: [t("java-enterprise-backend-developer")],
@@ -67,7 +66,7 @@ const educationContent = (): HistoryEntry[] => [
         timeEnd: new Date(2019, 0)
       }
     ],
-    description: t("obudai-description"),
+    description: <>${ t("obudai-description") }</>,
     field: Field.E
   },
   {
@@ -81,7 +80,7 @@ const educationContent = (): HistoryEntry[] => [
         timeEnd: new Date(2016, 7)
       }
     ],
-    description: t("nct-description-1"),
+    description: <>${ t("nct-description-1") }</>,
     field: Field.M
   },
   {
@@ -95,7 +94,7 @@ const educationContent = (): HistoryEntry[] => [
         timeEnd: new Date(2015, 10)
       }
     ],
-    description: t("nct-description-2"),
+    description: <>${ t("nct-description-2") }</>,
     field: Field.M
   },
   {
@@ -109,7 +108,7 @@ const educationContent = (): HistoryEntry[] => [
         timeEnd: new Date(2016, 5)
       }
     ],
-    description: t("bme-description"),
+    description: <>${ t("bme-description") }</>,
     field: Field.E
   }
 ];

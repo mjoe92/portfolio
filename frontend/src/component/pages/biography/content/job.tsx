@@ -7,9 +7,8 @@ import { Constants } from "../../../../utils/constants";
 import { Trans } from "react-i18next";
 import Company = TextLinkProvider.Company;
 import City = TextLinkProvider.City;
-import { t } from "i18next";
 
-const jobContent = (): HistoryEntry[] => [
+const jobContent = (t: (key: string) => string): HistoryEntry[] => [
   {
     id: "bredex",
     titles: [`${ t("full-stack") + Constants.SPACE + t("java-developer") }`],
