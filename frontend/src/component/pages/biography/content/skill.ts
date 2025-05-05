@@ -1,7 +1,7 @@
-import { TextLinkProvider } from "./text-link-provider"; 
+import {TextLinkProvider} from "./text-link-provider"; 
 import React from "react"; 
-
-import Website = TextLinkProvider.Website;
+import Website = TextLinkProvider.Website; 
+import { t } from "i18next";
 
 export interface Skill {
   names: React.JSX.Element;
@@ -15,7 +15,7 @@ export interface Interval {
   endTime?: Date;
 }
 
-const createLinksWithTranslations = (...keys: Website[]) => {
+const createLinksWithTranslations = (...keys: Website[]): React.JSX.Element => {
   return TextLinkProvider.load(keys, true);
 }
 
@@ -56,6 +56,7 @@ const skillContent = (): Skill[] => [
       Website.SWAGGER,
       Website.QUARTZ_SCHEDULER,
       Website.APACHE_POI,
+      Website.APACHE_PDFBOX
     ),
   },
   {
@@ -97,6 +98,15 @@ const skillContent = (): Skill[] => [
       },
     ],
     frameworks: createLinksWithTranslations(Website.MAVEN, Website.APACHE_FOP, Website.JAXB, Website.JINX),
+  },
+  {
+    names: t("cloud-engineering"),
+    intervals: [
+      {
+        startTime: new Date(2024, 0),
+      },
+    ],
+    frameworks: createLinksWithTranslations(Website.OCP_FULL, Website.AZURE),
   },
 ];
 

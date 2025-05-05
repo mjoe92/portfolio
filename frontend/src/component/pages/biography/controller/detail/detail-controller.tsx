@@ -95,11 +95,28 @@ const DetailController = (props: { jobs: HistoryEntry[], courses: HistoryEntry[]
       );
     };
 
+    const compare = (first: Skill, next: Skill): number => {
+      const intervalsFirst = first.intervals;
+      const intervalsNext = next.intervals;
+
+      const firstLastIntervalEndTime = intervalsFirst[intervalsFirst.length - 1].endTime;
+      const nextLastIntervalEndTime = intervalsNext[intervalsNext.length - 1].endTime;
+      if (firstLastIntervalEndTime && !nextLastIntervalEndTime) {
+        return 1;
+      }
+
+      if (nextLastIntervalEndTime && !firstLastIntervalEndTime) {
+        return -1;
+      }
+
+      return intervalsFirst[0].startTime.getTime() - intervalsNext[0].startTime.getTime();
+    };
+
     return (
       <div className="info hard-skills">
         <h2 className="title">{ t('hard-skills') }</h2>
         { skillList.filter((skill) => !skill.hide || skill.intervals)
-        .sort((first, next) => next.intervals[0].startTime.getTime() - first.intervals[0].startTime.getTime())
+        .sort((first, next) => compare(first, next))
         .map((xp) => createSkillCard(xp, minDateTime, maxDateTime)) }
       </div>
     );

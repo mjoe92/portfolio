@@ -66,7 +66,7 @@ const educationContent = (t: (key: string) => string): HistoryEntry[] => [
         timeEnd: new Date(2019, 0)
       }
     ],
-    description: <>${ t("obudai-description") }</>,
+    description: <>{ t("obudai-description") }</>,
     field: Field.E
   },
   {
@@ -80,7 +80,7 @@ const educationContent = (t: (key: string) => string): HistoryEntry[] => [
         timeEnd: new Date(2016, 7)
       }
     ],
-    description: <>${ t("nct-description-1") }</>,
+    description: <>{ t("nct-description-1") }</>,
     field: Field.M
   },
   {
@@ -94,7 +94,7 @@ const educationContent = (t: (key: string) => string): HistoryEntry[] => [
         timeEnd: new Date(2015, 10)
       }
     ],
-    description: <>${ t("nct-description-2") }</>,
+    description: <>{ t("nct-description-2") }</>,
     field: Field.M
   },
   {
@@ -108,7 +108,7 @@ const educationContent = (t: (key: string) => string): HistoryEntry[] => [
         timeEnd: new Date(2016, 5)
       }
     ],
-    description: <>${ t("bme-description") }</>,
+    description: <>{ t("bme-description") }</>,
     field: Field.E
   }
 ];

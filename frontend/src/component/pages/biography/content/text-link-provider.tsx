@@ -75,7 +75,10 @@ export namespace TextLinkProvider {
     VBA = "https://learn.microsoft.com/office/vba/library-reference/concepts/getting-started-with-vba-in-office",
     XSLT = "https://developer.mozilla.org/docs/Web/XML/XSLT",
     XML = "https://developer.mozilla.org/docs/Web/XML/Guides/XML_introduction",
-    XML_SCHEMA = "https://wikipedia.org/wiki/XML_Schema_(W3C)"
+    XML_SCHEMA = "https://wikipedia.org/wiki/XML_Schema_(W3C)",
+    APACHE_PDFBOX = "https://pdfbox.apache.org/",
+    OCP_FULL = "https://www.redhat.com/technologies/cloud-computing/openshift/container-platform",
+    AZURE = "https://azure.microsoft.com/"
   }
 
   export const load = (keys: (Company | Institut | City | Website)[], highlight?: boolean, link?: string) => {
@@ -158,6 +161,7 @@ export namespace TextLinkProvider {
     [Website.SWAGGER, [`swagger`]],
     [Website.QUARTZ_SCHEDULER, [`quartz-scheduler`]],
     [Website.APACHE_POI, [`apache-poi`]],
+    [Website.APACHE_PDFBOX, [`apache-pdfbox`]],
     [Website.HTML, [`html`]],
     [Website.CSS, [`css`]],
     [Website.SASS, [`sass`]],
@@ -172,7 +176,9 @@ export namespace TextLinkProvider {
     [Website.XML_SCHEMA, [`xml-schema`]],
     [Website.GMAIL, [`djcsurgai@gmail.com`, '/']],
     [Website.GITHUB, [`github.com/mjoe92`, 'mjoe92']],
-    [Website.LINKEDIN, [`linkedin.com/csurgai`, `in/jozsef-csurgai`]]
+    [Website.LINKEDIN, [`linkedin.com/csurgai`, `in/jozsef-csurgai`]],
+    [Website.OCP_FULL, ['ocp-full']],
+    [Website.AZURE, [`azure-cloud`]]
   ]);
 
   function createCityLink(city: City, countryKey: string): LinkInformation {

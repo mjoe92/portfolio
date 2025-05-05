@@ -482,7 +482,7 @@
   font-size: 16px;
   margin-bottom: 0;
 }
-.controller .container .detail .scroll .about .hard-skills .card h4 > a > span {
+.controller .container .detail .scroll .about .hard-skills .card h4 > a > span, .controller .container .detail .scroll .about .hard-skills .card h4 {
   text-transform: uppercase;
   color: grey;
 }
