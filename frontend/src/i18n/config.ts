@@ -28,10 +28,10 @@ i18n
       loadPath: (language: string, namespace: string) => {
         const basePath = `${process.env.PUBLIC_URL}/locales`;
         if (namespace.includes('common')) {
-          return [basePath, "common", "unique.json"].join(Constants.SLASH);
+          return [basePath, "common.json"].join(Constants.SLASH);
         }
   
-        return [basePath, language, "translation.json"].join(Constants.SLASH);
+        return [basePath, `${language}.json`].join(Constants.SLASH);
       },
     },
     react: {

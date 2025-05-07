@@ -74,11 +74,12 @@ const jobContent = (t: (key: string) => string): HistoryEntry[] => [
             ,&nbsp;
             { t("bamboo") })
           </li>
-          <li>{ t("ocp") }</li>
+          <li>{ t("ocp-full") }</li>
         </ul>
       </>
     ),
-    field: Field.P
+    field: Field.P,
+    certificates: [t('frontend-development-professional-certificate'), t("azure-cert-900-name")]
   },
   {
     id: "innostudio",

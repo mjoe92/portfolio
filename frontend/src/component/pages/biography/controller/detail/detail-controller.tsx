@@ -56,6 +56,7 @@ const DetailController = (props: { jobs: HistoryEntry[], courses: HistoryEntry[]
       titles={ toBreakLine(xp.titles) }
       mainCollapse={ mainCollapse }
       collapse={ xp.collapse }
+      certificates={ xp.certificates }
       isMounted={ isMounted.current }/>
     );
 
@@ -63,7 +64,7 @@ const DetailController = (props: { jobs: HistoryEntry[], courses: HistoryEntry[]
     return (
       <div className="info">
         <h3 onClick={ () => isJob ? setCollapseJobs(!collapseJobs) : setCollapseEducations(!collapseEducations) }
-            className="title">
+            className="title collapse-card-title">
           <p>{ title }</p>
           <FontAwesomeIcon icon={ faAngleUp } className={ collapseClassName }/>
         </h3>
@@ -163,8 +164,9 @@ interface CardProps {
   placePeriods: PlacePeriod[];
   titles: React.JSX.Element;
   mainCollapse: boolean;
-  collapse?: boolean;
   isMounted: boolean;
+  certificates?: string[];
+  collapse?: boolean;
 }
 
 const Card = (props: CardProps) => {
@@ -206,18 +208,30 @@ const Card = (props: CardProps) => {
     );
   };
 
-  const renderText = () => {
+  const renderDescription = () => {
     const collapseClassName = collapse ? "show" : undefined;
+
+    const createCertificates = () => {
+      if (props.certificates && props.certificates.length > 0) {
+        return <h5 className="date-company-text certificate">
+          { props.certificates.map<React.ReactNode>(cert => <span key={ cert }>
+            { cert }
+          </span>).reduce((prev, curr) => [prev, Constants.SPACE_MIDDLE_DOT_SPACE, curr]) }
+        </h5>;
+      }
+    };
 
     return (
       <div className="text">
-        <h4>
+        <h4 className="collapse-card-title" onClick={ () => handleCardDropdown() }>
           <div>{ props.titles }</div>
           <FontAwesomeIcon icon={ faAngleUp } className={ collapseClassName }
                            onClick={ () => handleDropdownShrunk(1000) }/>
         </h4>
-        <h5
-          className="date-company-text place">{ TextLinkProvider.load(props.placePeriods.flatMap(place => place.cities)) }</h5>
+        <h5 className="date-company-text place">
+          { TextLinkProvider.load(props.placePeriods.flatMap(place => place.cities).sort()) }
+        </h5>
+        { createCertificates() }
         <div id={ props.id } className={ `card-detail ${ collapseClassName }` }>
           { props.description }
           <span className="show-right-branch"/>
@@ -245,7 +259,7 @@ const Card = (props: CardProps) => {
       <span id={ createLinkRef(props.id, null, "detail") } className="anchor-jump"></span>
       { renderPeriodPlaces() }
       { renderBranch() }
-      { renderText() }
+      { renderDescription() }
     </div>
   );
 };

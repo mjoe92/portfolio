@@ -9,6 +9,7 @@ export interface HistoryEntry {
   field: Field;
   description: React.JSX.Element;
   collapse?: boolean;
+  certificates?: string[];
 }
 
 export interface PlacePeriod {

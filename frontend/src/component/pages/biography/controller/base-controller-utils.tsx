@@ -33,7 +33,7 @@ export const toBreakLine = (args: string[]) => {
       { args.map((arg, index) => (
         <p key={ arg }>
           { arg }
-          { !index && ',' }
+          { !index && Constants.COMMA }
         </p>
       )) }
     </>

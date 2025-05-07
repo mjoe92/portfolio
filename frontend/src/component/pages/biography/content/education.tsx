@@ -12,7 +12,7 @@ const educationContent = (t: (key: string) => string): HistoryEntry[] => [
     placePeriods: [
       {
         place: Institut.CODECOOL,
-        cities: [City.BUDAPEST],
+        cities: [City.SZEKESFEHERVAR],
         timeStart: new Date(2021, 5),
         timeEnd: new Date(2021, 8)
       }
@@ -29,7 +29,8 @@ const educationContent = (t: (key: string) => string): HistoryEntry[] => [
         </ul>
       </>
     ),
-    field: Field.P
+    field: Field.P,
+    certificates: [t('junior-enterprise-java-backend-developer-certificate')]
   },
   {
     id: "codecool1",
@@ -37,7 +38,7 @@ const educationContent = (t: (key: string) => string): HistoryEntry[] => [
     placePeriods: [
       {
         place: Institut.CODECOOL,
-        cities: [City.BUDAPEST],
+        cities: [City.BUDAPEST, City.SZEKESFEHERVAR],
         timeStart: new Date(2020, 11),
         timeEnd: new Date(2021, 2)
       }
@@ -53,7 +54,8 @@ const educationContent = (t: (key: string) => string): HistoryEntry[] => [
         </ul>
       </>
     ),
-    field: Field.P
+    field: Field.P,
+    certificates: [t('junior-java-backend-developer-certificate')]
   },
   {
     id: "obudai",
@@ -95,7 +97,8 @@ const educationContent = (t: (key: string) => string): HistoryEntry[] => [
       }
     ],
     description: <>{ t("nct-description-2") }</>,
-    field: Field.M
+    field: Field.M,
+    certificates: [t('cad-cam-cnc-programmer-technologist-certificate')]
   },
   {
     id: "bme",
@@ -109,7 +112,8 @@ const educationContent = (t: (key: string) => string): HistoryEntry[] => [
       }
     ],
     description: <>{ t("bme-description") }</>,
-    field: Field.E
+    field: Field.E,
+    certificates: [t('mechanical-engineer-bsc-degree')]
   }
 ];
 

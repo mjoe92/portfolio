@@ -85,7 +85,7 @@ const NavigationController = (props: { jobs: HistoryEntry[], courses: HistoryEnt
 
     return (
       <div className="navigation-point experience">
-        <h3 onClick={ () => handleDropdownShrunk(isJobExperience) } className="title">
+        <h3 onClick={ () => handleDropdownShrunk(isJobExperience) } className="title collapse-card">
           <p>{ title }</p>
           <FontAwesomeIcon icon={ faAngleUp } className={ collapse ? "show" : undefined }/>
         </h3>
@@ -103,7 +103,7 @@ const NavigationController = (props: { jobs: HistoryEntry[], courses: HistoryEnt
     }
 
     const getPrefixLevel = (oralLevel: Level, writeLevel?: Level): string | null => {
-      if (oralLevel == null && writeLevel == null) {
+      if (!oralLevel && !writeLevel) {
         return null;
       }
 

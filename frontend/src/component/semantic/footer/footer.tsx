@@ -55,7 +55,7 @@ export const Footer: FC = () => {
             variant="secondary"
             drop="up"
             data-bs-theme="dark">{
-            Object.values(Language).map(language =>
+            Object.values(Language).filter(language => language !== currentLanguage).map(language =>
               <DropdownItem key={ language }
                             onClick={ () => changeLanguage(language) }>
                 { createDropdownItemText(language) }
