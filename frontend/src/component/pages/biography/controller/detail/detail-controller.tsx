@@ -213,11 +213,16 @@ const Card = (props: CardProps) => {
 
     const createCertificates = () => {
       if (props.certificates && props.certificates.length > 0) {
-        return <h5 className="date-company-text certificate">
-          { props.certificates.map<React.ReactNode>(cert => <span key={ cert }>
-            { cert }
-          </span>).reduce((prev, curr) => [prev, Constants.SPACE_MIDDLE_DOT_SPACE, curr]) }
-        </h5>;
+        return (
+          <h5 className="date-company-text certificate">
+            {props.certificates.map<React.ReactNode>((cert) => (
+              <div key={cert}>
+                <span>{Constants.SPACE_MIDDLE_DOT_SPACE}</span>
+                <span>{cert}</span>
+              </div>
+            ))}
+          </h5>
+        );
       }
     };
 
