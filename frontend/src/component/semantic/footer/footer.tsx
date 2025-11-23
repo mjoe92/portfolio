@@ -11,6 +11,8 @@ import { faPrint } from "@fortawesome/free-solid-svg-icons";
 import SvgReactIcon from "../../design/svg-react-icon";
 import { FileUrlResolver, FolderType } from "../../../utils/file-url-resolver";
 import { useTranslation } from "react-i18next";
+import { BiographyExport } from "../../pages/biography/export/pdf-export";
+import { pdf } from "@react-pdf/renderer";
 
 export const Footer: FC = () => {
   const currentLanguage = i18next.language;
@@ -46,27 +48,36 @@ export const Footer: FC = () => {
     link.click();
   };
 
+  const exportPdf1 = async () => {
+    const blob = await pdf(<BiographyExport/>).toBlob();
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = t("cv-output-file-name");
+    link.click();
+  };
+
   return (
     <footer className="navbar-fixed-bottom">
       <Navbar className="navbar navbar-expand-md navbar-dark bg-dark">
         <div className="navbar-left">
-          <DropdownButton
-            title={ currentLanguage.toUpperCase() }
-            variant="secondary"
-            drop="up"
-            data-bs-theme="dark">{
-            Object.values(Language).filter(language => language !== currentLanguage).map(language =>
-              <DropdownItem key={ language }
-                            onClick={ () => changeLanguage(language) }>
+          <DropdownButton title={ currentLanguage.toUpperCase() } variant="secondary" drop="up" data-bs-theme="dark">
+            { Object.values(Language)
+            .filter((language) => language !== currentLanguage)
+            .map((language) => (
+              <DropdownItem key={ language } onClick={ () => changeLanguage(language) }>
                 { createDropdownItemText(language) }
-              </DropdownItem>)
-          }
+              </DropdownItem>
+            )) }
           </DropdownButton>
         </div>
         <div className="navbar-right">
           <Button variant="secondary" onClick={ exportPdf }>
             <SvgReactIcon key={ "print" } icons={ [faPrint] }/>
           </Button>
+          {/*<Button variant="secondary" onClick={ exportPdf1 }>*/ }
+          {/*  <SvgReactIcon key={ "tree" } icons={ [faTree] }/>*/ }
+          {/*</Button>*/ }
         </div>
       </Navbar>
     </footer>

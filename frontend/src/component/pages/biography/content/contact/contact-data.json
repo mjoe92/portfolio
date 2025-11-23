@@ -1,0 +1,58 @@
+[
+  {
+    "name": "email",
+    "icon": {
+      "id": "envelope",
+      "name": "gmail"
+    },
+    "textLinks": [
+      {
+        "id": "gmail",
+        "highlight": false,
+        "link": "mailto:djcsurgai@gmail.com?subject=Nice Title&amp;body=Hey Joe"
+      }
+    ]
+  },
+  {
+    "name": "webpage",
+    "icon": {
+      "id": "globe",
+      "name": ""
+    },
+    "textLinks": [
+      {
+        "id": "github"
+      }
+    ]
+  },
+  {
+    "name": "linkedin",
+    "icon": {
+      "id": "link",
+      "name": ""
+    },
+    "textLinks": [
+      {
+        "id": "linkedin"
+      }
+    ]
+  },
+  {
+    "name": "location",
+    "icon": {
+      "id": "location-pin",
+      "name": ""
+    },
+    "textLinks": [
+      {
+        "id": "braunschweig"
+      },
+      {
+        "id": "budapest"
+      },
+      {
+        "id": "szekesfehervar"
+      }
+    ]
+  }
+]

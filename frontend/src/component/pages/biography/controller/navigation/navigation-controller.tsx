@@ -7,9 +7,9 @@ import { Level } from "../../content/level";
 import { FileUrlResolver, FolderType } from "../../../../../utils/file-url-resolver";
 import { HistoryEntry } from "../../content/base-history";
 import { createLinkRef, getTimeIntervalInFormat, toBreakLine } from "../base-controller-utils";
-import contactNavigation from "../../content/contact";
 import languageContent from "../../content/language";
 import { useTranslation } from "react-i18next";
+import { contactNavigation } from "../../content/contact/contact-factory";
 
 const NavigationController = (props: { jobs: HistoryEntry[], courses: HistoryEntry[] }) => {
   const [collapseJob, setCollapseJob] = useState(true);
@@ -49,7 +49,7 @@ const NavigationController = (props: { jobs: HistoryEntry[], courses: HistoryEnt
         <div className="contacts">
           { contactList.filter((contact) => !contact.disabled)
           .map((contact) => (
-            <SvgReactIcon key={ contact.id } icons={ [contact.icon] } description={ contact.text }
+            <SvgReactIcon key={ contact.name } icons={ [contact.icon] } description={ contact.text }
                           startWithIcon={ true }/>
           )) }
         </div>
@@ -66,8 +66,8 @@ const NavigationController = (props: { jobs: HistoryEntry[], courses: HistoryEnt
       const startDates: Date[] = xp.placePeriods.map((period) => period.timeStart);
       const minDate: Date = startDates.reduce((first, next) => (first < next ? first : next));
 
-      const endDates: (Date | null)[] = xp.placePeriods.map((period) => period.timeEnd);
-      const maxDate: Date | null = endDates.reduce((a, b) => (a && b ? (a > b ? a : b) : a && b));
+      const endDates: (Date | undefined)[] = xp.placePeriods.map((period) => period.timeEnd);
+      const maxDate: Date | undefined = endDates.reduce((a, b) => (a && b ? (a > b ? a : b) : a && b));
 
       const places = xp.placePeriods.map((period) => t(period.place)).join(Constants.COMMA_SPACE);
 

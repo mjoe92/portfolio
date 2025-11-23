@@ -1,8 +1,6 @@
 {
   "agile-work": "Agiles Arbeiten",
   "australia": "Australien",
-  "azure-cert-204-name": "AZ-204: Microsoft Azure Developer Associate",
-  "azure-cert-900-name": "AZ-900: Microsoft Azure Fundamentals",
   "bme": "Technische und Wirtschaftswissenschaftliche Universität Budapest",
   "bme-description": "Beherrschung der Grundlagen der Maschinenbauentwicklung. Meine bevorzugten Fächer sind CNC-Automatisierung, Mathematik, Programmiergrundlagen, technische Akustik und Geräuschreduzierung, CAD-Konstruktion.",
   "braunschweig": "Braunschweig",
@@ -55,6 +53,7 @@
   "junior-enterprise-java-backend-developer-certificate": "Junior Enterprise Java Backend Entwickler Zertifikat",
   "junior-java-backend-developer-certificate": "Junior Java Backend Entwickler Zertifikat",
   "language": "Sprache",
+  "learning": "lernen",
   "manager-tools": "Manager Tools",
   "me": "Jozsef Csurgai",
   "me-long": "Jozsef David Csurgai",

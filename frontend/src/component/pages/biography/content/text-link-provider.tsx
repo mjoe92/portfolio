@@ -49,6 +49,7 @@ export namespace TextLinkProvider {
     MY_SQL = "https://www.mysql.com/",
     ORACLE = "https://docs.oracle.com/en/database/oracle/oracle-database/18/sqlrf/Introduction-to-Oracle-SQL.html",
     MAVEN = "https://maven.apache.org/",
+    GRADLE = "https://gradle.org/",
     APACHE_FOP = "https://xmlgraphics.apache.org/fop/",
     JAXB = "https://javaee.github.io/jaxb-v2/",
     JINX = "https://exceljava.com/",
@@ -81,7 +82,7 @@ export namespace TextLinkProvider {
     AZURE = "https://azure.microsoft.com/"
   }
 
-  export const load = (keys: (Company | Institut | City | Website)[], highlight?: boolean, link?: string) => {
+  export const load = (keys: (Company | Institut | City | Website)[], highlight?: boolean, link?: string): React.JSX.Element => {
     return <>
       { keys
       .map<React.ReactNode>(key => mapToLink(key, highlight, link))
@@ -146,6 +147,7 @@ export namespace TextLinkProvider {
     [Website.MY_SQL, [`mysql`]],
     [Website.ORACLE, [`oracle`]],
     [Website.MAVEN, [`maven`]],
+    [Website.GRADLE, [`gradle`]],
     [Website.APACHE_FOP, [`apache-fop`]],
     [Website.JAXB, [`jaxb`]],
     [Website.JINX, [`jinx`]],

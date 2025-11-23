@@ -1,8 +1,6 @@
 {
   "agile-work": "Agilis munkavégzés",
   "australia": "Ausztrália",
-  "azure-cert-204-name": "AZ-204: Microsoft Azure Developer Associate",
-  "azure-cert-900-name": "AZ-900: Microsoft Azure Fundamentals",
   "bme": "Budapesti Műszaki és Gazdaságtudományi Egyetem",
   "bme-description": "Alapok elsajátítása gépészeti fejlesztés szakirányon. Előnyben részesített tantárgyaim a CNC automatizálás, matematika, programozási alapismeretek, műszaki akusztika és zajcsökkentés, CAD tervezés.",
   "bredex-description": "Első programozói munkám nemzetközi, de főleg német környezetben, egy Volkswagenhez kapcsolódó projektben. Fejlesztési területek:",
@@ -81,7 +79,7 @@
   "profile": "profil",
   "profile-description-1": "<strong>Csurgai József</strong> Dávid ({{0}}) vagyok, okleveles szoftvermérnök gépészmérnöki végzettséggel. Nyitott vagyok, megértő és mindig hajlandó vagyok segíteni. Másokat idézve, sokoldalú személyiséggel rendelkezem, és megszállottan szeretnék mindent befejezni, amit elkezdek.",
   "profile-description-2": "Több mint 5 évet töltöttem el a mérnöki területen, többnyire <strong>gépész tervezőként</strong>. Főleg CAD-en dolgoztam, méréseket végeztem, gépek szerkezetéhez mechanikai alkatrészeket terveztem, valamint statikus és dinamikus túlterhelésekre teszteltem végeselem módszerekkel (FEM). Amikor lehetőségem nyílt bizonyos adminisztrációs folyamatok felgyorsítására, Excel alapú makrókat készítettem a dokumentációs folyamatok javítására.",
-  "profile-description-3": "Egy fordulópont után megváltoztattam a céljaimat, és vettem a bátorságot, hogy új pályafutásomat kezdjem meg az informatika területén. 2020-tól mostanáig főként <strong>Full-Stack mérnökként</strong> dolgozom, mind a backend, mind a frontend oldal ismeretében belső szoftverekhez és webes alkalmazásokhoz egyránt.",
+  "profile-description-3": "Egy fordulópont után megváltoztattam a céljaimat, és vettem a bátorságot, hogy új pályafutásomat kezdjem meg az informatika területén. 2020-tól mostanáig főként <strong>Full-Stack mérnökként</strong> dolgozom, mind a backend, mind a frontend oldal ismeretében belső szoftverekhez és webes alkalmazásokhoz egyaránt.",
   "remote-artifact-repository": "Remote artifact repository",
   "responsible": "Felelős voltam:",
   "russia": "Oroszország",

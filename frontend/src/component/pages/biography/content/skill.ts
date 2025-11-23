@@ -97,7 +97,7 @@ const skillContent = (): Skill[] => [
         startTime: new Date(2021, 0),
       },
     ],
-    frameworks: createLinksWithTranslations(Website.MAVEN, Website.APACHE_FOP, Website.JAXB, Website.JINX),
+    frameworks: createLinksWithTranslations(Website.MAVEN, Website.GRADLE, Website.APACHE_FOP, Website.JAXB, Website.JINX),
   },
   {
     names: t("cloud-engineering"),

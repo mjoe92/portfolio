@@ -1,0 +1,66 @@
+[
+  {
+    "name": "sport",
+    "icons": [
+      {
+        "id": "person-swimming",
+        "name": "swimming"
+      },
+      {
+        "id": "person-running",
+        "name": "running"
+      },
+      {
+        "id": "dumbbell",
+        "name": "body training"
+      },
+      {
+        "id": "person-skiing",
+        "name": "skiing"
+      }
+    ]
+  },
+  {
+    "name": "travelling",
+    "icons": [
+      {
+        "id": "photo-film",
+        "name": "photographing"
+      },
+      {
+        "id": "map",
+        "name": "sightseeing"
+      }
+    ]
+  },
+  {
+    "name": "learning",
+    "icons": [
+      {
+        "id": "gear",
+        "name": "body training"
+      },
+      {
+        "id": "keyboard",
+        "name": "coding"
+      },
+      {
+        "id": "language",
+        "name": "language learning"
+      }
+    ]
+  },
+  {
+    "name": "developing",
+    "icons": [
+      {
+        "id": "gears",
+        "name": "designing"
+      },
+      {
+        "id": "code",
+        "name": "coding"
+      }
+    ]
+  }
+]

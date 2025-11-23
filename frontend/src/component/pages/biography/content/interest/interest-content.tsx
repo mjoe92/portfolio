@@ -14,12 +14,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { t } from "i18next";
 
-export interface Interest {
+export interface InterestContent {
   name: string;
   icons: IconDefinition[];
 }
 
-const interestContent = (): Interest[] => [
+const interestContent = (): InterestContent[] => [
   {
     name: t("sport"),
     icons: [faSwimmer, faRunning, faDumbbell, faSkiing]

@@ -1,10 +1,12 @@
 import { HistoryEntry } from "./base-history";
 import { Field } from "./field";
 import { TextLinkProvider } from "./text-link-provider";
-
+import { getTranslatedCertificateNames } from "./certificate/certificates-factory";
+import { Certificate } from "./certificate/certificate";
 import Institut = TextLinkProvider.Institut;
 import City = TextLinkProvider.City;
 
+//todo: rename with *contentFactory (also everywhere) + 
 const educationContent = (t: (key: string) => string): HistoryEntry[] => [
   {
     id: "codecool2",
@@ -30,7 +32,7 @@ const educationContent = (t: (key: string) => string): HistoryEntry[] => [
       </>
     ),
     field: Field.P,
-    certificates: [t('junior-enterprise-java-backend-developer-certificate')]
+    certificates: getTranslatedCertificateNames(Certificate.JUNIOR_ENTERPRISE_JAVA_BACKEND_DEVELOPER_CERTIFICATE)
   },
   {
     id: "codecool1",
@@ -55,7 +57,7 @@ const educationContent = (t: (key: string) => string): HistoryEntry[] => [
       </>
     ),
     field: Field.P,
-    certificates: [t('junior-java-backend-developer-certificate')]
+    certificates: getTranslatedCertificateNames(Certificate.JUNIOR_JAVA_BACKEND_DEVELOPER_CERTIFICATE)
   },
   {
     id: "obudai",
@@ -98,7 +100,7 @@ const educationContent = (t: (key: string) => string): HistoryEntry[] => [
     ],
     description: <>{ t("nct-description-2") }</>,
     field: Field.M,
-    certificates: [t('cad-cam-cnc-programmer-technologist-certificate')]
+    certificates: getTranslatedCertificateNames(Certificate.CAD_CAM_CNC_PROGRAMMER_TECHNOLOGIST_CERTIFICATE)
   },
   {
     id: "bme",
@@ -113,7 +115,7 @@ const educationContent = (t: (key: string) => string): HistoryEntry[] => [
     ],
     description: <>{ t("bme-description") }</>,
     field: Field.E,
-    certificates: [t('mechanical-engineer-bsc-degree')]
+    certificates: getTranslatedCertificateNames(Certificate.MECHANICAL_ENGINEER_BSC_DEGREE)
   }
 ];
 

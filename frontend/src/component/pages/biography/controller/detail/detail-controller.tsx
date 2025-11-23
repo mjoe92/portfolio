@@ -2,16 +2,16 @@ import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Constants } from "../../../../../utils/constants";
 import SvgReactIcon from "../../../../design/svg-react-icon";
-import { HistoryEntry, PlacePeriod } from "../../content/base-history";
-import profileContent from "../../content/profile";
+import { HistoryEntry, NavigationPeriod } from "../../content/base-history";
 import { TextLinkProvider } from "../../content/text-link-provider";
 import SkillBarStack from "./skill-bar-stack";
 import React, { useEffect, useRef, useState } from "react";
 import { createLinkRef, getTimeIntervalInFormat, toBreakLine } from "../base-controller-utils";
 import { NOW } from "../../../../../utils/date-util";
 import skillContent, { Skill } from "../../content/skill";
-import interestContent from "../../content/interest";
 import { useTranslation } from "react-i18next";
+import interestContent from "../../content/interest/interest-content";
+import myProfileContent from "../../content/profile/profile-content";
 
 const DetailController = (props: { jobs: HistoryEntry[], courses: HistoryEntry[] }) => {
   const [collapseJobs, setCollapseJobs] = useState(true);
@@ -27,16 +27,12 @@ const DetailController = (props: { jobs: HistoryEntry[], courses: HistoryEntry[]
     }
   });
 
-  const renderProfile = () => {
-    const profile = profileContent();
-
-    return (
-      <div className="info">
-        <h2 className="title">{ profile.name }</h2>
-        { profile.description }
-      </div>
-    );
-  };
+  const renderProfile = () => (
+    <div className="info">
+      <h2 className="title">{ myProfileContent().name }</h2>
+      { myProfileContent().description }
+    </div>
+  );
 
   const renderXpContent = (xps: HistoryEntry[], isJob: boolean) => {
     let title: string, mainCollapse: boolean;
@@ -124,8 +120,8 @@ const DetailController = (props: { jobs: HistoryEntry[], courses: HistoryEntry[]
   };
 
   const renderInterestContent = () => {
-    const interestList = interestContent();
-    if (!interestList) {
+    const interests = interestContent();
+    if (!interests) {
       return null;
     }
 
@@ -133,7 +129,7 @@ const DetailController = (props: { jobs: HistoryEntry[], courses: HistoryEntry[]
       <div className="info interest">
         <h2 className="title">{ t("interest") }</h2>
         <div className="xp-s">
-          { interestList.map((xp) => (
+          { interests.map((xp) => (
             <div className="xp" key={ xp.name }>
               <SvgReactIcon key={ xp.name } icons={ xp.icons } description={ <h4>{ xp.name }</h4> }/>
             </div>
@@ -161,7 +157,7 @@ const DetailController = (props: { jobs: HistoryEntry[], courses: HistoryEntry[]
 interface CardProps {
   id: string;
   description: React.JSX.Element;
-  placePeriods: PlacePeriod[];
+  placePeriods: NavigationPeriod[];
   titles: React.JSX.Element;
   mainCollapse: boolean;
   isMounted: boolean;
@@ -182,7 +178,7 @@ const Card = (props: CardProps) => {
   const renderPeriodPlaces = () => {
     return (
       <div id={ props.id } className="date-company">
-        { props.placePeriods.map((placePeriod: PlacePeriod) => (
+        { props.placePeriods.map((placePeriod: NavigationPeriod) => (
           <div key={ placePeriod.place }>
             <h5
               className="date-company-text time">{ getTimeIntervalInFormat(placePeriod.timeStart, placePeriod.timeEnd) }</h5>
@@ -215,12 +211,12 @@ const Card = (props: CardProps) => {
       if (props.certificates && props.certificates.length > 0) {
         return (
           <h5 className="date-company-text certificate">
-            {props.certificates.map<React.ReactNode>((cert) => (
-              <div key={cert}>
-                <span>{Constants.SPACE_MIDDLE_DOT_SPACE}</span>
-                <span>{cert}</span>
+            { props.certificates.map<React.ReactNode>((cert) => (
+              <div key={ cert }>
+                <span>{ Constants.SPACE_MIDDLE_DOT_SPACE }</span>
+                <span>{ cert }</span>
               </div>
-            ))}
+            )) }
           </h5>
         );
       }

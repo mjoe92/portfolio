@@ -1,4 +1,4 @@
-import { NOW } from "../../../../utils/date-util";
+import { NOW } from "../../../../../utils/date-util";
 import React from "react";
 import { Trans } from "react-i18next";
 import { t } from "i18next";
@@ -13,7 +13,7 @@ const calculateAge = (): number => {
   return Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
 };
 
-const profileContent = (): IProfile => ({
+const myProfileContent = (): IProfile => ({
   name: t(`profile`),
   description: (
     <>
@@ -24,4 +24,4 @@ const profileContent = (): IProfile => ({
   )
 });
 
-export default profileContent;
+export default myProfileContent;

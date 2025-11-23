@@ -1,7 +1,7 @@
 import { Constants } from "../../../../utils/constants";
 import { t } from "i18next";
 
-export const getDateInFormat = (date: Date | null): string => {
+export const getDateInFormat = (date?: Date): string => {
   if (!date) {
     return t("present");
   }
@@ -10,7 +10,7 @@ export const getDateInFormat = (date: Date | null): string => {
   return (month <= 9 ? "0" : Constants.EMPTY) + month + Constants.DOT + date.getFullYear();
 };
 
-export const getTimeIntervalInFormat = (startDate: Date, endDate: Date | null): string => {
+export const getTimeIntervalInFormat = (startDate: Date, endDate?: Date): string => {
   return getDateInFormat(startDate) + Constants.SPACE_DASH_SPACE + getDateInFormat(endDate);
 };
 
