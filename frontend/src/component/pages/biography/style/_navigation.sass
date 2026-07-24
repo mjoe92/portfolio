@@ -1,0 +1,193 @@
+@import 'scrollbar'
+@import 'opener'
+
+.controller
+  .container
+    .navigation
+      background: $navigation-background-color
+      padding: 10px 20px 10px 40px
+
+      .scroll
+        padding: 30px 0
+
+        .about
+          margin-right: 5px
+
+          a
+            text-decoration: none
+
+          .profile-text
+            position: relative
+            display: flex
+            color: rgba($detail-background-color, 0.5)
+            flex-direction: column
+            align-items: center
+            padding-bottom: 10px
+            border-bottom: 2px solid rgba($detail-background-color, 0.5)
+
+            .img-box
+              position: relative
+              width: 200px
+              height: 200px
+              border-radius: 50%
+              overflow: hidden
+
+              img
+                pointer-events: none
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+                height: 100%
+                object-fit: cover
+
+            h2
+              color: $navigation-default-text-color
+              font-size: 1.4em
+              margin-top: 20px
+              text-transform: uppercase
+              text-align: center
+              font-weight: 800
+              line-height: 1.4em
+
+              span
+                font-size: 0.8em
+                font-weight: 300
+
+          .navigation-point
+            padding-top: 30px
+
+            .collapse-card
+              cursor: pointer
+
+            .title
+              font-size: 18px
+              display: inline-flex
+              gap: 15px
+              width: 100%
+              justify-content: space-between
+              align-items: center
+
+              p
+                margin-bottom: 0
+
+            .contacts
+              position: relative
+
+              .svg-extended-icon
+                display: block
+                padding-left: 10px
+                position: relative
+                list-style: none
+                font-size: $navigation-text-size
+                margin-bottom: 18px
+
+                .svg-icon-box
+                  display: inline
+                  font-size: $navigation-text-size
+                  color: $navigation-icon-color
+                  padding-right: 10px
+
+                  svg
+                    width: 20px
+
+                .text-box, .text-box > span, .text-box > a > span
+                  display: inline
+                  color: $navigation-default-text-color
+                  font-weight: 300
+
+                .text-box > span:hover, .text-box > a > span:hover
+                  cursor: pointer
+
+                .text-box > a > .active, .text-box > span
+                  transition: font-weight 0.2s linear
+
+                .text-box > a > .active:hover, .text-box > span:hover
+                  font-weight: 600
+
+                .text-box > .offset
+                  padding-left: 30px
+
+              .svg-extended-icon:last-child
+                margin-bottom: 0
+
+          .title
+            color: $navigation-default-text-color
+            text-transform: uppercase
+            font-weight: 600
+            letter-spacing: 1px
+            margin-bottom: 20px
+            vertical-align: text-top
+
+            @include opener
+
+          .experience
+            .xp-s
+              padding-left: 0
+              max-height: 0
+              overflow: hidden
+              transition: max-height 0.5s linear
+
+              .xp
+                border: 5px solid $detail-title-color
+                padding: 5px
+                margin: 0
+                transition: all 0.5s linear
+
+                h5
+                  color: $navigation-icon-color
+                  font-weight: 500
+                  font-size: $navigation-text-size
+                  text-transform: uppercase
+
+                h4:nth-child(n)
+                  color: $navigation-default-text-color
+
+                h4
+                  color: $navigation-default-text-color
+                  font-weight: 500
+                  font-size: $navigation-text-size
+                  text-transform: capitalize
+
+                .company
+                  font-style: italic
+                  font-weight: 100
+
+              .xp:hover
+                cursor: pointer
+                border: 5px solid rgba($detail-xp-color, 0.2)
+                border-radius: 10px
+                background-color: rgba($detail-xp-color, 0.2)
+
+            .xp-s.show-dropdown
+              max-height: 800px
+              transition: max-height 0.5s linear
+
+          .navigation-point.language
+            .text
+              color: $navigation-default-text-color
+              text-transform: capitalize
+
+              .spec
+                padding-left: 5px
+                color: $detail-date-place-color
+                cursor: pointer
+                font-weight: 700
+
+              .spec:hover
+                color: $navigation-spec-color
+
+            .percent
+              position: relative
+              width: 100%
+              height: 6px
+              background-color: rgba($navigation-empty-percent-color, 0.3)
+              display: block
+              margin: 10px 0
+
+              div
+                position: absolute
+                top: 0
+                left: 0
+                height: 100%
+                background: $navigation-icon-color

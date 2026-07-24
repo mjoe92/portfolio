@@ -1,0 +1,37 @@
+[
+  {
+    "id": "mechanical-engineer-bsc-degree",
+    "date": "06.2016"
+  },
+  {
+    "id": "cad-cam-cnc-programmer-technologist-certificate",
+    "date": "11.2015"
+  },
+  {
+    "id": "junior-java-backend-developer-certificate",
+    "date": "03.2021"
+  },
+  {
+    "id": "junior-enterprise-java-backend-developer-certificate",
+    "date": "09.2021"
+  },
+  {
+    "id": "frontend-development-professional-certificate",
+    "date": "12.2023"
+  },
+  {
+    "id": "azure-900-certificate",
+    "date": "01.2025",
+    "link": "https://learn.microsoft.com/api/credentials/share/en-us/mjoe/5DE2785247CC0999?sharingId=C275EF46C393B073"
+  },
+  {
+    "id": "azure-204-certificate",
+    "date": "08.2025",
+    "link": "https://learn.microsoft.com/api/credentials/share/en-us/mjoe/9C11ED152AE2CC02?sharingId=C275EF46C393B073"
+  },
+  {
+    "id": "gitlab-ci-cd-associate-certificate",
+    "date": "11.2025",
+    "link": "https://www.credly.com/badges/0919fc4a-ee0b-4b40-8c6f-8037067f2e28"
+  }
+]
