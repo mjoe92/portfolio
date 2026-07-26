@@ -1,0 +1,84 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Fetch repos with v1.0/v1.0.0 tag
+        env:
+          GH_TOKEN: ${{ secrets.ALL_REPOSITORY_DATA }}
+        run: |
+          mkdir -p public/data
+
+          curl -s \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/users/mjoe92/repos?sort=updated&per_page=50" \
+            -o /tmp/all_repos.json
+
+          IS_ARRAY=$(jq 'if type == "array" then true else false end' /tmp/all_repos.json)
+          if [ "$IS_ARRAY" != "true" ]; then
+            echo "ERROR: GitHub API did not return an array. Response:"
+            cat /tmp/all_repos.json
+            exit 1
+          fi
+
+          echo "Total repos fetched: $(jq 'length' /tmp/all_repos.json)"
+
+          echo '[]' > /tmp/filtered_repos.json
+
+          REPO_NAMES=$(jq -r '.[].name' /tmp/all_repos.json)
+
+          for REPO in $REPO_NAMES; do
+            TAGS=$(curl -s \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/mjoe92/$REPO/tags")
+
+            IS_TAGS_ARRAY=$(echo "$TAGS" | jq 'if type == "array" then true else false end')
+            if [ "$IS_TAGS_ARRAY" != "true" ]; then
+              echo "Skipping $REPO (tags API error)"
+              continue
+            fi
+
+            HAS_TAG=$(echo "$TAGS" | jq '[.[].name] | map(select(. == "v1.0" or . == "v1.0.0")) | length > 0')
+
+            if [ "$HAS_TAG" = "true" ]; then
+              echo "  Including: $REPO"
+              REPO_DATA=$(jq --arg name "$REPO" '.[] | select(.name == $name)' /tmp/all_repos.json)
+              jq --argjson repo "$REPO_DATA" '. += [$repo]' /tmp/filtered_repos.json > /tmp/filtered_tmp.json
+              mv /tmp/filtered_tmp.json /tmp/filtered_repos.json
+            fi
+          done
+
+          cp /tmp/filtered_repos.json public/data/repos.json
+          echo "Total projects included: $(jq 'length' public/data/repos.json)"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build
+          force_orphan: true

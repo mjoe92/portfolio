@@ -1,0 +1,45 @@
+/*! General */
+/*! Scrollbar */
+/*! Left side - navigation style */
+/*! Right side - content style */
+h4 p {
+  margin-bottom: 4px;
+}
+
+.sub-title {
+  margin-bottom: 8px;
+}
+
+p a {
+  color: #4b4b4b;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0.5rem;
+  margin-bottom: 8px;
+}
+ul .sub-title {
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+ul li {
+  padding-left: 0.5rem;
+  padding-bottom: 6px;
+  font-style: italic;
+}
+
+#ganz ul li:first-letter, #cg ul li:first-letter, #innostudio ul li:first-letter {
+  font-weight: 800;
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+#mirrotron ul .highlighted {
+  font-weight: 800;
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+/*# sourceMappingURL=experience.css.map */
