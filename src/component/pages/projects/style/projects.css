@@ -1,10 +1,32 @@
+.controller {
+  min-height: 100vh;
+  height: max-content;
+}
+
 .projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   padding: 24px 16px;
   max-width: 960px;
   margin: 0 auto;
 }
 
+.projects-status {
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  font-size: 16px;
+  color: #4b4b4b;
+}
+
+.projects-error {
+  color: #c0392b;
+}
+
+/* Card wrapper — rounded border box */
 .project-card {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -13,10 +35,23 @@
   border: 1.5px solid #cacaca;
   border-radius: 12px;
   padding: 20px;
+  overflow: hidden;
   transition: box-shadow 0.2s ease;
+  min-height: fit-content;
 }
+
 .project-card:hover {
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+}
+
+.project-card-wip {
+  opacity: 0.5;
+  transition: box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.project-card-wip:hover {
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+  opacity: 0.85;
 }
 
 .project-card-link {
@@ -24,14 +59,18 @@
   color: inherit;
   display: block;
 }
+
 .project-card-link:hover {
   color: inherit;
 }
 
+/* Snapshot + body ordering (default: snapshot left, body right) */
 .project-card-snapshot {
   flex-shrink: 0;
   width: 220px;
+  order: 1;
 }
+
 .project-card-snapshot img {
   width: 100%;
   height: 140px;
@@ -45,6 +84,16 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  order: 2;
+}
+
+/* Even-indexed cards: snapshot on right, body on left */
+.projects-container > .project-card:nth-child(even) .project-card-snapshot {
+  order: 2;
+}
+
+.projects-container > .project-card:nth-child(even) .project-card-body {
+  order: 1;
 }
 
 .project-card-title {
@@ -61,6 +110,7 @@
   margin: 0;
 }
 
+/* Tags */
 .project-card-tags {
   display: flex;
   flex-wrap: wrap;
@@ -77,34 +127,76 @@
   letter-spacing: 0.4px;
 }
 
+/* WIP ribbon overlay */
+.project-card-wip::before {
+  content: "UNDER CONSTRUCTION — UNDER CONSTRUCTION — UNDER CONSTRUCTION — UNDER CONSTRUCTION — UNDER CONSTRUCTION — UNDER CONSTRUCTION — UNDER CONSTRUCTION";
+  position: absolute;
+  left: -12%;
+  top: 45%;
+  width: 124%;
+  transform: rotate(-5deg);
+  transform-origin: center;
+  background-color: rgb(30 40 40);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 3px 0;
+  text-align: center;
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+/* Ensure content stays below ribbon visually */
+.project-card-wip .project-card-snapshot,
+.project-card-wip .project-card-body {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Mobile layout ===== */
 @media (max-width: 600px) {
   .project-card {
     flex-direction: column;
     gap: 14px;
   }
+
   .project-card-snapshot {
     order: 2;
     width: 100%;
   }
+
   .project-card-snapshot img {
     height: 180px;
   }
+
   .project-card-body {
     order: 1;
     gap: 0;
   }
+
   .project-card-title {
     order: 1;
     margin-bottom: 0;
   }
+
   .project-card-description {
     order: 3;
     margin-top: 14px;
   }
+
   .project-card-tags {
     order: 4;
     margin-top: 8px;
   }
-}
 
-/*# sourceMappingURL=projects.css.map */
+  .project-card-wip::before {
+    left: -20%;
+    width: 140%;
+    top: 52%;
+    font-size: 10px;
+    transform: rotate(-14deg);
+  }
+}

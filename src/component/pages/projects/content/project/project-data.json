@@ -1,7 +1,6 @@
 [
   {
     "id": "todo-app",
-    "title": "Todo App",
     "description": "A simple serverless Todo App almost fully made by AI",
     "snapshotUrl": null,
     "tags": [
@@ -14,13 +13,10 @@
   },
   {
     "id": "ig2-web",
-    "title": "Imperium Galactica 2 Web",
     "description": "Excel VBA tooling built during mechanical engineering roles to automate production schedules, welding protocols and quality documentation workflows.",
     "snapshotUrl": null,
     "tags": [
-      "VBA",
-      "Excel",
-      "Automation"
+      "wip"
     ],
     "link": null
   }

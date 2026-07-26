@@ -1,25 +1,50 @@
-$detail-background-color: #dbdbdb
-$content-bright-color: #4b4b4b
-$content-empty-percent-color: #cacaca
+.controller
+  min-height: 100vh
+  height: max-content
 
 .projects-container
+  display: flex
+  flex-direction: column
+  gap: 24px
   padding: 24px 16px
   max-width: 960px
   margin: 0 auto
 
+.projects-status
+  align-items: center
+  justify-content: center
+  min-height: 200px
+  font-size: 16px
+  color: #4b4b4b
+
+.projects-error
+  color: #c0392b
+
+/* Card wrapper — rounded border box */
 .project-card
+  position: relative
   display: flex
   flex-direction: row
   align-items: flex-start
   gap: 24px
-  background-color: $detail-background-color
-  border: 1.5px solid $content-empty-percent-color
+  background-color: #dbdbdb
+  border: 1.5px solid #cacaca
   border-radius: 12px
   padding: 20px
+  overflow: hidden
   transition: box-shadow 0.2s ease
+  min-height: fit-content
 
   &:hover
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18)
+
+.project-card-wip
+  opacity: 0.5
+  transition: box-shadow 0.2s ease, opacity 0.2s ease
+
+  &:hover
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18)
+    opacity: 0.85
 
 .project-card-link
   text-decoration: none
@@ -29,9 +54,11 @@ $content-empty-percent-color: #cacaca
   &:hover
     color: inherit
 
+/* Snapshot + body ordering (default: snapshot left, body right) */
 .project-card-snapshot
   flex-shrink: 0
   width: 220px
+  order: 1
 
   img
     width: 100%
@@ -45,19 +72,29 @@ $content-empty-percent-color: #cacaca
   display: flex
   flex-direction: column
   gap: 8px
+  order: 2
+
+/* Even-indexed cards: snapshot on right, body on left */
+.projects-container > .project-card:nth-child(even)
+  .project-card-snapshot
+    order: 2
+
+  .project-card-body
+    order: 1
 
 .project-card-title
   font-size: 18px
   font-weight: 700
-  color: $content-bright-color
+  color: #4b4b4b
   margin: 0
 
 .project-card-description
   font-size: 14px
-  color: $content-bright-color
+  color: #4b4b4b
   line-height: 1.55
   margin: 0
 
+/* Tags */
 .project-card-tags
   display: flex
   flex-wrap: wrap
@@ -65,13 +102,42 @@ $content-empty-percent-color: #cacaca
   margin-top: 4px
 
 .project-tag
-  background-color: $content-bright-color
+  background-color: #4b4b4b
   color: #fff
   font-size: 11px
   padding: 3px 8px
   border-radius: 4px
   letter-spacing: 0.4px
 
+/* WIP ribbon overlay */
+.project-card-wip::before
+  content: "UNDER CONSTRUCTION — UNDER CONSTRUCTION — UNDER CONSTRUCTION — UNDER CONSTRUCTION — UNDER CONSTRUCTION — UNDER CONSTRUCTION — UNDER CONSTRUCTION"
+  position: absolute
+  left: -12%
+  top: 45%
+  width: 124%
+  transform: rotate(-5deg)
+  transform-origin: center
+  background-color: rgb(30 40 40)
+  color: #fff
+  font-size: 11px
+  font-weight: 700
+  letter-spacing: 0.6px
+  text-transform: uppercase
+  padding: 3px 0
+  text-align: center
+  z-index: 2
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2)
+  pointer-events: none
+
+/* Ensure content stays below ribbon visually */
+.project-card-wip
+  .project-card-snapshot,
+  .project-card-body
+    position: relative
+    z-index: 1
+
+/* ===== Mobile layout ===== */
 @media (max-width: 600px)
   .project-card
     flex-direction: column
@@ -99,3 +165,10 @@ $content-empty-percent-color: #cacaca
   .project-card-tags
     order: 4
     margin-top: 8px
+
+  .project-card-wip::before
+    left: -20%
+    width: 140%
+    top: 52%
+    font-size: 10px
+    transform: rotate(-14deg)
