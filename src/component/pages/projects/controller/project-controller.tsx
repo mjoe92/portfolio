@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { GithubRepo, mapRepoToProject } from "../model/project";
 import { Project } from "../content/project/project";
 import { getProjects } from "../content/project/project-factory";
 import { ProjectCard } from "../component/project-card";
 import "../style/projects.css";
+
+const REPOS_DATA_URL =
+    "https://raw.githubusercontent.com/mjoe92/portfolio/data/public/data/repos.json";
 
 export const ProjectController: React.FC = () => {
     const [projects, setProjects] = useState<Project[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`${import.meta.env.BASE_URL}data/repos.json`)
+        fetch(REPOS_DATA_URL)
             .then((res) => {
                 if (!res.ok) throw new Error(`Status ${res.status}`);
-                return res.json() as Promise<GithubRepo[]>;
+                return res.json() as Promise<Project[]>;
             })
-            .then((repos) => setProjects(repos.map(mapRepoToProject)))
+            .then((data) => setProjects(data))
             .catch(() => {
-                // Local dev or fetch unavailable — use static factory data
+                // data branch not yet created or local dev — fall back to static factory
                 setProjects(getProjects());
             })
             .finally(() => setLoading(false));
