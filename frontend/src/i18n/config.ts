@@ -42,7 +42,7 @@ i18n
       transKeepBasicHtmlNodesFor: ["br", "strong", "i"],
       transWrapTextNodes: Constants.EMPTY,
     },
-    
+
     // debug: true,
   });
 

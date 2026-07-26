@@ -14,7 +14,7 @@ export const BiographyController = () => {
   const courses = educationContent(t);
 
   return <div className="controller">
-    <div className="container">
+    <div className="container container-biography">
       <NavigationController jobs={ jobs } courses={ courses }/>
       <DetailController jobs={ jobs } courses={ courses }/>
     </div>

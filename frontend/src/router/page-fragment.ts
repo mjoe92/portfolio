@@ -4,6 +4,7 @@ export enum PageFragment {
   BIO = "biography",
   ENGI = "engineering",
   PROG = "programming",
+  PROJECTS = "projects",
   TEST = "test",
   ERR = "*",
   BASE = "portfolio",

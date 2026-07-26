@@ -10,7 +10,7 @@ export const ErrorController: FC = () => {
         <div className="url-code">404</div>
         <p className="message">The requested URL was not found.</p>
         <p className="return-link">
-          <a href={ PageFragment.HOME }>Return to main page</a>
+          <a href={ PageFragment.BASE }>Return to main page</a>
         </p>
       </div>
     </div>

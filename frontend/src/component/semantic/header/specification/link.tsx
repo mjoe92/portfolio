@@ -14,24 +14,18 @@ export interface PageLink {
 
 export const linkContent: MainPage[] = [
   {
+    id: "home",
+    title: "Home",
+    expo: "/",
+    disabled: false,
+    pages: []
+  },
+  {
     id: "projects",
     title: "Projects",
-    expo: "All-in-one",
-    disabled: true,
-    pages: [
-      {
-        name: "PCD",
-        link: "pcd"
-      },
-      {
-        name: "Web pages",
-        link: "web-pages"
-      },
-      {
-        name: "Mini apps",
-        link: "mini-apps"
-      }
-    ]
+    expo: "projects",
+    disabled: false,
+    pages: []
   },
   {
     id: "blog",
@@ -39,18 +33,9 @@ export const linkContent: MainPage[] = [
     expo: "News",
     disabled: true,
     pages: [
-      {
-        name: "Travel",
-        link: "travel"
-      },
-      {
-        name: "Photograph",
-        link: "photograph"
-      },
-      {
-        name: "PE Training",
-        link: "training"
-      }
+      { name: "Travel", link: "travel" },
+      { name: "Photograph", link: "photograph" },
+      { name: "PE Training", link: "training" }
     ]
   },
   {
@@ -59,37 +44,7 @@ export const linkContent: MainPage[] = [
     expo: "Business",
     disabled: true,
     pages: [
-      {
-        name: "Real estate-letting",
-        link: "renting"
-      },
-      {
-        name: "!!!IDE KERÜLJÖN A WEBLAPKÉSZítés",
-        link: "asdfkléá"
-      }
-    ]
-  },
-  {
-    id: "aboutMe",
-    title: "About me",
-    expo: "Biography",
-    disabled: true,
-    pages: [
-      {
-        name: "Engineering",
-        link: "engineering",
-        disabled: true
-      },
-      {
-        name: "Programming",
-        link: "programming",
-        disabled: true
-      },
-      {
-        name: "Photographing",
-        link: "photographing",
-        disabled: true
-      }
+      { name: "Real estate-letting", link: "renting" }
     ]
   }
 ];
